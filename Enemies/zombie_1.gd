@@ -13,6 +13,10 @@ extends CharacterBody2D
 @export var dano_zombie = 1
 @export var speed = 20
 @export var player: Node2D
+@export_category("Drops")
+@export var items:Array[PackedScene]
+@export_range(0,1) var drop_rate = 0.5
+@export var drop_chances: Array[float]
 
 var atk_direction: Vector2
 var is_attacking = false
@@ -82,6 +86,31 @@ func die():
 		death_object.position = position
 		get_parent().add_child(death_object)
 	
-	
+	drop_item()
 	queue_free()
+	
+func drop_item():
+	if not items:
+		print ("Não tenho drop")
+		return
+	if randf() > drop_rate: return
+	var item = get_random_drop_item().instantiate()
+	item.position = position
+	get_parent().add_child(item)
+	
+func get_random_drop_item():
+	var max_chance = 0.0
+	for drop_chance in drop_chances:
+		max_chance += drop_chance
+		
+	var random_value = randf()*max_chance
+	
+	var item_chooser = 0.0
+	for i in items.size():
+		var droped_item = items[i]
+		var drop_chance = drop_chances[i] if i <drop_chances.size() else 1.0
+		if random_value <=drop_chance + item_chooser:
+			return droped_item
+		item_chooser += drop_chance
+	return items[0] 
 

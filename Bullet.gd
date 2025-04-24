@@ -19,9 +19,7 @@ func _physics_process(delta):
 	
 
 func _on_bullet_hit_box_area_entered(area):
-	print("Acertei")
 	if area.is_in_group("EnemyHitBox"):
-		print("Ouch")
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
 		queue_free()

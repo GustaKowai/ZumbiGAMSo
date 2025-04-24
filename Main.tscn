@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=35 format=3 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="PackedScene" uid="uid://djn8qt4fiyuf7" path="res://Player/Jogador.tscn" id="1_5uexa"]
 [ext_resource type="Script" path="res://Player/Jogador.gd" id="2_05hi3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bt8g133t6xsq5" path="res://tileset_teste_resize.png" id="6_44yy4"]
 [ext_resource type="Script" path="res://TileMap.gd" id="7_girak"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver.tscn" id="8_e2qaf"]
+[ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_c4hxu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -703,6 +704,21 @@ z_as_relative = false
 position = Vector2(447, 391)
 player = NodePath("../Player2try")
 
+[node name="Zombie2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
+z_as_relative = false
+position = Vector2(583, 502)
+player = NodePath("../Player2try")
+
+[node name="Zombie3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
+z_as_relative = false
+position = Vector2(752, 494)
+player = NodePath("../Player2try")
+
+[node name="Zombie4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
+z_as_relative = false
+position = Vector2(823, 345)
+player = NodePath("../Player2try")
+
 [node name="Skull" parent="." instance=ExtResource("5_cx32y")]
 position = Vector2(322, 138)
 
@@ -722,4 +738,7 @@ layer_2/tile_data = PackedInt32Array(131066, 393216, 10, 131067, 458752, 10, 131
 script = ExtResource("7_girak")
 
 [node name="revolver" parent="." instance=ExtResource("8_e2qaf")]
-position = Vector2(644, -31)
+position = Vector2(672, -11)
+
+[node name="Pause UI" parent="." instance=ExtResource("9_c4hxu")]
+process_mode = 3

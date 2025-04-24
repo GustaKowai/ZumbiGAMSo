@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://pogo3isobqxq"]
+
+[ext_resource type="Script" path="res://Pause_UI.gd" id="1_h3pfr"]
+
+[node name="Pause UI" type="CanvasLayer"]
+script = ExtResource("1_h3pfr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 412.0
+offset_top = 238.0
+offset_right = 474.0
+offset_bottom = 261.0
+scale = Vector2(5.92841, 6.60862)
+text = "PAUSED"
