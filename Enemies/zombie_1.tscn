@@ -1,0 +1,245 @@
+[gd_scene load_steps=16 format=3 uid="uid://dv3uon3yb6fja"]
+
+[ext_resource type="Script" path="res://Enemies/zombie_1.gd" id="1_g3x2a"]
+[ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/teste_zumbi_sprite.png" id="1_shrhs"]
+[ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0dhp2"]
+[ext_resource type="Script" path="res://Enemies/follow_player.gd" id="3_ks08r"]
+
+[sub_resource type="Animation" id="Animation_5lhvy"]
+resource_name = "Atk"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage_to_player"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sib5i"]
+resource_name = "Atk down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage_to_player"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5h2qo"]
+resource_name = "Atk up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage_to_player"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_np5cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_cn34g"]
+resource_name = "Walk Down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kkwlo"]
+resource_name = "Walk Up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xry33"]
+resource_name = "default"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(1, 2), Vector2i(0, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xycbk"]
+_data = {
+"Atk": SubResource("Animation_5lhvy"),
+"Atk down": SubResource("Animation_sib5i"),
+"Atk up": SubResource("Animation_5h2qo"),
+"RESET": SubResource("Animation_np5cs"),
+"Walk Down": SubResource("Animation_cn34g"),
+"Walk Up": SubResource("Animation_kkwlo"),
+"default": SubResource("Animation_xry33")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5h37"]
+size = Vector2(74, 54.25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr5at"]
+radius = 20.0
+height = 98.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24otx"]
+radius = 11.0
+height = 22.0
+
+[node name="Zombie1" type="CharacterBody2D" groups=["enemies"]]
+y_sort_enabled = true
+position = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 19
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_g3x2a")
+death_prefab = ExtResource("2_0dhp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -46)
+texture = ExtResource("1_shrhs")
+offset = Vector2(1, 1)
+hframes = 5
+vframes = 6
+frame = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xycbk")
+}
+
+[node name="DmgArea" type="Area2D" parent="."]
+position = Vector2(-38, -33)
+
+[node name="DmgBox" type="CollisionShape2D" parent="DmgArea"]
+position = Vector2(37, -3.875)
+shape = SubResource("RectangleShape2D_d5h37")
+
+[node name="HitBoxArea" type="Area2D" parent="." groups=["EnemyHitBox"]]
+position = Vector2(-66, 0)
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBoxArea"]
+y_sort_enabled = true
+position = Vector2(66, -49)
+shape = SubResource("CapsuleShape2D_kr5at")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-1, -14)
+shape = SubResource("CapsuleShape2D_24otx")
+
+[node name="FollowPlayer" type="Node2D" parent="."]
+script = ExtResource("3_ks08r")
+speed = 2.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="FollowPlayer"]
+path_postprocessing = 1
+radius = 50.0
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="FollowPlayer"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="velocity_computed" from="FollowPlayer/NavigationAgent2D" to="FollowPlayer" method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="FollowPlayer/Timer" to="FollowPlayer" method="_on_timer_timeout"]
