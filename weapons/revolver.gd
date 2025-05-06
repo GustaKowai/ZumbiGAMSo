@@ -14,6 +14,7 @@ func _on_area_2d_body_entered(body):
 	print("pegou")
 	if body.is_in_group("Jogador"):
 		var player = body
+		#Se o jogador pegar, define como a arma carregada e define a munição:
 		player.bullet_path = preload("res://Player/bullet.tscn")
 		player.ammo = 6
 		queue_free()

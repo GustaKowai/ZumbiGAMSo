@@ -1,7 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=37 format=3 uid="uid://bi57s50orpbx1"]
 
-[ext_resource type="PackedScene" uid="uid://djn8qt4fiyuf7" path="res://Player/Jogador.tscn" id="1_5uexa"]
-[ext_resource type="Script" path="res://Player/Jogador.gd" id="2_05hi3"]
+[ext_resource type="Script" path="res://Main.gd" id="1_m3r85"]
+[ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
 [ext_resource type="PackedScene" uid="uid://b3qcv045rpri2" path="res://Player/jogador_2try.tscn" id="3_vdkbt"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/zombie_1.tscn" id="4_m2mbd"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="5_cx32y"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://TileMap.gd" id="7_girak"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver.tscn" id="8_e2qaf"]
 [ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_c4hxu"]
+[ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="10_0eu7v"]
+[ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="11_3kp4t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -685,39 +687,26 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 3
 sources/0 = SubResource("TileSetAtlasSource_ohdgk")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
 z_as_relative = false
 y_sort_enabled = true
+script = ExtResource("1_m3r85")
+game_ui = NodePath("GameUI")
+game_over_ui_template = ExtResource("2_bjlxo")
 
-[node name="Player" parent="." instance=ExtResource("1_5uexa")]
-visible = false
-collision_layer = 2
-collision_mask = 3
-script = ExtResource("2_05hi3")
-
-[node name="Player2try" parent="." instance=ExtResource("3_vdkbt")]
+[node name="Jogador" parent="." instance=ExtResource("3_vdkbt")]
 z_as_relative = false
 sword_damage = 10
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Jogador"]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
 
 [node name="Zombie1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
 z_as_relative = false
 position = Vector2(447, 391)
-player = NodePath("../Player2try")
-
-[node name="Zombie2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
-z_as_relative = false
-position = Vector2(583, 502)
-player = NodePath("../Player2try")
-
-[node name="Zombie3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
-z_as_relative = false
-position = Vector2(752, 494)
-player = NodePath("../Player2try")
-
-[node name="Zombie4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
-z_as_relative = false
-position = Vector2(823, 345)
-player = NodePath("../Player2try")
+player = NodePath("../Jogador")
 
 [node name="Skull" parent="." instance=ExtResource("5_cx32y")]
 position = Vector2(322, 138)
@@ -742,3 +731,23 @@ position = Vector2(672, -11)
 
 [node name="Pause UI" parent="." instance=ExtResource("9_c4hxu")]
 process_mode = 3
+
+[node name="MobSpawner" parent="." instance=ExtResource("10_0eu7v")]
+position = Vector2(566, -446)
+creatures = Array[PackedScene]([ExtResource("4_m2mbd")])
+
+[node name="MobSpawner2" parent="." instance=ExtResource("10_0eu7v")]
+position = Vector2(-441, 301)
+creatures = Array[PackedScene]([ExtResource("4_m2mbd")])
+
+[node name="MobSpawner3" parent="." instance=ExtResource("10_0eu7v")]
+position = Vector2(1479, 358)
+creatures = Array[PackedScene]([ExtResource("4_m2mbd")])
+
+[node name="MobSpawner4" parent="." instance=ExtResource("10_0eu7v")]
+position = Vector2(464, 991)
+creatures = Array[PackedScene]([ExtResource("4_m2mbd")])
+
+[node name="GameUI" parent="." instance=ExtResource("11_3kp4t")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

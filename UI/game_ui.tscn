@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://scqbfaec4i5"]
+
+[ext_resource type="Script" path="res://UI/game_ui.gd" id="1_p54ko"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_p54ko")
+
+[node name="timer_label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_top = 1.0
+offset_right = 121.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "00:00
+"
+
+[node name="timer_label_text" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_right = 76.5
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Tempo Sobrevivido:"
+
+[node name="kills_label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 42.0
+offset_top = 1.0
+offset_right = 82.0
+offset_bottom = 24.0
+text = "0"
+text_direction = 1
+
+[node name="kills_label_text" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "kills:"
+
+[node name="ammo_label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 65.0
+offset_top = 622.0
+offset_right = 105.0
+offset_bottom = 645.0
+text = "0"
+
+[node name="ammo_label_text" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 620.0
+offset_right = 59.0
+offset_bottom = 643.0
+text = "ammo:"

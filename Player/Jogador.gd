@@ -1,3 +1,8 @@
+#-------------------------------------------------------------------
+#--------------Esse ficou péssimo, ignorem ele.---------------------
+#-------------------------------------------------------------------
+
+
 class_name Jogador_teste1
 extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D

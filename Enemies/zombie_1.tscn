@@ -238,11 +238,13 @@ speed = 2.0
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="FollowPlayer"]
 path_postprocessing = 1
 radius = 50.0
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="FollowPlayer"]
 wait_time = 0.1
 autostart = true
+
+[node name="damage_digit_marker" type="Marker2D" parent="."]
+position = Vector2(-1, -91)
 
 [connection signal="velocity_computed" from="FollowPlayer/NavigationAgent2D" to="FollowPlayer" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="FollowPlayer/Timer" to="FollowPlayer" method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3qcv045rpri2"]
+[gd_scene load_steps=20 format=3 uid="uid://b3qcv045rpri2"]
 
 [ext_resource type="Texture2D" uid="uid://bair0goj8x4gm" path="res://Player/Teste_char_sprite.png" id="1_ewfcd"]
 [ext_resource type="Script" path="res://Player/jogador_2try.gd" id="1_p0mb0"]
@@ -256,6 +256,22 @@ height = 88.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sh8bl"]
 radius = 55.0091
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8xfs"]
+bg_color = Color(0.0705882, 0.0509804, 0.0470588, 0.470588)
+border_width_left = 5
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knbt6"]
+bg_color = Color(0.728952, 0.730981, 0.713163, 0.470588)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Jogador"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -295,7 +311,16 @@ position = Vector2(-53, -80)
 shape = SubResource("CircleShape2D_sh8bl")
 debug_color = Color(0, 0.647059, 0.223529, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="ShootPosition" type="Node2D" parent="."]
 position = Vector2(-2, -44)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = -102.0
+offset_right = 37.0
+offset_bottom = -94.0
+theme_override_styles/background = SubResource("StyleBoxFlat_l8xfs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_knbt6")
+max_value = 20.0
+value = 20.0
+show_percentage = false

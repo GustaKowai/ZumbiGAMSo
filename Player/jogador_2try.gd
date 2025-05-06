@@ -1,18 +1,27 @@
 class_name Jogador
 extends CharacterBody2D
+
+const PHANTON_YELLOW = Color(1, 1, 0, 0.5)
+const PHANTON_RED = Color(1, 0, 0, 0.5)
+const PHANTON_GREEN = Color(0, 1, 0, 0.5)
+
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var sword_area = $SwordArea
 @onready var hitbox_area = $HitBoxArea
+@onready var health_progress_bar = $HealthBar
+@onready var style = health_progress_bar.get_theme_stylebox("fill") as StyleBoxFlat
 
 @export_category("Movement")
 @export var speed = 3.0
 @export_range(0,1) var lerp_smoothness = 0.5
-@export var player_health = 20
 
 @export_category("Combat")
+@export var max_health = 20
 @export var sword_damage:int = 20
 @export var ammo:int = 0
+var player_health = max_health
+@export var death_prefab:PackedScene
 
 var input_vector = Vector2(0,0)
 var position_running = "down"
@@ -32,7 +41,8 @@ func _process(delta):
 	input_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	play_run_iddle()
 	rotate_sprite()
-	
+	#Atualiza a barra de vida:
+	update_health_bar()
 	#Atualiza o cd do atk
 	update_atk_cd(delta)
 	#Executa o ataque:
@@ -108,14 +118,13 @@ func attack():
 			atk_direction = Vector2.RIGHT
 	
 func deal_damage_to_enemies():
-	var areas = sword_area.get_overlapping_areas()
+	var areas = sword_area.get_overlapping_areas()#Detecta áreas dentro da área de dano da espada
 	for area in areas:
-		if area.is_in_group("EnemyHitBox"):
+		if area.is_in_group("EnemyHitBox"):#Identifica se alguma área é um inimigo
 			var enemy:Enemy  = area.get_parent()
 			var enemy_direction = (enemy.position - position).normalized()
 			var dot_product = enemy_direction.dot(atk_direction)
-			print(dot_product)
-			if dot_product > 0.3:
+			if dot_product > 0.3: #Verifica se o jogador está virado para o inimigo
 				enemy.damage(sword_damage)
 	var bodies = sword_area.get_overlapping_bodies()
 	
@@ -132,10 +141,14 @@ func damage(amount:int):
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 	
+	if player_health <=0:
+		die()
+	
 func fireGun():
-	if ammo <= 0 or not bullet_path:
+	if ammo <= 0 or not bullet_path:#Se acabar as balas ou estiver sem arma, não faz nada
 		return
 	var bullet = bullet_path.instantiate()
+	#Determina a direção do tiro:
 	if position_running == "down":
 			bullet.dir = PI/2
 			bullet.pos.x = $ShootPosition.global_position.x
@@ -158,8 +171,26 @@ func fireGun():
 			bullet.pos.x = $ShootPosition.global_position.x + 50
 			bullet.rota = 0
 	
-	get_parent().add_child(bullet)
+	get_parent().add_child(bullet)#Instancia a bala
 	ammo -= 1
 	print(ammo)
 	if ammo == 0:
-		bullet_path = null
+		bullet_path = null #Remove a arma se ficar sem munição
+		
+func update_health_bar():
+	health_progress_bar.max_value = max_health
+	health_progress_bar.value = player_health
+	var player_relative_health = player_health*1.0/max_health*1.0
+	if player_relative_health > 0.5:
+		style.bg_color = PHANTON_YELLOW.lerp(PHANTON_GREEN, (player_relative_health-0.5)*2)
+	else:
+		style.bg_color = PHANTON_RED.lerp(PHANTON_YELLOW, player_relative_health*2)
+
+func die():
+	GameManager.end_game()
+	if death_prefab:
+		var death_object = death_prefab.instantiate()
+		death_object.position = position
+		get_parent().add_child(death_object)
+	
+	queue_free()
