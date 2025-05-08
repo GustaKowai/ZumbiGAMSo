@@ -751,3 +751,4 @@ creatures = Array[PackedScene]([ExtResource("4_m2mbd")])
 [node name="GameUI" parent="." instance=ExtResource("11_3kp4t")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0

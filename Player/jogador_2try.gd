@@ -6,11 +6,13 @@ const PHANTON_RED = Color(1, 0, 0, 0.5)
 const PHANTON_GREEN = Color(0, 1, 0, 0.5)
 
 @onready var animation_player = $AnimationPlayer
-@onready var sprite = $Sprite2D
+@onready var sprite = $Sprites/Player
+@onready var sprite_weapon =  $Sprites/Weapon
 @onready var sword_area = $SwordArea
 @onready var hitbox_area = $HitBoxArea
 @onready var health_progress_bar = $HealthBar
 @onready var style = health_progress_bar.get_theme_stylebox("fill") as StyleBoxFlat
+@onready var equiped_weapon = $Sprites/Weapon
 
 @export_category("Movement")
 @export var speed = 3.0
@@ -29,6 +31,8 @@ var atk_direction: Vector2
 var is_attacking = false
 var attack_cooldown = 0.0
 var bullet_path = null
+var weapon_path = null
+var weapon_cooldown = null
 
 func _ready():
 	#Passa o player para o GameManager
@@ -51,7 +55,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("FireGun"):
 		fireGun()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var target_velocity = input_vector*speed*100.0
 	if is_attacking:
 		target_velocity *= 0.1
@@ -86,8 +90,10 @@ func rotate_sprite():
 	if not is_attacking:
 		if input_vector.x > 0:
 			sprite.flip_h = false
+			sprite_weapon.flip_h = false
 		elif input_vector.x <0:
 			sprite.flip_h = true
+			sprite_weapon.flip_h = true
 
 #Funções de ataque
 func update_atk_cd(delta):
@@ -126,7 +132,7 @@ func deal_damage_to_enemies():
 			var dot_product = enemy_direction.dot(atk_direction)
 			if dot_product > 0.3: #Verifica se o jogador está virado para o inimigo
 				enemy.damage(sword_damage)
-	var bodies = sword_area.get_overlapping_bodies()
+	#var bodies = sword_area.get_overlapping_bodies()
 	
 
 func damage(amount:int):
@@ -145,9 +151,15 @@ func damage(amount:int):
 		die()
 	
 func fireGun():
-	if ammo <= 0 or not bullet_path:#Se acabar as balas ou estiver sem arma, não faz nada
+	if ammo <= 0 or not bullet_path or not weapon_path:#Se acabar as balas ou estiver sem arma, não faz nada
 		return
 	var bullet = bullet_path.instantiate()
+	#Checa se já está atacando:
+	if is_attacking:
+		return
+	#Define como atacando:
+	is_attacking = true
+	attack_cooldown = weapon_cooldown
 	#Determina a direção do tiro:
 	if position_running == "down":
 			bullet.dir = PI/2
@@ -161,11 +173,13 @@ func fireGun():
 			bullet.rota = -PI/2
 	elif position_running == "side":
 		if sprite.flip_h:
+			animation_player.play("Fire_side_left")
 			bullet.dir = PI
 			bullet.pos = $ShootPosition.global_position
 			bullet.pos.x = $ShootPosition.global_position.x -50
 			bullet.rota = PI
 		if not sprite.flip_h:
+			animation_player.play("Fire_side_right")
 			bullet.dir = 0
 			bullet.pos = $ShootPosition.global_position
 			bullet.pos.x = $ShootPosition.global_position.x + 50
@@ -175,7 +189,10 @@ func fireGun():
 	ammo -= 1
 	print(ammo)
 	if ammo == 0:
-		bullet_path = null #Remove a arma se ficar sem munição
+		#Remove a arma se ficar sem munição
+		bullet_path = null 
+		weapon_path = null 
+		weapon_cooldown = null
 		
 func update_health_bar():
 	health_progress_bar.max_value = max_health

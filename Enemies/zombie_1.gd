@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var follow = $FollowPlayer
-@onready var nav_agent = $NavigationAgent2D as NavigationAgent2D
 
 @export_category("Fight")
 @export var enemy_health = 40

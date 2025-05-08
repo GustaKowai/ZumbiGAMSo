@@ -12,11 +12,13 @@ var ammo_count = 0
 var kills_count = 0
 var is_game_over = false
 
+#Finalização do jogo em caso de game over
 func end_game():
 	if is_game_over:return
 	is_game_over = true
 	game_over.emit()
-	
+
+#Reset do jogo:
 func reset():
 	player = null
 	player_position = Vector2.ZERO
