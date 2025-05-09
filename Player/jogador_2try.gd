@@ -162,11 +162,13 @@ func fireGun():
 	attack_cooldown = weapon_cooldown
 	#Determina a direção do tiro:
 	if position_running == "down":
+			animation_player.play("Fire_down")
 			bullet.dir = PI/2
 			bullet.pos.x = $ShootPosition.global_position.x
 			bullet.pos.y = $ShootPosition.global_position.y +100
 			bullet.rota = PI/2
 	elif position_running == "up":
+			animation_player.play("Fire_up")
 			bullet.dir = -PI/2
 			bullet.pos = $ShootPosition.global_position
 			bullet.pos.y = $ShootPosition.global_position.y -50
