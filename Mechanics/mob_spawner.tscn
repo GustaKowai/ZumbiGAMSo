@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://1c761mq7s428"]
 
-[ext_resource type="Script" path="res://Mechanics/mob_spawner.gd" id="1_cvpw2"]
+[ext_resource type="Script" uid="uid://c45q2bavo6g3q" path="res://Mechanics/mob_spawner.gd" id="1_cvpw2"]
 [ext_resource type="Texture2D" uid="uid://cca545juu520l" path="res://Misc/circle_test.png" id="2_7yjl6"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="3_8abtl"]
 
@@ -171,8 +171,8 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t2hap"]
 _data = {
-"RESET": SubResource("Animation_1yabf"),
-"Surge": SubResource("Animation_r81ak")
+&"RESET": SubResource("Animation_1yabf"),
+&"Surge": SubResource("Animation_r81ak")
 }
 
 [node name="MobSpawner" type="Node2D"]

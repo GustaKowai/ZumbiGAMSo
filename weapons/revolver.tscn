@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbrug38wa8paa"]
 
 [ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/Gun_sprite.png" id="1_o5pqp"]
-[ext_resource type="Script" path="res://weapons/revolver.gd" id="2_2vrku"]
+[ext_resource type="Script" uid="uid://b5gt25dx2kx8n" path="res://weapons/revolver.gd" id="2_2vrku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7tlib"]
 radius = 33.3766

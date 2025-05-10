@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://dv3uon3yb6fja"]
 
-[ext_resource type="Script" path="res://Enemies/zombie_1.gd" id="1_g3x2a"]
+[ext_resource type="Script" uid="uid://deg0bfjw6tyyf" path="res://Enemies/zombie_1.gd" id="1_g3x2a"]
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/teste_zumbi_sprite.png" id="1_shrhs"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0dhp2"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver.tscn" id="3_87217"]
-[ext_resource type="Script" path="res://Enemies/follow_player.gd" id="3_ks08r"]
+[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/follow_player.gd" id="3_ks08r"]
 
 [sub_resource type="Animation" id="Animation_5lhvy"]
 resource_name = "Atk"
@@ -165,13 +165,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xycbk"]
 _data = {
-"Atk": SubResource("Animation_5lhvy"),
-"Atk down": SubResource("Animation_sib5i"),
-"Atk up": SubResource("Animation_5h2qo"),
-"RESET": SubResource("Animation_np5cs"),
-"Walk Down": SubResource("Animation_cn34g"),
-"Walk Up": SubResource("Animation_kkwlo"),
-"default": SubResource("Animation_xry33")
+&"Atk": SubResource("Animation_5lhvy"),
+&"Atk down": SubResource("Animation_sib5i"),
+&"Atk up": SubResource("Animation_5h2qo"),
+&"RESET": SubResource("Animation_np5cs"),
+&"Walk Down": SubResource("Animation_cn34g"),
+&"Walk Up": SubResource("Animation_kkwlo"),
+&"default": SubResource("Animation_xry33")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5h37"]
@@ -238,7 +238,6 @@ speed = 2.0
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="FollowPlayer"]
 path_postprocessing = 1
 radius = 50.0
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="FollowPlayer"]
 wait_time = 0.1

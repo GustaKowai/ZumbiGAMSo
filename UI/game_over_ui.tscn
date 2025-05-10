@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgmyndkhrklhs"]
 
-[ext_resource type="Script" path="res://GameOverUi.gd" id="1_sxy2j"]
+[ext_resource type="Script" uid="uid://cfal2bu5fphpj" path="res://GameOverUi.gd" id="1_sxy2j"]
 
 [sub_resource type="Animation" id="Animation_eqkvq"]
 length = 0.001
@@ -154,8 +154,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tj8it"]
 _data = {
-"RESET": SubResource("Animation_eqkvq"),
-"default": SubResource("Animation_mmop1")
+&"RESET": SubResource("Animation_eqkvq"),
+&"default": SubResource("Animation_mmop1")
 }
 
 [node name="GameOverUI" type="CanvasLayer"]

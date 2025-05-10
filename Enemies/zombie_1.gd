@@ -129,4 +129,3 @@ func get_random_drop_item():
 			return droped_item
 		item_chooser += drop_chance
 	return items[0] 
-

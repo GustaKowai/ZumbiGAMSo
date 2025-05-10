@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c66nug6hmta10"]
 
-[ext_resource type="Script" path="res://Misc/damage_digit.gd" id="1_dpkdd"]
+[ext_resource type="Script" uid="uid://co0pnhnjlr2kl" path="res://Misc/damage_digit.gd" id="1_dpkdd"]
 
 [sub_resource type="Animation" id="Animation_6gkk8"]
 length = 0.001
@@ -120,12 +120,13 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p023c"]
 _data = {
-"RESET": SubResource("Animation_6gkk8"),
-"default": SubResource("Animation_2peb8")
+&"RESET": SubResource("Animation_6gkk8"),
+&"default": SubResource("Animation_2peb8")
 }
 
 [sub_resource type="SystemFont" id="SystemFont_1bv6a"]
 font_weight = 450
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_mnut6"]
 font = SubResource("SystemFont_1bv6a")

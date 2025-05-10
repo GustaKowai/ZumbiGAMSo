@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cc8grslu500nd"]
 
-[ext_resource type="Script" path="res://Misc/skull.gd" id="1_i8dhd"]
+[ext_resource type="Script" uid="uid://cui0v73yhuecr" path="res://Misc/skull.gd" id="1_i8dhd"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="1_vmmoc"]
 [ext_resource type="Texture2D" uid="uid://mj328q57g1q2" path="res://Misc/Shadow_sprite.png" id="2_soon1"]
 [ext_resource type="Texture2D" uid="uid://cca545juu520l" path="res://Misc/circle_test.png" id="4_i0c1c"]
@@ -220,8 +220,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7v70a"]
 _data = {
-"FLip": SubResource("Animation_iv11f"),
-"RESET": SubResource("Animation_dg52g")
+&"FLip": SubResource("Animation_iv11f"),
+&"RESET": SubResource("Animation_dg52g")
 }
 
 [node name="Skull" type="Node2D"]
