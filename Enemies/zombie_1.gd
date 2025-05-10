@@ -58,6 +58,7 @@ func deal_damage_to_player():
 	var areas = dmg_area.get_overlapping_areas()
 	for area in areas:
 		if area.is_in_group("JogadorHitBox"):
+			@warning_ignore("shadowed_variable")
 			var player: Jogador = area.get_parent()
 			var player_direction = (player.position - position).normalized()
 			var dot_product = player_direction.dot(atk_direction)

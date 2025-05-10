@@ -207,7 +207,7 @@ frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xycbk")
+&"": SubResource("AnimationLibrary_xycbk")
 }
 
 [node name="DmgArea" type="Area2D" parent="."]

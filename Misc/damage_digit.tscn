@@ -140,7 +140,7 @@ script = ExtResource("1_dpkdd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_p023c")
+&"": SubResource("AnimationLibrary_p023c")
 }
 autoplay = "default"
 

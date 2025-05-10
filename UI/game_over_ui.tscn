@@ -212,6 +212,6 @@ horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_tj8it")
+&"": SubResource("AnimationLibrary_tj8it")
 }
 autoplay = "default"

@@ -241,7 +241,7 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7v70a")
+&"": SubResource("AnimationLibrary_7v70a")
 }
 
 [node name="CircleTest" type="Sprite2D" parent="."]
