@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7d8u6qsiv6pp"]
+
+[ext_resource type="Script" uid="uid://dv5fglvkqisxm" path="res://magnum.gd" id="1_t5gdr"]
+
+[node name="magnum" type="Sprite2D"]
+script = ExtResource("1_t5gdr")

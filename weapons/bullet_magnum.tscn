@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkunstsyx6fe7"]
+
+[ext_resource type="Script" uid="uid://cegla2c4u7fb" path="res://bullet_magnum.gd" id="1_j0nuc"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_j0nuc")
