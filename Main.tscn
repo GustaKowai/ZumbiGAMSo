@@ -506,6 +506,8 @@ update_scale = false
 z_as_relative = false
 position = Vector2(447, 391)
 player = NodePath("../Jogador")
+items = Array[PackedScene]([ExtResource("8_e2qaf"), ExtResource("9_5vvyt")])
+drop_chances = Array[float]([1.0, 1.0])
 
 [node name="Skull" parent="." instance=ExtResource("5_cx32y")]
 position = Vector2(322, 138)
