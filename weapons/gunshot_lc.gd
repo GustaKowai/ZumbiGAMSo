@@ -18,6 +18,6 @@ func _on_area_2d_body_entered(body):
 		player.bullet_path = preload("res://weapons/bullet.tscn")
 		player.weapon_path = preload("res://weapons/gunshot.png")
 		player.equiped_weapon.texture = player.weapon_path
-		player.weapon_cooldown = 0.2
-		player.ammo = 6
+		player.weapon_cooldown = 0.1
+		player.ammo = 2
 		queue_free()
