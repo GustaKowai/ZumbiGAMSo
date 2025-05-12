@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2fl2ov14cmgj"]
+
+[ext_resource type="Script" uid="uid://dor5sh035aq2f" path="res://bazuca_1.gd" id="1_6bh4v"]
+
+[sub_resource type="Gradient" id="Gradient_2d1a4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mipql"]
+gradient = SubResource("Gradient_2d1a4")
+width = 128
+height = 128
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlau5"]
+radius = 33.1361
+
+[node name="Bazuca1" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_mipql")
+hframes = 5
+vframes = 5
+script = ExtResource("1_6bh4v")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jlau5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

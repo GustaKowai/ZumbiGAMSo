@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://b3qcv045rpri2"]
 
 [ext_resource type="Texture2D" uid="uid://bair0goj8x4gm" path="res://Player/Teste_char_sprite.png" id="1_ewfcd"]
-[ext_resource type="Script" uid="uid://q76fm24qb14u" path="res://Player/jogador_2try.gd" id="1_p0mb0"]
+[ext_resource type="Script" uid="uid://c6vdagi0cflid" path="res://Player/jogador_2try.gd" id="1_p0mb0"]
 [ext_resource type="Texture2D" uid="uid://bib7osiivb2fq" path="res://weapons/revolver_sprite.png" id="3_0kfej"]
 
 [sub_resource type="Animation" id="Animation_tio1n"]
