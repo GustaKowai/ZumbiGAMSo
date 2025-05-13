@@ -36,14 +36,20 @@ func fireGun():
 	player.attack_cooldown = weapon_cooldown
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
-			animation_player.play("Fire_down")
+			animation_player.play("fire_down")
+			player.sprite.flip_h = false
+			player.animation_player.play("Fire_down")
 	elif player.position_running == "up":
-			animation_player.play("Fire_up")
+			animation_player.play("fire_up")
+			player.sprite.flip_h = false
+			player.animation_player.play("Fire_up")
 	elif player.position_running == "side":
 		if player.sprite.flip_h:
-			animation_player.play("Fire_side_left")
+			animation_player.play("fire_side_left")
+			player.animation_player.play("Fire_side_left")
 		if not player.sprite.flip_h:
 			animation_player.play("fire_side_right")	
+			player.animation_player.play("Fire_side_right")
 
 func fire_bullet():
 	#Determina a direção do tiro e cria a bala
