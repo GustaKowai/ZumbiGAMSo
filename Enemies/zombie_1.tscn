@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/teste_zumbi_sprite.png" id="1_shrhs"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0dhp2"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver.tscn" id="3_87217"]
-[ext_resource type="Script" uid="uid://bw0ikq3s32jik" path="res://Enemies/follow_player.gd" id="3_ks08r"]
+[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/follow_player.gd" id="3_ks08r"]
 
 [sub_resource type="Animation" id="Animation_5lhvy"]
 resource_name = "Atk"

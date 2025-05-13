@@ -52,8 +52,8 @@ func _process(delta):
 	#Executa o ataque:
 	if Input.is_action_just_pressed("attack"):
 		attack()
-	if Input.is_action_just_pressed("FireGun"):
-		fireGun()
+	#if Input.is_action_just_pressed("FireGun"):
+		#fireGun()
 
 func _physics_process(_delta):
 	var target_velocity = input_vector*speed*100.0

@@ -13,4 +13,4 @@ func _process(delta):
 	
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
-	ammo_label.text = str(GameManager.player.ammo)
+	ammo_label.text = str(GameManager.ammo)

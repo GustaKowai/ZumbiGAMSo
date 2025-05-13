@@ -4,6 +4,7 @@ signal  game_over
 
 var player:Jogador
 var player_position: Vector2
+var ammo:int = 0
 
 #informações da run:
 var time_elapsed = 0.0
@@ -11,6 +12,8 @@ var time_elapsed_string: String
 var ammo_count = 0
 var kills_count = 0
 var is_game_over = false
+
+signal weapon_collected()
 
 #Finalização do jogo em caso de game over
 func end_game():

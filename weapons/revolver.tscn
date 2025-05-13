@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbrug38wa8paa"]
+[gd_scene load_steps=5 format=3 uid="uid://cbrug38wa8paa"]
 
 [ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/Gun_sprite.png" id="1_o5pqp"]
 [ext_resource type="Script" uid="uid://b5gt25dx2kx8n" path="res://weapons/revolver.gd" id="2_2vrku"]
+[ext_resource type="PackedScene" uid="uid://dcq3772f07hv6" path="res://weapons/revolver_weapon.tscn" id="3_uw68t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7tlib"]
 radius = 33.3766
@@ -11,6 +12,7 @@ texture = ExtResource("1_o5pqp")
 hframes = 5
 vframes = 5
 script = ExtResource("2_2vrku")
+weapon = ExtResource("3_uw68t")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
