@@ -9,17 +9,20 @@ extends Node2D
 @export var ammo = 6
 
 func _ready() -> void:
-	print("Pronto!")
+	#print("Pronto!")
+	#Isso aqui é para a arma não aparecer no sprite quando for pega, apenas quando for usada
 	sprite.visible = false
+	#Recebe o sinal de quando uma arma for coletada e conecta ele a função de largar a arma atual
 	GameManager.weapon_collected.connect(on_weapon_collected)
+	#Envia para o GameManager a munição inicial da arma
 	GameManager.ammo = ammo
 
-func on_weapon_collected():
+func on_weapon_collected(): #Essa função serve para largar a arma
 	#print("larguei a arma")
 	queue_free()
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("FireGun"):
+	if Input.is_action_just_pressed("FireGun"): #Agora a checagem se o player tentou atirar acontece aqui
 		fireGun()
 
 func fireGun():
@@ -67,4 +70,4 @@ func fire_bullet():
 	GameManager.ammo = ammo
 	print(ammo)
 	if ammo == 0:
-		queue_free()
+		queue_free() #Solta a arma se ficar sem munição

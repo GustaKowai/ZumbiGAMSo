@@ -3,15 +3,6 @@
 extends Sprite2D
 @export var weapon:PackedScene
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_area_2d_body_entered(body):
 	print("pegou")
 	if body.is_in_group("Jogador"): #Checa se o corpo que entrou no range é o player
