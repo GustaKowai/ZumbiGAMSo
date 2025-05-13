@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://be77d1xry1rvn"]
+
+[ext_resource type="Script" uid="uid://dhagdxnieofse" path="res://bullet_bazuca.gd" id="1_0yl4s"]
+
+[sub_resource type="Gradient" id="Gradient_3dbwo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4l4s5"]
+gradient = SubResource("Gradient_3dbwo")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0.982906, 0.991453)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q74vx"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yl4s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dbwo"]
+radius = 154.013
+
+[node name="bullet_bazuca" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0yl4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_4l4s5")
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q74vx")
+
+[node name="Hit_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
+shape = SubResource("RectangleShape2D_0yl4s")
+
+[node name="area_dano" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_dano"]
+shape = SubResource("CircleShape2D_3dbwo")
+
+[connection signal="area_entered" from="Hit_box" to="." method="_on_bullet_hit_box_area_entered"]
