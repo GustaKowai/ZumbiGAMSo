@@ -25,6 +25,7 @@ window/stretch/mode="canvas_items"
 
 [editor]
 
+movie_writer/movie_file="C:/Users/gusta/Documents/Workbench/Godot DIO/Projetos GODOT/Zombie Teste/videos/video_teste.avi"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 

@@ -49,7 +49,7 @@ func fireGun():
 			player.animation_player.play("Fire_side_left")
 		if not player.sprite.flip_h:
 			animation_player.play("fire_side_right")	
-			player.animation_player.play("Fire_side_rightw")
+			player.animation_player.play("Fire_side_right")
 
 func fire_bullet():
 	#Determina a direção do tiro e cria a bala
