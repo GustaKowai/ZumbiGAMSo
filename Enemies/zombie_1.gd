@@ -103,6 +103,7 @@ func die():
 	
 	drop_item()
 	GameManager.kills_count += 1
+	GameManager.infection_level -= GameManager.infection_power
 	queue_free()
 	
 func drop_item():
