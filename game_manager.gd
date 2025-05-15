@@ -10,6 +10,7 @@ var player_position: Vector2
 var ammo:int = 0
 var infection_level:int = 0
 var infection_power:int = 5
+var weapon_cd:float
 
 #informações da run:
 var time_elapsed = 0.0

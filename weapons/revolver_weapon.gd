@@ -12,13 +12,15 @@ func _ready() -> void:
 	#print("Pronto!")
 	#Isso aqui é para a arma não aparecer no sprite quando for pega, apenas quando for usada
 	sprite.visible = false
+	#Envia para o gamemanager e para o player o cd da arma
+	GameManager.weapon_cd = weapon_cooldown
 	#Recebe o sinal de quando uma arma for coletada e conecta ele a função de largar a arma atual
 	GameManager.weapon_collected.connect(on_weapon_collected)
-	#Envia para o GameManager a munição inicial da arma
+	#Envia para o GameManager a munição inicial da arma:
 	GameManager.ammo = ammo
 
-func on_weapon_collected(): #Essa função serve para largar a arma
-	#print("larguei a arma")
+func on_weapon_collected(string): #Essa função serve para largar a arma
+	print("larguei a arma")
 	queue_free()
 
 func _process(delta: float) -> void:
@@ -29,11 +31,11 @@ func fireGun():
 	if ammo <= 0:
 		return
 	#Checa se já está atacando:
-	if player.is_attacking:
+	if player.is_attacking or player.is_shooting:
 		return
 	#Define como atacando:
-	player.is_attacking = true
-	player.attack_cooldown = weapon_cooldown
+	player.is_shooting = true
+	player.weapon_cooldown = weapon_cooldown
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
 			animation_player.play("fire_down")

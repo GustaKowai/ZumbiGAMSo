@@ -29,10 +29,11 @@ var input_vector = Vector2(0,0)
 var position_running = "down"
 var atk_direction: Vector2
 var is_attacking = false
+var is_shooting = false
 var attack_cooldown = 0.0
 var bullet_path = null
 var weapon_path = null
-var weapon_cooldown = null
+var weapon_cooldown = 0
 
 func _ready():
 	#Passa o player para o GameManager
@@ -49,6 +50,8 @@ func _process(delta):
 	update_health_bar()
 	#Atualiza o cd do atk
 	update_atk_cd(delta)
+	#Atualiza o cd do tiro
+	update_weapon_cd(delta)
 	#Executa o ataque:
 	if Input.is_action_just_pressed("attack"):
 		attack()
@@ -57,7 +60,7 @@ func _process(delta):
 
 func _physics_process(_delta):
 	var target_velocity = input_vector*speed*100.0
-	if is_attacking:
+	if is_attacking or is_shooting:
 		target_velocity *= 0.1
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
@@ -65,7 +68,7 @@ func _physics_process(_delta):
 #Funções de movimento:	
 func play_run_iddle():
 	#Checa se o personagem está atacando:
-	if not is_attacking:	
+	if not is_attacking and not is_shooting:	
 		#Checa se o personagem está correndo
 		if input_vector.is_zero_approx():
 			if position_running == "down":
@@ -87,7 +90,7 @@ func play_run_iddle():
 
 func rotate_sprite():
 	#girar sprite:
-	if not is_attacking:
+	if not is_attacking and not is_shooting:
 		if input_vector.x > 0:
 			sprite.flip_h = false
 			sprite_weapon.flip_h = false
@@ -102,9 +105,14 @@ func update_atk_cd(delta):
 		if attack_cooldown <=0:
 			is_attacking = false
 
+func update_weapon_cd(delta):
+	if is_shooting:
+		weapon_cooldown -=delta
+		if weapon_cooldown <= 0:
+			is_shooting = false
 func attack():
 	#Checa se já está atacando:
-	if is_attacking:
+	if is_attacking or is_shooting:
 		return
 	#Define como atacando:
 	is_attacking = true
@@ -150,7 +158,7 @@ func damage(amount:int):
 	if player_health <=0:
 		die()
 	
-func fireGun():
+func fireGun(): #essa função não faz mais nada
 	if ammo <= 0 or not bullet_path or not weapon_path:#Se acabar as balas ou estiver sem arma, não faz nada
 		return
 	var bullet = bullet_path.instantiate()

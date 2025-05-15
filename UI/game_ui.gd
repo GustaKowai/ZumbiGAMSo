@@ -3,10 +3,13 @@ extends CanvasLayer
 @onready var kills_label = %kills_label
 @onready var ammo_label = %ammo_label
 @onready var infection_bar = $infection_bar
+@onready var weapon_bar = $EspacoArma/Weapon_bar
+var texture_weapon:Texture2D = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	weapon_bar.texture_under = null
+	weapon_bar.texture_over = null
+	GameManager.weapon_collected.connect(change_weapon_equiped)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,3 +21,17 @@ func _process(delta):
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	ammo_label.text = str(GameManager.ammo)
+	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
+		if GameManager.player.weapon_cooldown >=0:
+			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
+			print(weapon_bar.value)
+	if GameManager.ammo == 0 and texture_weapon:
+		texture_weapon = null
+		weapon_bar.texture_under = null
+		weapon_bar.texture_over = null
+
+func change_weapon_equiped(weapon_sprite_path):
+	texture_weapon = load(weapon_sprite_path)
+	weapon_bar.texture_under = texture_weapon
+	weapon_bar.texture_progress = texture_weapon
+	print(weapon_sprite_path)
