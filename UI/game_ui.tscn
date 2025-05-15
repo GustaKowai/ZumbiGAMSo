@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=26 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://dg8tyfp4aea84" path="res://UI/UI_images/Empty_Infection_bar.png" id="2_h0rig"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c2sddkj84yls0" path="res://UI/UI_images/Espaco_Arma.png" id="5_v6n52"]
 [ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver_icon.png" id="6_ywmy4"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="7_v6n52"]
+[ext_resource type="Texture2D" uid="uid://drhc7t8jghgge" path="res://UI/UI_images/Stamina_Bar_Empty.png" id="8_jd38o"]
+[ext_resource type="Texture2D" uid="uid://cybym1t2w628d" path="res://UI/UI_images/HP_Bar_Empty.png" id="8_q8rbd"]
+[ext_resource type="Texture2D" uid="uid://c06k2s6pv4cgd" path="res://UI/UI_images/Stamina_Bar_Full.png" id="9_bjx7l"]
+[ext_resource type="Texture2D" uid="uid://1g47klflqrcj" path="res://UI/UI_images/Barra_Vazia_HP_sem_UI.png" id="11_orm7x"]
+[ext_resource type="Texture2D" uid="uid://bslqe3letqkaq" path="res://UI/UI_images/Barra_Cheia_HP_sem_UI.png" id="12_q0y33"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywmy4"]
 atlas = ExtResource("7_v6n52")
@@ -197,3 +202,27 @@ position = Vector2(556, 22)
 sprite_frames = SubResource("SpriteFrames_wjxh5")
 autoplay = "default"
 frame_progress = 0.233721
+
+[node name="player_life_and_stamina" type="Node2D" parent="."]
+
+[node name="HpBarEmpty" type="Sprite2D" parent="player_life_and_stamina"]
+position = Vector2(266, 599)
+texture = ExtResource("8_q8rbd")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="player_life_and_stamina"]
+offset_left = 53.0
+offset_top = 617.0
+offset_right = 344.0
+offset_bottom = 657.0
+value = 50.0
+texture_under = ExtResource("8_jd38o")
+texture_progress = ExtResource("9_bjx7l")
+
+[node name="HealthBar" type="TextureProgressBar" parent="player_life_and_stamina"]
+offset_left = 67.0
+offset_top = 569.0
+offset_right = 529.0
+offset_bottom = 635.0
+value = 50.0
+texture_under = ExtResource("11_orm7x")
+texture_progress = ExtResource("12_q0y33")

@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var ammo_label = %ammo_label
 @onready var infection_bar = $infection_bar
 @onready var weapon_bar = $EspacoArma/Weapon_bar
+@onready var stamina_bar = $player_life_and_stamina/StaminaBar
+@onready var health_bar = $player_life_and_stamina/HealthBar
 var texture_weapon:Texture2D = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,11 +16,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if GameManager.is_game_over: return
-	
-	infection_bar.value = GameManager.infection_level
-	if infection_bar.value >= 100:
-		GameManager.texto_morte = "Você deixou acumular muitos zumbis"
-		GameManager.end_game()
+	update_infection_bar()
+	update_stamina_bar()
+	update_health_bar()
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	ammo_label.text = str(GameManager.ammo)
@@ -36,3 +36,18 @@ func change_weapon_equiped(weapon_sprite_path):
 	weapon_bar.texture_under = texture_weapon
 	weapon_bar.texture_progress = texture_weapon
 	print(weapon_sprite_path)
+
+func update_infection_bar():
+	infection_bar.value = GameManager.infection_level
+	if infection_bar.value >= 100:
+		GameManager.texto_morte = "Você deixou acumular muitos zumbis"
+		GameManager.end_game()
+
+func update_health_bar():
+	if GameManager.player:
+		health_bar.max_value = GameManager.player.max_health
+		health_bar.value = GameManager.player.player_health
+
+func update_stamina_bar():
+	if GameManager.player:
+		stamina_bar.value = GameManager.player.stamina_value

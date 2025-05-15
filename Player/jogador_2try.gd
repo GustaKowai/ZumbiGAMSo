@@ -22,6 +22,7 @@ const PHANTON_GREEN = Color(0, 1, 0, 0.5)
 @export var dash_duration = 0.1
 @export var dash_boost = 8.0
 @export var stamina_recovery_speed = 20.0
+var stamina_value = 0.0
 
 @export_category("Combat")
 @export var max_health = 20
@@ -51,8 +52,8 @@ func _process(delta):
 	input_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	play_run_iddle()
 	rotate_sprite()
-	#Atualiza a barra de vida:
-	update_health_bar()
+	#Atualiza a barra de vida: (Agora fica na UI)
+	#update_health_bar()
 	#Atualiza o cd do atk
 	update_atk_cd(delta)
 	#Atualiza o cd do tiro
@@ -73,11 +74,11 @@ func _physics_process(_delta):
 		target_velocity *= 0.1
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
-
+#Funções do dash:
 func dash():
-	if not is_attacking and not is_shooting and stamina_bar.value >= 70:
+	if not is_attacking and not is_shooting and stamina_value >= 70:
 		var dash_speed = speed + dash_boost
-		stamina_bar.value -= 70
+		stamina_value -= 70
 		self.set_collision_mask_value(2, false)
 		self.modulate.a = 0.5
 		#Mudança sutil de velocidade
@@ -107,8 +108,8 @@ func stop_dash():
 	velocity_tween.tween_property(self, "speed", pos_dash_speed, dash_duration/2)
 		
 func recharg_stamina(delta):
-	if stamina_bar.value < 100:
-		stamina_bar.value += delta*stamina_recovery_speed
+	if stamina_value < 100:
+		stamina_value += delta*stamina_recovery_speed
 
 #Funções de movimento:	
 func play_run_iddle():
@@ -188,7 +189,7 @@ func deal_damage_to_enemies():
 				enemy.damage(sword_damage)
 	#var bodies = sword_area.get_overlapping_bodies()
 	
-
+#Funções de controle da vida do jogador
 func damage(amount:int):
 	if player_health <= 0:
 		return
@@ -204,60 +205,60 @@ func damage(amount:int):
 	if player_health <=0:
 		die()
 	
-func fireGun(): #essa função não faz mais nada
-	if ammo <= 0 or not bullet_path or not weapon_path:#Se acabar as balas ou estiver sem arma, não faz nada
-		return
-	var bullet = bullet_path.instantiate()
-	#Checa se já está atacando:
-	if is_attacking:
-		return
-	#Define como atacando:
-	is_attacking = true
-	attack_cooldown = weapon_cooldown
-	#Determina a direção do tiro:
-	if position_running == "down":
-			animation_player.play("Fire_down")
-			bullet.dir = PI/2
-			bullet.pos.x = $ShootPosition.global_position.x
-			bullet.pos.y = $ShootPosition.global_position.y +100
-			bullet.rota = PI/2
-	elif position_running == "up":
-			animation_player.play("Fire_up")
-			bullet.dir = -PI/2
-			bullet.pos = $ShootPosition.global_position
-			bullet.pos.y = $ShootPosition.global_position.y -50
-			bullet.rota = -PI/2
-	elif position_running == "side":
-		if sprite.flip_h:
-			animation_player.play("Fire_side_left")
-			bullet.dir = PI
-			bullet.pos = $ShootPosition.global_position
-			bullet.pos.x = $ShootPosition.global_position.x -50
-			bullet.rota = PI
-		if not sprite.flip_h:
-			animation_player.play("Fire_side_right")
-			bullet.dir = 0
-			bullet.pos = $ShootPosition.global_position
-			bullet.pos.x = $ShootPosition.global_position.x + 50
-			bullet.rota = 0
-	
-	get_parent().add_child(bullet)#Instancia a bala
-	ammo -= 1
-	print(ammo)
-	if ammo == 0:
-		#Remove a arma se ficar sem munição
-		bullet_path = null 
-		weapon_path = null 
-		weapon_cooldown = null
-		
-func update_health_bar():
-	health_progress_bar.max_value = max_health
-	health_progress_bar.value = player_health
-	var player_relative_health = player_health*1.0/max_health*1.0
-	if player_relative_health > 0.5:
-		style.bg_color = PHANTON_YELLOW.lerp(PHANTON_GREEN, (player_relative_health-0.5)*2)
-	else:
-		style.bg_color = PHANTON_RED.lerp(PHANTON_YELLOW, player_relative_health*2)
+#func fireGun(): #essa função não faz mais nada
+	#if ammo <= 0 or not bullet_path or not weapon_path:#Se acabar as balas ou estiver sem arma, não faz nada
+		#return
+	#var bullet = bullet_path.instantiate()
+	##Checa se já está atacando:
+	#if is_attacking:
+		#return
+	##Define como atacando:
+	#is_attacking = true
+	#attack_cooldown = weapon_cooldown
+	##Determina a direção do tiro:
+	#if position_running == "down":
+			#animation_player.play("Fire_down")
+			#bullet.dir = PI/2
+			#bullet.pos.x = $ShootPosition.global_position.x
+			#bullet.pos.y = $ShootPosition.global_position.y +100
+			#bullet.rota = PI/2
+	#elif position_running == "up":
+			#animation_player.play("Fire_up")
+			#bullet.dir = -PI/2
+			#bullet.pos = $ShootPosition.global_position
+			#bullet.pos.y = $ShootPosition.global_position.y -50
+			#bullet.rota = -PI/2
+	#elif position_running == "side":
+		#if sprite.flip_h:
+			#animation_player.play("Fire_side_left")
+			#bullet.dir = PI
+			#bullet.pos = $ShootPosition.global_position
+			#bullet.pos.x = $ShootPosition.global_position.x -50
+			#bullet.rota = PI
+		#if not sprite.flip_h:
+			#animation_player.play("Fire_side_right")
+			#bullet.dir = 0
+			#bullet.pos = $ShootPosition.global_position
+			#bullet.pos.x = $ShootPosition.global_position.x + 50
+			#bullet.rota = 0
+	#
+	#get_parent().add_child(bullet)#Instancia a bala
+	#ammo -= 1
+	#print(ammo)
+	#if ammo == 0:
+		##Remove a arma se ficar sem munição
+		#bullet_path = null 
+		#weapon_path = null 
+		#weapon_cooldown = null
+		#
+#func update_health_bar():
+	#health_progress_bar.max_value = max_health
+	#health_progress_bar.value = player_health
+	#var player_relative_health = player_health*1.0/max_health*1.0
+	#if player_relative_health > 0.5:
+		#style.bg_color = PHANTON_YELLOW.lerp(PHANTON_GREEN, (player_relative_health-0.5)*2)
+	#else:
+		#style.bg_color = PHANTON_RED.lerp(PHANTON_YELLOW, player_relative_health*2)
 
 func die():
 	GameManager.texto_morte = "Você apanhou demais dos Zumbis"
