@@ -6,9 +6,9 @@
 script = ExtResource("1_h3pfr")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 412.0
-offset_top = 238.0
-offset_right = 474.0
-offset_bottom = 261.0
+offset_left = 552.0
+offset_top = 342.0
+offset_right = 614.0
+offset_bottom = 365.0
 scale = Vector2(5.92841, 6.60862)
 text = "PAUSED"

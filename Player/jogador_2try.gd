@@ -78,6 +78,7 @@ func _physics_process(_delta):
 func dash():
 	if not is_attacking and not is_shooting and stamina_value >= 70:
 		var dash_speed = speed + dash_boost
+		animation_player.speed_scale = 2.0
 		stamina_value -= 70
 		self.set_collision_mask_value(2, false)
 		self.modulate.a = 0.5
@@ -100,6 +101,7 @@ func _on_timer_timeout() -> void:
 		
 func stop_dash():
 	var pos_dash_speed = speed - dash_boost
+	animation_player.speed_scale = 1.0
 	self.set_collision_mask_value(2, true)
 	self.modulate.a = 1.0
 	var velocity_tween = create_tween()

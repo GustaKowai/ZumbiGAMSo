@@ -51,3 +51,7 @@ func update_health_bar():
 func update_stamina_bar():
 	if GameManager.player:
 		stamina_bar.value = GameManager.player.stamina_value
+		if stamina_bar.value <70:
+			stamina_bar.tint_progress = Color(0.5,0.5,0.5,1)
+		else:
+			stamina_bar.tint_progress = Color(1,1,1,1)
