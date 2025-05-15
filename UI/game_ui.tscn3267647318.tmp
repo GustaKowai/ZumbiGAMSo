@@ -192,7 +192,7 @@ tint_progress = Color(1, 0, 0, 1)
 position = Vector2(747, 23)
 sprite_frames = SubResource("SpriteFrames_wjxh5")
 autoplay = "default"
-frame_progress = 0.0940785
+frame_progress = 0.200368
 
 [node name="player_life_and_stamina" type="Node2D" parent="."]
 position = Vector2(5, -43)

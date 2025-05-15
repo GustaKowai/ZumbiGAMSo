@@ -22,6 +22,8 @@ const PHANTON_GREEN = Color(0, 1, 0, 0.5)
 @export var dash_duration = 0.1
 @export var dash_boost = 8.0
 @export var stamina_recovery_speed = 20.0
+@export var max_stamina = 100
+@export var dash_cost = 70
 var stamina_value = 0.0
 
 @export_category("Combat")
@@ -76,10 +78,11 @@ func _physics_process(_delta):
 	move_and_slide()
 #Funções do dash:
 func dash():
-	if not is_attacking and not is_shooting and stamina_value >= 70:
+	if not is_attacking and not is_shooting and not is_dashing and stamina_value >= dash_cost:
+		is_dashing = true
 		var dash_speed = speed + dash_boost
 		animation_player.speed_scale = 2.0
-		stamina_value -= 70
+		stamina_value -= dash_cost
 		self.set_collision_mask_value(2, false)
 		self.modulate.a = 0.5
 		#Mudança sutil de velocidade
@@ -100,6 +103,7 @@ func _on_timer_timeout() -> void:
 	stop_dash()
 		
 func stop_dash():
+	is_dashing = false
 	var pos_dash_speed = speed - dash_boost
 	animation_player.speed_scale = 1.0
 	self.set_collision_mask_value(2, true)
@@ -110,7 +114,7 @@ func stop_dash():
 	velocity_tween.tween_property(self, "speed", pos_dash_speed, dash_duration/2)
 		
 func recharg_stamina(delta):
-	if stamina_value < 100:
+	if stamina_value < max_stamina:
 		stamina_value += delta*stamina_recovery_speed
 
 #Funções de movimento:	
@@ -205,6 +209,7 @@ func damage(amount:int):
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
 	
 	if player_health <=0:
+		GameManager.texto_morte = "Você apanhou demais dos Zumbis"
 		die()
 	
 #func fireGun(): #essa função não faz mais nada
@@ -263,7 +268,6 @@ func damage(amount:int):
 		#style.bg_color = PHANTON_RED.lerp(PHANTON_YELLOW, player_relative_health*2)
 
 func die():
-	GameManager.texto_morte = "Você apanhou demais dos Zumbis"
 	GameManager.end_game()
 	if death_prefab:
 		var death_object = death_prefab.instantiate()

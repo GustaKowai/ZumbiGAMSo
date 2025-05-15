@@ -41,7 +41,7 @@ func update_infection_bar():
 	infection_bar.value = GameManager.infection_level
 	if infection_bar.value >= 100:
 		GameManager.texto_morte = "Você deixou acumular muitos zumbis"
-		GameManager.end_game()
+		GameManager.player.die()
 
 func update_health_bar():
 	if GameManager.player:
@@ -50,8 +50,9 @@ func update_health_bar():
 
 func update_stamina_bar():
 	if GameManager.player:
+		stamina_bar.max_value = GameManager.player.max_stamina
 		stamina_bar.value = GameManager.player.stamina_value
-		if stamina_bar.value <70:
+		if stamina_bar.value <GameManager.player.dash_cost:
 			stamina_bar.tint_progress = Color(0.5,0.5,0.5,1)
 		else:
 			stamina_bar.tint_progress = Color(1,1,1,1)
