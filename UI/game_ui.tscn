@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=21 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://dg8tyfp4aea84" path="res://UI/UI_images/Empty_Infection_bar.png" id="2_h0rig"]
@@ -6,6 +6,99 @@
 [ext_resource type="Texture2D" uid="uid://50j2gplyhw8g" path="res://UI/UI_images/Consumivel_.png" id="4_fy64h"]
 [ext_resource type="Texture2D" uid="uid://c2sddkj84yls0" path="res://UI/UI_images/Espaco_Arma.png" id="5_v6n52"]
 [ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver_icon.png" id="6_ywmy4"]
+[ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="7_v6n52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywmy4"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(0, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd38o"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(42, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjx7l"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(84, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oohqu"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(126, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8rbd"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(168, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orm7x"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(210, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0y33"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(252, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fifbr"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(0, 48, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7suct"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(42, 48, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy42p"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(84, 48, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2i3m"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(126, 48, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42f5p"]
+atlas = ExtResource("7_v6n52")
+region = Rect2(168, 48, 42, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjxh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywmy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd38o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjx7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oohqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8rbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orm7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0y33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fifbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7suct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy42p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2i3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42f5p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_p54ko")
@@ -15,10 +108,10 @@ unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 80.0
-offset_top = 1.0
-offset_right = 121.0
-offset_bottom = 24.0
+offset_left = -84.0
+offset_top = 6.0
+offset_right = -43.0
+offset_bottom = 55.0
 grow_horizontal = 2
 text = "00:00
 "
@@ -27,9 +120,10 @@ text = "00:00
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -76.5
-offset_right = 76.5
-offset_bottom = 23.0
+offset_left = -239.0
+offset_top = 4.0
+offset_right = -86.0
+offset_bottom = 27.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -37,16 +131,18 @@ text = "Tempo Sobrevivido:"
 
 [node name="kills_label" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 42.0
-offset_top = 1.0
-offset_right = 82.0
-offset_bottom = 24.0
+offset_left = 620.0
+offset_top = 6.0
+offset_right = 660.0
+offset_bottom = 29.0
 text = "0"
 text_direction = 1
 
 [node name="kills_label_text" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 581.0
+offset_top = 5.0
+offset_right = 621.0
+offset_bottom = 28.0
 text = "kills:"
 
 [node name="ammo_label" type="Label" parent="."]
@@ -95,3 +191,9 @@ stretch_margin_top = 7
 stretch_margin_bottom = 8
 texture_under = ExtResource("6_ywmy4")
 tint_progress = Color(1, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(556, 22)
+sprite_frames = SubResource("SpriteFrames_wjxh5")
+autoplay = "default"
+frame_progress = 0.587133
