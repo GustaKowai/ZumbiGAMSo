@@ -76,13 +76,21 @@ func _physics_process(_delta):
 
 func dash():
 	if not is_attacking and not is_shooting and stamina_bar.value >= 70:
-		speed += dash_boost
+		var dash_speed = speed + dash_boost
 		stamina_bar.value -= 70
-		modulate = Color.BLUE
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN)
-		tween.set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self,"modulate",Color.WHITE,0.3)
+		self.set_collision_mask_value(2, false)
+		self.modulate.a = 0.5
+		#Mudança sutil de velocidade
+		var velocity_tween = create_tween()
+		velocity_tween.set_ease(Tween.EASE_IN)
+		velocity_tween.tween_property(self, "speed", dash_speed, dash_duration/2)
+		velocity_tween.tween_property(self, "speed", dash_speed, dash_duration/2)
+		#mudança de cor durante o dash
+		#modulate = Color.BLUE
+		#var tween = create_tween()
+		#tween.set_ease(Tween.EASE_IN)
+		#tween.set_trans(Tween.TRANS_QUINT)
+		#tween.tween_property(self,"modulate",Color.WHITE,0.3)
 		dash_timer.wait_time = dash_duration
 		dash_timer.start()
 		
@@ -90,7 +98,13 @@ func _on_timer_timeout() -> void:
 	stop_dash()
 		
 func stop_dash():
-	speed -= dash_boost
+	var pos_dash_speed = speed - dash_boost
+	self.set_collision_mask_value(2, true)
+	self.modulate.a = 1.0
+	var velocity_tween = create_tween()
+	velocity_tween.set_ease(Tween.EASE_IN)
+	velocity_tween.tween_property(self, "speed", pos_dash_speed, dash_duration/2)
+	velocity_tween.tween_property(self, "speed", pos_dash_speed, dash_duration/2)
 		
 func recharg_stamina(delta):
 	if stamina_bar.value < 100:

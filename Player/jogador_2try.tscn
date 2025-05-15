@@ -774,8 +774,9 @@ bg_color = Color(0.339443, 0.613173, 0.920729, 1)
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Jogador"]]
 y_sort_enabled = true
 collision_layer = 2
-collision_mask = 19
+collision_mask = 23
 script = ExtResource("1_p0mb0")
+dash_duration = 0.3
 
 [node name="Sprites" type="Node2D" parent="."]
 
