@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @onready var time_label = %TimeLabel
 @onready var kills_label = %KillsLabel
+@onready var texto_morte = %TextoMorte
 
 @export var restart_delay = 1.5
 var restart_cooldown: float
@@ -10,6 +11,7 @@ var restart_cooldown: float
 func _ready():
 	time_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
+	texto_morte.text = GameManager.texto_morte
 	
 	restart_cooldown = restart_delay
 	

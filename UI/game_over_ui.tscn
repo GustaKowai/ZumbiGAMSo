@@ -215,3 +215,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_tj8it")
 }
 autoplay = "default"
+
+[node name="TextoMorte" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 343.0
+offset_top = 414.0
+offset_right = 820.0
+offset_bottom = 437.0
+text = "blah blah blah"
+horizontal_alignment = 1
+autowrap_mode = 2

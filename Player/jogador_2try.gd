@@ -214,6 +214,7 @@ func update_health_bar():
 		style.bg_color = PHANTON_RED.lerp(PHANTON_YELLOW, player_relative_health*2)
 
 func die():
+	GameManager.texto_morte = "Você apanhou demais dos Zumbis"
 	GameManager.end_game()
 	if death_prefab:
 		var death_object = death_prefab.instantiate()

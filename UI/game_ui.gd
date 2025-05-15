@@ -17,6 +17,7 @@ func _process(delta):
 	
 	infection_bar.value = GameManager.infection_level
 	if infection_bar.value >= 100:
+		GameManager.texto_morte = "Você deixou acumular muitos zumbis"
 		GameManager.end_game()
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
