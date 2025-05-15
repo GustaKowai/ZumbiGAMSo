@@ -12,11 +12,16 @@ const PHANTON_GREEN = Color(0, 1, 0, 0.5)
 @onready var hitbox_area = $HitBoxArea
 @onready var health_progress_bar = $HealthBar
 @onready var style = health_progress_bar.get_theme_stylebox("fill") as StyleBoxFlat
+@onready var stamina_bar = $StaminaBar
 @onready var equiped_weapon = $Sprites/Weapon
+@onready var dash_timer = $DashTimer
 
 @export_category("Movement")
 @export var speed = 3.0
 @export_range(0,1) var lerp_smoothness = 0.5
+@export var dash_duration = 0.1
+@export var dash_boost = 8.0
+@export var stamina_recovery_speed = 20.0
 
 @export_category("Combat")
 @export var max_health = 20
@@ -30,15 +35,15 @@ var position_running = "down"
 var atk_direction: Vector2
 var is_attacking = false
 var is_shooting = false
+var is_dashing = false
 var attack_cooldown = 0.0
 var bullet_path = null
 var weapon_path = null
 var weapon_cooldown = 0
-
 func _ready():
 	#Passa o player para o GameManager
 	GameManager.player = self
-
+	stamina_bar.value = 0
 func _process(delta):
 	#Passa a informação da posição do player para o Game Manager
 	GameManager.player_position = position
@@ -52,11 +57,15 @@ func _process(delta):
 	update_atk_cd(delta)
 	#Atualiza o cd do tiro
 	update_weapon_cd(delta)
+	#Recarrega a stamina
+	recharg_stamina(delta)
 	#Executa o ataque:
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	#if Input.is_action_just_pressed("FireGun"):
 		#fireGun()
+	if Input.is_action_just_pressed("Dash"):
+		dash()
 
 func _physics_process(_delta):
 	var target_velocity = input_vector*speed*100.0
@@ -64,6 +73,28 @@ func _physics_process(_delta):
 		target_velocity *= 0.1
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
+
+func dash():
+	if not is_attacking and not is_shooting and stamina_bar.value >= 70:
+		speed += dash_boost
+		stamina_bar.value -= 70
+		modulate = Color.BLUE
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_QUINT)
+		tween.tween_property(self,"modulate",Color.WHITE,0.3)
+		dash_timer.wait_time = dash_duration
+		dash_timer.start()
+		
+func _on_timer_timeout() -> void:
+	stop_dash()
+		
+func stop_dash():
+	speed -= dash_boost
+		
+func recharg_stamina(delta):
+	if stamina_bar.value < 100:
+		stamina_bar.value += delta*stamina_recovery_speed
 
 #Funções de movimento:	
 func play_run_iddle():
@@ -110,6 +141,7 @@ func update_weapon_cd(delta):
 		weapon_cooldown -=delta
 		if weapon_cooldown <= 0:
 			is_shooting = false
+			
 func attack():
 	#Checa se já está atacando:
 	if is_attacking or is_shooting:

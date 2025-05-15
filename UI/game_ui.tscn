@@ -196,4 +196,4 @@ tint_progress = Color(1, 0, 0, 1)
 position = Vector2(556, 22)
 sprite_frames = SubResource("SpriteFrames_wjxh5")
 autoplay = "default"
-frame_progress = 0.587133
+frame_progress = 0.233721
