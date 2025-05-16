@@ -231,3 +231,20 @@ size_flags_horizontal = 4
 text = "blah blah blah"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="menu" type="Button" parent="."]
+offset_left = 638.0
+offset_top = 541.0
+offset_right = 829.0
+offset_bottom = 572.0
+text = "Voltar para a tela inicial"
+
+[node name="Tentar novamente" type="Button" parent="."]
+offset_left = 659.0
+offset_top = 581.0
+offset_right = 811.0
+offset_bottom = 612.0
+text = "Tentar novamente"
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Tentar novamente" to="." method="_on_tentar_novamente_pressed"]
