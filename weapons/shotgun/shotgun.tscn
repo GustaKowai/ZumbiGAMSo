@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blg47g2847ltg" path="res://weapons/shotgun/shotgun_icon.png" id="1_an7ta"]
 [ext_resource type="Script" uid="uid://dc7wl5h72tdp0" path="res://weapons/shotgun/shotgun.gd" id="2_an7ta"]
-[ext_resource type="PackedScene" uid="uid://di3wi6hwjnyt0" path="res://weapons/shotgun/shotgun_weapon.tscn" id="3_apfrx"]
+[ext_resource type="PackedScene" uid="uid://di3wi6hwjnyt0" path="res://weapons/shotgun_weapon.tscn" id="3_apfrx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_an7ta"]
 

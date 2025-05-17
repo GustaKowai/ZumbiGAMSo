@@ -198,8 +198,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_g3x2a")
 death_prefab = ExtResource("2_0dhp2")
 items = Array[PackedScene]([ExtResource("3_87217"), ExtResource("4_wy0m5")])
-drop_rate = 1.0
-drop_chances = Array[float]([0.0, 1.0])
+drop_chances = Array[float]([0.5, 0.5])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -46)

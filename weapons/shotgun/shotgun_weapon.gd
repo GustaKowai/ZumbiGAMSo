@@ -1,14 +1,14 @@
 extends Node2D
 
-@onready var bullet_path = preload("res://weapons/bullet.tscn")
+@onready var bullet_path = preload("res://weapons/shotgun/bullet_shotgun.tscn")
 @onready var player = get_parent()
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
 @onready var sprite = $Sprite2D
 @export var weapon_cooldown = 0.4
 @export var ammo = 3
-@export var bullet_range = PI/10
-@export var bullet_quantidade = 5
+@export var bullet_range = PI/5 #
+@export var bullet_quantidade = 10
 
 func _ready() -> void:
 	#print("Pronto!")
@@ -56,26 +56,26 @@ func fireGun():
 			player.animation_player.play("Fire_side_right")
 
 func fire_bullet():
-	#Determina a direção do tiro e cria a bala
-	for i in range(1,bullet_quantidade):
+	#Determina a direção do tiro, range e cria a bala pela quantidade informada
+	for i in range(bullet_quantidade):
 		var bullet = bullet_path.instantiate()
 		if player.position_running == "down":
-				bullet.dir = bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.dir = PI/2 -PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 				bullet.pos = marker.global_position
-				bullet.rota = bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.rota = PI/2 -PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 		elif player.position_running == "up":
-				bullet.dir = -PI+bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.dir = -PI/2 -PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 				bullet.pos = marker.global_position
-				bullet.rota = -PI+bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.rota =-PI/2-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 		elif player.position_running == "side":
 			if player.sprite.flip_h:
-				bullet.dir = PI/2+bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.dir = PI-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 				bullet.pos = marker.global_position
-				bullet.rota = PI/2+bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.rota = PI-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 			if not player.sprite.flip_h:
-				bullet.dir = -PI/2+bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.dir =-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 				bullet.pos = marker.global_position
-				bullet.rota = -PI/2+bullet_range + i*((PI-PI/5)/(bullet_quantidade+1))
+				bullet.rota = -PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 		get_parent().get_parent().add_child(bullet)#Instancia a bala
 	ammo -= 1
 	GameManager.ammo = ammo

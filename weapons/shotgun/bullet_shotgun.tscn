@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkjjpdldof5ak"]
+
+[ext_resource type="Script" uid="uid://cff6dh6vejt5k" path="res://weapons/shotgun/bullet_shotgun.gd" id="1_rs5io"]
+[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/Gun_sprite.png" id="2_vo1hw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ql5"]
+size = Vector2(4, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4512"]
+size = Vector2(19, 10)
+
+[node name="bullet_shotgun" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rs5io")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_vo1hw")
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_c2ql5")
+
+[node name="BulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_b4512")
+
+[connection signal="area_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]
