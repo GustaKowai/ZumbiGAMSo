@@ -24,7 +24,6 @@ func _physics_process(_delta:float):
 	var_diff = to_local(nav_agent.get_next_path_position()) #pega o próximo ponto do caminho calculado para o jogador
 	if not enemy.is_attacking:
 		move()
-		try_attack()
 
 func move():
 	var normalize_diffe = var_diff.normalized() #Transforma o vetor apontando para o próximo ponto em um versor
@@ -45,17 +44,13 @@ func move():
 	else:
 		position_running = "down"
 		animation_player.play("Walk Down")
+		
+	enemy.facing_position = position_running
 	enemy.move_and_slide()
 	
 func make_path(): #Calcula e cria o melhor caminho até o jogador, desviando de obstáculos
 	var player_position = GameManager.player_position
 	nav_agent.target_position = player_position
-	
-func try_attack():
-	var areas = dmg_area.get_overlapping_areas() #Detecta todas as áreas que estão dentro da área de dano do inimigo
-	for area in areas:
-		if area.is_in_group("JogadorHitBox"): #Detecta se alguma área detectada é um jogador
-			enemy.attack()
 
 
 func _on_timer_timeout():
