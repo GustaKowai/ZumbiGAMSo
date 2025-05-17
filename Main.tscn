@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=38 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_c4hxu"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="10_0eu7v"]
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="11_3kp4t"]
-[ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item.tscn" id="13_c6i3y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -542,7 +541,3 @@ creatures = Array[PackedScene]([ExtResource("4_m2mbd")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
-
-[node name="TauntItem" parent="." instance=ExtResource("13_c6i3y")]
-position = Vector2(450, 198)
-scale = Vector2(0.0213023, 0.0284821)
