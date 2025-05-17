@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://di3wi6hwjnyt0"]
+
+[ext_resource type="Script" uid="uid://cm5jfydxsy824" path="res://weapons/shotgun/shotgun_weapon.gd" id="1_ukkib"]
+[ext_resource type="Texture2D" uid="uid://blg47g2847ltg" path="res://weapons/shotgun/shotgun_icon.png" id="2_pu67e"]
+
+[sub_resource type="Animation" id="Animation_1feo2"]
+resource_name = "fire_down"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gk566"]
+resource_name = "fire_up"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g6o11"]
+resource_name = "fire_side_left"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6xb6f"]
+resource_name = "fire_side_right"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_myk8d"]
+_data = {
+&"fire_down": SubResource("Animation_1feo2"),
+&"fire_side_left": SubResource("Animation_g6o11"),
+&"fire_side_right": SubResource("Animation_6xb6f"),
+&"fire_up": SubResource("Animation_gk566")
+}
+
+[node name="shotgun_weapon" type="Node2D"]
+script = ExtResource("1_ukkib")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pu67e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_myk8d")
+}

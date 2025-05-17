@@ -1,11 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv3uon3yb6fja"]
+[gd_scene load_steps=19 format=3 uid="uid://dv3uon3yb6fja"]
 
 [ext_resource type="Script" uid="uid://deg0bfjw6tyyf" path="res://Enemies/zombie_1.gd" id="1_g3x2a"]
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/teste_zumbi_sprite.png" id="1_shrhs"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0dhp2"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver.tscn" id="3_87217"]
 [ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/follow_player.gd" id="3_ks08r"]
-[ext_resource type="Script" uid="uid://b8vg56ghon8b" path="res://Enemies/attack_melee.gd" id="6_kcvas"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="4_wy0m5"]
+[ext_resource type="Script" path="res://Enemies/attack_melee.gd" id="6_kcvas"]
 
 [sub_resource type="Animation" id="Animation_5lhvy"]
 resource_name = "Atk"
@@ -196,8 +197,9 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_g3x2a")
 death_prefab = ExtResource("2_0dhp2")
-items = Array[PackedScene]([ExtResource("3_87217")])
-drop_chances = Array[float]([0.5])
+items = Array[PackedScene]([ExtResource("3_87217"), ExtResource("4_wy0m5")])
+drop_rate = 1.0
+drop_chances = Array[float]([0.0, 1.0])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -46)

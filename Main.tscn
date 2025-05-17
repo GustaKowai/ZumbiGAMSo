@@ -1,16 +1,17 @@
-[gd_scene load_steps=39 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=40 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
 [ext_resource type="PackedScene" uid="uid://b3qcv045rpri2" path="res://Player/jogador_2try.tscn" id="3_vdkbt"]
-[ext_resource type="Script" uid="uid://k1yl462kyh53" path="res://base.gd" id="4_20pc6"]
+[ext_resource type="Script" path="res://base.gd" id="4_20pc6"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/zombie_1.tscn" id="4_m2mbd"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="5_cx32y"]
 [ext_resource type="Texture2D" uid="uid://bt8g133t6xsq5" path="res://tileset_teste_resize.png" id="6_44yy4"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver.tscn" id="8_e2qaf"]
-[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/gunshot_lc.tscn" id="9_5vvyt"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="9_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_c4hxu"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="10_0eu7v"]
+[ext_resource type="PackedScene" uid="uid://di3wi6hwjnyt0" path="res://weapons/shotgun/shotgun_weapon.tscn" id="10_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="11_3kp4t"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item.tscn" id="13_c6i3y"]
 
@@ -507,7 +508,6 @@ update_scale = false
 z_as_relative = false
 position = Vector2(447, 391)
 player = NodePath("../Jogador")
-items = Array[PackedScene]([ExtResource("8_e2qaf"), ExtResource("9_5vvyt")])
 drop_chances = Array[float]([1.0, 1.0])
 
 [node name="Skull" parent="." instance=ExtResource("5_cx32y")]
@@ -518,6 +518,7 @@ position = Vector2(672, -11)
 
 [node name="gunshotLC" parent="." instance=ExtResource("9_5vvyt")]
 position = Vector2(201.438, -77.4374)
+weapon = ExtResource("10_c2ibq")
 
 [node name="Pause UI" parent="." instance=ExtResource("9_c4hxu")]
 process_mode = 3
