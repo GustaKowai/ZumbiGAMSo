@@ -1,4 +1,5 @@
 [gd_scene load_steps=19 format=3 uid="uid://dv3uon3yb6fja"]
+[gd_scene load_steps=19 format=3 uid="uid://dv3uon3yb6fja"]
 
 [ext_resource type="Script" uid="uid://deg0bfjw6tyyf" path="res://Enemies/zombie_1.gd" id="1_g3x2a"]
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/teste_zumbi_sprite.png" id="1_shrhs"]
@@ -7,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/follow_player.gd" id="3_ks08r"]
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="4_wy0m5"]
 [ext_resource type="Script" path="res://Enemies/attack_melee.gd" id="6_kcvas"]
+[ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item.tscn" id="4_wy0m5"]
+[ext_resource type="Script" uid="uid://b8vg56ghon8b" path="res://Enemies/attack_melee.gd" id="6_kcvas"]
 
 [sub_resource type="Animation" id="Animation_5lhvy"]
 resource_name = "Atk"
