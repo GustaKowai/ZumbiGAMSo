@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=27 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://dg8tyfp4aea84" path="res://UI/UI_images/Empty_Infection_bar.png" id="2_h0rig"]
 [ext_resource type="Texture2D" uid="uid://bht7x0ddgjfno" path="res://UI/UI_images/Filled_Infection_Bar.png" id="3_2oifk"]
 [ext_resource type="Texture2D" uid="uid://50j2gplyhw8g" path="res://UI/UI_images/Consumivel_.png" id="4_fy64h"]
+[ext_resource type="Texture2D" uid="uid://cty6sh6j1vyu7" path="res://a-radio-tape-in-pixel-art-style-vector.jpg" id="5_orm7x"]
 [ext_resource type="Texture2D" uid="uid://c2sddkj84yls0" path="res://UI/UI_images/Espaco_Arma.png" id="5_v6n52"]
 [ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver_icon.png" id="6_ywmy4"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="7_v6n52"]
@@ -177,6 +178,7 @@ offset_top = -83.0
 offset_right = 11.0
 offset_bottom = 7.0
 scale = Vector2(1.64895, 1.8387)
+texture = ExtResource("5_orm7x")
 expand_mode = 1
 stretch_mode = 5
 
