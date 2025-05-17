@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgmyndkhrklhs"]
 
-[ext_resource type="Script" uid="uid://cfal2bu5fphpj" path="res://GameOverUi.gd" id="1_sxy2j"]
+[ext_resource type="Script" uid="uid://cfal2bu5fphpj" path="res://UI/GameOverUi.gd" id="1_sxy2j"]
 
 [sub_resource type="Animation" id="Animation_eqkvq"]
 length = 0.001

@@ -171,6 +171,9 @@ position = Vector2(1385.9, 734.696)
 scale = Vector2(0.698198, 0.698198)
 texture = ExtResource("4_fy64h")
 
+[node name="item_sprite" type="Sprite2D" parent="Consumivel"]
+scale = Vector2(0.08, 0.08)
+
 [node name="EspacoArma" type="Sprite2D" parent="."]
 position = Vector2(1273.95, 759)
 scale = Vector2(0.626984, 0.626984)

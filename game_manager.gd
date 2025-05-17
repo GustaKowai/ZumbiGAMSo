@@ -1,8 +1,9 @@
 extends Node
 
 #Sinais
-signal  game_over
+signal game_over
 signal weapon_collected()
+signal item_collected()
 
 #Gerenciamento da run:
 var player:Jogador
@@ -12,13 +13,15 @@ var infection_level:int = 0
 var infection_power:int = 2
 var weapon_cd:float
 var texto_morte:String
+var is_taunting:bool = false
+var taunt_position:Vector2
 
 #informações da run:
-var time_elapsed = 0.0
+var time_elapsed:float = 0.0
 var time_elapsed_string: String
-var ammo_count = 0
-var kills_count = 0
-var is_game_over = false
+var ammo_count:int = 0
+var kills_count:int = 0
+var is_game_over:bool = false
 
 
 

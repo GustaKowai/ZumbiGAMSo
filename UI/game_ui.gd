@@ -4,14 +4,17 @@ extends CanvasLayer
 @onready var ammo_label = %ammo_label
 @onready var infection_bar = $infection_bar
 @onready var weapon_bar = $EspacoArma/Weapon_bar
+@onready var item_sprite = $Consumivel/item_sprite
 @onready var stamina_bar = $player_life_and_stamina/StaminaBar
 @onready var health_bar = $player_life_and_stamina/HealthBar
 var texture_weapon:Texture2D = null
+var texture_item:Texture2D = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	weapon_bar.texture_under = null
 	weapon_bar.texture_over = null
 	GameManager.weapon_collected.connect(change_weapon_equiped)
+	GameManager.item_collected.connect(change_item_equiped)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,7 +39,15 @@ func change_weapon_equiped(weapon_sprite_path):
 	weapon_bar.texture_under = texture_weapon
 	weapon_bar.texture_progress = texture_weapon
 	print(weapon_sprite_path)
+	print("troquei")
 
+func change_item_equiped(item_sprite_path):
+	if item_sprite_path:
+		texture_item = load(item_sprite_path)
+		item_sprite.texture = texture_item
+		print(item_sprite_path)
+	else:item_sprite.texture = null
+		
 func update_infection_bar():
 	infection_bar.value = GameManager.infection_level
 	if infection_bar.value >= 100:

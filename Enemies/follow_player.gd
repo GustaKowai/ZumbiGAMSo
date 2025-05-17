@@ -7,13 +7,11 @@ var sprite:Sprite2D
 var animation_player:AnimationPlayer
 var var_diff:Vector2
 var position_running = "side" 
-var dmg_area:Area2D
 var nav_agent:NavigationAgent2D
 
 func _ready():
 	enemy = get_parent()
 	sprite =enemy.get_node("Sprite2D")
-	dmg_area = enemy.get_node("DmgArea")
 	animation_player = enemy.get_node("AnimationPlayer")
 	nav_agent = get_node("NavigationAgent2D")
 	
@@ -50,7 +48,10 @@ func move():
 	
 func make_path(): #Calcula e cria o melhor caminho até o jogador, desviando de obstáculos
 	var player_position = GameManager.player_position
+	if GameManager.is_taunting:
+		player_position = GameManager.taunt_position
 	nav_agent.target_position = player_position
+		
 
 
 func _on_timer_timeout():

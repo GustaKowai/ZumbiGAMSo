@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://be77d1xry1rvn"]
 
-[ext_resource type="Script" uid="uid://dhagdxnieofse" path="res://bullet_bazuca.gd" id="1_0yl4s"]
+[ext_resource type="Script" uid="uid://dhagdxnieofse" path="res://weapons/bullet_bazuca.gd" id="1_0yl4s"]
 
 [sub_resource type="Gradient" id="Gradient_3dbwo"]
 
