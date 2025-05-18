@@ -6,7 +6,7 @@ extends Sprite2D
 func _on_area_2d_body_entered(body):
 	print("pegou")
 	if body.is_in_group("Jogador"): #Checa se o corpo que entrou no range é o player
-		GameManager.weapon_collected.emit("res://weapons/revolver_icon.png") #Emite um sinal avisando que uma arma foi coletada
+		GameManager.weapon_collected.emit("res://weapons/revolver/revolver_icon.png") #Emite um sinal avisando que uma arma foi coletada
 		var player = body
 		#Se o jogador pegar, define como a arma carregada e define a munição:
 		#player.bullet_path = preload("res://weapons/bullet.tscn")

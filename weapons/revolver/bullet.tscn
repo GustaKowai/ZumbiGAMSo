@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxwmch7fg4xeu"]
 
-[ext_resource type="Script" uid="uid://c20h64x4608ok" path="res://weapons/Bullet.gd" id="1_8h14i"]
-[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/Gun_sprite.png" id="2_mdjel"]
+[ext_resource type="Script" uid="uid://c20h64x4608ok" path="res://weapons/revolver/Bullet.gd" id="1_8h14i"]
+[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_mdjel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ql5"]
 size = Vector2(4, 8)

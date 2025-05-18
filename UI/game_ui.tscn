@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=35 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://dg8tyfp4aea84" path="res://UI/UI_images/Empty_Infection_bar.png" id="2_h0rig"]
@@ -6,13 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://50j2gplyhw8g" path="res://UI/UI_images/Consumivel_.png" id="4_fy64h"]
 [ext_resource type="Texture2D" uid="uid://cty6sh6j1vyu7" path="res://a-radio-tape-in-pixel-art-style-vector.jpg" id="5_orm7x"]
 [ext_resource type="Texture2D" uid="uid://c2sddkj84yls0" path="res://UI/UI_images/Espaco_Arma.png" id="5_v6n52"]
-[ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver_icon.png" id="6_ywmy4"]
+[ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver/revolver_icon.png" id="6_ywmy4"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="7_v6n52"]
 [ext_resource type="Texture2D" uid="uid://drhc7t8jghgge" path="res://UI/UI_images/Stamina_Bar_Empty.png" id="8_jd38o"]
-[ext_resource type="Texture2D" uid="uid://cybym1t2w628d" path="res://UI/UI_images/HP_Bar_Empty.png" id="8_q8rbd"]
 [ext_resource type="Texture2D" uid="uid://c06k2s6pv4cgd" path="res://UI/UI_images/Stamina_Bar_Full.png" id="9_bjx7l"]
 [ext_resource type="Texture2D" uid="uid://1g47klflqrcj" path="res://UI/UI_images/Barra_Vazia_HP_sem_UI.png" id="11_orm7x"]
+[ext_resource type="Texture2D" uid="uid://d33iprivcag4t" path="res://UI/UI_images/HP_Bar_true_Empty.png" id="11_q0y33"]
 [ext_resource type="Texture2D" uid="uid://bslqe3letqkaq" path="res://UI/UI_images/Barra_Cheia_HP_sem_UI.png" id="12_q0y33"]
+[ext_resource type="Texture2D" uid="uid://b4pux6e8ardkk" path="res://UI/UI_images/Beating_heart.png" id="14_fifbr"]
+[ext_resource type="Script" uid="uid://cwxspxr588b6i" path="res://UI/health_bar.gd" id="15_7suct"]
+[ext_resource type="Texture2D" uid="uid://w811lyvja4nh" path="res://UI/UI_images/VInheta.png" id="15_fifbr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywmy4"]
 atlas = ExtResource("7_v6n52")
@@ -104,6 +107,42 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjxh5"]
+atlas = ExtResource("14_fifbr")
+region = Rect2(0, 0, 54, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abi8r"]
+atlas = ExtResource("14_fifbr")
+region = Rect2(54, 0, 54, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faxab"]
+atlas = ExtResource("14_fifbr")
+region = Rect2(108, 0, 54, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2uf2"]
+atlas = ExtResource("14_fifbr")
+region = Rect2(162, 0, 54, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcwxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjxh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abi8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faxab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2uf2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="GameUI" type="CanvasLayer"]
@@ -205,18 +244,23 @@ sprite_frames = SubResource("SpriteFrames_wjxh5")
 autoplay = "default"
 frame_progress = 0.0940785
 
+[node name="Vinheta" type="Sprite2D" parent="."]
+position = Vector2(722.855, 402.731)
+scale = Vector2(3.00199, 3.00199)
+texture = ExtResource("15_fifbr")
+
 [node name="player_life_and_stamina" type="Node2D" parent="."]
 position = Vector2(5, -43)
 scale = Vector2(1.3149, 1.3149)
 
 [node name="HpBarEmpty" type="Sprite2D" parent="player_life_and_stamina"]
 position = Vector2(266, 599)
-texture = ExtResource("8_q8rbd")
+texture = ExtResource("11_q0y33")
 
 [node name="StaminaBar" type="TextureProgressBar" parent="player_life_and_stamina"]
-offset_left = 53.0
+offset_left = 48.4369
 offset_top = 617.0
-offset_right = 344.0
+offset_right = 339.437
 offset_bottom = 657.0
 value = 50.0
 texture_under = ExtResource("8_jd38o")
@@ -224,10 +268,34 @@ texture_progress = ExtResource("9_bjx7l")
 tint_progress = Color(0.521141, 0.521141, 0.521141, 1)
 
 [node name="HealthBar" type="TextureProgressBar" parent="player_life_and_stamina"]
-offset_left = 67.0
+offset_left = 66.2395
 offset_top = 569.0
-offset_right = 529.0
+offset_right = 528.24
 offset_bottom = 635.0
 value = 50.0
 texture_under = ExtResource("11_orm7x")
 texture_progress = ExtResource("12_q0y33")
+script = ExtResource("15_7suct")
+
+[node name="DamageBar" type="TextureProgressBar" parent="player_life_and_stamina/HealthBar"]
+z_index = -1
+offset_left = -0.0747604
+offset_top = -0.135498
+offset_right = 461.925
+offset_bottom = 65.8645
+value = 70.0
+texture_under = ExtResource("11_orm7x")
+texture_progress = ExtResource("12_q0y33")
+tint_progress = Color(0.450648, 0.450648, 0.450648, 1)
+
+[node name="Timer" type="Timer" parent="player_life_and_stamina/HealthBar"]
+one_shot = true
+
+[node name="Beating_heart" type="AnimatedSprite2D" parent="player_life_and_stamina"]
+position = Vector2(35.7442, 598.525)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_dcwxn")
+autoplay = "default"
+frame_progress = 0.777676
+
+[connection signal="timeout" from="player_life_and_stamina/HealthBar/Timer" to="player_life_and_stamina/HealthBar" method="_on_timer_timeout"]

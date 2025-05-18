@@ -4,6 +4,7 @@ extends Node
 signal game_over
 signal weapon_collected()
 signal item_collected()
+signal player_damaged()
 
 #Gerenciamento da run:
 var player:Jogador

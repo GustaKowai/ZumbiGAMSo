@@ -73,7 +73,7 @@ func _process(delta):
 func _physics_process(_delta):
 	var target_velocity = input_vector*speed*100.0
 	if is_attacking or is_shooting:
-		target_velocity *= 0.1
+		target_velocity *= 0.5
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
 #Funções do dash:
@@ -200,6 +200,7 @@ func damage(amount:int):
 	if player_health <= 0:
 		return
 	player_health -=amount
+	GameManager.player_damaged.emit()
 	print("Player recebeu dano de ",amount,". A vida atual é de ",player_health,"/")
 	#piscar o player:
 	modulate = Color.ORANGE
@@ -207,7 +208,6 @@ func damage(amount:int):
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
-	
 	if player_health <=0:
 		GameManager.texto_morte = "Você apanhou demais dos Zumbis"
 		die()

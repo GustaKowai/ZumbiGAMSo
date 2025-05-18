@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bib7osiivb2fq"
-path="res://.godot/imported/revolver_sprite.png-76fa8afd4f88a41c27be4365713c9ef5.ctex"
+uid="uid://w811lyvja4nh"
+path="res://.godot/imported/VInheta.png-e6cf2d88742d5696d2064ff97b3fd856.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/revolver_sprite.png"
-dest_files=["res://.godot/imported/revolver_sprite.png-76fa8afd4f88a41c27be4365713c9ef5.ctex"]
+source_file="res://UI/UI_images/VInheta.png"
+dest_files=["res://.godot/imported/VInheta.png-e6cf2d88742d5696d2064ff97b3fd856.ctex"]
 
 [params]
 

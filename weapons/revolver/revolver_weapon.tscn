@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcq3772f07hv6"]
 
-[ext_resource type="Texture2D" uid="uid://bib7osiivb2fq" path="res://weapons/revolver_sprite.png" id="1_2kbmr"]
-[ext_resource type="Script" uid="uid://dduihkx7nclg2" path="res://weapons/revolver_weapon.gd" id="1_4368f"]
+[ext_resource type="Texture2D" uid="uid://bib7osiivb2fq" path="res://weapons/revolver/revolver_sprite.png" id="1_2kbmr"]
+[ext_resource type="Script" uid="uid://dduihkx7nclg2" path="res://weapons/revolver/revolver_weapon.gd" id="1_4368f"]
 
 [sub_resource type="Animation" id="Animation_4368f"]
 length = 0.001
@@ -104,6 +104,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_e04s7"]
 resource_name = "fire_down"
+length = 0.15
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false

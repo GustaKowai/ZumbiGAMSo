@@ -4,7 +4,7 @@ var pos:Vector2
 var rota:float
 var dir: float
 var speed = 2000
-var bullet_damage = 40
+@export var bullet_damage = 40
 var bullet_duracao = 0.12
 var bullet_tempodevida = 0
 

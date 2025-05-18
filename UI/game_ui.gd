@@ -7,6 +7,9 @@ extends CanvasLayer
 @onready var item_sprite = $Consumivel/item_sprite
 @onready var stamina_bar = $player_life_and_stamina/StaminaBar
 @onready var health_bar = $player_life_and_stamina/HealthBar
+@onready var damage_bar = $player_life_and_stamina/DamageBar
+@onready var heart = $player_life_and_stamina/Beating_heart
+@onready var vinheta = $Vinheta
 var texture_weapon:Texture2D = null
 var texture_item:Texture2D = null
 # Called when the node enters the scene tree for the first time.
@@ -15,13 +18,12 @@ func _ready():
 	weapon_bar.texture_over = null
 	GameManager.weapon_collected.connect(change_weapon_equiped)
 	GameManager.item_collected.connect(change_item_equiped)
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if GameManager.is_game_over: return
 	update_infection_bar()
 	update_stamina_bar()
-	update_health_bar()
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	ammo_label.text = str(GameManager.ammo)
@@ -33,6 +35,19 @@ func _process(delta):
 		texture_weapon = null
 		weapon_bar.texture_under = null
 		weapon_bar.texture_over = null
+		
+	#Mudanças da UI de acordo com o HP do jogador:
+	var player_proporcional_health = GameManager.player.player_health*1.0/GameManager.player.max_health*1.0
+	if player_proporcional_health > 0.5:
+		vinheta.modulate.a = 0
+	else:
+		vinheta.modulate.a = 1.5-player_proporcional_health*3
+	if player_proporcional_health> 0.7:
+		heart.speed_scale = 1.0
+	elif player_proporcional_health < 0.7 and player_proporcional_health >0.3:
+		heart.speed_scale = 2.0
+	elif player_proporcional_health < 0.3:
+		heart.speed_scale = 3.0
 
 func change_weapon_equiped(weapon_sprite_path):
 	texture_weapon = load(weapon_sprite_path)
@@ -53,12 +68,7 @@ func update_infection_bar():
 	if infection_bar.value >= 100:
 		GameManager.texto_morte = "Você deixou acumular muitos zumbis"
 		GameManager.player.die()
-
-func update_health_bar():
-	if GameManager.player:
-		health_bar.max_value = GameManager.player.max_health
-		health_bar.value = GameManager.player.player_health
-
+		
 func update_stamina_bar():
 	if GameManager.player:
 		stamina_bar.max_value = GameManager.player.max_stamina

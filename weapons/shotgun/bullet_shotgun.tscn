@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkjjpdldof5ak"]
 
 [ext_resource type="Script" uid="uid://cff6dh6vejt5k" path="res://weapons/shotgun/bullet_shotgun.gd" id="1_rs5io"]
-[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/Gun_sprite.png" id="2_vo1hw"]
+[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_vo1hw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ql5"]
 size = Vector2(4, 8)
@@ -13,6 +13,7 @@ size = Vector2(19, 10)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_rs5io")
+bullet_damage = 10
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_vo1hw")
