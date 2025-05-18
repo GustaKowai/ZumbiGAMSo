@@ -11,13 +11,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#update_health_bar()
-	pass
+	if damage_bar.value > value:
+		damage_bar.value -= delta*2.0
 	
 func update_health_bar():
 	if GameManager.player:
 		max_value = GameManager.player.max_health
 		damage_bar.max_value = max_value
 		value = GameManager.player.player_health
-		timer.start()
+		#timer.start()
 func _on_timer_timeout() -> void:
 	damage_bar.value = GameManager.player.player_health

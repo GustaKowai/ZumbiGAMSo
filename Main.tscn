@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=39 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="9_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_c4hxu"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="10_0eu7v"]
-[ext_resource type="PackedScene" uid="uid://di3wi6hwjnyt0" path="res://weapons/shotgun/shotgun_weapon.tscn" id="10_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="11_3kp4t"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item.tscn" id="13_c6i3y"]
 
@@ -518,7 +517,6 @@ position = Vector2(672, -11)
 
 [node name="gunshotLC" parent="." instance=ExtResource("9_5vvyt")]
 position = Vector2(201.438, -77.4374)
-weapon = ExtResource("10_c2ibq")
 
 [node name="Pause UI" parent="." instance=ExtResource("9_c4hxu")]
 process_mode = 3

@@ -4,9 +4,12 @@
 [ext_resource type="Script" uid="uid://dc7wl5h72tdp0" path="res://weapons/shotgun/shotgun.gd" id="2_an7ta"]
 [ext_resource type="PackedScene" uid="uid://di3wi6hwjnyt0" path="res://weapons/shotgun/shotgun_weapon.tscn" id="3_apfrx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_an7ta"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_apfrx"]
+radius = 29.9655
+height = 205.131
 
 [node name="gunshotLC" type="Sprite2D"]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_an7ta")
 script = ExtResource("2_an7ta")
 weapon = ExtResource("3_apfrx")
@@ -16,6 +19,7 @@ collision_layer = 4
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_an7ta")
+rotation = 1.56403
+shape = SubResource("CapsuleShape2D_apfrx")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
