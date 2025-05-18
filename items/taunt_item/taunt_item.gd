@@ -7,5 +7,6 @@ func _on_area_2d_body_entered(body):
 		GameManager.item_collected.emit("res://a-radio-tape-in-pixel-art-style-vector.jpg") #Emite um sinal avisando que uma arma foi coletada
 		var player = body
 		var item_instance = item.instantiate()
+		item_instance.item_loaded = load("res://items/taunt_item/taunt_object.tscn")
 		player.add_child(item_instance)
 		queue_free()

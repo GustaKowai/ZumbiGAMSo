@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://eqyhj0nqogpg"]
 
 [ext_resource type="Texture2D" uid="uid://cty6sh6j1vyu7" path="res://a-radio-tape-in-pixel-art-style-vector.jpg" id="1_li2ph"]
-[ext_resource type="Script" uid="uid://d30ymbmkl8hqc" path="res://items/taunt_object.gd" id="2_j6m5w"]
+[ext_resource type="Script" uid="uid://d30ymbmkl8hqc" path="res://items/taunt_item/taunt_object.gd" id="2_j6m5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_li2ph"]
 

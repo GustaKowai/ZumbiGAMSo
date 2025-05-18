@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkkymgxcb5lt"]
+
+[ext_resource type="Texture2D" uid="uid://dt4ey14mlingg" path="res://weapons/machinegun/machinegun.png" id="1_krhnj"]
+[ext_resource type="Script" uid="uid://brcmhdsg3f2oa" path="res://weapons/machinegun/machinegun.gd" id="2_scr7x"]
+[ext_resource type="PackedScene" uid="uid://byyhm84gpfchc" path="res://weapons/machinegun/machinegun_weapon.tscn" id="3_t5wbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krhnj"]
+size = Vector2(820, 440)
+
+[node name="machinegun" type="Sprite2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_krhnj")
+script = ExtResource("2_scr7x")
+weapon = ExtResource("3_t5wbn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 20)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_krhnj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

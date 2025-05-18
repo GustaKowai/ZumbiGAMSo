@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbucupwgjx487"]
 
-[ext_resource type="Script" uid="uid://cstru4l5a5d5n" path="res://items/taunt_item_equipped.gd" id="1_v1tma"]
+[ext_resource type="Script" uid="uid://cstru4l5a5d5n" path="res://items/taunt_item/taunt_item_equipped.gd" id="1_v1tma"]
 
 [node name="taunt_item_equipped" type="Node2D"]
 script = ExtResource("1_v1tma")

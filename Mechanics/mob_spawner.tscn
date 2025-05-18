@@ -194,5 +194,5 @@ frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_t2hap")
+&"": SubResource("AnimationLibrary_t2hap")
 }

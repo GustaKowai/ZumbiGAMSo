@@ -73,7 +73,8 @@ func _process(delta):
 func _physics_process(_delta):
 	var target_velocity = input_vector*speed*100.0
 	if is_attacking or is_shooting:
-		target_velocity *= 0.5
+		target_velocity *= 0.1
+		print("TO ATIRANDO")
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
 #Funções do dash:

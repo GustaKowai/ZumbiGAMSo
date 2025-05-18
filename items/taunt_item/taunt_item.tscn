@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx2rokbdvte28"]
 
 [ext_resource type="Texture2D" uid="uid://cty6sh6j1vyu7" path="res://a-radio-tape-in-pixel-art-style-vector.jpg" id="1_6uy1m"]
-[ext_resource type="Script" uid="uid://g8ybeo4jc4lx" path="res://items/taunt_item.gd" id="1_12bsa"]
-[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/taunt_item_equipped.tscn" id="3_y7rfy"]
+[ext_resource type="Script" uid="uid://g8ybeo4jc4lx" path="res://items/taunt_item/taunt_item.gd" id="1_12bsa"]
+[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="3_y7rfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uy1m"]
 
