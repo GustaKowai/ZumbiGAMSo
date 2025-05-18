@@ -23,7 +23,7 @@ func _ready() -> void:
 	print(player)
 
 func on_weapon_collected(string): #Essa função serve para largar a arma
-	print("larguei a arma")
+	#print("larguei a arma")
 	queue_free()
 
 func _process(delta: float) -> void:
@@ -36,12 +36,9 @@ func _process(delta: float) -> void:
 			fire_bullet()
 	if Input.is_action_just_pressed("FireGun"):
 		fireGun()
-		print("Comecei a atirar", player.is_shooting)
 		
 	if Input.is_action_just_released("FireGun"):
-		#player.is_shooting = false
 		firing = false
-		print("Parei de atirar")
 
 func fireGun():
 	if ammo <= 0:
@@ -95,7 +92,6 @@ func fire_bullet():
 	print(ammo)
 	if ammo == 0:
 		firing = false
-		player.is_shooting = false
 		queue_free() #Solta a arma se ficar sem munição
 
 func set_firing():

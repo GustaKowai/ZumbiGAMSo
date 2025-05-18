@@ -31,7 +31,7 @@ func _process(delta):
 		if GameManager.player.weapon_cooldown >=0:
 			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
 			#print(weapon_bar.value)
-	if GameManager.ammo == 0:
+	if GameManager.ammo == 0 and texture_weapon:
 		texture_weapon = null
 		weapon_bar.texture_under = null
 		weapon_bar.texture_over = null
