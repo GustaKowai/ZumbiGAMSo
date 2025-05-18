@@ -27,6 +27,7 @@ func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox"):
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
+		enemy.position +=velocity.normalized()*50
 		queue_free()
 
 

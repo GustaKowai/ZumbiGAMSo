@@ -7,6 +7,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @export var weapon_cooldown = 0.1
 @export var ammo = 100
+@export var bullet_spreed = PI/10
 var interval = 0
 var firing = false
 
@@ -69,23 +70,24 @@ func fireGun():
 func fire_bullet():
 	#Determina a direção do tiro e cria a bala
 	var bullet = bullet_path.instantiate()
+	var bullet_deviation = randf_range(-bullet_spreed,bullet_spreed)
 	if player.position_running == "down":
-			bullet.dir = PI/2
+			bullet.dir = PI/2 + bullet_deviation
 			bullet.pos = marker.global_position
-			bullet.rota = PI/2
+			bullet.rota = PI/2 + bullet_deviation
 	elif player.position_running == "up":
-			bullet.dir = -PI/2
+			bullet.dir = -PI/2 + bullet_deviation
 			bullet.pos = marker.global_position
-			bullet.rota = -PI/2
+			bullet.rota = -PI/2 + bullet_deviation
 	elif player.position_running == "side":
 		if player.sprite.flip_h:
-			bullet.dir = PI
+			bullet.dir = PI + bullet_deviation
 			bullet.pos = marker.global_position
-			bullet.rota = PI
+			bullet.rota = PI + bullet_deviation
 		if not player.sprite.flip_h:
-			bullet.dir = 0
+			bullet.dir = 0 + bullet_deviation
 			bullet.pos = marker.global_position
-			bullet.rota = 0
+			bullet.rota = 0 + bullet_deviation
 	get_parent().get_parent().add_child(bullet)#Instancia a bala
 	ammo -= 1
 	GameManager.ammo = ammo
