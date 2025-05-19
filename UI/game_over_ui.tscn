@@ -295,13 +295,15 @@ texture = ExtResource("2_44ht4")
 
 [node name="GameOver" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 497.0
-offset_top = 178.0
-offset_right = 589.0
-offset_bottom = 201.0
+offset_left = 448.0
+offset_top = 169.0
+offset_right = 572.0
+offset_bottom = 192.0
 scale = Vector2(5.03075, 5.08342)
 size_flags_horizontal = 4
-text = "GAME OVER"
+text = "FIM DE JOGO....?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimeLabel_Text" type="Label" parent="."]
 offset_left = 21.0
@@ -375,9 +377,9 @@ vertical_icon_alignment = 2
 [node name="Tentar novamente" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 282.0
-offset_top = 403.0
+offset_top = 398.0
 offset_right = 466.0
-offset_bottom = 521.0
+offset_bottom = 516.0
 scale = Vector2(2.06076, 2.06076)
 theme = ExtResource("3_1vycr")
 text = "Tentar novamente"

@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	
 	#Se quiser que apenas os spawners próximos ao player invoquem monstros:
-	#if position.distance_to(GameManager.player_position) > 100:return
+	if position.distance_to(GameManager.player_position) > 1500:return
 	#Cooldown entre invocação de monstros:
 	cooldown -= delta
 	if cooldown>0:return
