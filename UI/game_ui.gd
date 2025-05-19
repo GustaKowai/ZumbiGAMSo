@@ -17,39 +17,22 @@ var texture_item:Texture2D = null
 func _ready():
 	weapon_bar.texture_under = null
 	weapon_bar.texture_over = null
+	vinheta.modulate.a = 0
 	GameManager.weapon_collected.connect(change_weapon_equiped)
 	GameManager.item_collected.connect(change_item_equiped)
 	GameManager.coin_collected.connect(update_coin_count)
+	GameManager.player_damaged.connect(update_damaged_UI)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if GameManager.is_game_over: return
 	update_infection_bar()
 	update_stamina_bar()
+	update_weapon_cd()
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	ammo_label.text = str(GameManager.ammo)
-	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
-		if GameManager.player.weapon_cooldown >=0:
-			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
-			#print(weapon_bar.value)
-	if GameManager.ammo == 0 and texture_weapon:
-		texture_weapon = null
-		weapon_bar.texture_under = null
-		weapon_bar.texture_over = null
-		
-	#Mudanças da UI de acordo com o HP do jogador:
-	var player_proporcional_health = GameManager.player.player_health*1.0/GameManager.player.max_health*1.0
-	if player_proporcional_health > 0.5:
-		vinheta.modulate.a = 0
-	else:
-		vinheta.modulate.a = 1.5-player_proporcional_health*3
-	if player_proporcional_health> 0.7:
-		heart.speed_scale = 1.0
-	elif player_proporcional_health < 0.7 and player_proporcional_health >0.3:
-		heart.speed_scale = 2.0
-	elif player_proporcional_health < 0.3:
-		heart.speed_scale = 3.0
+	
 
 func change_weapon_equiped(weapon_sprite_path):
 	texture_weapon = load(weapon_sprite_path)
@@ -82,3 +65,28 @@ func update_stamina_bar():
 			
 func update_coin_count():
 	coin_label.text = str(GameManager.coin_count)
+
+func update_weapon_cd():
+	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
+		if GameManager.player.weapon_cooldown >=0:
+			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
+			#print(weapon_bar.value)
+	if GameManager.ammo == 0 and texture_weapon:
+		texture_weapon = null
+		weapon_bar.texture_under = null
+		weapon_bar.texture_over = null
+		
+#Mudanças da UI de acordo com o HP do jogador:		
+func update_damaged_UI():
+	print("Update!")
+	var player_proporcional_health = GameManager.player.player_health*1.0/GameManager.player.max_health*1.0
+	if player_proporcional_health > 0.5:
+		vinheta.modulate.a = 0
+	else:
+		vinheta.modulate.a = 1.5-player_proporcional_health*3
+	if player_proporcional_health> 0.7:
+		heart.speed_scale = 1.0
+	elif player_proporcional_health < 0.7 and player_proporcional_health >0.3:
+		heart.speed_scale = 2.0
+	elif player_proporcional_health < 0.3:
+		heart.speed_scale = 3.0

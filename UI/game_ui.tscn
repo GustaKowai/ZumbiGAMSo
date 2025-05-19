@@ -260,7 +260,6 @@ autoplay = "default"
 frame_progress = 0.0940785
 
 [node name="Vinheta" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(722.855, 402.731)
 scale = Vector2(3.00199, 3.00199)
 texture = ExtResource("15_fifbr")
