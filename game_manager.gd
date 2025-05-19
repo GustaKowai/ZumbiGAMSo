@@ -5,7 +5,6 @@ signal game_over
 signal weapon_collected()
 signal item_collected()
 signal player_damaged()
-
 #Gerenciamento da run:
 var player:Jogador
 var player_position: Vector2
@@ -23,7 +22,7 @@ var time_elapsed_string: String
 var ammo_count:int = 0
 var kills_count:int = 0
 var is_game_over:bool = false
-
+var coin_count = 0
 
 
 

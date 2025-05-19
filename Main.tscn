@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=41 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="11_3kp4t"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="13_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="14_c2ibq"]
+[ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="15_j4qnp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -549,3 +550,6 @@ scale = Vector2(0.0213023, 0.0284821)
 
 [node name="machinegun" parent="." instance=ExtResource("14_c2ibq")]
 position = Vector2(916, 182)
+
+[node name="Coin" parent="." instance=ExtResource("15_j4qnp")]
+position = Vector2(498, 520)

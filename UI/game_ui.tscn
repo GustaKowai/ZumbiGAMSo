@@ -195,6 +195,14 @@ offset_right = 1271.95
 offset_bottom = 712.0
 text = "ammo:"
 
+[node name="coin_label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 743.0
+offset_top = 43.0
+offset_right = 783.0
+offset_bottom = 66.0
+text = "0"
+
 [node name="infection_bar" type="TextureProgressBar" parent="."]
 offset_left = 1313.0
 offset_top = 120.0

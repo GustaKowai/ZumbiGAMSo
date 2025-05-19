@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var damage_bar = $player_life_and_stamina/DamageBar
 @onready var heart = $player_life_and_stamina/Beating_heart
 @onready var vinheta = $Vinheta
+@onready var coin_label = %coin_label
 var texture_weapon:Texture2D = null
 var texture_item:Texture2D = null
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +28,7 @@ func _process(delta):
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	ammo_label.text = str(GameManager.ammo)
+	coin_label.text = str(GameManager.coin_count)
 	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
 		if GameManager.player.weapon_cooldown >=0:
 			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
