@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=35 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
+[ext_resource type="Texture2D" uid="uid://c4lae5v81ol08" path="res://UI/UI_images/UI_Pontuacao.png" id="2_7suct"]
 [ext_resource type="Texture2D" uid="uid://dg8tyfp4aea84" path="res://UI/UI_images/Empty_Infection_bar.png" id="2_h0rig"]
 [ext_resource type="Texture2D" uid="uid://bht7x0ddgjfno" path="res://UI/UI_images/Filled_Infection_Bar.png" id="3_2oifk"]
 [ext_resource type="Texture2D" uid="uid://50j2gplyhw8g" path="res://UI/UI_images/Consumivel_.png" id="4_fy64h"]
@@ -147,16 +148,22 @@ animations = [{
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_p54ko")
 
+[node name="UiPontuacao" type="Sprite2D" parent="."]
+position = Vector2(738, 53)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_7suct")
+
 [node name="timer_label" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 685.0
-offset_top = 12.0
-offset_right = 726.0
-offset_bottom = 61.0
+offset_left = 717.0
+offset_top = 61.0
+offset_right = 758.0
+offset_bottom = 110.0
 text = "00:00
 "
 
 [node name="timer_label_text" type="Label" parent="."]
+visible = false
 offset_left = 530.0
 offset_top = 12.0
 offset_right = 683.0
@@ -166,14 +173,16 @@ text = "Tempo Sobrevivido:"
 
 [node name="kills_label" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 804.0
-offset_top = 12.0
-offset_right = 844.0
-offset_bottom = 35.0
+offset_left = 840.0
+offset_top = 30.0
+offset_right = 880.0
+offset_bottom = 53.0
 text = "0"
+horizontal_alignment = 2
 text_direction = 1
 
 [node name="kills_label_text" type="Label" parent="."]
+visible = false
 offset_left = 768.0
 offset_top = 11.0
 offset_right = 808.0
@@ -197,10 +206,10 @@ text = "ammo:"
 
 [node name="coin_label" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 743.0
-offset_top = 43.0
-offset_right = 783.0
-offset_bottom = 66.0
+offset_left = 604.0
+offset_top = 29.0
+offset_right = 644.0
+offset_bottom = 52.0
 text = "0"
 
 [node name="infection_bar" type="TextureProgressBar" parent="."]
@@ -244,13 +253,14 @@ stretch_margin_bottom = 8
 texture_under = ExtResource("6_ywmy4")
 tint_progress = Color(1, 0, 0, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(747, 23)
+[node name="Caveira" type="AnimatedSprite2D" parent="."]
+position = Vector2(738, 45)
 sprite_frames = SubResource("SpriteFrames_wjxh5")
 autoplay = "default"
 frame_progress = 0.0940785
 
 [node name="Vinheta" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(722.855, 402.731)
 scale = Vector2(3.00199, 3.00199)
 texture = ExtResource("15_fifbr")
