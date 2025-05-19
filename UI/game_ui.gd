@@ -19,6 +19,7 @@ func _ready():
 	weapon_bar.texture_over = null
 	GameManager.weapon_collected.connect(change_weapon_equiped)
 	GameManager.item_collected.connect(change_item_equiped)
+	GameManager.coin_collected.connect(update_coin_count)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,7 +29,6 @@ func _process(delta):
 	timer_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	ammo_label.text = str(GameManager.ammo)
-	coin_label.text = str(GameManager.coin_count)
 	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
 		if GameManager.player.weapon_cooldown >=0:
 			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
@@ -79,3 +79,6 @@ func update_stamina_bar():
 			stamina_bar.tint_progress = Color(0.5,0.5,0.5,1)
 		else:
 			stamina_bar.tint_progress = Color(1,1,1,1)
+			
+func update_coin_count():
+	coin_label.text = str(GameManager.coin_count)

@@ -21,7 +21,6 @@ func _ready() -> void:
 	GameManager.weapon_collected.connect(on_weapon_collected)
 	#Envia para o GameManager a munição inicial da arma:
 	GameManager.ammo = ammo
-	print(player)
 
 func on_weapon_collected(string): #Essa função serve para largar a arma
 	#print("larguei a arma")
@@ -91,7 +90,6 @@ func fire_bullet():
 	get_parent().get_parent().add_child(bullet)#Instancia a bala
 	ammo -= 1
 	GameManager.ammo = ammo
-	print(ammo)
 	if ammo == 0:
 		firing = false
 		queue_free() #Solta a arma se ficar sem munição

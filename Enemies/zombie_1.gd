@@ -24,7 +24,6 @@ var facing_position:String
 
 func damage(amount: int):
 	enemy_health -=amount
-	print("Inimigo recebeu dano de ",amount,"A vida total é de ",enemy_health)
 	#piscar o inimigo:
 	modulate = Color.ORANGE
 	var tween = create_tween()
@@ -44,7 +43,6 @@ func damage(amount: int):
 	
 	if enemy_health <=0 and not died: #IMPORTANTE para o inimigo morrer uma vez só (Sério, isso é relevante.)
 		died = true
-		print("Morri")
 		die()
 
 func die():
