@@ -149,6 +149,7 @@ _data = {
 
 [node name="machinegun_weapon" type="Node2D"]
 script = ExtResource("1_nypq0")
+ammo = 50
 bullet_spreed = 0.15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

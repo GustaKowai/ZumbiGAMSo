@@ -1,37 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgmyndkhrklhs"]
+[gd_scene load_steps=10 format=3 uid="uid://dgmyndkhrklhs"]
 
 [ext_resource type="Script" uid="uid://cfal2bu5fphpj" path="res://UI/GameOverUi.gd" id="1_sxy2j"]
+[ext_resource type="Texture2D" uid="uid://bk5qrjmy3p0v3" path="res://UI/UI_images/Game_Over_Screen.png" id="2_44ht4"]
+[ext_resource type="Theme" uid="uid://da2n3vhmrnn76" path="res://UI/back_theme.tres" id="3_1vycr"]
+[ext_resource type="Texture2D" uid="uid://pcaep2vf6gkc" path="res://UI/UI_images/Necro_UI_Game-over.png" id="4_et66s"]
+[ext_resource type="Texture2D" uid="uid://bmuejdevk6rif" path="res://UI/UI_images/Kill_Kount.png" id="5_kdw6c"]
+[ext_resource type="Texture2D" uid="uid://cb6xgphfp0bs6" path="res://UI/UI_images/Tempo_UI.png" id="6_mje36"]
 
 [sub_resource type="Animation" id="Animation_eqkvq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("GameOver:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.0862745)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameOver:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimeLabel_Text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TimeLabel_Text:modulate")
+tracks/2/path = NodePath("TimeLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -43,7 +48,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TimeLabel:modulate")
+tracks/3/path = NodePath("KillsLabel_Text:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -55,7 +60,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("KillsLabel_Text:modulate")
+tracks/4/path = NodePath("KillsLabel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -67,38 +72,99 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("KillsLabel:modulate")
+tracks/5/path = NodePath("TextureRect:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Tentar novamente:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("menu:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KillKount:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TempoUi:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TextoMorte:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mmop1"]
 resource_name = "default"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("GameOver:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.694118)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GameOver:modulate")
+tracks/1/path = NodePath("TimeLabel_Text:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0.9, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -106,11 +172,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TimeLabel_Text:modulate")
+tracks/2/path = NodePath("TimeLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.4, 0.9),
+"times": PackedFloat32Array(0.95, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -118,11 +184,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TimeLabel:modulate")
+tracks/3/path = NodePath("KillsLabel_Text:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 0.9),
+"times": PackedFloat32Array(0.9, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -130,11 +196,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("KillsLabel_Text:modulate")
+tracks/4/path = NodePath("KillsLabel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.6, 0.9),
+"times": PackedFloat32Array(0.95, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -142,11 +208,71 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("KillsLabel:modulate")
+tracks/5/path = NodePath("TextureRect:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.7, 0.9),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Tentar novamente:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("menu:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KillKount:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.8, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TempoUi:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.8, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TextoMorte:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.3, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -161,56 +287,56 @@ _data = {
 [node name="GameOverUI" type="CanvasLayer"]
 script = ExtResource("1_sxy2j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 51.0
-offset_bottom = 51.0
-scale = Vector2(28.72, 16.12)
-color = Color(0, 0, 0, 0.0862745)
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1445.0
+offset_bottom = 813.0
+texture = ExtResource("2_44ht4")
 
 [node name="GameOver" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 497.0
-offset_top = 258.0
+offset_top = 178.0
 offset_right = 589.0
-offset_bottom = 281.0
+offset_bottom = 201.0
 scale = Vector2(5.03075, 5.08342)
 size_flags_horizontal = 4
 text = "GAME OVER"
 
 [node name="TimeLabel_Text" type="Label" parent="."]
-offset_left = 659.0
-offset_top = 389.0
-offset_right = 807.0
-offset_bottom = 412.0
+offset_left = 21.0
+offset_top = 271.0
+offset_right = 169.0
+offset_bottom = 294.0
 size_flags_horizontal = 4
 text = "Tempo Sobrevivido"
 horizontal_alignment = 1
 
 [node name="TimeLabel" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 712.0
-offset_top = 413.0
-offset_right = 753.0
-offset_bottom = 462.0
+offset_left = 74.0
+offset_top = 295.0
+offset_right = 115.0
+offset_bottom = 344.0
 size_flags_horizontal = 4
 text = "00:00
 "
 
 [node name="KillsLabel_Text" type="Label" parent="."]
-offset_left = 666.0
-offset_top = 440.0
-offset_right = 787.0
-offset_bottom = 463.0
+offset_left = 1317.0
+offset_top = 251.0
+offset_right = 1438.0
+offset_bottom = 274.0
 size_flags_horizontal = 4
 text = "Zumbis Mortos:"
 horizontal_alignment = 1
 
 [node name="KillsLabel" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 708.0
-offset_top = 466.0
-offset_right = 748.0
-offset_bottom = 489.0
+offset_left = 1359.0
+offset_top = 277.0
+offset_right = 1399.0
+offset_bottom = 300.0
 size_flags_horizontal = 4
 text = "0"
 horizontal_alignment = 1
@@ -223,28 +349,50 @@ autoplay = "default"
 
 [node name="TextoMorte" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 489.0
-offset_top = 498.0
-offset_right = 966.0
-offset_bottom = 521.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 491.0
+offset_top = 279.0
+offset_right = 968.0
+offset_bottom = 302.0
 size_flags_horizontal = 4
 text = "blah blah blah"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="menu" type="Button" parent="."]
-offset_left = 638.0
-offset_top = 541.0
-offset_right = 829.0
-offset_bottom = 572.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 827.0
+offset_top = 424.0
+offset_right = 981.0
+offset_bottom = 542.0
+scale = Vector2(1.85851, 1.85851)
+theme = ExtResource("3_1vycr")
 text = "Voltar para a tela inicial"
+icon = ExtResource("4_et66s")
+icon_alignment = 1
+vertical_icon_alignment = 2
 
 [node name="Tentar novamente" type="Button" parent="."]
-offset_left = 659.0
-offset_top = 581.0
-offset_right = 811.0
-offset_bottom = 612.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 282.0
+offset_top = 403.0
+offset_right = 466.0
+offset_bottom = 521.0
+scale = Vector2(2.06076, 2.06076)
+theme = ExtResource("3_1vycr")
 text = "Tentar novamente"
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="KillKount" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1379, 206)
+texture = ExtResource("5_kdw6c")
+
+[node name="TempoUi" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(96, 232)
+texture = ExtResource("6_mje36")
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Tentar novamente" to="." method="_on_tentar_novamente_pressed"]
