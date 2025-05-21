@@ -43,6 +43,8 @@ func reset():
 	ammo_count = 0
 	kills_count = 0
 	infection_level = 0
+	coin_count = 0
+	#Se não fizer isso ele mantém entre as runs;
 	
 	
 func _process(delta):

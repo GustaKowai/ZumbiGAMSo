@@ -17,6 +17,7 @@ var texture_item:Texture2D = null
 func _ready():
 	weapon_bar.texture_under = null
 	weapon_bar.texture_over = null
+	item_sprite.texture = null
 	vinheta.modulate.a = 0
 	GameManager.weapon_collected.connect(change_weapon_equiped)
 	GameManager.item_collected.connect(change_item_equiped)

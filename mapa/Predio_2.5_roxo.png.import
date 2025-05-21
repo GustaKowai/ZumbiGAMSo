@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt8g133t6xsq5"
-path="res://.godot/imported/tileset_teste_resize.png-373e9af71803ee2c5be9f35fbc0df683.ctex"
+uid="uid://b5ehk2pbo55jo"
+path="res://.godot/imported/Predio_2.5_roxo.png-e93f1341e2e95609b886dbbe485cde0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset_teste_resize.png"
-dest_files=["res://.godot/imported/tileset_teste_resize.png-373e9af71803ee2c5be9f35fbc0df683.ctex"]
+source_file="res://mapa/Predio_2.5_roxo.png"
+dest_files=["res://.godot/imported/Predio_2.5_roxo.png-e93f1341e2e95609b886dbbe485cde0a.ctex"]
 
 [params]
 
