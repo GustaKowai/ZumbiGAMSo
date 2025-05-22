@@ -300,9 +300,10 @@ offset_top = -0.135498
 offset_right = 461.925
 offset_bottom = 65.8645
 step = 0.005
+value = 70.0
 texture_under = ExtResource("11_orm7x")
 texture_progress = ExtResource("12_q0y33")
-tint_progress = Color(0.450648, 0.450648, 0.450648, 1)
+tint_progress = Color(0.619608, 0.619608, 0.619608, 0.835294)
 
 [node name="Timer" type="Timer" parent="player_life_and_stamina/HealthBar"]
 one_shot = true

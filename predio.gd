@@ -12,4 +12,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Jogador"):
-		modulate.a = 1.0
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_QUINT)
+		tween.tween_property(self,"modulate",Color.WHITE,2.0)
+		#modulate.a = 1.0

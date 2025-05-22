@@ -30,7 +30,7 @@ var stamina_value = 0.0
 @export var max_health = 20
 @export var sword_damage:int = 20
 @export var ammo:int = 0
-var player_health = max_health
+var player_health:int
 @export var death_prefab:PackedScene
 
 var input_vector = Vector2(0,0)
@@ -47,6 +47,7 @@ func _ready():
 	#Passa o player para o GameManager
 	GameManager.player = self
 	stamina_bar.value = 0
+	player_health = max_health
 func _process(delta):
 	#Passa a informação da posição do player para o Game Manager
 	GameManager.player_position = position
