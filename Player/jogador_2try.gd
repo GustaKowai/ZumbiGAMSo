@@ -63,6 +63,10 @@ func _process(delta):
 	update_weapon_cd(delta)
 	#Recarrega a stamina
 	recharg_stamina(delta)
+	
+
+
+func _input(event: InputEvent) -> void:
 	#Executa o ataque:
 	if Input.is_action_just_pressed("attack"):
 		attack()

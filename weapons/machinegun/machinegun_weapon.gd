@@ -27,15 +27,16 @@ func on_weapon_collected(string): #Essa função serve para largar a arma
 	queue_free()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("FireGun"):
+		fireGun()
+		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
 		interval += 1
-		if interval>=5:
+		if interval>=5.0:
 			interval = 0
 			player.weapon_cooldown = weapon_cooldown
 			player.is_shooting = true
 			fire_bullet()
-	if Input.is_action_just_pressed("FireGun"):
-		fireGun()
 		
 	if Input.is_action_just_released("FireGun"):
 		firing = false

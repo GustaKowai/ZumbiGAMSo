@@ -10,7 +10,7 @@ func on_item_collected(string): #Essa função serve para largar a arma
 	print("larguei item")
 	queue_free()
 
-func _process(delta: float) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_item"):
 		var item = item_loaded.instantiate()
 		item.position = get_parent().position

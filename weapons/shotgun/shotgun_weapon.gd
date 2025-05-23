@@ -25,7 +25,7 @@ func on_weapon_collected(string): #Essa função serve para largar a arma
 	print("larguei a arma")
 	queue_free()
 
-func _process(delta: float) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("FireGun"): #Agora a checagem se o player tentou atirar acontece aqui
 		fireGun()
 
