@@ -22,5 +22,5 @@ func _on_bullet_hit_box_area_entered(area):
 		enemy.damage(bullet_damage)
 		queue_free()
 	if area.is_in_group("construcao"):
-		print("Acertei um predio")
+		#print("Acertei um predio")
 		queue_free()

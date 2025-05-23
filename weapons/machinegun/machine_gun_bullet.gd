@@ -21,4 +21,6 @@ func _on_machinegun_bullet_hit_box_area_entered(area: Area2D) -> void:
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
 		queue_free()
-	
+	if area.is_in_group("construcao"):
+		print("Acertei um predio")
+		queue_free()
