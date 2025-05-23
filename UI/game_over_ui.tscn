@@ -376,10 +376,10 @@ vertical_icon_alignment = 2
 
 [node name="Tentar novamente" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 282.0
-offset_top = 398.0
-offset_right = 466.0
-offset_bottom = 516.0
+offset_left = 336.0
+offset_top = 431.0
+offset_right = 477.0
+offset_bottom = 530.0
 scale = Vector2(2.06076, 2.06076)
 theme = ExtResource("3_1vycr")
 text = "Tentar novamente"

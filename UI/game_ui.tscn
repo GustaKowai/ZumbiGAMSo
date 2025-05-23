@@ -248,8 +248,6 @@ offset_right = 99.0
 offset_bottom = 59.0
 fill_mode = 3
 nine_patch_stretch = true
-stretch_margin_top = 7
-stretch_margin_bottom = 8
 texture_under = ExtResource("6_ywmy4")
 tint_progress = Color(1, 0, 0, 1)
 

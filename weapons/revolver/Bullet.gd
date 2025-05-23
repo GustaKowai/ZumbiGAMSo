@@ -13,6 +13,8 @@ func _ready():
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
 	move_and_slide()
+	if position.distance_to(GameManager.player.position) > 1000:
+		queue_free()
 
 func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox"):

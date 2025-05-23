@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbrug38wa8paa"]
 
-[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="1_o5pqp"]
+[ext_resource type="Texture2D" uid="uid://c3dsc83r53vd4" path="res://weapons/revolver/revolver_icon_2.png" id="1_hfse1"]
 [ext_resource type="Script" uid="uid://b5gt25dx2kx8n" path="res://weapons/revolver/revolver.gd" id="2_2vrku"]
 [ext_resource type="PackedScene" uid="uid://dcq3772f07hv6" path="res://weapons/revolver/revolver_weapon.tscn" id="3_uw68t"]
 
@@ -8,9 +8,7 @@
 radius = 33.3766
 
 [node name="revolver" type="Sprite2D"]
-texture = ExtResource("1_o5pqp")
-hframes = 5
-vframes = 5
+texture = ExtResource("1_hfse1")
 script = ExtResource("2_2vrku")
 weapon = ExtResource("3_uw68t")
 
