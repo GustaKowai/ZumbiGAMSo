@@ -230,10 +230,10 @@ texture = ExtResource("2_6crfk")
 physics_layer_0/collision_layer = 9
 physics_layer_0/collision_mask = 9
 terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terreno  0"
+terrain_set_0/terrain_0/name = "Terreno  verde"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_1/mode = 0
-terrain_set_1/terrain_0/name = "terreno 1"
+terrain_set_1/terrain_0/name = "terreno vermelho"
 terrain_set_1/terrain_0/color = Color(0.383184, 0.00100863, 0.986366, 1)
 navigation_layer_0/layers = 1
 custom_data_layer_0/name = "green"
@@ -248,7 +248,7 @@ tile_map_data = PackedByteArray("AAD5//v/AAABAAEAAAD6//v/AAABAAEAAAD7//v/AAACAAE
 tile_set = SubResource("TileSet_dpc2y")
 
 [node name="Timer" type="Timer" parent="TileMapLayer"]
-autostart = true
+wait_time = 0.1
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_x7cvp")]
 position = Vector2(102, 82)

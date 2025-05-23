@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var tilemap:TileMapLayer = $TileMapLayer
 @onready var timer:Timer = $TileMapLayer/Timer
+var red_tile = []
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack"):
 		var local_position = tilemap.local_to_map(GameManager.player.position)
@@ -9,6 +10,8 @@ func _input(event: InputEvent) -> void:
 		if tile_data:
 			var is_green = tile_data.get_custom_data("green")
 			if is_green:
+				red_tile.append(local_position)
+				tilemap.set_cells_terrain_connect(red_tile,1,0) #Para fazer com terrenos.
 				#tilemap.set_cell(local_position + Vector2i(1,0),0,Vector2i(0,3))
 				#tilemap.set_cell(local_position + Vector2i(-1,0),0,Vector2i(0,3))
 				#tilemap.set_cell(local_position + Vector2i(-1,-1),0,Vector2i(0,3))
@@ -17,7 +20,7 @@ func _input(event: InputEvent) -> void:
 				#tilemap.set_cell(local_position + Vector2i(1,-1),0,Vector2i(0,3))
 				#tilemap.set_cell(local_position + Vector2i(0,-1),0,Vector2i(0,3))
 				#tilemap.set_cell(local_position + Vector2i(0,1),0,Vector2i(0,3))
-				tilemap.set_cell(local_position,0,Vector2i(0,3))
+				#tilemap.set_cell(local_position,0,Vector2i(0,3))
 				#TOMAR CUIDADO COM ISSO, PODE PRENDER O JOGADOR
 func _on_timer_timeout() -> void:
 	if GameManager.player.position:
