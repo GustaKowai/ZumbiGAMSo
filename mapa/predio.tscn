@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://barmdir8211mm"]
+[gd_scene load_steps=6 format=3 uid="uid://barmdir8211mm"]
 
 [ext_resource type="Texture2D" uid="uid://b5ehk2pbo55jo" path="res://mapa/Predio_2.5_roxo.png" id="1_qtqg7"]
 [ext_resource type="Script" uid="uid://dd5ap0dvhyncg" path="res://predio.gd" id="2_10046"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqsyf"]
 size = Vector2(369, 336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtqg7"]
+size = Vector2(348, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10046"]
+size = Vector2(365, 125)
 
 [node name="Predio" type="Node2D"]
 y_sort_enabled = true
@@ -23,6 +29,23 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, -48)
 shape = SubResource("RectangleShape2D_gqsyf")
+
+[node name="Collision_area" type="StaticBody2D" parent="."]
+collision_layer = 11
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_area"]
+position = Vector2(-1, -68)
+shape = SubResource("RectangleShape2D_qtqg7")
+
+[node name="Area2D2" type="Area2D" parent="." groups=["construcao"]]
+position = Vector2(-154, -9)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(153, -56)
+shape = SubResource("RectangleShape2D_10046")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -76,6 +76,6 @@ func fire_bullet():
 	get_parent().get_parent().add_child(bullet)#Instancia a bala
 	ammo -= 1
 	GameManager.ammo = ammo
-	print(ammo)
+	#print(ammo)
 	if ammo == 0:
 		queue_free() #Solta a arma se ficar sem munição

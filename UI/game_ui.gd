@@ -39,14 +39,12 @@ func change_weapon_equiped(weapon_sprite_path):
 	texture_weapon = load(weapon_sprite_path)
 	weapon_bar.texture_under = texture_weapon
 	weapon_bar.texture_progress = texture_weapon
-	print(weapon_sprite_path)
 	print("troquei")
 
 func change_item_equiped(item_sprite_path):
 	if item_sprite_path:
 		texture_item = load(item_sprite_path)
 		item_sprite.texture = texture_item
-		print(item_sprite_path)
 	else:item_sprite.texture = null
 		
 func update_infection_bar():
@@ -79,7 +77,6 @@ func update_weapon_cd():
 		
 #Mudanças da UI de acordo com o HP do jogador:		
 func update_damaged_UI():
-	print("Update!")
 	var player_proporcional_health = GameManager.player.player_health*1.0/GameManager.player.max_health*1.0
 	if player_proporcional_health > 0.5:
 		vinheta.modulate.a = 0

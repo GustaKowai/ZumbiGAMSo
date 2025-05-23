@@ -206,7 +206,7 @@ func damage(amount:int):
 		return
 	player_health -=amount
 	GameManager.player_damaged.emit()
-	print("Player recebeu dano de ",amount,". A vida atual é de ",player_health,"/")
+	#print("Player recebeu dano de ",amount,". A vida atual é de ",player_health,"/")
 	#piscar o player:
 	modulate = Color.ORANGE
 	var tween = create_tween()

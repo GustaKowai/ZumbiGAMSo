@@ -37,7 +37,7 @@ func deal_damage_to_player():
 			var player: Jogador = area.get_parent()
 			var player_direction = (player.position - enemy.position).normalized()
 			var dot_product = player_direction.dot(atk_direction)
-			print(dot_product)
+			#print(dot_product)
 			if dot_product > 0.3:#Verifica se o Player está na frente do zumbi
 				player.damage(dano_zombie)
 
@@ -52,7 +52,6 @@ func attack():
 	if enemy.is_attacking:
 		return
 	#Define como atacando:
-	print("Ataquei")
 	enemy.is_attacking = true
 	attack_cooldown = 0.6
 	#Define a animação que será usada para atacar

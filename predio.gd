@@ -8,7 +8,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Jogador"):
 		modulate.a = 0.2
-		print(position.y, body.position.y)
+		#print(position.y, body.position.y)
 		
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Jogador"):

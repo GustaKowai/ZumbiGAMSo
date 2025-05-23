@@ -13,9 +13,14 @@ func _ready():
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
 	move_and_slide()
+	if position.distance_squared_to(GameManager.player.position) > 1000000:
+		queue_free()
 
 func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox"):
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
 		#queue_free()
+	if area.is_in_group("construcao"):
+		#print("Acertei um predio")
+		queue_free()

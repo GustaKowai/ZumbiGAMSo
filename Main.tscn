@@ -748,4 +748,7 @@ position = Vector2(3018, 816)
 [node name="Predio9" parent="." instance=ExtResource("16_fpfj3")]
 position = Vector2(3380, 816)
 
+[node name="Predio10" parent="." instance=ExtResource("16_fpfj3")]
+position = Vector2(676, 1119)
+
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]

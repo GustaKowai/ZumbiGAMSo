@@ -7,7 +7,6 @@ func _ready() -> void:
 	GameManager.item_collected.connect(on_item_collected)
 
 func on_item_collected(string): #Essa função serve para largar a arma
-	print("larguei item")
 	queue_free()
 
 func _input(event: InputEvent) -> void:
@@ -16,5 +15,4 @@ func _input(event: InputEvent) -> void:
 		item.position = get_parent().position
 		get_parent().get_parent().add_child(item)
 		GameManager.item_collected.emit(null)
-		print("tentei usar o item")
 		queue_free()
