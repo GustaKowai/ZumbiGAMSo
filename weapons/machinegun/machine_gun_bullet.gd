@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
 	move_and_slide()
-	if position.distance_to(GameManager.player.position) > 1000:
+	if position.distance_squared_to(GameManager.player.position) > 1000000:
 		queue_free()
 
 func _on_machinegun_bullet_hit_box_area_entered(area: Area2D) -> void:
