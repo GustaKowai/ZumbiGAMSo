@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkunstsyx6fe7"]
 
-[ext_resource type="Script" uid="uid://cegla2c4u7fb" path="res://weapons/bullet_magnum.gd" id="1_j0nuc"]
+[ext_resource type="Script" uid="uid://cegla2c4u7fb" path="res://weapons/magnum/bullet_magnum.gd" id="1_j0nuc"]
 [ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_ub3ch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1oog"]

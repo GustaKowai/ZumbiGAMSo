@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=36 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://c4lae5v81ol08" path="res://UI/UI_images/UI_Pontuacao.png" id="2_7suct"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b4pux6e8ardkk" path="res://UI/UI_images/Beating_heart.png" id="14_fifbr"]
 [ext_resource type="Script" uid="uid://cwxspxr588b6i" path="res://UI/health_bar.gd" id="15_7suct"]
 [ext_resource type="Texture2D" uid="uid://w811lyvja4nh" path="res://UI/UI_images/VInheta.png" id="15_fifbr"]
+[ext_resource type="Script" uid="uid://c1hdkad6ebfjd" path="res://UI/hints.gd" id="17_vy42p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywmy4"]
 atlas = ExtResource("7_v6n52")
@@ -148,12 +149,18 @@ animations = [{
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_p54ko")
 
-[node name="UiPontuacao" type="Sprite2D" parent="."]
+[node name="Ui_top" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UiPontuacao" type="Sprite2D" parent="Ui_top"]
 position = Vector2(738, 53)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_7suct")
 
-[node name="timer_label" type="Label" parent="."]
+[node name="timer_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
 offset_left = 717.0
 offset_top = 61.0
@@ -162,7 +169,7 @@ offset_bottom = 110.0
 text = "00:00
 "
 
-[node name="timer_label_text" type="Label" parent="."]
+[node name="timer_label_text" type="Label" parent="Ui_top"]
 visible = false
 offset_left = 530.0
 offset_top = 12.0
@@ -171,7 +178,7 @@ offset_bottom = 35.0
 size_flags_vertical = 0
 text = "Tempo Sobrevivido:"
 
-[node name="kills_label" type="Label" parent="."]
+[node name="kills_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
 offset_left = 840.0
 offset_top = 30.0
@@ -181,7 +188,7 @@ text = "0"
 horizontal_alignment = 2
 text_direction = 1
 
-[node name="kills_label_text" type="Label" parent="."]
+[node name="kills_label_text" type="Label" parent="Ui_top"]
 visible = false
 offset_left = 768.0
 offset_top = 11.0
@@ -189,7 +196,7 @@ offset_right = 808.0
 offset_bottom = 34.0
 text = "kills:"
 
-[node name="ammo_label" type="Label" parent="."]
+[node name="ammo_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
 offset_left = 1272.95
 offset_top = 691.0
@@ -197,20 +204,26 @@ offset_right = 1312.95
 offset_bottom = 714.0
 text = "0"
 
-[node name="ammo_label_text" type="Label" parent="."]
+[node name="ammo_label_text" type="Label" parent="Ui_top"]
 offset_left = 1216.95
 offset_top = 689.0
 offset_right = 1271.95
 offset_bottom = 712.0
 text = "ammo:"
 
-[node name="coin_label" type="Label" parent="."]
+[node name="coin_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
 offset_left = 604.0
 offset_top = 29.0
 offset_right = 644.0
 offset_bottom = 52.0
 text = "0"
+
+[node name="Caveira" type="AnimatedSprite2D" parent="Ui_top"]
+position = Vector2(738, 45)
+sprite_frames = SubResource("SpriteFrames_wjxh5")
+autoplay = "default"
+frame_progress = 0.0940785
 
 [node name="infection_bar" type="TextureProgressBar" parent="."]
 offset_left = 1313.0
@@ -251,13 +264,8 @@ nine_patch_stretch = true
 texture_under = ExtResource("6_ywmy4")
 tint_progress = Color(1, 0, 0, 1)
 
-[node name="Caveira" type="AnimatedSprite2D" parent="."]
-position = Vector2(738, 45)
-sprite_frames = SubResource("SpriteFrames_wjxh5")
-autoplay = "default"
-frame_progress = 0.0940785
-
 [node name="Vinheta" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(722.855, 402.731)
 scale = Vector2(3.00199, 3.00199)
 texture = ExtResource("15_fifbr")
@@ -312,5 +320,15 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_dcwxn")
 autoplay = "default"
 frame_progress = 0.777676
+
+[node name="Hints" type="ItemList" parent="."]
+offset_left = 1.0
+offset_top = 85.0
+offset_right = 235.0
+offset_bottom = 268.0
+allow_search = false
+auto_width = true
+auto_height = true
+script = ExtResource("17_vy42p")
 
 [connection signal="timeout" from="player_life_and_stamina/HealthBar/Timer" to="player_life_and_stamina/HealthBar" method="_on_timer_timeout"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvvcenqpoeitv"]
+
+[ext_resource type="Script" uid="uid://drv5ramiwcbx4" path="res://weapons/duas_fases/primeira_fase_bullet.gd" id="1_cpjut"]
+[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_6v02s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xupun"]
+size = Vector2(3, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwt1m"]
+size = Vector2(17, 8)
+
+[node name="primeira_fase_bullet" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_cpjut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+texture = ExtResource("2_6v02s")
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, 0)
+shape = SubResource("RectangleShape2D_xupun")
+
+[node name="primeira_fase_BulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="primeira_fase_BulletHitBox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_fwt1m")
+
+[connection signal="area_entered" from="primeira_fase_BulletHitBox" to="." method="_on_primeira_fase_bullet_hit_box_area_entered"]

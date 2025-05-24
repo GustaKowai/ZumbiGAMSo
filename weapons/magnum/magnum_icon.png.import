@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r5ls1g7gfjeb"
-path="res://.godot/imported/magnum_icon.png-0b937417cac0e189b919581bdc972292.ctex"
+path="res://.godot/imported/magnum_icon.png-d79326a93bd7767126c4d9aa4b468f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/magnum_icon.png"
-dest_files=["res://.godot/imported/magnum_icon.png-0b937417cac0e189b919581bdc972292.ctex"]
+source_file="res://weapons/magnum/magnum_icon.png"
+dest_files=["res://.godot/imported/magnum_icon.png-d79326a93bd7767126c4d9aa4b468f1a.ctex"]
 
 [params]
 

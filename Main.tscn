@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=47 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predio.tscn" id="16_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://f2yoxogdbj7l" path="res://mapa/Predio_2.5_Vermelho.png" id="17_kjvhd"]
 [ext_resource type="Texture2D" uid="uid://cqk15jfhi8fv6" path="res://mapa/Predio_2.5_Verzul.png" id="18_5tuhn"]
+[ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="19_5tuhn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -750,5 +751,8 @@ position = Vector2(3380, 816)
 
 [node name="Predio10" parent="." instance=ExtResource("16_fpfj3")]
 position = Vector2(676, 1119)
+
+[node name="machinegun2" parent="." instance=ExtResource("19_5tuhn")]
+position = Vector2(342, 435)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]
