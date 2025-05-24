@@ -244,6 +244,7 @@ script = ExtResource("3_ks08r")
 speed = 2.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="FollowPlayer"]
+path_postprocessing = 1
 radius = 50.0
 
 [node name="Timer" type="Timer" parent="FollowPlayer"]

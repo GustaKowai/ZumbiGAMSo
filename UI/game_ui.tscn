@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=35 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://c4lae5v81ol08" path="res://UI/UI_images/UI_Pontuacao.png" id="2_7suct"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://b4pux6e8ardkk" path="res://UI/UI_images/Beating_heart.png" id="14_fifbr"]
 [ext_resource type="Script" uid="uid://cwxspxr588b6i" path="res://UI/health_bar.gd" id="15_7suct"]
 [ext_resource type="Texture2D" uid="uid://w811lyvja4nh" path="res://UI/UI_images/VInheta.png" id="15_fifbr"]
-[ext_resource type="Script" uid="uid://c1hdkad6ebfjd" path="res://UI/hints.gd" id="17_vy42p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywmy4"]
 atlas = ExtResource("7_v6n52")
@@ -265,7 +264,6 @@ texture_under = ExtResource("6_ywmy4")
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="Vinheta" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(722.855, 402.731)
 scale = Vector2(3.00199, 3.00199)
 texture = ExtResource("15_fifbr")
@@ -309,7 +307,7 @@ step = 0.005
 value = 70.0
 texture_under = ExtResource("11_orm7x")
 texture_progress = ExtResource("12_q0y33")
-tint_progress = Color(0.619608, 0.619608, 0.619608, 0.835294)
+tint_progress = Color(1.105, 3.868, 2.763, 0.835)
 
 [node name="Timer" type="Timer" parent="player_life_and_stamina/HealthBar"]
 one_shot = true
@@ -320,15 +318,5 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_dcwxn")
 autoplay = "default"
 frame_progress = 0.777676
-
-[node name="Hints" type="ItemList" parent="."]
-offset_left = 1.0
-offset_top = 85.0
-offset_right = 235.0
-offset_bottom = 268.0
-allow_search = false
-auto_width = true
-auto_height = true
-script = ExtResource("17_vy42p")
 
 [connection signal="timeout" from="player_life_and_stamina/HealthBar/Timer" to="player_life_and_stamina/HealthBar" method="_on_timer_timeout"]
