@@ -1,7 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
-@onready var sprite = $Sprite2D
+@onready var sprite_movimento = $Movimento
+@onready var sprite_ataque = $Ataque
 @onready var animation_player = $AnimationPlayer
 @onready var follow = $FollowPlayer
 

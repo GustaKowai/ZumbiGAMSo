@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://1c761mq7s428"]
 
 [ext_resource type="Script" uid="uid://c45q2bavo6g3q" path="res://Mechanics/mob_spawner.gd" id="1_cvpw2"]
-[ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/zombie_1.tscn" id="2_8pa0e"]
+[ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/Zumbi_normal_1/zombie_1.tscn" id="2_8pa0e"]
 [ext_resource type="Texture2D" uid="uid://3blmsmke7851" path="res://Mechanics/Spawn_Zumbi.png" id="4_vdvtt"]
 
 [sub_resource type="Animation" id="Animation_1yabf"]

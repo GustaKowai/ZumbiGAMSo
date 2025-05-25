@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbkajvj3e17om"
-path="res://.godot/imported/teste_zumbi_sprite.png-be7950d21aeb3c0541cd35779f4a6a81.ctex"
+uid="uid://d2asjxc1rnp4i"
+path="res://.godot/imported/Alma_Comum_UI.png-105d35e4b971b59c4f643694354db925.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/teste_zumbi_sprite.png"
-dest_files=["res://.godot/imported/teste_zumbi_sprite.png-be7950d21aeb3c0541cd35779f4a6a81.ctex"]
+source_file="res://UI/UI_images/Alma_Comum_UI.png"
+dest_files=["res://.godot/imported/Alma_Comum_UI.png-105d35e4b971b59c4f643694354db925.ctex"]
 
 [params]
 

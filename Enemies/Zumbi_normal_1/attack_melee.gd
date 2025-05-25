@@ -9,11 +9,11 @@ var dmg_area:Area2D
 var atk_direction: Vector2
 
 @export var dano_zombie = 1
-var attack_cooldown = 0.6
+var attack_cooldown = 0.9
 
 func _ready():
 	enemy = get_parent()
-	sprite =enemy.get_node("Sprite2D")
+	sprite =enemy.get_node("Movimento")
 	dmg_area = enemy.get_node("DmgArea")
 	animation_player = enemy.get_node("AnimationPlayer")
 
@@ -56,10 +56,11 @@ func attack():
 	attack_cooldown = 0.6
 	#Define a animação que será usada para atacar
 	if enemy.follow.position_running == "side":
-		animation_player.play("Atk")
 		if sprite.flip_h:
+			animation_player.play("Atk_left")
 			atk_direction = Vector2.LEFT
 		if not sprite.flip_h:
+			animation_player.play("Atk_right")
 			atk_direction = Vector2.RIGHT
 	elif enemy.follow.position_running == "down":
 		animation_player.play("Atk down")

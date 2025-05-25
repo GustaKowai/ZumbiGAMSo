@@ -11,7 +11,7 @@ var nav_agent:NavigationAgent2D
 
 func _ready():
 	enemy = get_parent()
-	sprite =enemy.get_node("Sprite2D")
+	sprite =enemy.get_node("Movimento")
 	animation_player = enemy.get_node("AnimationPlayer")
 	nav_agent = get_node("NavigationAgent2D")
 	
@@ -30,7 +30,7 @@ func move():
 	#Determinar qual animação será usada:
 	if abs(var_diff.x) >= abs(var_diff.y):
 		position_running = "side"
-		animation_player.play("default")
+		animation_player.play("Walk Side")
 		#girar sprite:
 		if input_vector.x > 0:
 			sprite.flip_h = false

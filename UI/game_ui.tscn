@@ -1,10 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=41 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://c4lae5v81ol08" path="res://UI/UI_images/UI_Pontuacao.png" id="2_7suct"]
 [ext_resource type="Texture2D" uid="uid://dg8tyfp4aea84" path="res://UI/UI_images/Empty_Infection_bar.png" id="2_h0rig"]
 [ext_resource type="Texture2D" uid="uid://bht7x0ddgjfno" path="res://UI/UI_images/Filled_Infection_Bar.png" id="3_2oifk"]
+[ext_resource type="Texture2D" uid="uid://d2asjxc1rnp4i" path="res://UI/UI_images/Alma_Comum_UI.png" id="3_42f5p"]
 [ext_resource type="Texture2D" uid="uid://50j2gplyhw8g" path="res://UI/UI_images/Consumivel_.png" id="4_fy64h"]
+[ext_resource type="Texture2D" uid="uid://cyfqavr0lf06m" path="res://UI/UI_images/Alma_zumbi_Incomum.png" id="4_wjxh5"]
+[ext_resource type="Texture2D" uid="uid://b2eyfu887i70i" path="res://UI/UI_images/Alma_Zumbi_Raro.png" id="5_abi8r"]
 [ext_resource type="Texture2D" uid="uid://c2sddkj84yls0" path="res://UI/UI_images/Espaco_Arma.png" id="5_v6n52"]
 [ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver/revolver_icon.png" id="6_ywmy4"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="7_v6n52"]
@@ -16,6 +19,44 @@
 [ext_resource type="Texture2D" uid="uid://b4pux6e8ardkk" path="res://UI/UI_images/Beating_heart.png" id="14_fifbr"]
 [ext_resource type="Script" uid="uid://cwxspxr588b6i" path="res://UI/health_bar.gd" id="15_7suct"]
 [ext_resource type="Texture2D" uid="uid://w811lyvja4nh" path="res://UI/UI_images/VInheta.png" id="15_fifbr"]
+
+[sub_resource type="Animation" id="Animation_42f5p"]
+resource_name = "new_animation"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_wjxh5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abi8r"]
+_data = {
+&"RESET": SubResource("Animation_wjxh5"),
+&"new_animation": SubResource("Animation_42f5p")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywmy4"]
 atlas = ExtResource("7_v6n52")
@@ -159,8 +200,30 @@ position = Vector2(738, 53)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_7suct")
 
+[node name="AlmaZumbiComum" type="Sprite2D" parent="Ui_top"]
+position = Vector2(711, 103)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_42f5p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ui_top/AlmaZumbiComum"]
+libraries = {
+&"": SubResource("AnimationLibrary_abi8r")
+}
+autoplay = "new_animation"
+
+[node name="AlmaZumbiIncomum" type="Sprite2D" parent="Ui_top"]
+position = Vector2(763, 96)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_wjxh5")
+
+[node name="AlmaZumbiRaro" type="Sprite2D" parent="Ui_top"]
+position = Vector2(737, 99)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_abi8r")
+
 [node name="timer_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 717.0
 offset_top = 61.0
 offset_right = 758.0
@@ -170,6 +233,7 @@ text = "00:00
 
 [node name="timer_label_text" type="Label" parent="Ui_top"]
 visible = false
+layout_mode = 0
 offset_left = 530.0
 offset_top = 12.0
 offset_right = 683.0
@@ -179,6 +243,7 @@ text = "Tempo Sobrevivido:"
 
 [node name="kills_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 840.0
 offset_top = 30.0
 offset_right = 880.0
@@ -189,6 +254,7 @@ text_direction = 1
 
 [node name="kills_label_text" type="Label" parent="Ui_top"]
 visible = false
+layout_mode = 0
 offset_left = 768.0
 offset_top = 11.0
 offset_right = 808.0
@@ -197,6 +263,7 @@ text = "kills:"
 
 [node name="ammo_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 1272.95
 offset_top = 691.0
 offset_right = 1312.95
@@ -204,6 +271,7 @@ offset_bottom = 714.0
 text = "0"
 
 [node name="ammo_label_text" type="Label" parent="Ui_top"]
+layout_mode = 0
 offset_left = 1216.95
 offset_top = 689.0
 offset_right = 1271.95
@@ -212,6 +280,7 @@ text = "ammo:"
 
 [node name="coin_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 604.0
 offset_top = 29.0
 offset_right = 644.0

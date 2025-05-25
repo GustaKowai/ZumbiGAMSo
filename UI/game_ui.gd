@@ -1,16 +1,19 @@
 extends CanvasLayer
-@onready var timer_label = %timer_label
-@onready var kills_label = %kills_label
-@onready var ammo_label = %ammo_label
-@onready var infection_bar = $infection_bar
-@onready var weapon_bar = $EspacoArma/Weapon_bar
-@onready var item_sprite = $Consumivel/item_sprite
-@onready var stamina_bar = $player_life_and_stamina/StaminaBar
-@onready var health_bar = $player_life_and_stamina/HealthBar
-@onready var damage_bar = $player_life_and_stamina/DamageBar
-@onready var heart = $player_life_and_stamina/Beating_heart
-@onready var vinheta = $Vinheta
-@onready var coin_label = %coin_label
+@onready var timer_label:Label = %timer_label
+@onready var kills_label:Label = %kills_label
+@onready var ammo_label:Label = %ammo_label
+@onready var infection_bar:TextureProgressBar = $infection_bar
+@onready var weapon_bar:TextureProgressBar = $EspacoArma/Weapon_bar
+@onready var item_sprite:TextureRect = $Consumivel/item_sprite
+@onready var stamina_bar:TextureProgressBar = $player_life_and_stamina/StaminaBar
+@onready var health_bar:TextureProgressBar = $player_life_and_stamina/HealthBar
+@onready var damage_bar:TextureProgressBar = $player_life_and_stamina/DamageBar
+@onready var heart:AnimatedSprite2D = $player_life_and_stamina/Beating_heart
+@onready var vinheta:Sprite2D = $Vinheta
+@onready var coin_label:Label = %coin_label
+@onready var almaComum:Sprite2D = $Ui_top/AlmaZumbiComum
+@onready var almaIncomum:Sprite2D = $Ui_top/AlmaZumbiIncomum
+@onready var almaRara:Sprite2D = $Ui_top/AlmaZumbiRaro
 var texture_weapon:Texture2D = null
 var texture_item:Texture2D = null
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +26,7 @@ func _ready():
 	GameManager.item_collected.connect(change_item_equiped)
 	GameManager.coin_collected.connect(update_coin_count)
 	GameManager.player_damaged.connect(update_damaged_UI)
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
