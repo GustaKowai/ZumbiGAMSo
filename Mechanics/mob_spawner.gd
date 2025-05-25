@@ -33,6 +33,6 @@ func spawn_zombie():#Essa é a função que invoca o zumbi.
 	var creature_scene = creatures[creature_index]
 	var creature = creature_scene.instantiate()
 	creature.position = position
-	get_parent().add_child(creature)
+	get_parent().get_parent().add_child(creature)
 	GameManager.infection_level += GameManager.infection_power
 	#print(GameManager.infection_level)

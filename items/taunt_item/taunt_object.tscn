@@ -10,7 +10,7 @@ scale = Vector2(0.0262484, 0.0262484)
 collision_layer = 32
 collision_mask = 34
 script = ExtResource("2_j6m5w")
-taunt_duration = 2.0
+taunt_duration = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_li2ph")

@@ -641,11 +641,7 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAIAAAAAAAAAA0AAAAIAAEAAAAAAA4AAAAJAAAAAAABAA0AAAAJAAEAAAABAA4AAAAFAAAAAAAGAA0AAAAFAAEAAAAGAA4AAAAGAAAAAAAHAA0AAAAGAAEAAAAHAA4AAAAUAAUAAAADAAsAABATAAUAAAAEAAsAABASAAUAAAAFAAsAABALAAYAAAADAA0AAAALAAcAAAADAA4AAAAMAAYAAAAEAA0AAAAMAAcAAAAEAA4AAAAUAAQAAAADAAoAABATAAQAAAAEAAoAABASAAQAAAAFAAoAABAIAP//AAADAAwAAAAJAP//AAAEAAwAAAAFAP//AAAGAAwAAAAGAP//AAAHAAwAAAALAAUAAAADAAwAAAAMAAUAAAAEAAwAAAAAAAQAAAAGAAoAAAAAAAUAAAAGAAsAAAABAAQAAAAHAAoAAAABAAUAAAAHAAsAAAACAAQAAAAIAAoAAAACAAUAAAAIAAsAAAAAAAYAAAAGAAoAAAAAAAcAAAAGAAsAAAABAAYAAAAHAAoAAAABAAcAAAAHAAsAAAACAAYAAAAIAAoAAAACAAcAAAAIAAsAAAAAAAgAAAAGAAoAAAAAAAkAAAAGAAsAAAABAAgAAAAHAAoAAAABAAkAAAAHAAsAAAACAAgAAAAIAAoAAAACAAkAAAAIAAsAAAD9/wgAAAAGAAoAAAD9/wkAAAAGAAsAAAD+/wgAAAAHAAoAAAD+/wkAAAAHAAsAAAD//wgAAAAIAAoAAAD//wkAAAAIAAsAAAD9/wYAAAAGAAoAAAD9/wcAAAAGAAsAAAD+/wYAAAAHAAoAAAD+/wcAAAAHAAsAAAD//wYAAAAIAAoAAAD//wcAAAAIAAsAAAD9/wQAAAAGAAoAAAD9/wUAAAAGAAsAAAD+/wQAAAAHAAoAAAD+/wUAAAAHAAsAAAD//wQAAAAIAAoAAAD//wUAAAAIAAsAAAD6/wgAAAAGAAoAAAD6/wkAAAAGAAsAAAD7/wgAAAAHAAoAAAD7/wkAAAAHAAsAAAD8/wgAAAAIAAoAAAD8/wkAAAAIAAsAAAD6/wYAAAAGAAoAAAD6/wcAAAAGAAsAAAD7/wYAAAAHAAoAAAD7/wcAAAAHAAsAAAD8/wYAAAAIAAoAAAD8/wcAAAAIAAsAAAD6/wQAAAAGAAoAAAD6/wUAAAAGAAsAAAD7/wQAAAAHAAoAAAD7/wUAAAAHAAsAAAD8/wQAAAAIAAoAAAD8/wUAAAAIAAsAAAA=")
 tile_set = SubResource("TileSet_i1mjl")
 
-[node name="Predio" parent="." instance=ExtResource("16_fpfj3")]
-position = Vector2(2288, 116)
-
 [node name="Jogador" parent="." instance=ExtResource("3_vdkbt")]
-z_as_relative = false
 sword_damage = 15
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Jogador"]
@@ -654,7 +650,6 @@ update_rotation = false
 update_scale = false
 
 [node name="Zombie1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
-z_as_relative = false
 position = Vector2(447, 391)
 player = NodePath("../Jogador")
 drop_chances = Array[float]([1.0, 1.0])
@@ -670,15 +665,6 @@ position = Vector2(201.438, -77.4374)
 
 [node name="Pause UI" parent="." instance=ExtResource("9_c4hxu")]
 
-[node name="MobSpawner" parent="." instance=ExtResource("10_0eu7v")]
-position = Vector2(566, -446)
-
-[node name="MobSpawner2" parent="." instance=ExtResource("10_0eu7v")]
-position = Vector2(-599, 342)
-
-[node name="MobSpawner4" parent="." instance=ExtResource("10_0eu7v")]
-position = Vector2(464, 991)
-
 [node name="GameUI" parent="." instance=ExtResource("11_3kp4t")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -691,76 +677,95 @@ scale = Vector2(0.0213023, 0.0284821)
 [node name="machinegun" parent="." instance=ExtResource("14_c2ibq")]
 position = Vector2(916, 182)
 
+[node name="machinegun2" parent="." instance=ExtResource("19_5tuhn")]
+position = Vector2(342, 435)
+
 [node name="Coin" parent="." instance=ExtResource("15_j4qnp")]
 position = Vector2(498, 520)
 
-[node name="MobSpawner5" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawners" type="Node2D" parent="."]
+
+[node name="MobSpawner" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
+position = Vector2(566, -446)
+
+[node name="MobSpawner2" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
+position = Vector2(-599, 342)
+
+[node name="MobSpawner4" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
+position = Vector2(464, 991)
+
+[node name="MobSpawner5" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(-2738, 1441)
 
-[node name="MobSpawner6" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner6" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(-2728, 364)
 
-[node name="MobSpawner7" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner7" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(-2734, -507)
 
-[node name="MobSpawner8" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner8" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(-456, -510)
 
-[node name="MobSpawner9" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner9" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(1862, -356)
 
-[node name="MobSpawner10" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner10" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(1859, 346)
 
-[node name="MobSpawner11" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner11" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(1862, 1165)
 
-[node name="MobSpawner12" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner12" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(-723, 1442)
 
-[node name="MobSpawner16" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner16" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(3748, 1588)
 
-[node name="MobSpawner17" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner17" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(3738, 754)
 
-[node name="MobSpawner18" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner18" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(3844, -5)
 
-[node name="MobSpawner20" parent="." instance=ExtResource("10_0eu7v")]
+[node name="MobSpawner20" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(3342, -826)
 
-[node name="Predio2" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predios" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Predio" parent="Predios" instance=ExtResource("16_fpfj3")]
+z_as_relative = false
+position = Vector2(2288, 116)
+
+[node name="Predio2" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(2661, 119)
 sprite = ExtResource("17_kjvhd")
 
-[node name="Predio3" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio3" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(3031, 115)
 sprite = ExtResource("18_5tuhn")
 
-[node name="Predio4" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio4" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(3397, 115)
 
-[node name="Predio5" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio5" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(1162, 818)
 sprite = ExtResource("17_kjvhd")
 
-[node name="Predio6" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio6" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(2287, 817)
 
-[node name="Predio7" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio7" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(2652, 816)
 
-[node name="Predio8" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio8" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(3018, 816)
 
-[node name="Predio9" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio9" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(3380, 816)
 
-[node name="Predio10" parent="." instance=ExtResource("16_fpfj3")]
+[node name="Predio10" parent="Predios" instance=ExtResource("16_fpfj3")]
 position = Vector2(676, 1119)
-
-[node name="machinegun2" parent="." instance=ExtResource("19_5tuhn")]
-position = Vector2(342, 435)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]

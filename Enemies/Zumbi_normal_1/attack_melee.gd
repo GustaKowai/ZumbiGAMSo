@@ -9,7 +9,7 @@ var dmg_area:Area2D
 var atk_direction: Vector2
 
 @export var dano_zombie = 1
-var attack_cooldown = 0.9
+var attack_cooldown = 0.7
 
 func _ready():
 	enemy = get_parent()
@@ -37,8 +37,8 @@ func deal_damage_to_player():
 			var player: Jogador = area.get_parent()
 			var player_direction = (player.position - enemy.position).normalized()
 			var dot_product = player_direction.dot(atk_direction)
-			#print(dot_product)
-			if dot_product > 0.3:#Verifica se o Player está na frente do zumbi
+			print(dot_product)
+			if dot_product > 0.7:#Verifica se o Player está na frente do zumbi
 				player.damage(dano_zombie)
 
 func try_attack():
