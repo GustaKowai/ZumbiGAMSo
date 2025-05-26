@@ -72,8 +72,11 @@ func update_coin_count():
 func update_weapon_cd():
 	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
 		if GameManager.player.weapon_cooldown >=0:
-			weapon_bar.value = (GameManager.player.weapon_cooldown/GameManager.weapon_cd)*100
-			#print(weapon_bar.value)
+			var player_cd = round_to_dec(GameManager.player.weapon_cooldown,2) 
+			weapon_bar.value = (player_cd-0.01/GameManager.weapon_cd)*100
+			print("weapon cd atual =", player_cd)
+			print("weapon cd=", GameManager.weapon_cd)
+			print(weapon_bar.value)
 	if GameManager.ammo == 0 and texture_weapon:
 		texture_weapon = null
 		weapon_bar.texture_under = null
@@ -92,3 +95,6 @@ func update_damaged_UI():
 		heart.speed_scale = 2.0
 	elif player_proporcional_health < 0.3:
 		heart.speed_scale = 3.0
+
+func round_to_dec(num, digit):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)

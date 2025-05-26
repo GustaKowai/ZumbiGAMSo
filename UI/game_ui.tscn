@@ -327,6 +327,7 @@ offset_left = -100.0
 offset_top = -62.0
 offset_right = 99.0
 offset_bottom = 59.0
+rounded = true
 fill_mode = 3
 nine_patch_stretch = true
 texture_under = ExtResource("6_ywmy4")
