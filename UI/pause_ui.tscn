@@ -13,3 +13,38 @@ offset_right = 614.0
 offset_bottom = 365.0
 scale = Vector2(5.92841, 6.60862)
 text = "PAUSED"
+
+[node name="Soul_count" type="Label" parent="."]
+offset_left = 563.0
+offset_top = 478.0
+offset_right = 696.0
+offset_bottom = 553.0
+text = "Almas comuns:
+Almas Incomuns:
+Almas raras:"
+horizontal_alignment = 2
+
+[node name="alma_comum" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 696.0
+offset_top = 479.0
+offset_right = 736.0
+offset_bottom = 528.0
+text = "0
+"
+
+[node name="alma_incomum" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 696.0
+offset_top = 505.0
+offset_right = 736.0
+offset_bottom = 554.0
+text = "0"
+
+[node name="alma_rara" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 696.0
+offset_top = 531.0
+offset_right = 736.0
+offset_bottom = 554.0
+text = "0"

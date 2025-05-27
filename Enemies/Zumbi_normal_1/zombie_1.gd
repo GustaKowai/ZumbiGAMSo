@@ -22,7 +22,6 @@ var is_attacking = false
 var died = false
 var facing_position:String
 
-
 func damage(amount: int):
 	enemy_health -=amount
 	#piscar o inimigo:
@@ -55,6 +54,8 @@ func die():
 	
 	drop_item()
 	GameManager.kills_count += 1
+	GameManager.alma_comum += 1
+	GameManager.zombie_died.emit()
 	GameManager.infection_level -= GameManager.infection_power
 	queue_free()
 	

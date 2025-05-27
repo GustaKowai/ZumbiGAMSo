@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@onready var alma_comum = %alma_comum
+@onready var alma_incomum = %alma_incomum
+@onready var alma_rara = %alma_rara
 
 func _ready():
 	hide()
@@ -12,5 +15,8 @@ func _process(delta):
 			hide()
 			get_tree().paused = false
 		else:
+			alma_comum.text = str(GameManager.alma_comum)
+			alma_incomum.text = str(GameManager.alma_incomum)
+			alma_rara.text = str(GameManager.alma_rara)
 			show()
 			get_tree().paused = true	

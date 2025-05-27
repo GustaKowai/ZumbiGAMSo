@@ -6,6 +6,7 @@ signal weapon_collected()
 signal item_collected()
 signal coin_collected()
 signal player_damaged()
+signal zombie_died()
 #Gerenciamento da run:
 var player:Jogador
 var player_position: Vector2
@@ -24,6 +25,11 @@ var ammo_count:int = 0
 var kills_count:int = 0
 var is_game_over:bool = false
 var coin_count = 0
+
+#Almas coletadas:
+var alma_comum:int = 0
+var alma_incomum:int = 0
+var alma_rara:int = 0
 
 
 

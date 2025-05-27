@@ -22,10 +22,12 @@ func _ready():
 	weapon_bar.texture_over = null
 	item_sprite.texture = null
 	vinheta.modulate.a = 0
+	update_souls_UI()
 	GameManager.weapon_collected.connect(change_weapon_equiped)
 	GameManager.item_collected.connect(change_item_equiped)
 	GameManager.coin_collected.connect(update_coin_count)
 	GameManager.player_damaged.connect(update_damaged_UI)
+	GameManager.zombie_died.connect(update_souls_UI)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -95,6 +97,11 @@ func update_damaged_UI():
 		heart.speed_scale = 2.0
 	elif player_proporcional_health < 0.3:
 		heart.speed_scale = 3.0
+	
+func update_souls_UI():
+	almaComum.visible = GameManager.alma_comum > 0
+	almaIncomum.visible = GameManager.alma_incomum > 0
+	almaRara.visible = GameManager.alma_rara > 0
 
 func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
