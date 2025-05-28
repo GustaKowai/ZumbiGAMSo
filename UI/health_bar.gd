@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 func update_health_bar():
 	if GameManager.player:
 		max_value = GameManager.player.max_health
+		print(max_value)
 		damage_bar.max_value = max_value
 		value = GameManager.player.player_health
 		#timer.start()

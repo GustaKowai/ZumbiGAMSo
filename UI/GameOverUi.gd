@@ -26,7 +26,7 @@ func _process(delta):
 		
 func restart_game():
 	GameManager.reset()
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://UI/loja da morte/loja_da_morte.tscn")
 	pass
 	
 

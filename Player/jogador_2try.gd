@@ -45,11 +45,9 @@ var weapon_path = null
 var weapon_cooldown = 0
 func _ready():
 	#Passa o player para o GameManager
-	GameManager.player = self
+	update_player_stats()
 	stamina_bar.value = 0
-	player_health = max_health + GameManager.vida_max_up
-	max_stamina += GameManager.stamina_max_up
-	print(player_health,max_stamina)
+	
 func _process(delta):
 	#Passa a informação da posição do player para o Game Manager
 	GameManager.player_position = position
@@ -274,6 +272,15 @@ func damage(amount:int):
 	#else:
 		#style.bg_color = PHANTON_RED.lerp(PHANTON_YELLOW, player_relative_health*2)
 
+func update_player_stats():
+	max_health = max_health + GameManager.vida_max_up
+	player_health = max_health
+	max_stamina += GameManager.stamina_max_up
+	stamina_recovery_speed += GameManager.stamina_rege_up
+	sword_damage += GameManager.sword_damage_up
+	GameManager.player = self
+	print(player_health,max_stamina)
+	
 func die():
 	GameManager.end_game()
 	if death_prefab:

@@ -25,7 +25,7 @@ func start_card() -> void:
 		var target_choosen = possibilities_target[target] 
 		print(target_choosen)
 		var card_affect = target_possibilities[target_choosen]
-		card_is_choosen = card_affect[randi_range(0,1)]#card_affect.size()-1)]
+		card_is_choosen = card_affect[randi_range(0,card_affect.size()-1)]
 		print(card_is_choosen)
 		
 		match card_is_choosen:
@@ -33,6 +33,10 @@ func start_card() -> void:
 				set_card_aumenta_vida_max(GameManager.vida_max_up)
 			"Stamina_max":
 				set_card_aumenta_stamina_max(GameManager.stamina_max_up)
+			"Stamina_rege":
+				set_card_aumenta_stamina_regen(GameManager.stamina_rege_up)
+			"sword_damage":
+				set_card_aumenta_sword_damage(GameManager.sword_damage_up)
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
@@ -55,7 +59,33 @@ func set_card_aumenta_stamina_max(stamina_max_up):
 	buff = randi_range(10,20)
 	upgrade_effect = "Aumenta a Stamina máxima do jogador em "+ str(buff)
 	upgrade_cost = (200+2*stamina_max_up+buff)*(buff+1)/2
-
+	
+func set_card_aumenta_stamina_regen(stamina_rege_up):
+	upgrade_name = "Aumento de Regeneração de stamina"
+	buff = randi_range(1,5)
+	upgrade_effect = "Aumenta a  regeneração de stamina do jogador em "+ str(buff)
+	upgrade_cost = (200+2*stamina_rege_up+buff)*(buff+1)/2
+func set_card_aumenta_sword_damage(sword_damage_up):
+	upgrade_name = "Aumento de dano da espada do jogador"
+	buff = randi_range(1,5)
+	upgrade_effect = "Aumenta o dano de ataque com espada do jogador em "+ str(buff)
+	upgrade_cost = (200+2*sword_damage_up+buff)*(buff+1)/2
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
+#func set_card_aumenta_algo(algo_up):
+	#pass
 
 func _on_button_pressed() -> void:
 	if not have_souls(): return
@@ -66,9 +96,14 @@ func _on_button_pressed() -> void:
 			"Stamina_max":
 				GameManager.stamina_max_up+=buff
 				print("Sua Stamina máxima agora é ",100+GameManager.stamina_max_up)
+			"Stamina_rege":
+				GameManager.stamina_rege_up+=buff
+			"sword_damage":
+				GameManager.sword_damage_up+=buff
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
+	loja.atualiza_almas()
 	
 func have_souls():
 	if GameManager.alma_comum > upgrade_cost:

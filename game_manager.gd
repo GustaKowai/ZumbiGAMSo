@@ -34,6 +34,8 @@ var alma_rara:int = 0
 #Upgrades da morte:
 var vida_max_up: int = 0
 var stamina_max_up:int = 0
+var stamina_rege_up:int = 0
+var sword_damage_up:int = 0
 
 
 #Finalização do jogo em caso de game over

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccgcgtfo2yvux"]
+[gd_scene load_steps=8 format=3 uid="uid://ccgcgtfo2yvux"]
 
 [ext_resource type="PackedScene" uid="uid://6w68s6t04fv" path="res://UI/loja da morte/upgrade_card.tscn" id="1_1rh6l"]
 [ext_resource type="Script" uid="uid://d03o2pxlmfven" path="res://UI/loja da morte/loja_da_morte.gd" id="1_cnfjm"]
+[ext_resource type="Texture2D" uid="uid://d2asjxc1rnp4i" path="res://UI/UI_images/Alma_Comum_UI.png" id="3_v20dk"]
+[ext_resource type="Texture2D" uid="uid://b2eyfu887i70i" path="res://UI/UI_images/Alma_Zumbi_incomum.png" id="4_mrer4"]
+[ext_resource type="Texture2D" uid="uid://cyfqavr0lf06m" path="res://UI/UI_images/Alma_zumbi_raro.png" id="5_wfiba"]
 
 [sub_resource type="Gradient" id="Gradient_kymv1"]
 offsets = PackedFloat32Array(0, 0.24183, 0.722222, 1)
-colors = PackedColorArray(0, 0.699006, 0.155429, 1, 0.790697, 0.16959, 0.187065, 1, 0.604646, 0.00389975, 0.95776, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0, 0.699006, 0.155429, 1, 0.790697, 0.16959, 0.187065, 1, 0.604646, 0.00389975, 0.95776, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1rh6l"]
 gradient = SubResource("Gradient_kymv1")
@@ -38,6 +41,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="alma_comum_sprite" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_v20dk")
+
+[node name="alma_comum_label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="alma_incomum_sprite" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_mrer4")
+
+[node name="alma_incomum_label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="alma_rara_sprite" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_wfiba")
+
+[node name="alma_rara_label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Voltar_pro_jogo" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Já estou pronto para reviver.
+"
 
 [node name="CardContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -80,4 +116,5 @@ layout_mode = 2
 button_mask = 3
 text = "Atualizar (Algumas almas)"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Voltar_pro_jogo" to="." method="_on_voltar_pro_jogo_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
