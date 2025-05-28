@@ -67,3 +67,5 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Comprar"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

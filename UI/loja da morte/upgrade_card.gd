@@ -11,27 +11,27 @@ var upgrade_name:String
 var upgrade_image_path:String
 var upgrade_effect:String
 var upgrade_cost:int
-
+var card_is_choosen:String
+var buff:int
 func _ready() -> void:
 	set_card()
 
 #Essa função inicializa o card, sorteando o tipo de carta que será.
 func start_card() -> void:
 	for i in range(1):
-		var target = randi_range(0,possibilities_target.size()-1)
+		var target = 0#randi_range(0,possibilities_target.size()-1)
 		print(possibilities_target.size())
 		var target_choosen = possibilities_target[target] 
 		print(target_choosen)
 		var card_affect = target_possibilities[target_choosen]
-		var card_is_choosen = card_affect[randi_range(0,card_affect.size()-1)]
+		card_is_choosen = card_affect[randi_range(0,1)]#card_affect.size()-1)]
 		print(card_is_choosen)
-		card_is_choosen = "Vida_max"
 		
 		match card_is_choosen:
 			"Vida_max":
 				set_card_aumenta_vida_max(GameManager.vida_max_up)
 			"Stamina_max":
-				set_card_aumenta_stamina_max()
+				set_card_aumenta_stamina_max(GameManager.stamina_max_up)
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
@@ -45,9 +45,24 @@ func set_card():
 #Essas funções servem para determinar o texto e o buff de cada carta.
 func set_card_aumenta_vida_max(vida_max_up):
 	upgrade_name = "Aumento de vida máxima"
-	var buff = randi_range(10,20)
-	upgrade_effect = "Aumenta a vida máximo do jogador em "+ str(buff)
+	buff = randi_range(10,20)
+	upgrade_effect = "Aumenta a vida máxima do jogador em "+ str(buff)
 	upgrade_cost = (200+2*vida_max_up+buff)*(buff+1)/2
 	
-func set_card_aumenta_stamina_max():
-	pass
+func set_card_aumenta_stamina_max(stamina_max_up):
+	upgrade_name = "Aumento de Stamina Max"
+	buff = randi_range(10,20)
+	upgrade_effect = "Aumenta a Stamina máxima do jogador em "+ str(buff)
+	upgrade_cost = (200+2*stamina_max_up+buff)*(buff+1)/2
+
+
+func _on_button_pressed() -> void:
+	match card_is_choosen:
+			"Vida_max":
+				GameManager.vida_max_up += buff
+			"Stamina_max":
+				GameManager.stamina_max_up+=buff
+			_:
+				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
+	start_card()
+	set_card()
