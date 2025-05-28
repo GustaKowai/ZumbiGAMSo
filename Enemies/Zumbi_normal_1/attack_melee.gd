@@ -14,7 +14,7 @@ var attack_cooldown = 0.7
 func _ready():
 	enemy = get_parent()
 	sprite =enemy.get_node("Movimento")
-	dmg_area = enemy.get_node("DmgArea")
+	dmg_area = $DmgArea
 	animation_player = enemy.get_node("AnimationPlayer")
 
 func _process(delta):

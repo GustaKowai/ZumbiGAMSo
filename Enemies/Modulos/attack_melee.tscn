@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck2aw63f5d2xo"]
+
+[ext_resource type="Script" uid="uid://b8vg56ghon8b" path="res://Enemies/Zumbi_normal_1/attack_melee.gd" id="1_ailha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5h37"]
+size = Vector2(217, 212)
+
+[node name="AttackMelee" type="Node2D"]
+script = ExtResource("1_ailha")
+
+[node name="DmgArea" type="Area2D" parent="."]
+position = Vector2(-38, -33)
+
+[node name="DmgBox" type="CollisionShape2D" parent="DmgArea"]
+position = Vector2(41.5, -30)
+shape = SubResource("RectangleShape2D_d5h37")

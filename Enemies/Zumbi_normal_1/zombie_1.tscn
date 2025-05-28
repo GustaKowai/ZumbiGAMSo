@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dv3uon3yb6fja"]
+[gd_scene load_steps=23 format=3 uid="uid://dv3uon3yb6fja"]
 
 [ext_resource type="Script" uid="uid://deg0bfjw6tyyf" path="res://Enemies/Zumbi_normal_1/zombie_1.gd" id="1_g3x2a"]
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/Zumbi_normal_1/teste_zumbi_sprite.png" id="1_shrhs"]
@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="4_wy0m5"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_yurb3"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="6_4rtqu"]
-[ext_resource type="Script" uid="uid://b8vg56ghon8b" path="res://Enemies/Zumbi_normal_1/attack_melee.gd" id="6_kcvas"]
 [ext_resource type="Texture2D" uid="uid://kctcr882dd43" path="res://Enemies/Zumbi_normal_1/Zumbi_andando_sprite_sheet_.png" id="8_gqk4f"]
 [ext_resource type="Texture2D" uid="uid://bygcoggygxwxn" path="res://Enemies/Zumbi_normal_1/Ataques_para_todo_lado.png" id="9_5wtdy"]
+[ext_resource type="PackedScene" uid="uid://ck2aw63f5d2xo" path="res://Enemies/Modulos/attack_melee.tscn" id="11_gqk4f"]
 
 [sub_resource type="Animation" id="Animation_sib5i"]
 resource_name = "Atk down"
@@ -81,7 +81,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("DmgArea/DmgBox:scale")
+tracks/5/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -161,7 +161,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("DmgArea/DmgBox:scale")
+tracks/5/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -252,7 +252,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DmgArea/DmgBox:scale")
+tracks/6/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -343,7 +343,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DmgArea/DmgBox:scale")
+tracks/6/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -442,7 +442,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("DmgArea/DmgBox:scale")
+tracks/7/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -496,7 +496,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DmgArea/DmgBox:scale")
+tracks/3/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -550,7 +550,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DmgArea/DmgBox:scale")
+tracks/3/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -604,7 +604,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DmgArea/DmgBox:scale")
+tracks/3/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -625,9 +625,6 @@ _data = {
 &"Walk Side": SubResource("Animation_xry33"),
 &"Walk Up": SubResource("Animation_kkwlo")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5h37"]
-size = Vector2(217, 212)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr5at"]
 radius = 20.0
@@ -680,13 +677,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_xycbk")
 }
 
-[node name="DmgArea" type="Area2D" parent="."]
-position = Vector2(-38, -33)
-
-[node name="DmgBox" type="CollisionShape2D" parent="DmgArea"]
-position = Vector2(41.5, -30)
-shape = SubResource("RectangleShape2D_d5h37")
-
 [node name="HitBoxArea" type="Area2D" parent="." groups=["EnemyHitBox"]]
 position = Vector2(-66, 0)
 
@@ -716,8 +706,7 @@ radius = 50.0
 wait_time = 0.1
 autostart = true
 
-[node name="AttackMelee" type="Node2D" parent="."]
-script = ExtResource("6_kcvas")
+[node name="AttackMelee" parent="." instance=ExtResource("11_gqk4f")]
 
 [connection signal="velocity_computed" from="FollowPlayer/NavigationAgent2D" to="FollowPlayer" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="FollowPlayer/Timer" to="FollowPlayer" method="_on_timer_timeout"]
