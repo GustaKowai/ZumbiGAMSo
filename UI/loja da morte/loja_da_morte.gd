@@ -5,6 +5,7 @@ extends Control
 
 func _ready() -> void:
 	set_cards()
+	GameManager.alma_comum = 10000
 		
 func set_cards():
 	for i in range(4):

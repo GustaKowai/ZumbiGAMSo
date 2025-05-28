@@ -47,7 +47,9 @@ func _ready():
 	#Passa o player para o GameManager
 	GameManager.player = self
 	stamina_bar.value = 0
-	player_health = max_health
+	player_health = max_health + GameManager.vida_max_up
+	max_stamina += GameManager.stamina_max_up
+	print(player_health,max_stamina)
 func _process(delta):
 	#Passa a informação da posição do player para o Game Manager
 	GameManager.player_position = position

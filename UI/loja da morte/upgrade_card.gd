@@ -7,6 +7,7 @@ extends MarginContainer
 @onready var upgrade_cost_label = $PanelContainer/VBoxContainer/upgrade_cost
 @export var possibilities_target :Dictionary[int,String]
 @export var target_possibilities: Dictionary[String,Array]
+@onready var loja = $"../../.."
 var upgrade_name:String
 var upgrade_image_path:String
 var upgrade_effect:String
@@ -45,9 +46,9 @@ func set_card():
 #Essas funções servem para determinar o texto e o buff de cada carta.
 func set_card_aumenta_vida_max(vida_max_up):
 	upgrade_name = "Aumento de vida máxima"
-	buff = randi_range(10,20)
+	buff = randi_range(5,10)
 	upgrade_effect = "Aumenta a vida máxima do jogador em "+ str(buff)
-	upgrade_cost = (200+2*vida_max_up+buff)*(buff+1)/2
+	upgrade_cost = (80+2*vida_max_up+buff)*(buff+1)/2
 	
 func set_card_aumenta_stamina_max(stamina_max_up):
 	upgrade_name = "Aumento de Stamina Max"
@@ -57,12 +58,23 @@ func set_card_aumenta_stamina_max(stamina_max_up):
 
 
 func _on_button_pressed() -> void:
+	if not have_souls(): return
 	match card_is_choosen:
 			"Vida_max":
 				GameManager.vida_max_up += buff
+				print("Sua vida máxima agora é ",40+GameManager.vida_max_up)
 			"Stamina_max":
 				GameManager.stamina_max_up+=buff
+				print("Sua Stamina máxima agora é ",100+GameManager.stamina_max_up)
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
-	start_card()
-	set_card()
+	loja.reset_cards()
+	
+func have_souls():
+	if GameManager.alma_comum > upgrade_cost:
+		GameManager.alma_comum -= upgrade_cost
+		print("Você agora tem ",GameManager.alma_comum," almas")
+		return true
+	else:
+		print("VOCÊ NÃO TEM DINHEIRO SUFICIENTE")
+		return false
