@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://6w68s6t04fv"]
+
+[ext_resource type="Texture2D" uid="uid://dt4ey14mlingg" path="res://weapons/machinegun/machinegun.png" id="1_67b1n"]
+
+[node name="Upgrade_card" type="MarginContainer"]
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Nome do upgrade" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+text = "Upgrade 1, metralhadora foda:"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("1_67b1n")
+stretch_mode = 3
+
+[node name="O que ele faz" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Deixa a sua metralhadora muito melhor,  você nem consegue imaginar o quão melhor ela vai ficar, sério, compra isso aqui"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Custo" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Custo: Baratinho"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+text = "Comprar"
