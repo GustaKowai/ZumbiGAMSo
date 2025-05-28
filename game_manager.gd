@@ -31,6 +31,9 @@ var alma_comum:int = 0
 var alma_incomum:int = 0
 var alma_rara:int = 0
 
+#Upgrades da morte:
+var vida_max_up: int = 0
+var stamina_max_up:int = 0
 
 
 #Finalização do jogo em caso de game over
