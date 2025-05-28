@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc4bylx0blnya"]
+
+[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/Zumbi_normal_1/follow_player.gd" id="1_ghrro"]
+
+[node name="FollowPlayer" type="Node2D"]
+script = ExtResource("1_ghrro")
+speed = 2.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+radius = 50.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

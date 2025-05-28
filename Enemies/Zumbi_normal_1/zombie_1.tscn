@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/Zumbi_normal_1/teste_zumbi_sprite.png" id="1_shrhs"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0dhp2"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="3_87217"]
-[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/Zumbi_normal_1/follow_player.gd" id="3_ks08r"]
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="4_wy0m5"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_yurb3"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="6_4rtqu"]
 [ext_resource type="Texture2D" uid="uid://kctcr882dd43" path="res://Enemies/Zumbi_normal_1/Zumbi_andando_sprite_sheet_.png" id="8_gqk4f"]
 [ext_resource type="Texture2D" uid="uid://bygcoggygxwxn" path="res://Enemies/Zumbi_normal_1/Ataques_para_todo_lado.png" id="9_5wtdy"]
+[ext_resource type="PackedScene" uid="uid://bc4bylx0blnya" path="res://Enemies/Modulos/follow_player.tscn" id="10_gqk4f"]
 [ext_resource type="PackedScene" uid="uid://ck2aw63f5d2xo" path="res://Enemies/Modulos/attack_melee.tscn" id="11_gqk4f"]
 
 [sub_resource type="Animation" id="Animation_sib5i"]
@@ -78,18 +78,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [Vector2(1.42109e-14, -30)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_5h2qo"]
 resource_name = "Atk up"
@@ -157,18 +145,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(3, -90)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_5lhvy"]
@@ -249,18 +225,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_gqk4f"]
 resource_name = "Atk_right"
@@ -339,18 +303,6 @@ tracks/5/keys = {
 "args": [],
 "method": &"deal_damage_to_player"
 }]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_np5cs"]
@@ -439,18 +391,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_cn34g"]
 resource_name = "Walk Down"
@@ -492,18 +432,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.8)]
 }
 
 [sub_resource type="Animation" id="Animation_xry33"]
@@ -547,18 +475,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
-}
 
 [sub_resource type="Animation" id="Animation_kkwlo"]
 resource_name = "Walk Up"
@@ -600,18 +516,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AttackMelee/DmgArea/DmgBox:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xycbk"]
@@ -694,19 +598,6 @@ shape = SubResource("CapsuleShape2D_24otx")
 [node name="damage_digit_marker" type="Marker2D" parent="."]
 position = Vector2(-1, -91)
 
-[node name="FollowPlayer" type="Node2D" parent="."]
-script = ExtResource("3_ks08r")
-speed = 2.0
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="FollowPlayer"]
-path_postprocessing = 1
-radius = 50.0
-
-[node name="Timer" type="Timer" parent="FollowPlayer"]
-wait_time = 0.1
-autostart = true
+[node name="FollowPlayer" parent="." instance=ExtResource("10_gqk4f")]
 
 [node name="AttackMelee" parent="." instance=ExtResource("11_gqk4f")]
-
-[connection signal="velocity_computed" from="FollowPlayer/NavigationAgent2D" to="FollowPlayer" method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="timeout" from="FollowPlayer/Timer" to="FollowPlayer" method="_on_timer_timeout"]
