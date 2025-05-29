@@ -17,6 +17,7 @@ func _ready() -> void:
 	#Recebe o sinal de quando uma arma for coletada e conecta ele a função de largar a arma atual
 	GameManager.weapon_collected.connect(on_weapon_collected)
 	#Envia para o GameManager a munição inicial da arma:
+	ammo += GameManager.upgrade_revolver[0]
 	GameManager.ammo = ammo
 
 func on_weapon_collected(string): #Essa função serve para largar a arma

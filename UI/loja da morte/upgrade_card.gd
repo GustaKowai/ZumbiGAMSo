@@ -15,6 +15,7 @@ var upgrade_effect:String
 var upgrade_cost:int
 var card_is_choosen:String
 var buff:int
+var sub_prop:int
 var upgrade_cost_image_path:String
 var alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
 var alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
@@ -102,19 +103,19 @@ func set_card_aumenta_sword_damage(sword_damage_up):
 	
 func set_card_aumenta_revolver(upgrade_revolver):
 	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
-	var i = randi_range(0,1)
-	if i == 0:
+	sub_prop = randi_range(0,1)
+	if sub_prop == 0:
 		upgrade_name = "Aumento de munição do revólver"
 		buff = randi_range(1,3)
 		upgrade_effect = "Aumenta a munição máxima do revólver em " + str(buff)
-		upgrade_cost = (200+2*upgrade_revolver[i]+buff)*(buff+1)/2
+		upgrade_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		upgrade_cost_image_path = alma_comum
-	if i == 1:
+	if sub_prop == 1:
 		upgrade_name = "Aumento de dano do revólver"
 		buff = randi_range(2,10)
 		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
-		upgrade_cost  = (200+2*upgrade_revolver[i]+buff)*(buff+1)/2
-		upgrade_cost_image_path = alma_incomum 
+		upgrade_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		upgrade_cost_image_path = alma_comum 
 	#pass
 #func set_card_aumenta_algo(algo_up):
 	#pass
@@ -144,6 +145,16 @@ func _on_button_pressed() -> void:
 				GameManager.stamina_rege_up+=buff
 			"sword_damage":
 				GameManager.sword_damage_up+=buff
+			"Revolver":
+				GameManager.upgrade_revolver[sub_prop]+=buff
+			"Metralhadora":
+				set_card_aumenta_algo(card_is_choosen)
+			"Shotgun":
+				set_card_aumenta_algo(card_is_choosen)
+			"Magnum":
+				set_card_aumenta_algo(card_is_choosen)
+			"Bazuca":
+				set_card_aumenta_algo(card_is_choosen)
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
