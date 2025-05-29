@@ -1,26 +1,31 @@
 class_name UpgradeCard
 extends MarginContainer
 
-@onready var upgrade_name_label = $PanelContainer/VBoxContainer/upgrade_name
-@onready var upgrade_image = $PanelContainer/VBoxContainer/MarginContainer/upgrade_image
-@onready var upgrade_effect_label = $PanelContainer/VBoxContainer/upgrade_effect
-@onready var upgrade_cost_label = $PanelContainer/VBoxContainer/upgrade_cost
+@onready var upgrade_name_label:Label = %upgrade_name
+@onready var upgrade_image:TextureRect = %upgrade_image
+@onready var upgrade_effect_label:Label = %upgrade_effect
+@onready var upgrade_cost_label:Label = %upgrade_cost
+@onready var upgrade_cost_image:TextureRect = %upgrade_cost_image
+@onready var loja = $"../../.."
 @export var possibilities_target :Dictionary[int,String]
 @export var target_possibilities: Dictionary[String,Array]
-@onready var loja = $"../../.."
 var upgrade_name:String
 var upgrade_image_path:String
 var upgrade_effect:String
 var upgrade_cost:int
 var card_is_choosen:String
 var buff:int
+var upgrade_cost_image_path:String
+var alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
+var alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
+var alma_rara = "res://UI/UI_images/Alma_zumbi_raro.png"
 func _ready() -> void:
 	set_card()
 
 #Essa função inicializa o card, sorteando o tipo de carta que será.
 func start_card() -> void:
 	for i in range(1):
-		var target = 0#randi_range(0,possibilities_target.size()-1)
+		var target = randi_range(0,possibilities_target.size()-1)
 		print(possibilities_target.size())
 		var target_choosen = possibilities_target[target] 
 		print(target_choosen)
@@ -37,6 +42,16 @@ func start_card() -> void:
 				set_card_aumenta_stamina_regen(GameManager.stamina_rege_up)
 			"sword_damage":
 				set_card_aumenta_sword_damage(GameManager.sword_damage_up)
+			"Revolver":
+				set_card_aumenta_revolver(GameManager.upgrade_revolver)
+			"Metralhadora":
+				set_card_aumenta_algo(card_is_choosen)
+			"Shotgun":
+				set_card_aumenta_algo(card_is_choosen)
+			"Magnum":
+				set_card_aumenta_algo(card_is_choosen)
+			"Bazuca":
+				set_card_aumenta_algo(card_is_choosen)
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
@@ -46,33 +61,60 @@ func set_card():
 	upgrade_image.texture = load(upgrade_image_path)
 	upgrade_effect_label.text = upgrade_effect
 	upgrade_cost_label.text = "Custo: "+ str(upgrade_cost)
+	upgrade_cost_image.texture = load(upgrade_cost_image_path)
 
+####---------------------vvvvvv--------------------------####
 #Essas funções servem para determinar o texto e o buff de cada carta.
+func set_card_aumenta_algo(algo_up):
+	upgrade_name = "Aumenta alguma coisa na " + card_is_choosen
+	buff = 0
+	upgrade_effect = "Isso vai fazer algo para a "+card_is_choosen+" só não sabemos o que ainda"
+	upgrade_cost = randi_range(0,3000)
+	upgrade_cost_image_path = alma_rara
+	
 func set_card_aumenta_vida_max(vida_max_up):
 	upgrade_name = "Aumento de vida máxima"
 	buff = randi_range(5,10)
 	upgrade_effect = "Aumenta a vida máxima do jogador em "+ str(buff)
 	upgrade_cost = (80+2*vida_max_up+buff)*(buff+1)/2
+	upgrade_cost_image_path = alma_comum
 	
 func set_card_aumenta_stamina_max(stamina_max_up):
 	upgrade_name = "Aumento de Stamina Max"
 	buff = randi_range(10,20)
 	upgrade_effect = "Aumenta a Stamina máxima do jogador em "+ str(buff)
 	upgrade_cost = (200+2*stamina_max_up+buff)*(buff+1)/2
+	upgrade_cost_image_path = alma_comum
 	
 func set_card_aumenta_stamina_regen(stamina_rege_up):
 	upgrade_name = "Aumento de Regeneração de stamina"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta a  regeneração de stamina do jogador em "+ str(buff)
 	upgrade_cost = (200+2*stamina_rege_up+buff)*(buff+1)/2
+	upgrade_cost_image_path = alma_comum
+	
 func set_card_aumenta_sword_damage(sword_damage_up):
 	upgrade_name = "Aumento de dano da espada do jogador"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta o dano de ataque com espada do jogador em "+ str(buff)
 	upgrade_cost = (200+2*sword_damage_up+buff)*(buff+1)/2
-#func set_card_aumenta_algo(algo_up):
-	#pass
-#func set_card_aumenta_algo(algo_up):
+	upgrade_cost_image_path = alma_comum
+	
+func set_card_aumenta_revolver(upgrade_revolver):
+	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
+	var i = randi_range(0,1)
+	if i == 0:
+		upgrade_name = "Aumento de munição do revólver"
+		buff = randi_range(1,3)
+		upgrade_effect = "Aumenta a munição máxima do revólver em " + str(buff)
+		upgrade_cost = (200+2*upgrade_revolver[i]+buff)*(buff+1)/2
+		upgrade_cost_image_path = alma_comum
+	if i == 1:
+		upgrade_name = "Aumento de dano do revólver"
+		buff = randi_range(2,10)
+		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
+		upgrade_cost  = (200+2*upgrade_revolver[i]+buff)*(buff+1)/2
+		upgrade_cost_image_path = alma_incomum 
 	#pass
 #func set_card_aumenta_algo(algo_up):
 	#pass
@@ -87,8 +129,10 @@ func set_card_aumenta_sword_damage(sword_damage_up):
 #func set_card_aumenta_algo(algo_up):
 	#pass
 
+
+#Essa função serve para aplicar o efeito quando o botão for apertado.
 func _on_button_pressed() -> void:
-	if not have_souls(): return
+	if not have_souls(upgrade_cost_image_path): return
 	match card_is_choosen:
 			"Vida_max":
 				GameManager.vida_max_up += buff
@@ -104,12 +148,33 @@ func _on_button_pressed() -> void:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
 	loja.atualiza_almas()
-	
-func have_souls():
-	if GameManager.alma_comum > upgrade_cost:
-		GameManager.alma_comum -= upgrade_cost
-		print("Você agora tem ",GameManager.alma_comum," almas")
-		return true
-	else:
-		print("VOCÊ NÃO TEM DINHEIRO SUFICIENTE")
-		return false
+
+#Essa função checa se o jogador tem a quantidade de almas suficientes.
+func have_souls(upgrade_cost_image_path):
+	if upgrade_cost_image_path == alma_comum:
+		if GameManager.alma_comum > upgrade_cost:
+			GameManager.alma_comum -= upgrade_cost
+			print("Você agora tem ",GameManager.alma_comum," almas")
+			return true
+		else:
+			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
+			loja.aviso_almas()
+			return false
+	elif upgrade_cost_image_path == alma_incomum:
+		if GameManager.alma_incomum > upgrade_cost:
+			GameManager.alma_incomum -= upgrade_cost
+			print("Você agora tem ",GameManager.alma_incomum," almas")
+			return true
+		else:
+			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
+			loja.aviso_almas()
+			return false
+	elif upgrade_cost_image_path == alma_rara:
+		if GameManager.alma_rara > upgrade_cost:
+			GameManager.alma_rara -= upgrade_cost
+			print("Você agora tem ",GameManager.alma_rara," almas")
+			return true
+		else:
+			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
+			loja.aviso_almas()
+			return false

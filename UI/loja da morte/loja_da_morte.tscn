@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccgcgtfo2yvux"]
+[gd_scene load_steps=9 format=3 uid="uid://ccgcgtfo2yvux"]
 
 [ext_resource type="PackedScene" uid="uid://6w68s6t04fv" path="res://UI/loja da morte/upgrade_card.tscn" id="1_1rh6l"]
 [ext_resource type="Script" uid="uid://d03o2pxlmfven" path="res://UI/loja da morte/loja_da_morte.gd" id="1_cnfjm"]
@@ -14,6 +14,9 @@ colors = PackedColorArray(0, 0.699006, 0.155429, 1, 0.790697, 0.16959, 0.187065,
 gradient = SubResource("Gradient_kymv1")
 fill_from = Vector2(0.568376, 1)
 fill_to = Vector2(0.525641, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v20dk"]
+font_color = Color(0.843317, 0.0827182, 0.0936527, 1)
 
 [node name="Loja_da_morte" type="Control"]
 layout_mode = 3
@@ -75,6 +78,15 @@ size_flags_horizontal = 10
 text = "Já estou pronto para reviver.
 "
 
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="aviso_almas" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Você não possui almas suficiente."
+label_settings = SubResource("LabelSettings_v20dk")
+
 [node name="CardContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -113,8 +125,11 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 button_mask = 3
-text = "Atualizar (Algumas almas)"
+text = "Atualizar: 100 "
+icon = ExtResource("3_v20dk")
+icon_alignment = 2
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Voltar_pro_jogo" to="." method="_on_voltar_pro_jogo_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

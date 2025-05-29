@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6w68s6t04fv"]
+[gd_scene load_steps=4 format=3 uid="uid://6w68s6t04fv"]
 
-[ext_resource type="Texture2D" uid="uid://dt4ey14mlingg" path="res://weapons/machinegun/machinegun.png" id="1_67b1n"]
 [ext_resource type="Script" uid="uid://bu0fh052uv5oh" path="res://UI/loja da morte/upgrade_card.gd" id="1_s5r5i"]
+[ext_resource type="Texture2D" uid="uid://c3dsc83r53vd4" path="res://weapons/revolver/revolver_icon_2.png" id="2_7n5rf"]
+[ext_resource type="Texture2D" uid="uid://d2asjxc1rnp4i" path="res://UI/UI_images/Alma_Comum_UI.png" id="3_7n5rf"]
 
 [node name="Upgrade_card" type="MarginContainer"]
 size_flags_horizontal = 3
@@ -28,6 +29,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="upgrade_name" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -45,12 +47,15 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="upgrade_image" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
-texture = ExtResource("1_67b1n")
-stretch_mode = 3
+texture = ExtResource("2_7n5rf")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="upgrade_effect" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(290, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -59,11 +64,24 @@ text = "Efeito do upgrade"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="upgrade_cost" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="upgrade_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Custo do upgrade"
+
+[node name="upgrade_cost_image" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_7n5rf")
+stretch_mode = 5
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2

@@ -36,7 +36,7 @@ var vida_max_up: int = 0
 var stamina_max_up:int = 0
 var stamina_rege_up:int = 0
 var sword_damage_up:int = 0
-
+var upgrade_revolver:Array[int] = [0,0]
 
 #Finalização do jogo em caso de game over
 func end_game():
