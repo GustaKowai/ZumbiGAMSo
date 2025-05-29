@@ -13,6 +13,7 @@ var upgrade_name:String
 var upgrade_image_path:String
 var upgrade_effect:String
 var upgrade_cost:int
+var basic_cost:int
 var card_is_choosen:String
 var buff:int
 var sub_prop:int
@@ -46,7 +47,7 @@ func start_card() -> void:
 			"Revolver":
 				set_card_aumenta_revolver(GameManager.upgrade_revolver)
 			"Metralhadora":
-				set_card_aumenta_algo(card_is_choosen)
+				set_card_aumenta_metralhadora(GameManager.upgrade_metralhadora)
 			"Shotgun":
 				set_card_aumenta_algo(card_is_choosen)
 			"Magnum":
@@ -70,36 +71,36 @@ func set_card_aumenta_algo(algo_up):
 	upgrade_name = "Aumenta alguma coisa na " + card_is_choosen
 	buff = 0
 	upgrade_effect = "Isso vai fazer algo para a "+card_is_choosen+" só não sabemos o que ainda"
-	upgrade_cost = randi_range(0,3000)
-	upgrade_cost_image_path = alma_rara
+	basic_cost = randi_range(0,300000)
+	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_vida_max(vida_max_up):
 	upgrade_name = "Aumento de vida máxima"
 	buff = randi_range(5,10)
 	upgrade_effect = "Aumenta a vida máxima do jogador em "+ str(buff)
-	upgrade_cost = (80+2*vida_max_up+buff)*(buff+1)/2
-	upgrade_cost_image_path = alma_comum
+	basic_cost = (80+2*vida_max_up+buff)*(buff+1)/2
+	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_stamina_max(stamina_max_up):
 	upgrade_name = "Aumento de Stamina Max"
 	buff = randi_range(10,20)
 	upgrade_effect = "Aumenta a Stamina máxima do jogador em "+ str(buff)
-	upgrade_cost = (200+2*stamina_max_up+buff)*(buff+1)/2
-	upgrade_cost_image_path = alma_comum
+	basic_cost = (200+2*stamina_max_up+buff)*(buff+1)/2
+	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_stamina_regen(stamina_rege_up):
 	upgrade_name = "Aumento de Regeneração de stamina"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta a  regeneração de stamina do jogador em "+ str(buff)
-	upgrade_cost = (200+2*stamina_rege_up+buff)*(buff+1)/2
-	upgrade_cost_image_path = alma_comum
+	basic_cost = (200+2*stamina_rege_up+buff)*(buff+1)/2
+	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_sword_damage(sword_damage_up):
 	upgrade_name = "Aumento de dano da espada do jogador"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta o dano de ataque com espada do jogador em "+ str(buff)
-	upgrade_cost = (200+2*sword_damage_up+buff)*(buff+1)/2
-	upgrade_cost_image_path = alma_comum
+	basic_cost = (200+2*sword_damage_up+buff)*(buff+1)/2
+	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_revolver(upgrade_revolver):
 	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
@@ -108,19 +109,35 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_name = "Aumento de munição do revólver"
 		buff = randi_range(1,3)
 		upgrade_effect = "Aumenta a munição máxima do revólver em " + str(buff)
-		upgrade_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
-		upgrade_cost_image_path = alma_comum
+		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_name = "Aumento de dano do revólver"
 		buff = randi_range(2,10)
 		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
-		upgrade_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
-		upgrade_cost_image_path = alma_comum 
-	#pass
-#func set_card_aumenta_algo(algo_up):
-	#pass
-#func set_card_aumenta_algo(algo_up):
-	#pass
+		basic_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+func set_card_aumenta_metralhadora(upgrade_metralhadora):
+	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
+	sub_prop = randi_range(0,2)
+	if sub_prop == 0:
+		upgrade_name = "Aumento de munição da metralhadora"
+		buff = randi_range(10,30)
+		upgrade_effect = "Aumenta a munição máxima da metralhadora em " + str(buff)
+		basic_cost = (200+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_name = "Aumento de dano da metralhadora"
+		buff = randi_range(1,3)
+		upgrade_effect  = "Aumenta o dano da metralhadora em " + str(buff)
+		basic_cost  = (200+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 2:
+		upgrade_name = "Mira melhor"
+		buff = randi_range(10,50)
+		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
+		basic_cost = snapped(1000/(upgrade_metralhadora[sub_prop]-(buff*1.0/100)),1) #func set_card_aumenta_algo(algo_up):
+		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
 	#pass
 #func set_card_aumenta_algo(algo_up):
@@ -159,6 +176,18 @@ func _on_button_pressed() -> void:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
 	loja.atualiza_almas()
+
+#Essa função calcula os preços e adapta eles para a alma correspondente:
+func calcula_custo_almas(custo_alma):
+	if custo_alma < 999:
+		upgrade_cost = custo_alma
+		upgrade_cost_image_path = alma_comum
+	elif custo_alma <99999:
+		upgrade_cost = snapped(custo_alma/100,1)
+		upgrade_cost_image_path = alma_incomum
+	else:
+		upgrade_cost = snapped(custo_alma/10000,1)
+		upgrade_cost_image_path = alma_rara
 
 #Essa função checa se o jogador tem a quantidade de almas suficientes.
 func have_souls(upgrade_cost_image_path):
