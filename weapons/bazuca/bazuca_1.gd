@@ -1,23 +1,14 @@
+#Este é o item bazuca, dropado pelos zumbis. Ele instancia uma bazuca no player quando coletado 
+
 extends Sprite2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+@export var weapon:PackedScene
 
 func _on_area_2d_body_entered(body):
 	print("pegou")
 	if body.is_in_group("Jogador"):
+		GameManager.weapon_collected.emit("res://weapons/bazuca/bazuca.png") #Emite um sinal avisando que uma arma foi coletada
 		var player = body
-		#Se o jogador pegar, define como a arma carregada e define a munição:
-		player.bullet_path = preload("res://weapons/bullet_bazuca.tscn")
-		player.weapon_path = preload("res://weapons/revolver_sprite.png")
-		player.equiped_weapon.texture = player.weapon_path
-		player.weapon_cooldown = 0.5
-		player.ammo = 3
+		var weapon_instance = weapon.instantiate()
+		player.add_child(weapon_instance)
 		queue_free()
+		

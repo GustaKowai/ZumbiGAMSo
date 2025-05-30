@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dv3uon3yb6fja"]
+[gd_scene load_steps=24 format=3 uid="uid://dv3uon3yb6fja"]
 
 [ext_resource type="Script" uid="uid://deg0bfjw6tyyf" path="res://Enemies/Zumbi_normal_1/zombie_1.gd" id="1_g3x2a"]
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/Zumbi_normal_1/teste_zumbi_sprite.png" id="1_shrhs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="4_wy0m5"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_yurb3"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="6_4rtqu"]
+[ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="7_5wtdy"]
 [ext_resource type="Texture2D" uid="uid://kctcr882dd43" path="res://Enemies/Zumbi_normal_1/Zumbi_andando_sprite_sheet_.png" id="8_gqk4f"]
 [ext_resource type="Texture2D" uid="uid://bygcoggygxwxn" path="res://Enemies/Zumbi_normal_1/Ataques_para_todo_lado.png" id="9_5wtdy"]
 [ext_resource type="PackedScene" uid="uid://bc4bylx0blnya" path="res://Enemies/Modulos/follow_player.tscn" id="10_gqk4f"]
@@ -546,8 +547,8 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_g3x2a")
 death_prefab = ExtResource("2_0dhp2")
-items = Array[PackedScene]([ExtResource("3_87217"), ExtResource("4_wy0m5"), ExtResource("5_yurb3"), ExtResource("6_4rtqu")])
-drop_chances = Array[float]([0.5, 0.5, 0.5, 2.0])
+items = Array[PackedScene]([ExtResource("3_87217"), ExtResource("4_wy0m5"), ExtResource("5_yurb3"), ExtResource("6_4rtqu"), ExtResource("7_5wtdy")])
+drop_chances = Array[float]([0.5, 0.5, 0.5, 2.0, 0.5])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
