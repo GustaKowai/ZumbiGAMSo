@@ -19,12 +19,13 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_bullet_hit_box_area_entered(area):
-	var area_da_explosao = area_de_dano.get_overlapping_areas()
-	for areas_afetadas in area_da_explosao:
-		if areas_afetadas.is_in_group("EnemyHitBox"):
-			var enemy:Enemy  = areas_afetadas.get_parent()
-			enemy.damage(bullet_damage)
-			queue_free()
+	if area.is_in_group("EnemyHitBox"):
+		var area_da_explosao = area_de_dano.get_overlapping_areas()
+		for areas_afetadas in area_da_explosao:
+			if areas_afetadas.is_in_group("EnemyHitBox"):
+				var enemy:Enemy = areas_afetadas.get_parent()
+				enemy.damage(bullet_damage)
+				queue_free()
 	if area.is_in_group("construcao"):
 		#print("Acertei um predio")
 		queue_free()
