@@ -33,6 +33,7 @@ version_control/autoload_on_startup=true
 
 [gui]
 
+theme/custom_font="uid://cytfjh3wdyfqs"
 theme/default_font_multichannel_signed_distance_field=true
 
 [input]

@@ -76,9 +76,9 @@ func update_weapon_cd():
 		if GameManager.player.weapon_cooldown >=0:
 			var player_cd = round_to_dec(GameManager.player.weapon_cooldown,2) 
 			weapon_bar.value = (player_cd-0.01/GameManager.weapon_cd)*100
-			print("weapon cd atual =", player_cd)
-			print("weapon cd=", GameManager.weapon_cd)
-			print(weapon_bar.value)
+			#print("weapon cd atual =", player_cd)
+			#print("weapon cd=", GameManager.weapon_cd)
+			#print(weapon_bar.value)
 	if GameManager.ammo == 0 and texture_weapon:
 		texture_weapon = null
 		weapon_bar.texture_under = null
