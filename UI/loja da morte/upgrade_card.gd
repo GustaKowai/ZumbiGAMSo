@@ -124,19 +124,22 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		upgrade_name = "Aumento de munição da metralhadora"
 		buff = randi_range(10,30)
 		upgrade_effect = "Aumenta a munição máxima da metralhadora em " + str(buff)
-		basic_cost = (200+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (20+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_name = "Aumento de dano da metralhadora"
 		buff = randi_range(1,3)
 		upgrade_effect  = "Aumenta o dano da metralhadora em " + str(buff)
-		basic_cost  = (200+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
+		basic_cost  = (20+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
+		if GameManager.upgrade_metralhadora[2] <= 0: start_card() 
 		upgrade_name = "Mira melhor"
-		buff = randi_range(10,50)
+		buff = randi_range(min(10,GameManager.upgrade_metralhadora[2]),min(50,GameManager.upgrade_metralhadora[2]))
 		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
-		basic_cost = snapped(1000/(upgrade_metralhadora[sub_prop]-(buff*1.0/100)),1) #func set_card_aumenta_algo(algo_up):
+		basic_cost = snapped(10/((upgrade_metralhadora[sub_prop]-(buff))*0.01+0.01),1) #func set_card_aumenta_algo(algo_up):
+		print("Denominador: "+ str(((upgrade_metralhadora[sub_prop]-(buff))*0.01+0.01)))
+		buff = -buff
 		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
 	#pass
@@ -165,7 +168,8 @@ func _on_button_pressed() -> void:
 			"Revolver":
 				GameManager.upgrade_revolver[sub_prop]+=buff
 			"Metralhadora":
-				set_card_aumenta_algo(card_is_choosen)
+				GameManager.upgrade_metralhadora[sub_prop]+=buff
+				print(GameManager.upgrade_metralhadora[sub_prop])
 			"Shotgun":
 				set_card_aumenta_algo(card_is_choosen)
 			"Magnum":

@@ -20,7 +20,7 @@ func _ready() -> void:
 	#Recebe o sinal de quando uma arma for coletada e conecta ele a função de largar a arma atual
 	GameManager.weapon_collected.connect(on_weapon_collected)
 	#Atualiza conforme o upgrade:
-	bullet_spreed *= GameManager.upgrade_metralhadora[2]
+	bullet_spreed *= GameManager.upgrade_metralhadora[2]*1.0/100
 	ammo += GameManager.upgrade_metralhadora[0]
 	#Envia para o GameManager a munição inicial da arma:
 	GameManager.ammo = ammo
