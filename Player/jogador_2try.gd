@@ -1,50 +1,50 @@
 class_name Jogador
 extends CharacterBody2D
 
-const PHANTON_YELLOW = Color(1, 1, 0, 0.5)
-const PHANTON_RED = Color(1, 0, 0, 0.5)
-const PHANTON_GREEN = Color(0, 1, 0, 0.5)
+const PHANTON_YELLOW:Color = Color(1, 1, 0, 0.5)
+const PHANTON_RED:Color = Color(1, 0, 0, 0.5)
+const PHANTON_GREEN:Color = Color(0, 1, 0, 0.5)
 
-@onready var animation_player = $AnimationPlayer
-@onready var sprite = $Sprites/Player
-@onready var sprite_weapon =  $Sprites/Weapon
-@onready var sword_area = $SwordArea
-@onready var hitbox_area = $HitBoxArea
-@onready var health_progress_bar = $HealthBar
-@onready var style = health_progress_bar.get_theme_stylebox("fill") as StyleBoxFlat
-@onready var stamina_bar = $StaminaBar
-@onready var equiped_weapon = $Sprites/Weapon
-@onready var dash_timer = $DashTimer
+@onready var animation_player:AnimationPlayer = $AnimationPlayer
+@onready var sprite:Sprite2D = $Sprites/Player
+@onready var sprite_weapon:Sprite2D =  $Sprites/Weapon
+@onready var sword_area:Area2D = $SwordArea
+@onready var hitbox_area:Area2D = $HitBoxArea
+@onready var health_progress_bar:ProgressBar = $HealthBar
+@onready var style:StyleBoxFlat = health_progress_bar.get_theme_stylebox("fill") as StyleBoxFlat
+@onready var stamina_bar:ProgressBar = $StaminaBar
+@onready var equiped_weapon:Sprite2D = $Sprites/Weapon
+@onready var dash_timer:Timer = $DashTimer
 
 @export_category("Movement")
-@export var speed = 3.0
-@export_range(0,1) var lerp_smoothness = 0.5
-@export var dash_duration = 0.1
-@export var dash_boost = 8.0
-@export var stamina_recovery_speed = 20.0
-@export var max_stamina = 100
-@export var dash_cost = 70
-var stamina_value = 0.0
+@export var speed:float = 3.0
+@export_range(0,1) var lerp_smoothness:float = 0.5
+@export var dash_duration:float = 0.1
+@export var dash_boost:float = 8.0
+@export var stamina_recovery_speed:float = 20.0
+@export var max_stamina:int = 100
+@export var dash_cost:int = 70
+var stamina_value:float = 0.0
 
 @export_category("Combat")
-@export var max_health = 20
+@export var max_health:int = 20
 @export var sword_damage:int = 20
 @export var ammo:int = 0
 var player_health:int
 @export var death_prefab:PackedScene
 
-var input_vector = Vector2(0,0)
-var position_running = "down"
+var input_vector:Vector2 = Vector2(0,0)
+var position_running:String = "down"
 var atk_direction: Vector2
-var is_attacking = false
-var is_shooting = false
-var is_dashing = false
-var attack_cooldown = 0.0
+var is_attacking:bool = false
+var is_shooting:bool = false
+var is_dashing:bool = false
+var attack_cooldown:float = 0.0
 var bullet_path = null
 var weapon_path = null
-var weapon_cooldown = 0
+var weapon_cooldown:int = 0
 func _ready():
-	#Passa o player para o GameManager
+	#Faz o update dos status e passa para o Game Manager
 	update_player_stats()
 	stamina_bar.value = 0
 	
@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 		dash()
 
 func _physics_process(_delta):
-	var target_velocity = input_vector*speed*100.0
+	var target_velocity:Vector2 = input_vector*speed*100.0
 	if is_attacking or is_shooting:
 		target_velocity *= 0.1
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
@@ -86,13 +86,13 @@ func _physics_process(_delta):
 func dash():
 	if not is_attacking and not is_shooting and not is_dashing and stamina_value >= dash_cost:
 		is_dashing = true
-		var dash_speed = speed + dash_boost
+		var dash_speed:float = speed + dash_boost
 		animation_player.speed_scale = 2.0
 		stamina_value -= dash_cost
 		self.set_collision_mask_value(2, false)
 		self.modulate.a = 0.5
 		#Mudança sutil de velocidade
-		var velocity_tween = create_tween()
+		var velocity_tween:Tween = create_tween()
 		velocity_tween.set_ease(Tween.EASE_IN)
 		velocity_tween.tween_property(self, "speed", dash_speed, dash_duration/2)
 		velocity_tween.tween_property(self, "speed", dash_speed, dash_duration/2)
@@ -110,11 +110,11 @@ func _on_timer_timeout() -> void:
 		
 func stop_dash():
 	is_dashing = false
-	var pos_dash_speed = speed - dash_boost
+	var pos_dash_speed:float = speed - dash_boost
 	animation_player.speed_scale = 1.0
 	self.set_collision_mask_value(2, true)
 	self.modulate.a = 1.0
-	var velocity_tween = create_tween()
+	var velocity_tween:Tween = create_tween()
 	velocity_tween.set_ease(Tween.EASE_IN)
 	velocity_tween.tween_property(self, "speed", pos_dash_speed, dash_duration/2)
 	velocity_tween.tween_property(self, "speed", pos_dash_speed, dash_duration/2)
@@ -281,6 +281,7 @@ func update_player_stats():
 	max_stamina += GameManager.stamina_max_up
 	stamina_recovery_speed += GameManager.stamina_rege_up
 	sword_damage += GameManager.sword_damage_up
+	#Passa o player para o GameManager
 	GameManager.player = self
 	print(player_health,max_stamina)
 	

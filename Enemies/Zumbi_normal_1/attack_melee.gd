@@ -4,12 +4,12 @@ var enemy: Enemy
 var sprite:Sprite2D
 var animation_player:AnimationPlayer
 var var_diff:Vector2
-var position_running = "side" 
+var position_running:String = "side" 
 var dmg_area:Area2D
 var atk_direction: Vector2
 
-@export var dano_zombie = 1
-var attack_cooldown = 0.7
+@export var dano_zombie:int = 1
+var attack_cooldown:float = 0.7
 
 func _ready():
 	enemy = get_parent()
@@ -35,14 +35,14 @@ func deal_damage_to_player():
 	for area in areas:
 		if area.is_in_group("JogadorHitBox"):
 			var player: Jogador = area.get_parent()
-			var player_direction = (player.position - enemy.position).normalized()
-			var dot_product = player_direction.dot(atk_direction)
+			var player_direction:Vector2 = (player.position - enemy.position).normalized()
+			var dot_product:float = player_direction.dot(atk_direction)
 			print(dot_product)
 			if dot_product > 0.7:#Verifica se o Player está na frente do zumbi
 				player.damage(dano_zombie)
 
 func try_attack():
-	var areas = dmg_area.get_overlapping_areas() #Detecta todas as áreas que estão dentro da área de dano do inimigo
+	var areas:Array[Area2D] = dmg_area.get_overlapping_areas() #Detecta todas as áreas que estão dentro da área de dano do inimigo
 	for area in areas:
 		if area.is_in_group("JogadorHitBox"): #Detecta se alguma área detectada é um jogador
 			attack()

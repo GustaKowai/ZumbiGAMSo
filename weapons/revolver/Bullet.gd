@@ -3,8 +3,8 @@ extends CharacterBody2D
 var pos:Vector2
 var rota:float
 var dir: float
-var speed = 2000
-var bullet_damage = 20
+var speed:int = 2000
+var bullet_damage:int = 20
 
 func _ready():
 	global_position = pos

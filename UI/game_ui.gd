@@ -74,7 +74,7 @@ func update_coin_count():
 func update_weapon_cd():
 	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
 		if GameManager.player.weapon_cooldown >=0:
-			var player_cd = round_to_dec(GameManager.player.weapon_cooldown,2) 
+			var player_cd:float = round_to_dec(GameManager.player.weapon_cooldown,2) 
 			weapon_bar.value = (player_cd-0.01/GameManager.weapon_cd)*100
 			#print("weapon cd atual =", player_cd)
 			#print("weapon cd=", GameManager.weapon_cd)
@@ -86,7 +86,7 @@ func update_weapon_cd():
 		
 #Mudanças da UI de acordo com o HP do jogador:		
 func update_damaged_UI():
-	var player_proporcional_health = GameManager.player.player_health*1.0/GameManager.player.max_health*1.0
+	var player_proporcional_health:float = GameManager.player.player_health*1.0/GameManager.player.max_health*1.0
 	if player_proporcional_health > 0.5:
 		vinheta.modulate.a = 0
 	else:
