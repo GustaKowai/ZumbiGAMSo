@@ -81,7 +81,8 @@ func _physics_process(_delta):
 		target_velocity *= 0.1
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
-#Funções do dash:
+
+#region Funções do dash:
 func dash():
 	if not is_attacking and not is_shooting and not is_dashing and stamina_value >= dash_cost:
 		is_dashing = true
@@ -121,6 +122,7 @@ func stop_dash():
 func recharg_stamina(delta):
 	if stamina_value < max_stamina:
 		stamina_value += delta*stamina_recovery_speed
+#endregion
 
 #Funções de movimento:	
 func play_run_iddle():
@@ -155,7 +157,7 @@ func rotate_sprite():
 			sprite.flip_h = true
 			sprite_weapon.flip_h = true
 
-#Funções de ataque
+#region Funções de ataque
 func update_atk_cd(delta):
 	if is_attacking:
 		attack_cooldown -=delta
@@ -216,8 +218,9 @@ func damage(amount:int):
 	if player_health <=0:
 		GameManager.texto_morte = "Você apanhou demais dos Zumbis"
 		die()
+#endregion
 	
-#func fireGun(): #essa função não faz mais nada
+#func fireGun(): #DEPRECATED essa função não faz mais nada 
 	#if ammo <= 0 or not bullet_path or not weapon_path:#Se acabar as balas ou estiver sem arma, não faz nada
 		#return
 	#var bullet = bullet_path.instantiate()

@@ -66,6 +66,7 @@ func set_card():
 	upgrade_cost_image.texture = load(upgrade_cost_image_path)
 
 ####---------------------vvvvvv--------------------------####
+#region determinar o tipo de texto e buff
 #Essas funções servem para determinar o texto e o buff de cada carta.
 func set_card_aumenta_algo(algo_up):
 	upgrade_name = "Aumenta alguma coisa na " + card_is_choosen
@@ -142,14 +143,15 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		buff = -buff
 		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
-	#pass
+	#TODO
 #func set_card_aumenta_algo(algo_up):
-	#pass
+	#TODO
 #func set_card_aumenta_algo(algo_up):
-	#pass
+	#TODO
 #func set_card_aumenta_algo(algo_up):
-	#pass
+	#TODO
 
+#endregion
 
 #Essa função serve para aplicar o efeito quando o botão for apertado.
 func _on_button_pressed() -> void:
