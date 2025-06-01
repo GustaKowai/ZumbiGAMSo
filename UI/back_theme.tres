@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://da2n3vhmrnn76"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://da2n3vhmrnn76"]
 
 [ext_resource type="Texture2D" uid="uid://cd0idf4uuyvtp" path="res://UI/UI_images/Coracao_UI_Game-Over.png" id="1_y43wf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y43wf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y43wf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,6 +22,7 @@ Button/colors/icon_hover_color = Color(1, 1, 1, 1)
 Button/colors/icon_normal_color = Color(0.800491, 0.800491, 0.800491, 1)
 Button/font_sizes/font_size = 12
 Button/icons/icon = ExtResource("1_y43wf")
+Button/styles/focus = SubResource("StyleBoxEmpty_y43wf")
 Button/styles/hover = SubResource("StyleBoxFlat_y43wf")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_r3pih")
 Button/styles/normal = SubResource("StyleBoxFlat_04q5e")

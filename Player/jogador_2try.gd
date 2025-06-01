@@ -42,7 +42,7 @@ var is_dashing:bool = false
 var attack_cooldown:float = 0.0
 var bullet_path = null
 var weapon_path = null
-var weapon_cooldown:int = 0
+var weapon_cooldown:float = 0
 func _ready():
 	#Faz o update dos status e passa para o Game Manager
 	update_player_stats()
