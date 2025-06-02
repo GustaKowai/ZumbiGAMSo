@@ -14,10 +14,8 @@ func heal_player(vida_curada: int) -> void:
 	if controle_de_vida > (GameManager.player.max_health - vida_curada) and controle_de_vida <= GameManager.player.max_health:
 		GameManager.player.player_health = GameManager.player.max_health
 		print("curou para vida maxima")
-		GameManager.life_changed.emit()
 	#Caso geral em que so adiciona a quantidade da pocao a vida do player
 	else:
 		GameManager.player.player_health += vida_curada
 		print("curou 5")
-		GameManager.life_changed.emit()
 	queue_free()

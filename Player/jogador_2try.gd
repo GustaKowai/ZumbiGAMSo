@@ -30,7 +30,11 @@ var stamina_value:float = 0.0
 @export var max_health:int = 20
 @export var sword_damage:int = 20
 @export var ammo:int = 0
-var player_health:int
+var player_health:int:
+	set(new_value):
+		player_health = new_value
+		print("Vida = ",new_value)
+		GameManager.life_changed.emit()
 @export var death_prefab:PackedScene
 
 var input_vector:Vector2 = Vector2(0,0)
@@ -206,8 +210,7 @@ func deal_damage_to_enemies():
 func damage(amount:int):
 	if player_health <= 0:
 		return
-	player_health -=amount
-	GameManager.life_changed.emit()
+	self.player_health -=amount
 	#print("Player recebeu dano de ",amount,". A vida atual é de ",player_health,"/")
 	#piscar o player:
 	modulate = Color.ORANGE
