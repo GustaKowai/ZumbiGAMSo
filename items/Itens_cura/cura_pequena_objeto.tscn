@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy21x5ejbkyml"]
+
+[ext_resource type="Script" uid="uid://dsyqb8wnigop0" path="res://items/Itens_cura/cura_pequena_objeto.gd" id="1_ostfn"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ostfn")
+quantidade_cura = 5
