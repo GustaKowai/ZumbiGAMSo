@@ -1169,7 +1169,6 @@ position_smoothing_enabled = true
 
 [node name="TauntItem" parent="." instance=ExtResource("13_c6i3y")]
 position = Vector2(450, 198)
-scale = Vector2(0.0213023, 0.0284821)
 
 [node name="Cura_pequena" parent="." instance=ExtResource("16_bg4s2")]
 position = Vector2(919, -160)

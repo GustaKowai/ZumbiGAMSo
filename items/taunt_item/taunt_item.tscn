@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx2rokbdvte28"]
 
-[ext_resource type="Texture2D" uid="uid://cty6sh6j1vyu7" path="res://a-radio-tape-in-pixel-art-style-vector.jpg" id="1_6uy1m"]
 [ext_resource type="Script" uid="uid://g8ybeo4jc4lx" path="res://items/taunt_item/taunt_item.gd" id="1_12bsa"]
+[ext_resource type="Texture2D" uid="uid://0q467ytygcb2" path="res://items/taunt_item/item_atrai.png" id="1_lqg3t"]
 [ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="3_y7rfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uy1m"]
 
 [node name="TauntItem" type="Sprite2D"]
-scale = Vector2(0.120833, 0.120833)
-texture = ExtResource("1_6uy1m")
+scale = Vector2(3, 3)
+texture = ExtResource("1_lqg3t")
+hframes = 2
 script = ExtResource("1_12bsa")
 item = ExtResource("3_y7rfy")
 
@@ -17,7 +18,6 @@ collision_layer = 4
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(96.6413, 96.6413)
 shape = SubResource("RectangleShape2D_6uy1m")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
