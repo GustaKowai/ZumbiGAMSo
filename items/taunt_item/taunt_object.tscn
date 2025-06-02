@@ -37,7 +37,7 @@ taunt_duration = 5.0
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uagv6")
 autoplay = "default"
-frame_progress = 0.171535
+frame_progress = 0.608924
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_li2ph")
