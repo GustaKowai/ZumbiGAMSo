@@ -26,7 +26,7 @@ func _ready():
 	GameManager.weapon_collected.connect(change_weapon_equiped)
 	GameManager.item_collected.connect(change_item_equiped)
 	GameManager.coin_collected.connect(update_coin_count)
-	GameManager.player_damaged.connect(update_damaged_UI)
+	GameManager.life_changed.connect(update_damaged_UI)
 	GameManager.zombie_died.connect(update_souls_UI)
 	
 	

@@ -5,7 +5,7 @@ signal game_over
 signal weapon_collected()
 signal item_collected()
 signal coin_collected()
-signal player_damaged()
+signal life_changed()
 signal zombie_died()
 #Gerenciamento da run:
 var player:Jogador

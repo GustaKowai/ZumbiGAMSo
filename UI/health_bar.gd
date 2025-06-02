@@ -3,7 +3,7 @@ extends TextureProgressBar
 @onready var damage_bar = $DamageBar
 
 func _ready() -> void:
-	GameManager.player_damaged.connect(update_health_bar)
+	GameManager.life_changed.connect(update_health_bar)
 	max_value = GameManager.player.max_health
 	damage_bar.max_value = max_value
 	value = GameManager.player.player_health
