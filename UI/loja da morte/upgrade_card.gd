@@ -196,8 +196,8 @@ func calcula_custo_almas(custo_alma):
 		upgrade_cost_image_path = alma_rara
 
 #Essa função checa se o jogador tem a quantidade de almas suficientes.
-func have_souls(upgrade_cost_image_path):
-	if upgrade_cost_image_path == alma_comum:
+func have_souls(soul_type):
+	if soul_type == alma_comum:
 		if GameManager.alma_comum > upgrade_cost:
 			GameManager.alma_comum -= upgrade_cost
 			print("Você agora tem ",GameManager.alma_comum," almas")
@@ -206,7 +206,7 @@ func have_souls(upgrade_cost_image_path):
 			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
 			loja.aviso_almas()
 			return false
-	elif upgrade_cost_image_path == alma_incomum:
+	elif soul_type == alma_incomum:
 		if GameManager.alma_incomum > upgrade_cost:
 			GameManager.alma_incomum -= upgrade_cost
 			print("Você agora tem ",GameManager.alma_incomum," almas")
@@ -215,7 +215,7 @@ func have_souls(upgrade_cost_image_path):
 			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
 			loja.aviso_almas()
 			return false
-	elif upgrade_cost_image_path == alma_rara:
+	elif soul_type == alma_rara:
 		if GameManager.alma_rara > upgrade_cost:
 			GameManager.alma_rara -= upgrade_cost
 			print("Você agora tem ",GameManager.alma_rara," almas")

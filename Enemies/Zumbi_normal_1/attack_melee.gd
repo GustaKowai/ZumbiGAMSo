@@ -37,7 +37,7 @@ func deal_damage_to_player():
 			var player: Jogador = area.get_parent()
 			var player_direction:Vector2 = (player.position - enemy.position).normalized()
 			var dot_product:float = player_direction.dot(atk_direction)
-			print(dot_product)
+			#print(dot_product)
 			if dot_product > 0.6:#Verifica se o Player está na frente do zumbi
 				player.damage(dano_zombie)
 

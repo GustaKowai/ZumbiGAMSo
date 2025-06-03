@@ -36,7 +36,7 @@ var stamina_value:float = 0.0
 var player_health:int:
 	set(new_value):
 		player_health = new_value
-		print("Vida = ",new_value)
+		#print("Vida = ",new_value)
 		GameManager.life_changed.emit()
 @export var death_prefab:PackedScene
 

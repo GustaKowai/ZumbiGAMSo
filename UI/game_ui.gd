@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var item_sprite:TextureRect = $Consumivel/item_sprite
 @onready var stamina_bar:TextureProgressBar = $player_life_and_stamina/StaminaBar
 @onready var health_bar:TextureProgressBar = $player_life_and_stamina/HealthBar
-@onready var damage_bar:TextureProgressBar = $player_life_and_stamina/DamageBar
+@onready var damage_bar:TextureProgressBar = $player_life_and_stamina/HealthBar/DamageBar
 @onready var heart:AnimatedSprite2D = $player_life_and_stamina/Beating_heart
 @onready var vinheta:Sprite2D = $Vinheta
 @onready var coin_label:Label = %coin_label
