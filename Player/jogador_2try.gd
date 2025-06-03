@@ -15,6 +15,9 @@ const PHANTON_GREEN:Color = Color(0, 1, 0, 0.5)
 @onready var stamina_bar:ProgressBar = $StaminaBar
 @onready var equiped_weapon:Sprite2D = $Sprites/Weapon
 @onready var dash_timer:Timer = $DashTimer
+@onready var sprite_player_movimento = $Sprites/player_movimento
+@onready var sprite_player_idle = $Sprites/player_idle
+
 
 @export_category("Movement")
 @export var speed:float = 3.0
@@ -154,12 +157,16 @@ func play_run_iddle():
 func rotate_sprite():
 	#girar sprite:
 	if not is_attacking and not is_shooting:
-		if input_vector.x > 0:
+		if input_vector.x < 0:
 			sprite.flip_h = false
 			sprite_weapon.flip_h = false
-		elif input_vector.x <0:
+			sprite_player_movimento.flip_h = false
+			sprite_player_idle.flip_h = false
+		elif input_vector.x > 0:
 			sprite.flip_h = true
 			sprite_weapon.flip_h = true
+			sprite_player_movimento.flip_h = true
+			sprite_player_idle.flip_h = true
 
 #region Funções de ataque
 func update_atk_cd(delta):
@@ -190,9 +197,9 @@ func attack():
 		atk_direction = Vector2.UP
 	elif position_running == "side":
 		animation_player.play("Atk Side") 	
-		if sprite.flip_h:
-			atk_direction = Vector2.LEFT
 		if not sprite.flip_h:
+			atk_direction = Vector2.LEFT
+		if sprite.flip_h:
 			atk_direction = Vector2.RIGHT
 	
 func deal_damage_to_enemies():
