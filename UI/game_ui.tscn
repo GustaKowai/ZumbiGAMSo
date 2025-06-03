@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://scqbfaec4i5"]
+[gd_scene load_steps=42 format=3 uid="uid://scqbfaec4i5"]
 
 [ext_resource type="Script" uid="uid://bq83ujweuwm2d" path="res://UI/game_ui.gd" id="1_p54ko"]
 [ext_resource type="Texture2D" uid="uid://c4lae5v81ol08" path="res://UI/UI_images/UI_Pontuacao.png" id="2_7suct"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cyfqavr0lf06m" path="res://UI/UI_images/Alma_zumbi_raro.png" id="4_wjxh5"]
 [ext_resource type="Texture2D" uid="uid://b2eyfu887i70i" path="res://UI/UI_images/Alma_Zumbi_incomum.png" id="5_abi8r"]
 [ext_resource type="Texture2D" uid="uid://c2sddkj84yls0" path="res://UI/UI_images/Espaco_Arma.png" id="5_v6n52"]
+[ext_resource type="AudioStream" uid="uid://crtfjcuqs3ojp" path="res://items/coin/079_Buy_sell_01.wav" id="6_wjxh5"]
 [ext_resource type="Texture2D" uid="uid://h5ehwrfxkrb1" path="res://weapons/revolver/revolver_icon.png" id="6_ywmy4"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="7_v6n52"]
 [ext_resource type="Texture2D" uid="uid://drhc7t8jghgge" path="res://UI/UI_images/Stamina_Bar_Empty.png" id="8_jd38o"]
@@ -286,6 +287,9 @@ offset_top = 29.0
 offset_right = 644.0
 offset_bottom = 52.0
 text = "0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ui_top/coin_label"]
+stream = ExtResource("6_wjxh5")
 
 [node name="Caveira" type="AnimatedSprite2D" parent="Ui_top"]
 position = Vector2(738, 45)

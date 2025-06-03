@@ -14,6 +14,7 @@ extends CanvasLayer
 @onready var almaComum:Sprite2D = $Ui_top/AlmaZumbiComum
 @onready var almaIncomum:Sprite2D = $Ui_top/AlmaZumbiIncomum
 @onready var almaRara:Sprite2D = $Ui_top/AlmaZumbiRaro
+@onready var coin_sound:AudioStreamPlayer = $Ui_top/coin_label/AudioStreamPlayer
 var texture_weapon:Texture2D = null
 var texture_item:Texture2D = null
 # Called when the node enters the scene tree for the first time.
@@ -70,6 +71,8 @@ func update_stamina_bar():
 			
 func update_coin_count():
 	coin_label.text = str(GameManager.coin_count)
+	coin_sound.play()
+	
 
 func update_weapon_cd():
 	if GameManager.player.weapon_cooldown and GameManager.weapon_cd:
