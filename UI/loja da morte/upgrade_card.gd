@@ -75,6 +75,7 @@ func set_card_aumenta_algo(algo_up):
 	basic_cost = randi_range(0,300000)
 	calcula_custo_almas(basic_cost)
 	
+###-----Player-----###	
 func set_card_aumenta_vida_max(vida_max_up):
 	upgrade_name = "Aumento de vida máxima"
 	buff = randi_range(5,10)
@@ -103,6 +104,7 @@ func set_card_aumenta_sword_damage(sword_damage_up):
 	basic_cost = (200+2*sword_damage_up+buff)*(buff+1)/2
 	calcula_custo_almas(basic_cost)
 	
+###-----Revolver-----###	
 func set_card_aumenta_revolver(upgrade_revolver):
 	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
 	sub_prop = randi_range(0,1)
@@ -118,9 +120,11 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
 		basic_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
+		
+###-----Metralhadora-----###
 func set_card_aumenta_metralhadora(upgrade_metralhadora):
 	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
-	sub_prop = randi_range(0,2)
+	sub_prop = randi_range(0,3)
 	if sub_prop == 0:
 		upgrade_name = "Aumento de munição da metralhadora"
 		buff = randi_range(10,30)
@@ -142,7 +146,14 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		print("Denominador: "+ str(((upgrade_metralhadora[sub_prop]-(buff))*0.01+0.01)))
 		buff = -buff
 		calcula_custo_almas(basic_cost)
-		
+	if sub_prop == 3:
+		upgrade_name = "Mais velocidade de tiro"
+		buff = randi_range(20,60)
+		upgrade_effect = "Aumenta a velocidade de tiro em " +str(buff)+"%"
+		basic_cost = buff*GameManager.upgrade_metralhadora[sub_prop]/10
+		calcula_custo_almas(basic_cost)
+
+###-----Shotgun-----###		
 func set_card_aumenta_shotgun(upgrade_shotgun):
 	upgrade_image_path = "res://weapons/shotgun/shotgun_icon.png"
 	sub_prop = randi_range(0,4)

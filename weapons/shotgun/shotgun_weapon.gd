@@ -19,10 +19,10 @@ func _ready() -> void:
 	#Recebe o sinal de quando uma arma for coletada e conecta ele a função de largar a arma atual
 	GameManager.weapon_collected.connect(on_weapon_collected)
 	#Envia para o GameManager a munição inicial da arma:
-	GameManager.ammo = ammo + GameManager.upgrade_shotgun[0]
 	bullet_range *= GameManager.upgrade_shotgun[2]*1.0/100
 	bullet_quantidade += GameManager.upgrade_shotgun[4]
-
+	ammo += GameManager.upgrade_shotgun[0]
+	GameManager.ammo = ammo
 func on_weapon_collected(string): #Essa função serve para largar a arma
 	print("larguei a arma")
 	queue_free()
@@ -58,7 +58,6 @@ func fireGun():
 			player.animation_player.play("Fire_side_right")
 
 func fire_bullet():
-	print(bullet_range)
 	#Determina a direção do tiro, range e cria a bala pela quantidade informada
 	for i in range(bullet_quantidade):
 		var desvio_bala = -bullet_range/2 + i*(bullet_range/(bullet_quantidade-1))

@@ -8,6 +8,8 @@ extends Node2D
 @export var weapon_cooldown = 0.1
 @export var ammo = 100
 @export var bullet_spreed = PI/10
+@export var intervalo_entre_tiros = 5.0
+@export var velocidade_tiros = 1.0
 var interval = 0
 var firing = false
 
@@ -22,6 +24,7 @@ func _ready() -> void:
 	#Atualiza conforme o upgrade:
 	bullet_spreed *= GameManager.upgrade_metralhadora[2]*1.0/100
 	ammo += GameManager.upgrade_metralhadora[0]
+	velocidade_tiros *= GameManager.upgrade_metralhadora[3]*1.0/100
 	#Envia para o GameManager a munição inicial da arma:
 	GameManager.ammo = ammo
 
@@ -34,8 +37,9 @@ func _process(delta: float) -> void:
 		fireGun()
 		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
-		interval += 1
-		if interval>=5.0:
+		interval += velocidade_tiros
+		print(interval)
+		if interval>=intervalo_entre_tiros:
 			interval = 0
 			player.weapon_cooldown = weapon_cooldown
 			player.is_shooting = true
