@@ -107,7 +107,7 @@ func set_card_aumenta_sword_damage(sword_damage_up):
 ###-----Revolver-----###	
 func set_card_aumenta_revolver(upgrade_revolver):
 	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
-	sub_prop = randi_range(0,1)
+	sub_prop = randi_range(0,2)
 	if sub_prop == 0:
 		upgrade_name = "Aumento de munição do revólver"
 		buff = randi_range(1,3)
@@ -120,6 +120,13 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
 		basic_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
+	if sub_prop == 2:
+		upgrade_name = "Aumento de perfuração"
+		buff = randi_range(1,3)
+		upgrade_effect = "Permite que a bala do revólver atravesse " + str(buff) + " zumbis a mais"
+		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+
 		
 ###-----Metralhadora-----###
 func set_card_aumenta_metralhadora(upgrade_metralhadora):
