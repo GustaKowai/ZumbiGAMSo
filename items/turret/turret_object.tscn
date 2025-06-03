@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://3lw3whsljua2"]
+
+[ext_resource type="Script" uid="uid://dnb7d7x5j2mhd" path="res://items/turret/turret_object.gd" id="1_2uqw3"]
+[ext_resource type="Texture2D" uid="uid://q10au8jl1lvq" path="res://items/turret/turret_object.png" id="1_lkhvq"]
+[ext_resource type="PackedScene" uid="uid://bkjjpdldof5ak" path="res://weapons/shotgun/bullet_shotgun.tscn" id="2_jbqgq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkhvq"]
+radius = 140.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2uqw3"]
+radius = 237.306
+
+[node name="TurretObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_2uqw3")
+turret_duration = 10.0
+bullet_scene = ExtResource("2_jbqgq")
+
+[node name="TurretObject" type="Sprite2D" parent="."]
+position = Vector2(1, -29)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lkhvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -8)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_lkhvq")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2(-3, -8)
+shape = SubResource("CircleShape2D_2uqw3")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1, -33)
+
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

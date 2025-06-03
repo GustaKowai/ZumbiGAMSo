@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b826otmslxvpk"]
+
+[ext_resource type="Texture2D" uid="uid://bi1c36esg2js1" path="res://items/turret/turret_item.png" id="1_l1j64"]
+[ext_resource type="Script" uid="uid://cvc4yeun1ed2r" path="res://items/turret/turret_item.gd" id="1_mp23b"]
+[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="2_oryro"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mp23b"]
+
+[node name="TurretItem" type="Node2D"]
+script = ExtResource("1_mp23b")
+item = ExtResource("2_oryro")
+
+[node name="TurretItem" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-08, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_l1j64")
+offset = Vector2(10, -100)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_mp23b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

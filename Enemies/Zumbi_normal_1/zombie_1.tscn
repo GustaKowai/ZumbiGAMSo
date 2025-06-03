@@ -586,11 +586,11 @@ libraries = {
 }
 
 [node name="HitBoxArea" type="Area2D" parent="." groups=["EnemyHitBox"]]
-position = Vector2(-66, 0)
+position = Vector2(0, -47)
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBoxArea"]
 y_sort_enabled = true
-position = Vector2(66, -49)
+position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_kr5at")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
