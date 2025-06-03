@@ -552,6 +552,7 @@ drop_chances = Array[float]([0.5, 0.5, 0.5, 2.0, 0.5])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(-1, -46)
 texture = ExtResource("1_shrhs")
 offset = Vector2(1, 1)
@@ -560,9 +561,11 @@ vframes = 6
 frame = 15
 
 [node name="Movimento" type="Sprite2D" parent="."]
-position = Vector2(1, -60)
+y_sort_enabled = true
+position = Vector2(5.96046e-08, -1)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("8_gqk4f")
+offset = Vector2(0.8, -47.2)
 hframes = 7
 vframes = 3
 frame = 7

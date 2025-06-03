@@ -28,6 +28,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_li2ph"]
 
 [node name="taunt_object" type="StaticBody2D"]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 collision_layer = 32
 collision_mask = 34
@@ -35,9 +36,12 @@ script = ExtResource("2_j6m5w")
 taunt_duration = 5.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-0.333333, -8)
 sprite_frames = SubResource("SpriteFrames_uagv6")
 autoplay = "default"
-frame_progress = 0.608924
+frame_progress = 0.651283
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.333333, -8)
 shape = SubResource("RectangleShape2D_li2ph")
