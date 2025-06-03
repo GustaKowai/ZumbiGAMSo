@@ -11,6 +11,8 @@ var bullet_tempodevida = 0
 func _ready():
 	global_position = pos
 	global_rotation = rota
+	bullet_damage += GameManager.upgrade_shotgun[1]
+	bullet_duracao*= GameManager.upgrade_shotgun[3]*1.0/100
 	
 #Tentativa de fazer as balas desaparecerem depois de um tempo
 func _process(delta):

@@ -38,7 +38,7 @@ var stamina_rege_up:int = 0
 var sword_damage_up:int = 0
 var upgrade_revolver:Array[int] = [0,0] #[munição,dano]
 var upgrade_metralhadora:Array[int] = [0,0,100] #[munição,dano,spreed]
-var upgrade_shotgun:Array[int] = [0,0] #[munição,dano]
+var upgrade_shotgun:Array[int] = [0,0,100,100,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
 var upgrade_magnum:Array[int] = [0,0] #[munição,dano]
 var upgrade_bazuca:Array[int] = [0,0] #[munição,dano]
 

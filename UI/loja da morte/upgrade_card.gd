@@ -49,7 +49,7 @@ func start_card() -> void:
 			"Metralhadora":
 				set_card_aumenta_metralhadora(GameManager.upgrade_metralhadora)
 			"Shotgun":
-				set_card_aumenta_algo(card_is_choosen)
+				set_card_aumenta_shotgun(GameManager.upgrade_shotgun)
 			"Magnum":
 				set_card_aumenta_algo(card_is_choosen)
 			"Bazuca":
@@ -142,8 +142,43 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		print("Denominador: "+ str(((upgrade_metralhadora[sub_prop]-(buff))*0.01+0.01)))
 		buff = -buff
 		calcula_custo_almas(basic_cost)
-#func set_card_aumenta_algo(algo_up):
-	#TODO
+		
+func set_card_aumenta_shotgun(upgrade_shotgun):
+	upgrade_image_path = "res://weapons/shotgun/shotgun_icon.png"
+	sub_prop = randi_range(0,4)
+	if sub_prop == 0:
+		upgrade_name = "Aumento de munição da shotgun"
+		buff = randi_range(1,4)
+		upgrade_effect = "Aumenta a munição máxima da shotgun em " + str(buff)
+		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_name = "Aumento de dano da shotgun"
+		buff = randi_range(5,10)
+		upgrade_effect  = "Aumenta o dano da shotgun em " + str(buff)
+		basic_cost  = (20+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 2:
+		if GameManager.upgrade_shotgun[2] <= 0: start_card() 
+		upgrade_name = "Mira melhor"
+		buff = randi_range(min(10,GameManager.upgrade_shotgun[2]),min(50,GameManager.upgrade_shotgun[2]))
+		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
+		basic_cost = snapped(10/((upgrade_shotgun[sub_prop]-(buff))*0.01+0.01),1) #func set_card_aumenta_algo(algo_up):
+		#print("Denominador: "+ str(((upgrade_shotgun[sub_prop]-(buff))*0.01+0.01)))
+		buff = -buff
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 3:
+		upgrade_name = "Alcance Maior"
+		buff = randi_range(10,30)
+		upgrade_effect = "Aumenta o alcance das balas em " +str(buff)+"%"
+		basic_cost = buff*GameManager.upgrade_shotgun[sub_prop]/10
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 4:
+		upgrade_name = "Mais estilhaços!"
+		buff = randi_range(1,3)
+		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
+		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
 	#TODO
 #func set_card_aumenta_algo(algo_up):
@@ -173,7 +208,7 @@ func _on_button_pressed() -> void:
 				GameManager.upgrade_metralhadora[sub_prop]+=buff
 				print(GameManager.upgrade_metralhadora[sub_prop])
 			"Shotgun":
-				set_card_aumenta_algo(card_is_choosen)
+				GameManager.upgrade_shotgun[sub_prop]+=buff
 			"Magnum":
 				set_card_aumenta_algo(card_is_choosen)
 			"Bazuca":
