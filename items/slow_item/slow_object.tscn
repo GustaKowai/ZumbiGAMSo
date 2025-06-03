@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnqpd3svaysmm"]
+
+[ext_resource type="Script" uid="uid://n73fh02vswdq" path="res://items/slow_item/slow_object.gd" id="1_80qee"]
+[ext_resource type="Texture2D" uid="uid://bab8ccar0idpn" path="res://items/slow_item/cola_object.png" id="1_idqj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80qee"]
+size = Vector2(114, 107)
+
+[node name="SlowObject" type="Node2D"]
+z_index = -1
+scale = Vector2(3, 3)
+script = ExtResource("1_80qee")
+
+[node name="ColaObject" type="Sprite2D" parent="."]
+position = Vector2(0.333333, -59.3333)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_idqj4")
+offset = Vector2(-1.33332, 598.667)
+
+[node name="AreaCola" type="Area2D" parent="."]
+position = Vector2(-1.8, -58.4667)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCola"]
+position = Vector2(1, 58.5)
+shape = SubResource("RectangleShape2D_80qee")
+
+[connection signal="body_entered" from="AreaCola" to="." method="_on_area_cola_body_entered"]
+[connection signal="body_exited" from="AreaCola" to="." method="_on_area_cola_body_exited"]
