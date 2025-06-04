@@ -88,8 +88,8 @@ func fire_bullet():
 		queue_free() #Solta a arma se ficar sem munição
 
 func fire_n_bullet():
-	if upgrade: fire_bullet()
 	fire_bullet()
+	if upgrade and ammo > 0: fire_bullet()
 
 func print_message():
 	print("Enviei a mensagem")

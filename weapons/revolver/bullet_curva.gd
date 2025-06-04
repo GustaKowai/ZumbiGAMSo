@@ -4,7 +4,7 @@ extends CharacterBody2D
 var pos:Vector2
 var rota:float
 var dir: float
-var speed:int = 200
+var speed:int = 1000
 var bullet_damage:int = 30
 var piercing = 3
 var curvatura:float = 0

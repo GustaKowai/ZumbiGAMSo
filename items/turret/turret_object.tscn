@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnb7d7x5j2mhd" path="res://items/turret/turret_object.gd" id="1_2uqw3"]
 [ext_resource type="Texture2D" uid="uid://q10au8jl1lvq" path="res://items/turret/turret_object.png" id="1_lkhvq"]
-[ext_resource type="PackedScene" uid="uid://bkjjpdldof5ak" path="res://weapons/shotgun/bullet_shotgun.tscn" id="2_jbqgq"]
+[ext_resource type="PackedScene" uid="uid://be77d1xry1rvn" path="res://weapons/bazuca/bullet_bazuca.tscn" id="2_jbqgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkhvq"]
 radius = 140.0

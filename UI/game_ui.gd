@@ -82,7 +82,8 @@ func update_weapon_cd():
 			#print("weapon cd atual =", player_cd)
 			#print("weapon cd=", GameManager.weapon_cd)
 			#print(weapon_bar.value)
-	if GameManager.ammo == 0 and texture_weapon:
+	if GameManager.ammo <= 0 and texture_weapon:
+		GameManager.ammo = 0
 		texture_weapon = null
 		weapon_bar.texture_under = null
 		weapon_bar.texture_over = null

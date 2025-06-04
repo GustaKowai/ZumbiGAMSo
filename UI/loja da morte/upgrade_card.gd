@@ -21,19 +21,20 @@ var upgrade_cost_image_path:String
 var alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
 var alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
 var alma_rara = "res://UI/UI_images/Alma_zumbi_raro.png"
+var error:bool = false
+
 func _ready() -> void:
+	if error: start_card()
+	error = false
 	set_card()
 
 #Essa função inicializa o card, sorteando o tipo de carta que será.
 func start_card() -> void:
 	for i in range(1):
 		var target = randi_range(0,possibilities_target.size()-1)
-		print(possibilities_target.size())
 		var target_choosen = possibilities_target[target] 
-		print(target_choosen)
 		var card_affect = target_possibilities[target_choosen]
 		card_is_choosen = card_affect[randi_range(0,card_affect.size()-1)]
-		print(card_is_choosen)
 		
 		match card_is_choosen:
 			"Vida_max":
@@ -107,7 +108,7 @@ func set_card_aumenta_sword_damage(sword_damage_up):
 ###-----Revolver-----###	
 func set_card_aumenta_revolver(upgrade_revolver):
 	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
-	sub_prop = randi_range(0,2)
+	sub_prop = randi_range(0,3)
 	if sub_prop == 0:
 		upgrade_name = "Aumento de munição do revólver"
 		buff = randi_range(1,3)
@@ -127,10 +128,12 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 3:
-		if GameManager.upgrade_revolver[sub_prop] == 1: start_card()
+		if GameManager.upgrade_revolver[3] == 1:
+			print("Tentou")
+			error = true
 		upgrade_name = "Balas gemeas curvas"
 		buff = 1
-		upgrade_effect = "Transforma as balas do revólver em duas balas gêmeas que atiram juntas, orbitando uma a outra"
+		upgrade_effect = "Transforma as balas do revólver em duas balas gêmeas que atiram juntas, orbitando uma a outra. \n Perfuração base 3 e dano base 30"
 		basic_cost = 900
 		calcula_custo_almas(basic_cost)
 ###-----Metralhadora-----###
@@ -150,12 +153,13 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		basic_cost  = (20+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
-		if GameManager.upgrade_metralhadora[2] <= 0: start_card() 
+		if GameManager.upgrade_metralhadora[2] <= 0:
+			print("Tentou")
+			error = true
 		upgrade_name = "Mira melhor"
 		buff = randi_range(min(10,GameManager.upgrade_metralhadora[2]),min(50,GameManager.upgrade_metralhadora[2]))
 		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
 		basic_cost = snapped(10/((upgrade_metralhadora[sub_prop]-(buff))*0.01+0.01),1) #func set_card_aumenta_algo(algo_up):
-		print("Denominador: "+ str(((upgrade_metralhadora[sub_prop]-(buff))*0.01+0.01)))
 		buff = -buff
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 3:
@@ -182,7 +186,9 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		basic_cost  = (20+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
-		if GameManager.upgrade_shotgun[2] <= 0: start_card() 
+		if GameManager.upgrade_shotgun[2] <= 0:
+			print("Tentou")
+			error = true
 		upgrade_name = "Mira melhor"
 		buff = randi_range(min(10,GameManager.upgrade_shotgun[2]),min(50,GameManager.upgrade_shotgun[2]))
 		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
@@ -223,19 +229,25 @@ func _on_button_pressed() -> void:
 				print("Sua Stamina máxima agora é ",100+GameManager.stamina_max_up)
 			"Stamina_rege":
 				GameManager.stamina_rege_up+=buff
+				print("Stamina rege +")
 			"sword_damage":
 				GameManager.sword_damage_up+=buff
+				print("Sword +")
 			"Revolver":
 				GameManager.upgrade_revolver[sub_prop]+=buff
+				print("REVOLVER", GameManager.upgrade_revolver[sub_prop],sub_prop)
 			"Metralhadora":
 				GameManager.upgrade_metralhadora[sub_prop]+=buff
 				print(GameManager.upgrade_metralhadora[sub_prop])
 			"Shotgun":
 				GameManager.upgrade_shotgun[sub_prop]+=buff
+				print("SHOTGUN")
 			"Magnum":
 				set_card_aumenta_algo(card_is_choosen)
+				print("MAGNUM")
 			"Bazuca":
 				set_card_aumenta_algo(card_is_choosen)
+				print("BAZUCA")
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
