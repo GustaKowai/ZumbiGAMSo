@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkjjpdldof5ak"]
 
 [ext_resource type="Script" uid="uid://cff6dh6vejt5k" path="res://weapons/shotgun/bullet_shotgun.gd" id="1_rs5io"]
-[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_vo1hw"]
+[ext_resource type="Texture2D" uid="uid://m87a4lcdwiag" path="res://weapons/shotgun/shotgun_ammo.png" id="2_rs5io"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ql5"]
-size = Vector2(4, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5cu7k"]
+radius = 2.23607
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4512"]
-size = Vector2(19, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_voacf"]
+radius = 6.0
 
 [node name="bullet_shotgun" type="CharacterBody2D"]
 collision_layer = 64
@@ -16,19 +16,17 @@ script = ExtResource("1_rs5io")
 bullet_damage = 10
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_vo1hw")
-hframes = 5
-vframes = 5
-frame = 1
+scale = Vector2(0.898322, 0.895812)
+texture = ExtResource("2_rs5io")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 0)
-shape = SubResource("RectangleShape2D_c2ql5")
+scale = Vector2(0.489994, 0.488625)
+shape = SubResource("CircleShape2D_5cu7k")
 
 [node name="BulletHitBox" type="Area2D" parent="."]
+scale = Vector2(0.489994, 0.488625)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_b4512")
+shape = SubResource("CircleShape2D_voacf")
 
 [connection signal="area_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]
