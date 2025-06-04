@@ -8,6 +8,8 @@
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_12bsa")
+item = ExtResource("3_y7rfy")
 
 [node name="TauntItem" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -15,8 +17,6 @@ position = Vector2(0, -24)
 scale = Vector2(3, 3)
 texture = ExtResource("1_lqg3t")
 hframes = 2
-script = ExtResource("1_12bsa")
-item = ExtResource("3_y7rfy")
 
 [node name="Area2D" type="Area2D" parent="TauntItem"]
 collision_layer = 4
@@ -25,4 +25,4 @@ collision_mask = 15
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TauntItem/Area2D"]
 shape = SubResource("RectangleShape2D_6uy1m")
 
-[connection signal="body_entered" from="TauntItem/Area2D" to="TauntItem" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="TauntItem/Area2D" to="." method="_on_area_2d_body_entered"]

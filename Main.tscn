@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=63 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="19_5tuhn"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="24_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="25_mxvw5"]
+[ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="26_xrxkg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -1096,7 +1097,7 @@ _data = {
 &"fire_up": SubResource("Animation_441sj")
 }
 
-[sub_resource type="PackedScene" id="PackedScene_mxvw5"]
+[sub_resource type="PackedScene" id="PackedScene_xrxkg"]
 resource_local_to_scene = true
 _bundled = {
 "conn_count": 0,
@@ -1153,7 +1154,7 @@ position = Vector2(322, 138)
 
 [node name="revolver" parent="." instance=ExtResource("8_e2qaf")]
 position = Vector2(672, -11)
-weapon = SubResource("PackedScene_mxvw5")
+weapon = SubResource("PackedScene_xrxkg")
 
 [node name="gunshotLC" parent="." instance=ExtResource("9_5vvyt")]
 position = Vector2(201.438, -77.4374)
@@ -1274,5 +1275,8 @@ position = Vector2(-344, -49)
 
 [node name="SlowItem" parent="." instance=ExtResource("25_mxvw5")]
 position = Vector2(-255, -56)
+
+[node name="Lojinha" parent="." instance=ExtResource("26_xrxkg")]
+position = Vector2(1040, 172)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]
