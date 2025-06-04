@@ -126,8 +126,13 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_effect = "Permite que a bala do revólver atravesse " + str(buff) + " zumbis a mais"
 		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
-
-		
+	if sub_prop == 3:
+		if GameManager.upgrade_revolver[sub_prop] == 1: start_card()
+		upgrade_name = "Balas gemeas curvas"
+		buff = 1
+		upgrade_effect = "Transforma as balas do revólver em duas balas gêmeas que atiram juntas, orbitando uma a outra"
+		basic_cost = 900
+		calcula_custo_almas(basic_cost)
 ###-----Metralhadora-----###
 func set_card_aumenta_metralhadora(upgrade_metralhadora):
 	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
