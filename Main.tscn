@@ -692,6 +692,7 @@ position = Vector2(342, 435)
 position = Vector2(498, 520)
 
 [node name="MobSpawners" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="MobSpawner" parent="MobSpawners" instance=ExtResource("10_0eu7v")]
 position = Vector2(566, -446)
