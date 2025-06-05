@@ -20,6 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_38tbx"]
 resource_name = "fire_down"
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -50,6 +51,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_kr1yj"]
 resource_name = "fire_side_left"
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -61,7 +63,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-46, -3)]
+"values": [Vector2(-46, -52)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -80,6 +82,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_itro6"]
 resource_name = "fire_side_right"
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -91,7 +94,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(46, -3)]
+"values": [Vector2(46, -52)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -110,6 +113,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ppbpp"]
 resource_name = "fire_up"
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -130,9 +134,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"print_message"
+}, {
 "args": [],
 "method": &"fire_n_bullet"
 }]

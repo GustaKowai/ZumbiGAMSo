@@ -80,7 +80,6 @@ func fire_bullet():
 				bullet.pos = marker.global_position
 				bullet.rota =desvio_bala# -PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 		get_parent().get_parent().add_child(bullet)#Instancia a bala
-		print("Atirei no ângulo ", desvio_bala)
 	ammo -= 1
 	GameManager.ammo = ammo
 	print(ammo)

@@ -39,8 +39,8 @@ func fireGun():
 		return
 	else:
 		#Define como atacando:
-		player.is_shooting = true
 		player.weapon_cooldown = weapon_cooldown
+		player.is_shooting = true
 		#Determina a qual direção vai atacar e qual animação vai usar:
 		if player.position_running == "down":
 				animation_player.play("fire_down")
@@ -51,7 +51,6 @@ func fireGun():
 				player.sprite.flip_h = false
 				player.animation_player.play("Fire_up")
 		elif player.position_running == "side":
-			print(player.is_shooting)
 			if not player.sprite.flip_h:
 				animation_player.play("fire_side_left")
 				player.animation_player.play("Fire_side_left")
