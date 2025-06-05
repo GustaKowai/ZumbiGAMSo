@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b7q4nvqwm5s8v"]
+[gd_scene load_steps=18 format=4 uid="uid://b7q4nvqwm5s8v"]
 
 [ext_resource type="Texture2D" uid="uid://cidac6n537qn6" path="res://mapa/imagens/Tile_set_calcada-rua.png" id="1_6qxri"]
 [ext_resource type="Texture2D" uid="uid://blw3axjfiqqgx" path="res://mapa/imagens/Tile_set_calcada.png" id="2_qbhb2"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predio.tscn" id="5_bt44i"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="6_qxf64"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="7_qxf64"]
+[ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="8_bt44i"]
+[ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_bf245"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -1572,3 +1574,7 @@ position = Vector2(-907, -342)
 
 [node name="revolver" parent="." instance=ExtResource("7_qxf64")]
 position = Vector2(-1258, -140)
+
+[node name="GameUI" parent="." instance=ExtResource("8_bt44i")]
+
+[node name="Pause UI" parent="." instance=ExtResource("9_bf245")]
