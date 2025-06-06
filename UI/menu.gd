@@ -15,6 +15,9 @@ func _on_sair_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
+	GameManager.alma_comum = 0
+	GameManager.alma_incomum = 0
+	GameManager.alma_rara = 0
 	GameManager.vida_max_up = 0
 	GameManager.stamina_max_up = 0
 	GameManager.stamina_rege_up = 0
