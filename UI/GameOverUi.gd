@@ -12,7 +12,6 @@ func _ready():
 	time_label.text = GameManager.time_elapsed_string
 	kills_label.text = str(GameManager.kills_count)
 	texto_morte.text = GameManager.texto_morte
-	
 	restart_cooldown = restart_delay
 	
 func _process(delta):

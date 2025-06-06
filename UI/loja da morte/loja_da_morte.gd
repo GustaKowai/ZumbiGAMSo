@@ -9,7 +9,7 @@ extends Control
 
 func _ready() -> void:
 	set_cards()
-	GameManager.alma_comum = 10000
+	GameManager.alma_comum += 10000
 	aviso_almas_label.modulate.a = 0
 	atualiza_almas()
 
@@ -45,4 +45,5 @@ func _on_button_pressed() -> void:
 
 
 func _on_voltar_pro_jogo_pressed() -> void:
+	SaveLoad.save()
 	get_tree().change_scene_to_file("res://Main.tscn")

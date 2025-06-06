@@ -371,6 +371,7 @@ texture_progress = ExtResource("12_q0y33")
 script = ExtResource("15_7suct")
 
 [node name="ShieldBar" type="TextureProgressBar" parent="player_life_and_stamina/HealthBar"]
+layout_mode = 0
 offset_left = -0.0747528
 offset_top = -0.135498
 offset_right = 461.925

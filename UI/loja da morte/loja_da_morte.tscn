@@ -75,7 +75,7 @@ text = "0"
 [node name="Voltar_pro_jogo" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "Já estou pronto para reviver.
+text = "Salvar e reviver.
 "
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
