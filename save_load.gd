@@ -31,8 +31,8 @@ func load_data():
 	for type in config.get_sections():
 		# Fetch the data for each section.
 		GameManager.alma_comum = config.get_value(type,"alma_comum")
-		GameManager.alma_comum =config.get_value(type,"alma_incomum")
-		GameManager.alma_comum =config.get_value(type,"alma_rara")
+		GameManager.alma_incomum =config.get_value(type,"alma_incomum")
+		GameManager.alma_rara =config.get_value(type,"alma_rara")
 		GameManager.vida_max_up = config.get_value(type, "vida_max_up")
 		GameManager.stamina_max_up = config.get_value(type, "stamina_max_up")
 		GameManager.stamina_rege_up = config.get_value(type, "stamina_rege_up")
