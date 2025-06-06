@@ -370,6 +370,17 @@ texture_under = ExtResource("11_orm7x")
 texture_progress = ExtResource("12_q0y33")
 script = ExtResource("15_7suct")
 
+[node name="ShieldBar" type="TextureProgressBar" parent="player_life_and_stamina/HealthBar"]
+offset_left = -0.0747528
+offset_top = -0.135498
+offset_right = 461.925
+offset_bottom = 65.8645
+max_value = 40.0
+value = 30.0
+texture_under = ExtResource("11_orm7x")
+texture_progress = ExtResource("12_q0y33")
+tint_progress = Color(0, 3.867, 4.972, 1)
+
 [node name="DamageBar" type="TextureProgressBar" parent="player_life_and_stamina/HealthBar"]
 z_index = -1
 layout_mode = 0

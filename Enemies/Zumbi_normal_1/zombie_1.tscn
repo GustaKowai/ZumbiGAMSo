@@ -605,3 +605,4 @@ position = Vector2(-1, -91)
 [node name="FollowPlayer" parent="." instance=ExtResource("10_gqk4f")]
 
 [node name="AttackMelee" parent="." instance=ExtResource("11_gqk4f")]
+dano_zombie = 3

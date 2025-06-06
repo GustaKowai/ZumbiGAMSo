@@ -33,13 +33,16 @@ var stamina_value:float = 0.0
 @export var max_health:int = 20
 @export var sword_damage:int = 20
 @export var ammo:int = 0
+@export var death_prefab:PackedScene
 var player_health:int:
 	set(new_value):
 		player_health = new_value
 		#print("Vida = ",new_value)
 		GameManager.life_changed.emit()
-@export var death_prefab:PackedScene
-
+var player_shield:int:
+	set(new_value):
+		player_shield = new_value
+		GameManager.shield_changed.emit()
 var input_vector:Vector2 = Vector2(0,0)
 var position_running:String = "down"
 var atk_direction: Vector2
@@ -53,7 +56,8 @@ var weapon_cooldown:float = 0
 func _ready():
 	#Faz o update dos status e passa para o Game Manager
 	update_player_stats()
-	stamina_bar.value = 0
+	#stamina_bar.value = 0
+	player_shield = 10
 	
 func _process(delta):
 	#Passa a informação da posição do player para o Game Manager
@@ -215,6 +219,9 @@ func deal_damage_to_enemies():
 	
 #Funções de controle da vida do jogador
 func damage(amount:int):
+	if player_shield > 0:
+		damage_to_shield(amount)
+		return
 	if player_health <= 0:
 		return
 	self.player_health -=amount
@@ -228,6 +235,15 @@ func damage(amount:int):
 	if player_health <=0:
 		GameManager.texto_morte = "Você apanhou demais dos Zumbis"
 		die()
+		
+func damage_to_shield(amount:int):
+	if amount < player_shield:
+		player_shield -= amount
+		print(player_shield)
+	else:
+		amount -= player_shield
+		player_shield = 0
+		damage(amount)
 #endregion
 	
 #func fireGun(): #DEPRECATED essa função não faz mais nada 

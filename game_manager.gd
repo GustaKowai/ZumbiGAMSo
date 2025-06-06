@@ -6,6 +6,7 @@ signal weapon_collected()
 signal item_collected()
 signal coin_collected()
 signal life_changed()
+signal shield_changed()
 signal zombie_died()
 #Gerenciamento da run:
 var player:Jogador
