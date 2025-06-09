@@ -1,0 +1,289 @@
+[gd_scene load_steps=18 format=3 uid="uid://cv42hqm70wbs1"]
+
+[ext_resource type="Script" uid="uid://d33i06minnvnj" path="res://zumbi_policial.gd" id="1_v3dll"]
+[ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0skl4"]
+[ext_resource type="PackedScene" uid="uid://bc4bylx0blnya" path="res://Enemies/Modulos/follow_player.tscn" id="2_mri3q"]
+[ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="3_dq1qg"]
+[ext_resource type="Texture2D" uid="uid://bjrrnl0bq22of" path="res://Enemies/Zumbi_policial/Zumbi_policial_andando_todas_direcoes.png" id="3_o2s6i"]
+[ext_resource type="Texture2D" uid="uid://ct7728alm8uvk" path="res://Enemies/Zumbi_policial/Zumbi_atirando_todas_direcoes_sprite_sheet.png" id="4_0skl4"]
+
+[sub_resource type="Animation" id="Animation_dq1qg"]
+resource_name = "Walk Down"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movimento:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Movimento:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hltrq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movimento:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Movimento:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ataque:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qlru5"]
+resource_name = "Walk Side"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movimento:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Movimento:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rsltp"]
+resource_name = "Walk Up"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movimento:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Movimento:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_s37y6"]
+resource_name = "Fire Up"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ataque:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5iqex"]
+resource_name = "Fire Down"
+
+[sub_resource type="Animation" id="Animation_lxmr4"]
+resource_name = "Fire Left"
+
+[sub_resource type="Animation" id="Animation_ne34u"]
+resource_name = "Fire Right"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s37y6"]
+_data = {
+&"Fire Down": SubResource("Animation_5iqex"),
+&"Fire Left": SubResource("Animation_lxmr4"),
+&"Fire Right": SubResource("Animation_ne34u"),
+&"Fire Up": SubResource("Animation_s37y6"),
+&"RESET": SubResource("Animation_hltrq"),
+&"Walk Down": SubResource("Animation_dq1qg"),
+&"Walk Side": SubResource("Animation_qlru5"),
+&"Walk Up": SubResource("Animation_rsltp")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5iqex"]
+radius = 58.0
+height = 304.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxmr4"]
+radius = 43.0465
+
+[node name="Zumbi_policial" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.34, 0.34)
+collision_layer = 2
+collision_mask = 59
+script = ExtResource("1_v3dll")
+death_prefab = ExtResource("2_0skl4")
+items = Array[PackedScene]([ExtResource("3_dq1qg")])
+drop_rate = 1.0
+drop_chances = Array[float]([1.0])
+metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
+
+[node name="FollowPlayer" parent="." instance=ExtResource("2_mri3q")]
+speed = 0.9
+
+[node name="Movimento" type="Sprite2D" parent="."]
+position = Vector2(-14, -162)
+texture = ExtResource("3_o2s6i")
+hframes = 7
+vframes = 3
+
+[node name="Ataque" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8.82353, -141.176)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0skl4")
+hframes = 7
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s37y6")
+}
+
+[node name="HitBoxArea" type="Area2D" parent="." groups=["EnemyHitBox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea"]
+position = Vector2(-4, -142)
+shape = SubResource("CapsuleShape2D_5iqex")
+debug_color = Color(0.995, 0, 0.221, 0.077)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -37)
+shape = SubResource("CircleShape2D_lxmr4")
+
+[node name="damage_digit_marker" type="Marker2D" parent="."]
+position = Vector2(-2.94118, -261.765)

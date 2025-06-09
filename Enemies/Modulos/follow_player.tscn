@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc4bylx0blnya"]
 
-[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/Zumbi_normal_1/follow_player.gd" id="1_ghrro"]
+[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/Modulos/follow_player.gd" id="1_ghrro"]
 
 [node name="FollowPlayer" type="Node2D"]
 script = ExtResource("1_ghrro")

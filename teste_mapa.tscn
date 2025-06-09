@@ -1569,7 +1569,6 @@ z_as_relative = false
 position = Vector2(-1646, -62)
 
 [node name="MobSpawner" parent="." instance=ExtResource("6_qxf64")]
-y_sort_enabled = true
 position = Vector2(-907, -342)
 
 [node name="revolver" parent="." instance=ExtResource("7_qxf64")]

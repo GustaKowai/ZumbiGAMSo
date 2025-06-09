@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck2aw63f5d2xo"]
 
-[ext_resource type="Script" uid="uid://b8vg56ghon8b" path="res://Enemies/Zumbi_normal_1/attack_melee.gd" id="1_ailha"]
+[ext_resource type="Script" uid="uid://b8vg56ghon8b" path="res://Enemies/Modulos/attack_melee.gd" id="1_ailha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5h37"]
 size = Vector2(207, 98)

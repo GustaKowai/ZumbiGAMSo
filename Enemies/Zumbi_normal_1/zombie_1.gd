@@ -1,25 +1,25 @@
 class_name Enemy
 extends CharacterBody2D
 
-@onready var sprite_movimento = $Movimento
-@onready var sprite_ataque = $Ataque
-@onready var animation_player = $AnimationPlayer
-@onready var follow = $FollowPlayer
+@onready var sprite_movimento:Sprite2D = $Movimento
+@onready var sprite_ataque:Sprite2D = $Ataque
+@onready var animation_player:AnimationPlayer = $AnimationPlayer
+@onready var follow:Node2D = $FollowPlayer
 
 @export_category("Fight")
-@export var enemy_health = 40
+@export var enemy_health:int = 40
 @export var death_prefab:PackedScene
 @export var player: Node2D
 @export_category("Drops")
 @export var items:Array[PackedScene]
-@export_range(0,1) var drop_rate = 0.5
+@export_range(0,1) var drop_rate:float = 0.5
 @export var drop_chances: Array[float]
 
-@onready var damage_digit_marker = $damage_digit_marker
-@onready var damage_digit_prefab = preload("res://Misc/damage_digit.tscn")
+@onready var damage_digit_marker:Marker2D = $damage_digit_marker
+@onready var damage_digit_prefab:PackedScene = preload("res://Misc/damage_digit.tscn")
 
-var is_attacking = false
-var died = false
+var is_attacking:bool = false
+var died:bool = false
 var facing_position:String
 
 func damage(amount: int):

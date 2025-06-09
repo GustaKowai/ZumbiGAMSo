@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=55 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="19_5tuhn"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="24_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="25_mxvw5"]
+[ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="25_xrxkg"]
 [ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="26_xrxkg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
@@ -788,5 +789,8 @@ position = Vector2(1040, 172)
 
 [node name="revolver" parent="." instance=ExtResource("8_e2qaf")]
 position = Vector2(681, 184)
+
+[node name="Zumbi_policial" parent="." instance=ExtResource("25_xrxkg")]
+position = Vector2(257, 385)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]
