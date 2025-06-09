@@ -9,7 +9,8 @@ var dmg_area:Area2D
 var atk_direction: Vector2
 
 @export var dano_zombie:int = 1
-var attack_cooldown:float = 0.7
+var attack_cooldown:float
+var atk_cd:float = 0.6
 
 func _ready():
 	enemy = get_parent()
@@ -53,7 +54,7 @@ func attack():
 		return
 	#Define como atacando:
 	enemy.is_attacking = true
-	attack_cooldown = 0.6
+	attack_cooldown = atk_cd
 	#Define a animação que será usada para atacar
 	if enemy.follow.position_running == "side":
 		if sprite.flip_h:

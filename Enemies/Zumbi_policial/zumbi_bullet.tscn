@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://drnuy8hf8bwi6"]
+
+[ext_resource type="Script" uid="uid://bgbf03a8niyo3" path="res://Enemies/Zumbi_policial/zumbi_bullet.gd" id="1_rvlof"]
+
+[sub_resource type="Gradient" id="Gradient_rvlof"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sv35l"]
+gradient = SubResource("Gradient_rvlof")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvlof"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv35l"]
+size = Vector2(10, 10)
+
+[node name="Zumbi_bullet" type="CharacterBody2D"]
+script = ExtResource("1_rvlof")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(0.15625, 0.15625)
+texture = SubResource("GradientTexture2D_sv35l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rvlof")
+
+[node name="bulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletHitBox"]
+shape = SubResource("RectangleShape2D_sv35l")
+
+[connection signal="area_entered" from="bulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]
