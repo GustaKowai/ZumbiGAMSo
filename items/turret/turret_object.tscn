@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://3lw3whsljua2"]
+[gd_scene load_steps=7 format=3 uid="uid://3lw3whsljua2"]
 
 [ext_resource type="Script" uid="uid://dnb7d7x5j2mhd" path="res://items/turret/turret_object.gd" id="1_2uqw3"]
-[ext_resource type="Texture2D" uid="uid://q10au8jl1lvq" path="res://items/turret/turret_object.png" id="1_lkhvq"]
-[ext_resource type="PackedScene" uid="uid://be77d1xry1rvn" path="res://weapons/bazuca/bullet_bazuca.tscn" id="2_jbqgq"]
+[ext_resource type="PackedScene" uid="uid://vgawpv7dbje1" path="res://weapons/machinegun/machine_gun_bullet.tscn" id="2_txxao"]
+[ext_resource type="Texture2D" uid="uid://imu1a3cl0c5i" path="res://items/turret/Base_torreta_.png" id="3_txxao"]
+[ext_resource type="Texture2D" uid="uid://rxsu1cxkn23i" path="res://items/turret/Topo_torreta.png" id="4_cxde1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkhvq"]
 radius = 140.0
@@ -15,25 +16,36 @@ collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_2uqw3")
 turret_duration = 10.0
-bullet_scene = ExtResource("2_jbqgq")
+bullet_scene = ExtResource("2_txxao")
 
 [node name="TurretObject" type="Sprite2D" parent="."]
-position = Vector2(1, -29)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_lkhvq")
+position = Vector2(58, -26)
+scale = Vector2(1.10417, 1.10417)
+texture = ExtResource("3_txxao")
+offset = Vector2(-52.0755, -22.6415)
+flip_h = true
+
+[node name="turretHead" type="Sprite2D" parent="."]
+position = Vector2(-9, -48)
+texture = ExtResource("4_cxde1")
+offset = Vector2(11, -3)
+flip_h = true
+
+[node name="bullet_point" type="Marker2D" parent="turretHead"]
+unique_name_in_owner = true
+position = Vector2(19, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -8)
+position = Vector2(-2.38419e-07, -27)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("CircleShape2D_lkhvq")
+debug_color = Color(0, 0.6, 0.7, 0.149)
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-position = Vector2(-3, -8)
+position = Vector2(-1, -27)
 shape = SubResource("CircleShape2D_2uqw3")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-1, -33)
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

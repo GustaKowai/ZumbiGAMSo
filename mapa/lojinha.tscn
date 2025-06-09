@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://da8c53dsvfgrq"]
+[gd_scene load_steps=30 format=3 uid="uid://da8c53dsvfgrq"]
 
 [ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://mapa/lojinha.gd" id="1_gg830"]
 [ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://mapa/lojinha_teste.png" id="1_kyu8p"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/cura_pequena.tscn" id="3_a1hgr"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="4_o1esk"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="5_j56os"]
-[ext_resource type="Texture2D" uid="uid://dktl875blfvvk" path="res://items/slow_item/cola_item.png" id="8_5owt3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg830"]
 atlas = ExtResource("1_kyu8p")
@@ -204,7 +203,6 @@ offset_top = -74.0
 offset_right = -7.0
 offset_bottom = -41.0
 size_flags_horizontal = 0
-texture = ExtResource("8_5owt3")
 expand_mode = 2
 stretch_mode = 5
 

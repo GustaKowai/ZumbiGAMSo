@@ -15,8 +15,10 @@ const PHANTON_GREEN:Color = Color(0, 1, 0, 0.5)
 @onready var stamina_bar:ProgressBar = $StaminaBar
 @onready var equiped_weapon:Sprite2D = $Sprites/Weapon
 @onready var dash_timer:Timer = $DashTimer
-@onready var sprite_player_movimento = $Sprites/player_movimento
-@onready var sprite_player_idle = $Sprites/player_idle
+@onready var sprite_player_movimento:Sprite2D = $Sprites/player_movimento
+@onready var sprite_player_idle:Sprite2D = $Sprites/player_idle
+@onready var sprite_player_attack:Sprite2D = $Sprites/player_attack
+@onready var sprites:Node2D = $Sprites
 
 
 @export_category("Movement")
@@ -163,14 +165,18 @@ func rotate_sprite():
 	if not is_attacking and not is_shooting:
 		if input_vector.x < 0:
 			sprite.flip_h = false
+			sprite.flip_h = false
 			sprite_weapon.flip_h = false
 			sprite_player_movimento.flip_h = false
 			sprite_player_idle.flip_h = false
+			sprite_player_attack.flip_h = false
 		elif input_vector.x > 0:
+			sprite.flip_h = true
 			sprite.flip_h = true
 			sprite_weapon.flip_h = true
 			sprite_player_movimento.flip_h = true
 			sprite_player_idle.flip_h = true
+			sprite_player_attack.flip_h = true
 
 #region Funções de ataque
 func update_atk_cd(delta):

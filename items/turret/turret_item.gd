@@ -1,6 +1,6 @@
 extends Node2D
 @export var item:PackedScene
-var image:String = "res://items/turret/turret_item.png"
+var image:String = "res://items/turret/Torreta_.png"
 func _on_area_2d_body_entered(body):
 	#print("pegou")
 	if body.is_in_group("Jogador"): #Checa se o corpo que entrou no range é o player

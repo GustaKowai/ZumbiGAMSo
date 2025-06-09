@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bab8ccar0idpn"
-path="res://.godot/imported/cola_object.png-f75d890e74d78729aca97638d3b15dc5.ctex"
+uid="uid://rxsu1cxkn23i"
+path="res://.godot/imported/Topo_torreta.png-025561c48448aff8c97c6354814bb58c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/slow_item/cola_object.png"
-dest_files=["res://.godot/imported/cola_object.png-f75d890e74d78729aca97638d3b15dc5.ctex"]
+source_file="res://items/turret/Topo_torreta.png"
+dest_files=["res://.godot/imported/Topo_torreta.png-025561c48448aff8c97c6354814bb58c.ctex"]
 
 [params]
 

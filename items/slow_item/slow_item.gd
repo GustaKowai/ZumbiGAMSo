@@ -1,6 +1,6 @@
 extends Node2D
 @export var item:PackedScene
-var image:String = "res://items/slow_item/cola_item.png"
+var image:String = "res://items/slow_item/UI_Cola.png"
 
 func _on_area_2d_body_entered(body):
 	#print("pegou")
