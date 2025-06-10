@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=56 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
 [ext_resource type="PackedScene" uid="uid://b3qcv045rpri2" path="res://Player/jogador_2try.tscn" id="3_vdkbt"]
+[ext_resource type="PackedScene" uid="uid://c8mypnrhy3q53" path="res://UI/game_over_arcade_ui_template.tscn" id="3_xrxkg"]
 [ext_resource type="Script" uid="uid://k1yl462kyh53" path="res://base.gd" id="4_20pc6"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/Zumbi_normal_1/zombie_1.tscn" id="4_m2mbd"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="5_cx32y"]
@@ -630,6 +631,7 @@ y_sort_enabled = true
 script = ExtResource("1_m3r85")
 game_ui = NodePath("GameUI")
 game_over_ui_template = ExtResource("2_bjlxo")
+game_over_arcade_ui_template = ExtResource("3_xrxkg")
 
 [node name="Base" type="TileMapLayer" parent="."]
 z_index = -2

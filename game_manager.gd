@@ -19,6 +19,10 @@ var texto_morte:String
 var is_taunting:bool = false
 var taunt_position:Vector2
 
+#Gerenciamento Arcade:
+var arcade:bool = false
+var pontuacao:Array = [["name",1],["name2",2]]
+
 #informações da run:
 var time_elapsed:float = 0.0
 var time_elapsed_string: String

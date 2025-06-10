@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8mypnrhy3q53"]
+
+[ext_resource type="Script" uid="uid://c4ut638io8epr" path="res://UI/game_over_arcade_ui_template.gd" id="1_ic1lo"]
+
+[node name="GameOverArcadeUiTemplate" type="CanvasLayer"]
+script = ExtResource("1_ic1lo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.597176, 0.597176, 0.597176, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 399
+alignment = 1
+
+[node name="RecordeMortes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+layout_mode = 2
+text = "Mais tempo sobrevivido"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+layout_mode = 2
+text = "111111111"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+layout_mode = 2
+text = "33333"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Mais zumbis mortos"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "22222"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "44444"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Voltar ao menu"
+
+[node name="PopupPanel" type="AcceptDialog" parent="."]
+title = "Novo recorde!"
+initial_position = 1
+size = Vector2i(355, 100)
+visible = true
+unresizable = true
+ok_button_text = "Salvar"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 347.0
+offset_bottom = 59.0
+
+[node name="NomeJogador" type="TextEdit" parent="PopupPanel"]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 347.0
+offset_bottom = 59.0
+size_flags_vertical = 3
+placeholder_text = "Seu nome"
+
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="confirmed" from="PopupPanel" to="." method="_on_popup_panel_confirmed"]

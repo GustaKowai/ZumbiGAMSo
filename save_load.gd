@@ -42,3 +42,10 @@ func load_data():
 		GameManager.upgrade_shotgun = config.get_value(type, "upgrade_shotgun")
 		GameManager.upgrade_magnum = config.get_value(type, "upgrade_magnum")
 		GameManager.upgrade_bazuca = config.get_value(type, "upgrade_bazuca")
+
+func save_arcade():
+	var config = ConfigFile.new()
+	config.set_value("upgrades","alma_comum",GameManager.alma_comum)
+	config.set_value("upgrades","alma_incomum",GameManager.alma_incomum)
+	config.set_value("upgrades","alma_rara",GameManager.alma_rara)
+	config.set_value("upgrades","vida_max_up", GameManager.vida_max_up)

@@ -36,7 +36,7 @@ func try_shoot():
 			player_position = GameManager.taunt_position
 		var point_weapon:Vector2 = player_position - enemy.global_position
 		if point_weapon.length_squared() >= range*1000: return
-		if point_weapon.x <= accuracy and point_weapon.x >= -accuracy:
+		if point_weapon.x <= accuracy/4 and point_weapon.x >= -accuracy/4:
 			if point_weapon.y < 0:
 				shoot_direction = "Up"
 				shoot()
