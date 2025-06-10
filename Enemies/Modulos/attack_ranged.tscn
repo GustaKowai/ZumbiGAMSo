@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://fllngnphnijk"]
+
+[ext_resource type="Script" uid="uid://7qj7f8qg5vds" path="res://Enemies/Zumbi_policial/attack_ranged.gd" id="1_qeh8o"]
+[ext_resource type="PackedScene" uid="uid://drnuy8hf8bwi6" path="res://Enemies/Zumbi_policial/zumbi_bullet.tscn" id="2_0oe0o"]
+
+[node name="AttackRanged" type="Node2D"]
+script = ExtResource("1_qeh8o")
+bullet_path = ExtResource("2_0oe0o")
+
+[node name="BulletPoint" type="Marker2D" parent="."]
+position = Vector2(-11.7647, -52.9412)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cv42hqm70wbs1"]
+[gd_scene load_steps=24 format=3 uid="uid://cv42hqm70wbs1"]
 
 [ext_resource type="Script" uid="uid://d33i06minnvnj" path="res://Enemies/Zumbi_policial/zumbi_policial.gd" id="1_v3dll"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0skl4"]
@@ -9,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="4_ne34u"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_3ms74"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="6_jed5v"]
-[ext_resource type="Script" uid="uid://7qj7f8qg5vds" path="res://Enemies/Zumbi_policial/attack_ranged.gd" id="7_hltrq"]
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="7_lmxuk"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="8_fs2me"]
-[ext_resource type="PackedScene" uid="uid://drnuy8hf8bwi6" path="res://Enemies/Zumbi_policial/zumbi_bullet.tscn" id="8_qlru5"]
+[ext_resource type="PackedScene" uid="uid://fllngnphnijk" path="res://Enemies/Modulos/attack_ranged.tscn" id="12_lxmr4"]
 
 [sub_resource type="Animation" id="Animation_5iqex"]
 resource_name = "Fire Down"
@@ -596,9 +595,4 @@ shape = SubResource("CircleShape2D_lxmr4")
 [node name="damage_digit_marker" type="Marker2D" parent="."]
 position = Vector2(-2.94118, -261.765)
 
-[node name="AttackRanged" type="Node2D" parent="."]
-script = ExtResource("7_hltrq")
-bullet_path = ExtResource("8_qlru5")
-
-[node name="BulletPoint" type="Marker2D" parent="AttackRanged"]
-position = Vector2(-11.7647, -52.9412)
+[node name="AttackRanged" parent="." instance=ExtResource("12_lxmr4")]

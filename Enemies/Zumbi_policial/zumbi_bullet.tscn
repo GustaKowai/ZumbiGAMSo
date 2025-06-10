@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bgbf03a8niyo3" path="res://Enemies/Zumbi_policial/zumbi_bullet.gd" id="1_rvlof"]
 
 [sub_resource type="Gradient" id="Gradient_rvlof"]
+colors = PackedColorArray(0.722054, 0.118538, 0.190998, 1, 0.756013, 0.458921, 0.217216, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sv35l"]
 gradient = SubResource("Gradient_rvlof")
+fill_to = Vector2(1, 0.0128205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvlof"]
 size = Vector2(4, 4)
@@ -14,6 +16,8 @@ size = Vector2(4, 4)
 size = Vector2(10, 10)
 
 [node name="Zumbi_bullet" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 8
 script = ExtResource("1_rvlof")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
@@ -28,5 +32,6 @@ shape = SubResource("RectangleShape2D_rvlof")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bulletHitBox"]
 shape = SubResource("RectangleShape2D_sv35l")
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [connection signal="area_entered" from="bulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]

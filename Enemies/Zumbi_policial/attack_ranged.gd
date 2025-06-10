@@ -8,8 +8,8 @@ var var_diff:Vector2
 var player:Jogador
 var attack_cooldown:float
 var atk_cd:float = 0.7
-var range = 200
-var accuracy = 30
+@export var range = 200
+@export var accuracy = 30
 var shoot_direction:String
 func _ready():
 	enemy = get_parent()
@@ -31,7 +31,10 @@ func update_atk_cd(delta):
 func try_shoot():
 	if player:
 		if enemy.is_attacking:return
-		var point_weapon:Vector2 = player.global_position - enemy.global_position
+		var player_position = player.global_position
+		if GameManager.is_taunting:
+			player_position = GameManager.taunt_position
+		var point_weapon:Vector2 = player_position - enemy.global_position
 		if point_weapon.length_squared() >= range*1000: return
 		if point_weapon.x <= accuracy and point_weapon.x >= -accuracy:
 			if point_weapon.y < 0:
