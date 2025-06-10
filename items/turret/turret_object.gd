@@ -25,14 +25,14 @@ func _process(delta: float) -> void:
 func fire_bullet(target):
 	var local_target = target-global_position
 	turret_head.flip_v = local_target.x < 0
-	print(local_target.x)
-	print(turret_head.flip_v)
+	#print(local_target.x)
+	#print(turret_head.flip_v)
 	turret_head.look_at(target)
 	shooting = true
 	#Determina a direção do tiro e cria a bala
 	var bullet = bullet_scene.instantiate()
 	bullet.dir = Vector2.RIGHT.angle_to(local_target)
-	print(bullet.dir)
+	#print(bullet.dir)
 	bullet.pos = marker.global_position
 	bullet.rota = Vector2.RIGHT.angle_to(local_target)
 	get_parent().add_child(bullet)#Instancia a bala

@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("buy"):
 		if aviso.visible and not esgotado:
 			check_money()
-			print("tentei comprar")
+			#print("tentei comprar")
 
 
 #region animation
@@ -45,10 +45,10 @@ func set_timer():
 	
 func start_shop():
 	escolha = randi_range(0,lista_itens.size()-1)
-	print(escolha)
+	#print(escolha)
 	var item_escolhido:PackedScene = lista_itens[escolha]
 	var item = item_escolhido.instantiate()
-	print(item.image)
+	#print(item.image)
 	texture_item = load(item.image)
 	item_sprite.texture = texture_item
 	value.text = "$ "+str(lista_precos[escolha])

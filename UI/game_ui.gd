@@ -46,7 +46,7 @@ func change_weapon_equiped(weapon_sprite_path):
 	texture_weapon = load(weapon_sprite_path)
 	weapon_bar.texture_under = texture_weapon
 	weapon_bar.texture_progress = texture_weapon
-	print("troquei")
+	#print("troquei")
 
 func change_item_equiped(item_sprite_path):
 	if item_sprite_path:

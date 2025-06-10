@@ -245,7 +245,7 @@ func damage(amount:int):
 func damage_to_shield(amount:int):
 	if amount < player_shield:
 		player_shield -= amount
-		print(player_shield)
+		#print(player_shield)
 	else:
 		amount -= player_shield
 		player_shield = 0
@@ -315,7 +315,7 @@ func update_player_stats():
 	sword_damage += GameManager.sword_damage_up
 	#Passa o player para o GameManager
 	GameManager.player = self
-	print(player_health,max_stamina)
+	#print(player_health,max_stamina)
 	
 func die():
 	GameManager.end_game()
