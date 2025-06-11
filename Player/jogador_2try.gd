@@ -245,6 +245,11 @@ func damage(amount:int):
 func damage_to_shield(amount:int):
 	if amount < player_shield:
 		player_shield -= amount
+		modulate = Color.CYAN
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_QUINT)
+		tween.tween_property(self,"modulate",Color.WHITE,0.3)
 		#print(player_shield)
 	else:
 		amount -= player_shield

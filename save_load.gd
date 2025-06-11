@@ -1,6 +1,6 @@
 extends Node
 var save_path = "user://autosave.cfg"
-
+var save_arcade_path = "user://arcade.cfg"
 func save():
 	print("Salvei")
 	var config = ConfigFile.new()
@@ -27,7 +27,7 @@ func load_data():
 		print("Error")
 		return
 	# Iterate over all sections.
-	print("Carreguei")
+	#print("Carreguei")
 	for type in config.get_sections():
 		# Fetch the data for each section.
 		GameManager.alma_comum = config.get_value(type,"alma_comum")
@@ -45,7 +45,18 @@ func load_data():
 
 func save_arcade():
 	var config = ConfigFile.new()
-	config.set_value("upgrades","alma_comum",GameManager.alma_comum)
-	config.set_value("upgrades","alma_incomum",GameManager.alma_incomum)
-	config.set_value("upgrades","alma_rara",GameManager.alma_rara)
-	config.set_value("upgrades","vida_max_up", GameManager.vida_max_up)
+	config.set_value("recorde","Zumbi_mortos",GameManager.pontuacao_mortes)
+	config.set_value("recorde","Tempo_sobrevivido",GameManager.pontuacao_tempo)
+	config.save(save_arcade_path)
+	print("Salvei")
+func load_arcade():
+	var config = ConfigFile.new()
+	var err = config.load(save_arcade_path)
+	# If the file didn't load, ignore it.
+	if err != OK:
+		print("Error")
+		return
+	for type in config.get_sections():
+		GameManager.pontuacao_mortes = config.get_value(type,"Zumbi_mortos")
+		GameManager.pontuacao_tempo =config.get_value(type,"Tempo_sobrevivido")
+		print("Carreguei",GameManager.pontuacao_mortes)

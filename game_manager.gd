@@ -21,7 +21,8 @@ var taunt_position:Vector2
 
 #Gerenciamento Arcade:
 var arcade:bool = false
-var pontuacao:Array = [["name",1],["name2",2]]
+var pontuacao_mortes:Array = [["name",1],["name2",0]]
+var pontuacao_tempo:Array = [["name",1,"00:01"],["name2",2,"00:02"]]
 
 #informações da run:
 var time_elapsed:float = 0.0

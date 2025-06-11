@@ -54,25 +54,25 @@ layout_mode = 2
 [node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="RecordeTempo" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
 layout_mode = 2
 text = "Mais zumbis mortos"
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
 layout_mode = 2
 text = "22222"
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
 layout_mode = 2
 text = "44444"
 
-[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
 layout_mode = 2
 
 [node name="Menu" type="Button" parent="VBoxContainer"]
@@ -80,21 +80,20 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "Voltar ao menu"
 
-[node name="PopupPanel" type="AcceptDialog" parent="."]
+[node name="PopupRecorde" type="AcceptDialog" parent="."]
 title = "Novo recorde!"
 initial_position = 1
 size = Vector2i(355, 100)
-visible = true
 unresizable = true
 ok_button_text = "Salvar"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRecorde"]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 347.0
 offset_bottom = 59.0
 
-[node name="NomeJogador" type="TextEdit" parent="PopupPanel"]
+[node name="NomeJogador" type="TextEdit" parent="PopupRecorde"]
 unique_name_in_owner = true
 offset_left = 8.0
 offset_top = 8.0
@@ -104,4 +103,4 @@ size_flags_vertical = 3
 placeholder_text = "Seu nome"
 
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="confirmed" from="PopupPanel" to="." method="_on_popup_panel_confirmed"]
+[connection signal="confirmed" from="PopupRecorde" to="." method="_on_popup_panel_confirmed"]
