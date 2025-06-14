@@ -40,7 +40,8 @@ y_sort_enabled = true
 position = Vector2(-0.333333, -8)
 sprite_frames = SubResource("SpriteFrames_uagv6")
 autoplay = "default"
-frame_progress = 0.651283
+frame = 1
+frame_progress = 0.0831377
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.333333, -8)

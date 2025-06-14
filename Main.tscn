@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=57 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="11_3kp4t"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="13_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="14_c2ibq"]
+[ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="14_sqvbp"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="15_j4qnp"]
 [ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/cura_pequena.tscn" id="16_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predio.tscn" id="16_fpfj3"]
@@ -681,6 +682,9 @@ position_smoothing_enabled = true
 
 [node name="TauntItem" parent="." instance=ExtResource("13_c6i3y")]
 position = Vector2(450, 198)
+
+[node name="BombItem" parent="." instance=ExtResource("14_sqvbp")]
+position = Vector2(219, -215)
 
 [node name="Cura_pequena" parent="." instance=ExtResource("16_bg4s2")]
 position = Vector2(919, -160)
