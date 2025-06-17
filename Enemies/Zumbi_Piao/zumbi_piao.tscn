@@ -140,15 +140,15 @@ script = ExtResource("4_83e04")
 damage = 5
 damage_timer = 2.0
 
-[node name="aim_and_run" type="Node2D" parent="."]
+[node name="FollowPlayer" type="Node2D" parent="."]
 script = ExtResource("5_pv42u")
 speed = 500.0
 run_timer = 3.0
 stun_time = 2.0
 
-[node name="Timer" type="Timer" parent="aim_and_run"]
+[node name="Timer" type="Timer" parent="FollowPlayer"]
 one_shot = true
 
 [connection signal="area_entered" from="HitBoxArea" to="Touch_Damage" method="_on_hit_box_area_area_entered"]
-[connection signal="body_entered" from="HitBoxArea" to="aim_and_run" method="_on_hit_box_area_body_entered"]
-[connection signal="timeout" from="aim_and_run/Timer" to="aim_and_run" method="_on_timer_timeout"]
+[connection signal="body_entered" from="HitBoxArea" to="FollowPlayer" method="_on_hit_box_area_body_entered"]
+[connection signal="timeout" from="FollowPlayer/Timer" to="FollowPlayer" method="_on_timer_timeout"]
