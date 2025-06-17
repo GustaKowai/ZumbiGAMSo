@@ -28,6 +28,14 @@ text = "Continuar"
 layout_mode = 2
 text = "Novo jogo"
 
+[node name="Arcade" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Modo arcade"
+
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tutorial"
+
 [node name="Controles" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Controles
@@ -39,5 +47,6 @@ text = "Sair"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Arcade" to="." method="_on_arcade_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

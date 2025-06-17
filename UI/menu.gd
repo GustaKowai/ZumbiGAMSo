@@ -3,6 +3,7 @@ extends Control
 
 func _on_jogar_pressed() -> void:
 	SaveLoad.load_data()
+	GameManager.arcade = false
 	get_tree().change_scene_to_file("res://Main.tscn")
 
 
@@ -15,6 +16,18 @@ func _on_sair_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
+	reset_game_status()
+	get_tree().change_scene_to_file("res://Main.tscn")
+
+
+func _on_arcade_pressed() -> void:
+	reset_game_status()
+	GameManager.arcade = true
+	get_tree().change_scene_to_file("res://Main.tscn")
+	
+
+func reset_game_status():
+	GameManager.arcade = false
 	GameManager.alma_comum = 0
 	GameManager.alma_incomum = 0
 	GameManager.alma_rara = 0
@@ -27,4 +40,3 @@ func _on_new_game_pressed() -> void:
 	GameManager.upgrade_shotgun = [0,0,100,100,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
 	GameManager.upgrade_magnum = [0,0] #[munição,dano]
 	GameManager.upgrade_bazuca = [0,0] #[munição,dano]
-	get_tree().change_scene_to_file("res://Main.tscn")

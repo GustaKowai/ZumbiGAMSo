@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://1c761mq7s428"]
+[gd_scene load_steps=9 format=3 uid="uid://1c761mq7s428"]
 
 [ext_resource type="Script" uid="uid://c45q2bavo6g3q" path="res://Mechanics/mob_spawner.gd" id="1_cvpw2"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/Zumbi_normal_1/zombie_1.tscn" id="2_8pa0e"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="3_vdvtt"]
+[ext_resource type="PackedScene" uid="uid://cxw56v7yf1opd" path="res://Mechanics/SistemaDeDificuldade.tscn" id="4_5ir0s"]
 [ext_resource type="Texture2D" uid="uid://3blmsmke7851" path="res://Mechanics/Spawn_Zumbi.png" id="4_vdvtt"]
 
 [sub_resource type="Animation" id="Animation_1yabf"]
@@ -109,6 +110,9 @@ y_sort_enabled = true
 script = ExtResource("1_cvpw2")
 creatures = Array[PackedScene]([ExtResource("2_8pa0e"), ExtResource("3_vdvtt")])
 mobs_per_minute = 10.0
+
+[node name="SistemaDeDificuldade" parent="." node_paths=PackedStringArray("mob_spawner") instance=ExtResource("4_5ir0s")]
+mob_spawner = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

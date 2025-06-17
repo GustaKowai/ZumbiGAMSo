@@ -4,7 +4,7 @@ extends Sprite2D
 @export var weapon:PackedScene
 
 func _on_area_2d_body_entered(body):
-	print("pegou")
+	#print("pegou")
 	if body.is_in_group("Jogador"):
 		GameManager.weapon_collected.emit("res://weapons/bazuca/bazuca.png") #Emite um sinal avisando que uma arma foi coletada
 		var player = body

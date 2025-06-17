@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://da8c53dsvfgrq"]
+[gd_scene load_steps=31 format=3 uid="uid://da8c53dsvfgrq"]
 
 [ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://mapa/lojinha.gd" id="1_gg830"]
 [ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://mapa/lojinha_teste.png" id="1_kyu8p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/cura_pequena.tscn" id="3_a1hgr"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="4_o1esk"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="5_j56os"]
+[ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="6_5owt3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg830"]
 atlas = ExtResource("1_kyu8p")
@@ -173,8 +174,8 @@ size = Vector2(102, 29)
 [node name="Lojinha" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_gg830")
-lista_itens = Array[PackedScene]([ExtResource("2_5owt3"), ExtResource("3_a1hgr"), ExtResource("4_o1esk"), ExtResource("5_j56os")])
-lista_precos = Array[int]([3, 4, 5, 2])
+lista_itens = Array[PackedScene]([ExtResource("2_5owt3"), ExtResource("3_a1hgr"), ExtResource("4_o1esk"), ExtResource("5_j56os"), ExtResource("6_5owt3")])
+lista_precos = Array[int]([3, 4, 5, 2, 8])
 item = ExtResource("2_ftksf")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

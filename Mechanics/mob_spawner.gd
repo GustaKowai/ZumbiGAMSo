@@ -6,8 +6,8 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 
 #Iniciar o cooldown
-var cooldown = 0
-
+var cooldown:float = 0
+var buff_de_vida:float = 0
 
 func _ready():
 	pass # Replace with function body.
@@ -31,8 +31,9 @@ func set_cooldown(): #Essa função determina um cooldown aleatório ao redor do
 func spawn_zombie():#Essa é a função que invoca o zumbi.
 	var creature_index = randi_range(0,creatures.size()-1)
 	var creature_scene = creatures[creature_index]
-	var creature = creature_scene.instantiate()
+	var creature:Enemy = creature_scene.instantiate()
 	creature.position = position
+	creature.enemy_health += snappedi((creature.enemy_health*1.0/20.0)*buff_de_vida,1)
 	get_parent().get_parent().add_child(creature)
 	GameManager.infection_level += GameManager.infection_power
 	#print(GameManager.infection_level)

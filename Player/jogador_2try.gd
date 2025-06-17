@@ -245,7 +245,12 @@ func damage(amount:int):
 func damage_to_shield(amount:int):
 	if amount < player_shield:
 		player_shield -= amount
-		print(player_shield)
+		modulate = Color.CYAN
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_QUINT)
+		tween.tween_property(self,"modulate",Color.WHITE,0.3)
+		#print(player_shield)
 	else:
 		amount -= player_shield
 		player_shield = 0
@@ -315,7 +320,7 @@ func update_player_stats():
 	sword_damage += GameManager.sword_damage_up
 	#Passa o player para o GameManager
 	GameManager.player = self
-	print(player_health,max_stamina)
+	#print(player_health,max_stamina)
 	
 func die():
 	GameManager.end_game()

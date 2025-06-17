@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfeopnp4qhnh1"]
+
+[ext_resource type="Script" uid="uid://bwgtdimriy20k" path="res://items/bomb_item/bomb_item.gd" id="1_dovxw"]
+[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="2_ipfeh"]
+[ext_resource type="Texture2D" uid="uid://dnglkhd8uor0o" path="res://items/bomb_item/Bomba_relogio.png" id="3_0j06k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15ofy"]
+radius = 49.3333
+height = 160.0
+
+[node name="BombItem" type="Node2D"]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_dovxw")
+item = ExtResource("2_ipfeh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_0j06k")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_15ofy")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
