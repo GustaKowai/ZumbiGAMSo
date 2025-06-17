@@ -101,9 +101,11 @@ _data = {
 }
 
 [node name="ZumbiPiao" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 0
-collision_mask = 59
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 57
 script = ExtResource("1_sjciy")
+enemy_health = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -54)
@@ -140,8 +142,9 @@ damage_timer = 2.0
 
 [node name="aim_and_run" type="Node2D" parent="."]
 script = ExtResource("5_pv42u")
-speed = 100.0
-run_timer = 10.0
+speed = 500.0
+run_timer = 3.0
+stun_time = 2.0
 
 [node name="Timer" type="Timer" parent="aim_and_run"]
 one_shot = true

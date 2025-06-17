@@ -801,6 +801,6 @@ position = Vector2(681, 184)
 position = Vector2(257, 385)
 
 [node name="ZumbiPiao" parent="." instance=ExtResource("28_hri7i")]
-position = Vector2(231, 614)
+position = Vector2(-284, 857)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]
