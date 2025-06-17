@@ -1,9 +1,9 @@
-[gd_scene load_steps=57 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=58 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
 [ext_resource type="PackedScene" uid="uid://b3qcv045rpri2" path="res://Player/jogador_2try.tscn" id="3_vdkbt"]
-[ext_resource type="PackedScene" uid="uid://c8mypnrhy3q53" path="res://UI/game_over_arcade_ui_template.tscn" id="3_xrxkg"]
+[ext_resource type="PackedScene" uid="uid://c8mypnrhy3q53" path="res://items/game_over_arcade_ui_template.tscn" id="3_xrxkg"]
 [ext_resource type="Script" uid="uid://k1yl462kyh53" path="res://base.gd" id="4_20pc6"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/Zumbi_normal_1/zombie_1.tscn" id="4_m2mbd"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="5_cx32y"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="25_mxvw5"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="25_xrxkg"]
 [ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="26_xrxkg"]
+[ext_resource type="PackedScene" uid="uid://b1hj4msyptvsg" path="res://Enemies/Zumbi_Piao/zumbi_piao.tscn" id="28_hri7i"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -798,5 +799,8 @@ position = Vector2(681, 184)
 
 [node name="Zumbi_policial" parent="." instance=ExtResource("25_xrxkg")]
 position = Vector2(257, 385)
+
+[node name="ZumbiPiao" parent="." instance=ExtResource("28_hri7i")]
+position = Vector2(231, 614)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]

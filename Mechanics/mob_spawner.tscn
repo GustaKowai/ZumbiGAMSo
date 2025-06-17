@@ -109,7 +109,7 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_cvpw2")
 creatures = Array[PackedScene]([ExtResource("2_8pa0e"), ExtResource("3_vdvtt")])
-mobs_per_minute = 10.0
+mobs_per_minute = 2.0
 
 [node name="SistemaDeDificuldade" parent="." node_paths=PackedStringArray("mob_spawner") instance=ExtResource("4_5ir0s")]
 mob_spawner = NodePath("..")
