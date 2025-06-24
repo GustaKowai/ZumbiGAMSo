@@ -62,6 +62,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -69,6 +70,7 @@ size_flags_stretch_ratio = 0.0
 tooltip_text = "Atualizar: 100🟡"
 icon = ExtResource("7_wfiba")
 icon_alignment = 2
+expand_icon = true
 
 [node name="CardContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
@@ -78,36 +80,34 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Upgrade_card2" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
-visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Upgrade_card3" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
-visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Upgrade_card4" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
-visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Upgrade_card" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
-visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Voltar_pro_jogo" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 tooltip_text = "Salvar e reviver"
 icon = ExtResource("8_fcdm7")
+expand_icon = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
