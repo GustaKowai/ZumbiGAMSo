@@ -549,11 +549,12 @@ height = 304.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxmr4"]
 radius = 43.0465
 
-[node name="Zumbi_policial" type="CharacterBody2D" groups=["enemies"]]
+[node name="Zumbi_policial" type="CharacterBody2D" node_paths=PackedStringArray("follow") groups=["enemies"]]
 scale = Vector2(0.34, 0.34)
 collision_layer = 2
 collision_mask = 59
 script = ExtResource("1_v3dll")
+follow = NodePath("FollowPlayer")
 death_prefab = ExtResource("2_0skl4")
 items = Array[PackedScene]([ExtResource("3_dq1qg"), ExtResource("4_ne34u"), ExtResource("5_3ms74"), ExtResource("6_jed5v"), ExtResource("7_lmxuk"), ExtResource("8_fs2me")])
 drop_chances = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 2.0])
