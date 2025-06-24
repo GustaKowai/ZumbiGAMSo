@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://6w68s6t04fv"]
+[gd_scene load_steps=11 format=3 uid="uid://6w68s6t04fv"]
 
 [ext_resource type="Script" uid="uid://bu0fh052uv5oh" path="res://UI/loja da morte/upgrade_card.gd" id="1_s5r5i"]
 [ext_resource type="Texture2D" uid="uid://c3dsc83r53vd4" path="res://weapons/revolver/revolver_icon_2.png" id="2_7n5rf"]
 [ext_resource type="Texture2D" uid="uid://cf5dvf126m5da" path="res://UI/loja da morte/Upgrade_custo_comum.png" id="2_8tlat"]
 [ext_resource type="Texture2D" uid="uid://d2asjxc1rnp4i" path="res://UI/UI_images/Alma_Comum_UI.png" id="3_7n5rf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tlat"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tlat"]
 bg_color = Color(0, 0, 0, 0.596)
@@ -17,6 +19,14 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju2ct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pqx47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rnlb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kemov"]
 
 [node name="Upgrade_card" type="MarginContainer"]
 size_flags_horizontal = 3
@@ -39,6 +49,7 @@ metadata/_edit_pinned_properties_ = [&"possibilities_target"]
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8tlat")
 
 [node name="CardBackground" type="NinePatchRect" parent="PanelContainer"]
 unique_name_in_owner = true
@@ -90,7 +101,10 @@ theme_override_constants/margin_right = 18
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8tlat")
 
-[node name="upgrade_effect" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer"]
+layout_mode = 2
+
+[node name="upgrade_effect" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
@@ -100,7 +114,27 @@ text = "Efeito do upgrade"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="upgrade_cost" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Custo do upgrade"
+
+[node name="upgrade_cost_image" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("3_7n5rf")
+stretch_mode = 5
+
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -114,29 +148,16 @@ theme_override_constants/margin_right = 18
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8tlat")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4/PanelContainer"]
-layout_mode = 2
-
-[node name="upgrade_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4/PanelContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "Custo do upgrade"
-
-[node name="upgrade_cost_image" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4/PanelContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture = ExtResource("3_7n5rf")
-stretch_mode = 5
-
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+theme_override_colors/font_hover_color = Color(0.998381, 0.260359, 0.327632, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ju2ct")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pqx47")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7rnlb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kemov")
 text = "Comprar"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
