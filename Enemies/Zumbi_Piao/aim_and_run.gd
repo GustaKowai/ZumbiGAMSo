@@ -35,6 +35,7 @@ func mira_no_player():
 		return posicao_mira
 	else:
 		return Vector2(0,0)
+		
 func corre_pro_player():
 	animation_player.play("ataque")
 	enemy.velocity = mira_no_player().normalized()*speed
