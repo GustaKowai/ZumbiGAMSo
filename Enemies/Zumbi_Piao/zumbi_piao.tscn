@@ -105,7 +105,7 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 57
 script = ExtResource("1_sjciy")
-enemy_health = 200
+enemy_health = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -54)

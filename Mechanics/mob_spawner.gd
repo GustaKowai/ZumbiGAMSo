@@ -1,8 +1,9 @@
 class_name MobSpawner
 extends Node2D
 
-@export var creatures:Array[PackedScene] #Array de criaturas possíveis de serem invocadas
+@export var enemies:Array[PackedScene] #Array de criaturas possíveis de serem invocadas
 @export var mobs_per_minute = 30.0
+@export var spawn_chances: Array[float]
 @onready var animation_player = $AnimationPlayer
 
 #Iniciar o cooldown
@@ -29,11 +30,27 @@ func set_cooldown(): #Essa função determina um cooldown aleatório ao redor do
 	cooldown = randi_range(interval/2,3*interval/2)
 	
 func spawn_zombie():#Essa é a função que invoca o zumbi.
-	var creature_index = randi_range(0,creatures.size()-1)
-	var creature_scene = creatures[creature_index]
-	var creature:Enemy = creature_scene.instantiate()
-	creature.position = position
-	creature.enemy_health += snappedi((creature.enemy_health*1.0/20.0)*buff_de_vida,1)
-	get_parent().get_parent().add_child(creature)
+	var enemy_index = randi_range(0,enemies.size()-1)
+	var enemy_scene = enemies[enemy_index]
+	var enemy:Enemy = get_random_enemy().instantiate()
+	enemy.position = position
+	enemy.enemy_health += snappedi((enemy.enemy_health*1.0/20.0)*buff_de_vida,1)
+	get_parent().get_parent().add_child(enemy)
 	GameManager.infection_level += GameManager.infection_power
 	#print(GameManager.infection_level)
+
+func get_random_enemy():
+	var max_chance = 0.0
+	for spawn_chance in spawn_chances:
+		max_chance += spawn_chance
+		
+	var random_value = randf()*max_chance
+	
+	var enemy_chooser = 0.0
+	for i in enemies.size():
+		var choosed_enemy = enemies[i]
+		var spawn_chance = spawn_chances[i] if i <spawn_chances.size() else 1.0
+		if random_value <=spawn_chance + enemy_chooser:
+			return choosed_enemy
+		enemy_chooser += spawn_chance
+	return enemies[0] 
