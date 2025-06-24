@@ -1,16 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://6w68s6t04fv"]
+[gd_scene load_steps=6 format=3 uid="uid://6w68s6t04fv"]
 
 [ext_resource type="Script" uid="uid://bu0fh052uv5oh" path="res://UI/loja da morte/upgrade_card.gd" id="1_s5r5i"]
 [ext_resource type="Texture2D" uid="uid://c3dsc83r53vd4" path="res://weapons/revolver/revolver_icon_2.png" id="2_7n5rf"]
+[ext_resource type="Texture2D" uid="uid://cf5dvf126m5da" path="res://UI/loja da morte/Upgrade_custo_comum.png" id="2_8tlat"]
 [ext_resource type="Texture2D" uid="uid://d2asjxc1rnp4i" path="res://UI/UI_images/Alma_Comum_UI.png" id="3_7n5rf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tlat"]
+bg_color = Color(0, 0, 0, 0.596)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.882353, 0.882353, 0.882353, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Upgrade_card" type="MarginContainer"]
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 30
 script = ExtResource("1_s5r5i")
+modulate_time = 0.6
 possibilities_target = Dictionary[int, String]({
 0: "Player",
 1: "Weapon"
@@ -25,25 +40,21 @@ metadata/_edit_pinned_properties_ = [&"possibilities_target"]
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="CardBackground" type="NinePatchRect" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_8tlat")
+region_rect = Rect2(0, 0, 131.189, 216)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="upgrade_name" type="Label" parent="PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.5
-text = "Nome do upgrade"
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 290)
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 10
 
 [node name="upgrade_image" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer"]
@@ -54,9 +65,34 @@ texture = ExtResource("2_7n5rf")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="upgrade_effect" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="upgrade_name" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(290, 0)
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+text = "Nome do upgrade"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8tlat")
+
+[node name="upgrade_effect" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer3/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -68,23 +104,37 @@ autowrap_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="upgrade_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8tlat")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4/PanelContainer"]
+layout_mode = 2
+
+[node name="upgrade_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Custo do upgrade"
 
-[node name="upgrade_cost_image" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="upgrade_cost_image" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("3_7n5rf")
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Comprar"

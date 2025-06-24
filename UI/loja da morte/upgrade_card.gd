@@ -6,9 +6,13 @@ extends MarginContainer
 @onready var upgrade_effect_label:Label = %upgrade_effect
 @onready var upgrade_cost_label:Label = %upgrade_cost
 @onready var upgrade_cost_image:TextureRect = %upgrade_cost_image
-@onready var loja = $"../../.."
+@onready var card_background:NinePatchRect = %CardBackground
+@onready var loja = $"../../../.."
+@export var modulate_time:float = 1.0
+@export_category("Upgrades")
 @export var possibilities_target :Dictionary[int,String]
 @export var target_possibilities: Dictionary[String,Array]
+var card_background_path:String
 var upgrade_name:String
 var upgrade_image_path:String
 var upgrade_effect:String
@@ -18,6 +22,10 @@ var card_is_choosen:String
 var buff:int
 var sub_prop:int
 var upgrade_cost_image_path:String
+var background_comum = "res://UI/loja da morte/Upgrade_custo_comum.png"
+var background_incomum = "res://UI/loja da morte/Upgrade_custo_medio.png"
+var background_rara = "res://UI/loja da morte/Upgrade_custo_raro.png"
+var background_unico = "res://UI/loja da morte/Upgrade_unico.png"
 var alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
 var alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
 var alma_rara = "res://UI/UI_images/Alma_zumbi_raro.png"
@@ -27,7 +35,12 @@ func _ready() -> void:
 	if error: start_card()
 	error = false
 	set_card()
-
+	modulate.a = 0
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self,"modulate",Color.WHITE,modulate_time)
+	
 #Essa função inicializa o card, sorteando o tipo de carta que será.
 func start_card() -> void:
 	for i in range(1):
@@ -65,6 +78,7 @@ func set_card():
 	upgrade_effect_label.text = upgrade_effect
 	upgrade_cost_label.text = "Custo: "+ str(upgrade_cost)
 	upgrade_cost_image.texture = load(upgrade_cost_image_path)
+	card_background.texture = load(card_background_path)
 
 ####---------------------vvvvvv--------------------------####
 #region determinar o tipo de texto e buff
@@ -136,6 +150,7 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_effect = "Transforma as balas do revólver em duas balas gêmeas que atiram juntas, orbitando uma a outra. \n Perfuração base 3 e dano base 30"
 		basic_cost = 900
 		calcula_custo_almas(basic_cost)
+		card_background_path = background_unico
 ###-----Metralhadora-----###
 func set_card_aumenta_metralhadora(upgrade_metralhadora):
 	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
@@ -258,12 +273,15 @@ func calcula_custo_almas(custo_alma):
 	if custo_alma < 999:
 		upgrade_cost = custo_alma
 		upgrade_cost_image_path = alma_comum
+		card_background_path = background_comum
 	elif custo_alma <99999:
 		upgrade_cost = snapped(custo_alma/100,1)
 		upgrade_cost_image_path = alma_incomum
+		card_background_path = background_incomum
 	else:
 		upgrade_cost = snapped(custo_alma/10000,1)
 		upgrade_cost_image_path = alma_rara
+		card_background_path = background_rara
 
 #Essa função checa se o jogador tem a quantidade de almas suficientes.
 func have_souls(soul_type):
