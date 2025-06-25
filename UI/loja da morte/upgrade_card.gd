@@ -151,6 +151,7 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		basic_cost = 900
 		calcula_custo_almas(basic_cost)
 		card_background_path = background_unico
+
 ###-----Metralhadora-----###
 func set_card_aumenta_metralhadora(upgrade_metralhadora):
 	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
@@ -223,6 +224,8 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
 		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
+
+###-----Magnum-----###		
 func set_card_aumenta_magnum(upgrade_magnum):
 	upgrade_image_path = "res://weapons/magnum/magnum_icon.png"
 	sub_prop = randi_range(0,1)
@@ -238,7 +241,8 @@ func set_card_aumenta_magnum(upgrade_magnum):
 		upgrade_effect  = "Aumenta o dano da Magnum em " + str(buff)
 		basic_cost  = (20+2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
-		
+
+###-----Bazuca-----###		
 func set_card_aumenta_bazuca(upgrade_bazuca):
 	upgrade_image_path = "res://weapons/bazuca/bazuca.png"
 	sub_prop = randi_range(0,1)
@@ -287,10 +291,10 @@ func _on_button_pressed() -> void:
 				GameManager.upgrade_shotgun[sub_prop]+=buff
 				print("SHOTGUN")
 			"Magnum":
-				set_card_aumenta_algo(card_is_choosen)
+				GameManager.upgrade_magnum[sub_prop]+=buff
 				print("MAGNUM")
 			"Bazuca":
-				set_card_aumenta_algo(card_is_choosen)
+				GameManager.upgrade_bazuca[sub_prop]+=buff
 				print("BAZUCA")
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
