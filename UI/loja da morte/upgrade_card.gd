@@ -65,9 +65,9 @@ func start_card() -> void:
 			"Shotgun":
 				set_card_aumenta_shotgun(GameManager.upgrade_shotgun)
 			"Magnum":
-				set_card_aumenta_algo(card_is_choosen)
+				set_card_aumenta_magnum(GameManager.upgrade_magnum)
 			"Bazuca":
-				set_card_aumenta_algo(card_is_choosen)
+				set_card_aumenta_bazuca(GameManager.upgrade_bazuca)
 			_:
 				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
@@ -223,8 +223,37 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
 		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
-#func set_card_aumenta_algo(algo_up):
-	#TODO
+func set_card_aumenta_magnum(upgrade_magnum):
+	upgrade_image_path = "res://weapons/magnum/magnum_icon.png"
+	sub_prop = randi_range(0,1)
+	if sub_prop == 0:
+		upgrade_name = "Aumento de munição da Magnum"
+		buff = randi_range(1,4)
+		upgrade_effect = "Aumenta a munição máxima da Magnum em " + str(buff)
+		basic_cost = (200+2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_name = "Aumento de dano da Magnum"
+		buff = randi_range(5,10)
+		upgrade_effect  = "Aumenta o dano da Magnum em " + str(buff)
+		basic_cost  = (20+2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+		
+func set_card_aumenta_bazuca(upgrade_bazuca):
+	upgrade_image_path = "res://weapons/bazuca/bazuca.png"
+	sub_prop = randi_range(0,1)
+	if sub_prop == 0:
+		upgrade_name = "Aumento de munição da Bazuca"
+		buff = randi_range(1,2)
+		upgrade_effect = "Aumenta a munição máxima da Bazuca em " + str(buff)
+		basic_cost = (200+2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_name = "Aumento de dano da Bazuca"
+		buff = randi_range(10,20)
+		upgrade_effect  = "Aumenta o dano da Bazuca em " + str(buff)
+		basic_cost  = (20+2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
 	#TODO
 #func set_card_aumenta_algo(algo_up):
