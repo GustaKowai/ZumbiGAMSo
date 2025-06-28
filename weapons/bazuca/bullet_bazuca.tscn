@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://be77d1xry1rvn"]
+[gd_scene load_steps=7 format=3 uid="uid://be77d1xry1rvn"]
 
 [ext_resource type="Script" uid="uid://dhagdxnieofse" path="res://weapons/bazuca/bullet_bazuca.gd" id="1_0yl4s"]
+[ext_resource type="PackedScene" uid="uid://cj21r20l5nulm" path="res://Misc/explosion.tscn" id="2_6lqwx"]
 [ext_resource type="Texture2D" uid="uid://dym11srn1q8h2" path="res://weapons/bazuca/bullet_bazuca.png" id="2_mmt4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q74vx"]
@@ -10,12 +11,13 @@ size = Vector2(16.25, 22)
 size = Vector2(62, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dbwo"]
-radius = 154.013
+radius = 96.0
 
 [node name="bullet_bazuca" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0yl4s")
+explosao = ExtResource("2_6lqwx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

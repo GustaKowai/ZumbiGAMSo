@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdtl6swuijq6u"]
+[gd_scene load_steps=7 format=3 uid="uid://bdtl6swuijq6u"]
 
 [ext_resource type="Script" uid="uid://ctfic7mxqxk3b" path="res://items/bomb_item/bomb_object.gd" id="1_x178b"]
 [ext_resource type="Texture2D" uid="uid://dnglkhd8uor0o" path="res://items/bomb_item/Bomba_relogio.png" id="2_ke782"]
+[ext_resource type="PackedScene" uid="uid://cj21r20l5nulm" path="res://Misc/explosion.tscn" id="2_wlaxr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wlaxr"]
 animations = [{
@@ -19,24 +20,25 @@ radius = 40.0
 height = 130.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_647am"]
-radius = 306.678
+radius = 96.0
 
 [node name="Bomb_object" type="StaticBody2D"]
-scale = Vector2(0.6, 0.6)
 collision_layer = 32
 collision_mask = 10
 script = ExtResource("1_x178b")
 tempo_para_explodir = 1.1
-dano_inimigos = 25
+dano_inimigos = 40
 dano_player = 10
+explosao = ExtResource("2_wlaxr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 11)
-scale = Vector2(0.55, 0.55)
+position = Vector2(0.325001, 0.225001)
+scale = Vector2(0.33, 0.33)
 sprite_frames = SubResource("SpriteFrames_wlaxr")
 
 [node name="Area_de_colisao" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0.325001, 0.225)
+scale = Vector2(0.6, 0.6)
 shape = SubResource("CapsuleShape2D_qp6fk")
 
 [node name="area_de_dano" type="Area2D" parent="."]
@@ -44,5 +46,4 @@ collision_layer = 32
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_de_dano"]
-position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_647am")

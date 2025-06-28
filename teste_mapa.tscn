@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://b7q4nvqwm5s8v"]
+[gd_scene load_steps=39 format=4 uid="uid://b7q4nvqwm5s8v"]
 
 [ext_resource type="Texture2D" uid="uid://d4io3jv6q1qfc" path="res://WhatsApp Image 2025-06-26 at 17.44.02.jpeg" id="1_3swv8"]
 [ext_resource type="Texture2D" uid="uid://cidac6n537qn6" path="res://mapa/imagens/Tile_set_calcada-rua.png" id="1_6qxri"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="9_bf245"]
 [ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="17_4gkho"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="18_ykbud"]
+[ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="19_p4rm6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -2719,10 +2720,13 @@ position = Vector2(213, -27)
 position = Vector2(-1890, -2808)
 
 [node name="Bazuca1" parent="." instance=ExtResource("17_4gkho")]
-position = Vector2(-162, -1944)
+position = Vector2(270, -1998)
 
 [node name="machinegun" parent="." instance=ExtResource("18_ykbud")]
-position = Vector2(-108, -2214)
+position = Vector2(270, -2214)
 
 [node name="revolver2" parent="." instance=ExtResource("7_qxf64")]
-position = Vector2(54, -2214)
+position = Vector2(270, -2106)
+
+[node name="BombItem" parent="." instance=ExtResource("19_p4rm6")]
+position = Vector2(-108, -1728)
