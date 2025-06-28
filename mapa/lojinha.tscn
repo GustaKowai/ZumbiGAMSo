@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://da8c53dsvfgrq"]
+[gd_scene load_steps=37 format=3 uid="uid://da8c53dsvfgrq"]
 
 [ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://mapa/lojinha.gd" id="1_gg830"]
 [ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://mapa/lojinha_teste.png" id="1_kyu8p"]
@@ -48,6 +48,30 @@ region = Rect2(324, 108, 108, 108)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n23qn"]
 atlas = ExtResource("1_kyu8p")
 region = Rect2(432, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcbae"]
+atlas = ExtResource("1_kyu8p")
+region = Rect2(432, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qna5b"]
+atlas = ExtResource("1_kyu8p")
+region = Rect2(324, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gwtx"]
+atlas = ExtResource("1_kyu8p")
+region = Rect2(216, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdj18"]
+atlas = ExtResource("1_kyu8p")
+region = Rect2(108, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw8sb"]
+atlas = ExtResource("1_kyu8p")
+region = Rect2(0, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnl12"]
+atlas = ExtResource("1_kyu8p")
+region = Rect2(432, 0, 108, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulk2f"]
 atlas = ExtResource("1_kyu8p")
@@ -123,8 +147,31 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n23qn")
 }],
-"loop": true,
+"loop": false,
 "name": &"bye",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcbae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qna5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gwtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdj18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw8sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnl12")
+}],
+"loop": false,
+"name": &"hello",
 "speed": 5.0
 }, {
 "frames": [{
@@ -174,6 +221,7 @@ size = Vector2(102, 29)
 [node name="Lojinha" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_gg830")
+tempo_de_expediente = 5.0
 lista_itens = Array[PackedScene]([ExtResource("2_5owt3"), ExtResource("3_a1hgr"), ExtResource("4_o1esk"), ExtResource("5_j56os"), ExtResource("6_5owt3")])
 lista_precos = Array[int]([3, 4, 5, 2, 8])
 item = ExtResource("2_ftksf")
@@ -181,8 +229,7 @@ item = ExtResource("2_ftksf")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_jkak3")
-animation = &"bye"
-frame_progress = 0.267896
+animation = &"hello"
 offset = Vector2(0, -50)
 
 [node name="Timer" type="Timer" parent="Sprite"]

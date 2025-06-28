@@ -1,3 +1,4 @@
+class_name Predio
 extends Node2D
 @onready var predio_sprite:Sprite2D = $predio_sprite
 @export var sprite:Texture2D

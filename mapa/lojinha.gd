@@ -1,3 +1,4 @@
+class_name Loja
 extends Node2D
 @onready var sprite:AnimatedSprite2D = $Sprite
 @onready var timer:Timer = $Sprite/Timer
@@ -5,18 +6,27 @@ extends Node2D
 @onready var value:Label = %value
 @onready var aviso:Label = %aviso
 @onready var marker:Marker2D = $Marker2D
+@export var tempo_de_expediente:float
 @export var lista_itens:Array[PackedScene]
 @export var lista_precos:Array[int]
 @export var item:PackedScene
-var esgotado:bool = false
+var esgotado:bool = true
 var texture_item:Texture2D = null
 var escolha:int
 
 func _ready() -> void:
+	value.text = "X"
+	aviso.visible = false
+	pass
+func open_shop():
 	start_shop()
-	sprite.play("idle")
+	esgotado = false
+	item_sprite.visible = true
+	sprite.play("hello")
 	aviso.visible = false
 	set_timer()
+	await get_tree().create_timer(tempo_de_expediente).timeout
+	close_shop()
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("buy"):
@@ -27,7 +37,7 @@ func _input(event: InputEvent) -> void:
 
 #region animation
 func _on_timer_timeout() -> void:
-	if esgotado: queue_free()
+	if esgotado:return
 	var change = randi_range(1,6)
 	match change:
 		1:
@@ -45,7 +55,7 @@ func set_timer():
 	
 func start_shop():
 	escolha = randi_range(0,lista_itens.size()-1)
-	#print(escolha)
+	print(escolha)
 	var item_escolhido:PackedScene = lista_itens[escolha]
 	var item = item_escolhido.instantiate()
 	#print(item.image)
@@ -68,11 +78,7 @@ func buy():
 	var item = item_escolhido.instantiate()
 	item.global_position = marker.global_position
 	get_parent().add_child(item)
-	esgotado = true
-	item_sprite.visible = false
-	sprite.play("bye")
-	timer.wait_time = 1
-	timer.start()
+	close_shop()
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -82,3 +88,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	aviso.visible = false
+
+func close_shop():
+	esgotado = true
+	item_sprite.visible = false
+	sprite.play("bye")
+	value.text = "X"
+	await get_tree().create_timer(1.0).timeout
+	GameManager.loja_fechada.emit()

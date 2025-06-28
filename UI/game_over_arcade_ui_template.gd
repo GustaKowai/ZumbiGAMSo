@@ -72,15 +72,15 @@ func check_for_record():
 	if pontuacao_mortes.size() <10:
 		recorde_mortes = true
 	else:
-		var menor_pontuacao:Array = pontuacao_mortes[9]
-		if GameManager.kills_count > menor_pontuacao[1]:
+		var menor_pontuacao_mortes:Array = pontuacao_mortes[9]
+		if GameManager.kills_count > menor_pontuacao_mortes[1]:
 			recorde_mortes = true
 	
 	if pontuacao_tempo.size() <10:
 		recorde_tempo = true
 	else:
-		var menor_pontuacao:Array = pontuacao_tempo[9]
-		if GameManager.kills_count > menor_pontuacao[1]:
+		var menor_pontuacao_tempo:Array = pontuacao_tempo[9]
+		if GameManager.time_elapsed > menor_pontuacao_tempo[1]:
 			recorde_tempo = true
 
 func sort_pontuacao(a,b):

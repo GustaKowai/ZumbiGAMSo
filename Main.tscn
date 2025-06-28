@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=59 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="25_xrxkg"]
 [ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="26_xrxkg"]
 [ext_resource type="PackedScene" uid="uid://b1hj4msyptvsg" path="res://Enemies/Zumbi_Piao/zumbi_piao.tscn" id="28_hri7i"]
+[ext_resource type="PackedScene" uid="uid://q63k8cy1r535" path="res://Mechanics/gerador_de_lojas.tscn" id="29_w3rk5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -791,9 +792,6 @@ position = Vector2(-344, -49)
 [node name="SlowItem" parent="." instance=ExtResource("25_mxvw5")]
 position = Vector2(-255, -56)
 
-[node name="Lojinha" parent="." instance=ExtResource("26_xrxkg")]
-position = Vector2(1040, 172)
-
 [node name="revolver" parent="." instance=ExtResource("8_e2qaf")]
 position = Vector2(681, 184)
 
@@ -802,5 +800,10 @@ position = Vector2(257, 385)
 
 [node name="ZumbiPiao" parent="." instance=ExtResource("28_hri7i")]
 position = Vector2(-284, 857)
+
+[node name="Gerador de lojas" parent="." instance=ExtResource("29_w3rk5")]
+
+[node name="Lojinha5" parent="Gerador de lojas" instance=ExtResource("26_xrxkg")]
+position = Vector2(1040, 172)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]

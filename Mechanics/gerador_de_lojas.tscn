@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://q63k8cy1r535"]
+
+[ext_resource type="Script" uid="uid://b1njhppfhr4si" path="res://Mechanics/gerador_de_lojas.gd" id="1_ow74f"]
+[ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="2_kuiep"]
+
+[node name="Gerador de lojas" type="Node2D"]
+script = ExtResource("1_ow74f")
+
+[node name="Lojinha" parent="." instance=ExtResource("2_kuiep")]
+position = Vector2(191, 265)
+
+[node name="Lojinha2" parent="." instance=ExtResource("2_kuiep")]
+position = Vector2(771, 254)
+
+[node name="Lojinha3" parent="." instance=ExtResource("2_kuiep")]
+position = Vector2(365, 643)
+
+[node name="Lojinha4" parent="." instance=ExtResource("2_kuiep")]
+position = Vector2(985, 591)
