@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://da8c53dsvfgrq"]
+[gd_scene load_steps=50 format=3 uid="uid://da8c53dsvfgrq"]
 
 [ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://mapa/lojinha.gd" id="1_gg830"]
 [ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://mapa/lojinha_teste.png" id="1_kyu8p"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="4_o1esk"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="5_j56os"]
 [ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="6_5owt3"]
+[ext_resource type="Texture2D" uid="uid://cjpuub1yn4r6s" path="res://mapa/lojinha_fechada.png" id="9_a1hgr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg830"]
 atlas = ExtResource("1_kyu8p")
@@ -48,6 +49,54 @@ region = Rect2(324, 108, 108, 108)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n23qn"]
 atlas = ExtResource("1_kyu8p")
 region = Rect2(432, 108, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x0lt"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkcl6"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k57ug"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(216, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k37ib"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(324, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ntkl"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(432, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se66j"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(540, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is7uq"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(648, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c0jy"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(756, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4brc"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(864, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysaog"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(972, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb2o2"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(1080, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_623eq"]
+atlas = ExtResource("9_a1hgr")
+region = Rect2(1188, 0, 108, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcbae"]
 atlas = ExtResource("1_kyu8p")
@@ -146,10 +195,46 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n23qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x0lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkcl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k57ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k37ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ntkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se66j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is7uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c0jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4brc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysaog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb2o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_623eq")
 }],
 "loop": false,
 "name": &"bye",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -229,7 +314,9 @@ item = ExtResource("2_ftksf")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_jkak3")
-animation = &"hello"
+animation = &"bye"
+frame = 16
+frame_progress = 1.0
 offset = Vector2(0, -50)
 
 [node name="Timer" type="Timer" parent="Sprite"]

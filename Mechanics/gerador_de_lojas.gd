@@ -6,6 +6,7 @@ func _ready() -> void:
 	filiais = self.find_children("*","Loja")
 	GameManager.loja_fechada.connect(abre_loja)
 	GameManager.loja_fechada.emit()
+	await get_tree().create_timer(2.0).timeout
 	GameManager.loja_fechada.emit()
 	
 func abre_loja():
