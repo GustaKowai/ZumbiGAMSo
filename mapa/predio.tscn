@@ -37,6 +37,7 @@ collision_mask = 11
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_area"]
 position = Vector2(-1, -68)
 shape = SubResource("RectangleShape2D_qtqg7")
+debug_color = Color(0.997608, 0.0402368, 0, 0.42)
 
 [node name="Area2D2" type="Area2D" parent="." groups=["construcao"]]
 position = Vector2(-154, -9)
