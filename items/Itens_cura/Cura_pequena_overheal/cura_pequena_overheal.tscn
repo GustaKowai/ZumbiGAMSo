@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkv5nog2y3mx5"]
+
+[ext_resource type="Texture2D" uid="uid://cmtjw4h61cf1f" path="res://items/Itens_cura/Cura_pequena_overheal/Overheal_Bronze.png" id="1_4n6hg"]
+[ext_resource type="Script" uid="uid://w046wh8lvari" path="res://items/Itens_cura/Cura_pequena_overheal/cura_pequena_overheal.gd" id="2_aaf05"]
+[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="3_aaf05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktrct"]
+size = Vector2(102.857, 151.429)
+
+[node name="cura_pequena_overheal" type="Sprite2D"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_4n6hg")
+script = ExtResource("2_aaf05")
+item = ExtResource("3_aaf05")
+item_string = "res://items/Itens_cura/Cura_pequena_overheal/cura_pequena_overheal_objeto.tscn"
+image = "res://items/Itens_cura/Cura_pequena_overheal/Overheal_Bronze.png"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.04359e-06, -1.42858)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_ktrct")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

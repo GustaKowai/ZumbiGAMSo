@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3qnuudk6ldwy"]
+
+[ext_resource type="Script" uid="uid://by03tvy8xa06k" path="res://items/Itens_cura/Cura_pequena_overheal/cura_pequena_overheal_objeto.gd" id="1_6bsxf"]
+
+[node name="Cura_pequena_overheal_objeto" type="Node2D"]
+script = ExtResource("1_6bsxf")
+quantidade_cura = 5
+cura_extra = true

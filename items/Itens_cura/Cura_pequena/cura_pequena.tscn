@@ -1,24 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://uifdexlixxhh"]
 
-[ext_resource type="Texture2D" uid="uid://ck5bkfc3blv4e" path="res://items/Itens_cura/potion__pequeno_pokemon.png" id="1_qnigx"]
-[ext_resource type="Script" uid="uid://cr2ktwl86li3l" path="res://items/Itens_cura/cura_pequena.gd" id="2_lbk8p"]
+[ext_resource type="Texture2D" uid="uid://beq5vi0ltqmec" path="res://items/Itens_cura/Cura_pequena/Pocao_Base.png" id="1_siid6"]
+[ext_resource type="Script" uid="uid://dmetafa800hfv" path="res://items/Itens_cura/Cura_pequena/cura_pequena.gd" id="2_lbk8p"]
 [ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="3_b1cgr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hidf1"]
-size = Vector2(350, 470)
+size = Vector2(196.825, 349.206)
 
 [node name="Cura_pequena" type="Sprite2D"]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_qnigx")
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_siid6")
 script = ExtResource("2_lbk8p")
 item = ExtResource("3_b1cgr")
+item_string = "res://items/Itens_cura/Cura_pequena/cura_pequena_objeto.tscn"
+image = "res://items/Itens_cura/Cura_pequena/Pocao_Base.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(15, 4.99998)
+position = Vector2(1.42857, -1.42857)
+scale = Vector2(0.45, 0.45)
 shape = SubResource("RectangleShape2D_hidf1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

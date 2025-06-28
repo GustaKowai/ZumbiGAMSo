@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkqhxr3sr1f1l"]
+
+[ext_resource type="Texture2D" uid="uid://dmhxdkf3xnvdw" path="res://items/Itens_cura/Cura_grande/Pocao_Max.png" id="1_k6vvd"]
+[ext_resource type="Script" uid="uid://d14075w2ey8t6" path="res://items/Itens_cura/Cura_grande/cura_grande.gd" id="2_o6ofe"]
+[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="3_vnrpu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3ut3"]
+size = Vector2(88.5715, 157.143)
+
+[node name="Cura_grande" type="Sprite2D"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_k6vvd")
+script = ExtResource("2_o6ofe")
+item = ExtResource("3_vnrpu")
+item_string = "res://items/Itens_cura/Cura_grande/cura_grande_objeto.tscn"
+image = "res://items/Itens_cura/Cura_grande/Pocao_Max.png"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.42857, -1.42858)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_f3ut3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
