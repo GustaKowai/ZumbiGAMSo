@@ -19,12 +19,13 @@ func _ready() -> void:
 	aviso.visible = false
 	pass
 func open_shop():
-	start_shop()
 	esgotado = false
-	item_sprite.visible = true
 	sprite.play("hello")
-	aviso.visible = false
 	set_timer()
+	await get_tree().create_timer(1.1).timeout
+	start_shop()
+	item_sprite.visible = true
+	aviso.visible = false
 	await get_tree().create_timer(tempo_de_expediente).timeout
 	close_shop()
 	
@@ -49,7 +50,7 @@ func _on_timer_timeout() -> void:
 	set_timer()
 	
 func set_timer():
-	timer.wait_time = randf_range(1,4)
+	timer.wait_time = randf_range(2,4)
 	timer.start()
 #endregion
 	

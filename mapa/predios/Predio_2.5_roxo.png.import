@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f2yoxogdbj7l"
-path="res://.godot/imported/Predio_2.5_Vermelho.png-831f3ec3c378c925dc86501a236f37c4.ctex"
+uid="uid://b5ehk2pbo55jo"
+path="res://.godot/imported/Predio_2.5_roxo.png-8b3941e2575939dd90d8a5c10e038c94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/Predio_2.5_Vermelho.png"
-dest_files=["res://.godot/imported/Predio_2.5_Vermelho.png-831f3ec3c378c925dc86501a236f37c4.ctex"]
+source_file="res://mapa/predios/Predio_2.5_roxo.png"
+dest_files=["res://.godot/imported/Predio_2.5_roxo.png-8b3941e2575939dd90d8a5c10e038c94.ctex"]
 
 [params]
 

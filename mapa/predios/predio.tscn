@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://barmdir8211mm"]
 
-[ext_resource type="Texture2D" uid="uid://b5ehk2pbo55jo" path="res://mapa/Predio_2.5_roxo.png" id="1_qtqg7"]
+[ext_resource type="Texture2D" uid="uid://b5ehk2pbo55jo" path="res://mapa/predios/Predio_2.5_roxo.png" id="1_qtqg7"]
 [ext_resource type="Script" uid="uid://dd5ap0dvhyncg" path="res://predio.gd" id="2_10046"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqsyf"]
@@ -10,7 +10,7 @@ size = Vector2(366, 336)
 size = Vector2(348, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10046"]
-size = Vector2(365, 52)
+size = Vector2(365, 30)
 
 [node name="Predio" type="Node2D"]
 y_sort_enabled = true
@@ -32,6 +32,7 @@ shape = SubResource("RectangleShape2D_gqsyf")
 
 [node name="Collision_area" type="StaticBody2D" parent="."]
 process_mode = 4
+visible = false
 position = Vector2(183, 11)
 collision_layer = 11
 collision_mask = 11
@@ -47,7 +48,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(153, -87)
+position = Vector2(153, -98)
 shape = SubResource("RectangleShape2D_10046")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

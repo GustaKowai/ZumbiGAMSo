@@ -22,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://41a5j6efahun" path="res://items/Itens_cura/Cura_media/cura_media.tscn" id="16_5mvff"]
 [ext_resource type="PackedScene" uid="uid://dkv5nog2y3mx5" path="res://items/Itens_cura/Cura_pequena_overheal/cura_pequena_overheal.tscn" id="16_40n85"]
 [ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/Cura_pequena/cura_pequena.tscn" id="16_bg4s2"]
-[ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predio.tscn" id="16_fpfj3"]
-[ext_resource type="Texture2D" uid="uid://f2yoxogdbj7l" path="res://mapa/Predio_2.5_Vermelho.png" id="17_kjvhd"]
+[ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="16_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://f2yoxogdbj7l" path="res://mapa/predios/Predio_2.5_Vermelho.png" id="17_kjvhd"]
 [ext_resource type="PackedScene" uid="uid://bkqhxr3sr1f1l" path="res://items/Itens_cura/Cura_grande/cura_grande.tscn" id="17_oye8v"]
-[ext_resource type="Texture2D" uid="uid://cqk15jfhi8fv6" path="res://mapa/Predio_2.5_Verzul.png" id="18_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://cqk15jfhi8fv6" path="res://mapa/predios/Predio_2.5_Verzul.png" id="18_5tuhn"]
 [ext_resource type="PackedScene" uid="uid://ce0o1ftbvjds0" path="res://items/Itens_cura/Cura_media_overheal/cura_media_overheal.tscn" id="18_sph85"]
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="19_5tuhn"]
 [ext_resource type="PackedScene" uid="uid://dwj31qudwi18q" path="res://items/Itens_cura/Cura_grande_overheal/cura_grande_overheal.tscn" id="20_o7g6l"]
@@ -828,5 +828,14 @@ position = Vector2(-284, 857)
 
 [node name="Lojinha5" parent="Gerador de lojas" instance=ExtResource("26_xrxkg")]
 position = Vector2(1040, 172)
+
+[node name="Lojinha" parent="Gerador de lojas" instance=ExtResource("26_xrxkg")]
+position = Vector2(1220, 184)
+
+[node name="Lojinha2" parent="Gerador de lojas" instance=ExtResource("26_xrxkg")]
+position = Vector2(1447, 185)
+
+[node name="Lojinha3" parent="Gerador de lojas" instance=ExtResource("26_xrxkg")]
+position = Vector2(1676, 187)
 
 [connection signal="timeout" from="Base/Timer" to="Base" method="_on_timer_timeout"]

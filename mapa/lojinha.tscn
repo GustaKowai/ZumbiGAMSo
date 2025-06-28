@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://da8c53dsvfgrq"]
+[gd_scene load_steps=62 format=3 uid="uid://da8c53dsvfgrq"]
 
 [ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://mapa/lojinha.gd" id="1_gg830"]
 [ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://mapa/lojinha_teste.png" id="1_kyu8p"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="5_j56os"]
 [ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="6_5owt3"]
 [ext_resource type="Texture2D" uid="uid://cjpuub1yn4r6s" path="res://mapa/lojinha_fechada.png" id="9_a1hgr"]
+[ext_resource type="Texture2D" uid="uid://dsew6jihbgelh" path="res://mapa/lojinha_reabrindo.png" id="10_o1esk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg830"]
 atlas = ExtResource("1_kyu8p")
@@ -97,6 +98,50 @@ region = Rect2(1080, 0, 108, 108)
 [sub_resource type="AtlasTexture" id="AtlasTexture_623eq"]
 atlas = ExtResource("9_a1hgr")
 region = Rect2(1188, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs2wv"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfud6"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc3jp"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(216, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3l47"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(324, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhfy6"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(432, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n371i"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(540, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejfnu"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(648, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3xde"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(756, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrqxr"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(864, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qchf8"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(972, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spmou"]
+atlas = ExtResource("10_o1esk")
+region = Rect2(1080, 0, 108, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcbae"]
 atlas = ExtResource("1_kyu8p")
@@ -238,6 +283,39 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hs2wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfud6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc3jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3l47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhfy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n371i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejfnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3xde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrqxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qchf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spmou")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rcbae")
 }, {
 "duration": 1.0,
@@ -257,7 +335,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hello",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -304,6 +382,7 @@ size = Vector2(96, 43)
 size = Vector2(102, 29)
 
 [node name="Lojinha" type="Node2D"]
+z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_gg830")
 tempo_de_expediente = 5.0
@@ -312,6 +391,7 @@ lista_precos = Array[int]([3, 4, 5, 2, 8])
 item = ExtResource("2_ftksf")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_jkak3")
 animation = &"bye"

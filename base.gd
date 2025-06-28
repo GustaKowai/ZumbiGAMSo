@@ -1,7 +1,7 @@
 extends TileMapLayer
 
 @onready var obstacles:TileMapLayer = $"../Obstacles Collision"
-@onready var timer:Timer = $Timer
+#@onready var timer:Timer = $Timer
 var water_tile = []
 
 func _use_tile_data_runtime_update(coords: Vector2i) -> bool:

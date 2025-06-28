@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqk15jfhi8fv6"
-path="res://.godot/imported/Predio_2.5_Verzul.png-c47ff19e752ddf98e79e652dc315f974.ctex"
+uid="uid://cuqov1tx2exnc"
+path="res://.godot/imported/Predios_98_largura.png-25580bef37c8151813edd8d87f5b80bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/Predio_2.5_Verzul.png"
-dest_files=["res://.godot/imported/Predio_2.5_Verzul.png-c47ff19e752ddf98e79e652dc315f974.ctex"]
+source_file="res://mapa/predios/Predios_98_largura.png"
+dest_files=["res://.godot/imported/Predios_98_largura.png-25580bef37c8151813edd8d87f5b80bd.ctex"]
 
 [params]
 

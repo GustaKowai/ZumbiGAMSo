@@ -1,15 +1,13 @@
-class_name Predio
 extends Node2D
 @onready var predio_sprite:Sprite2D = $predio_sprite
-@export var sprite:Texture2D
 func _ready() -> void:
-	predio_sprite.texture = sprite
+	predio_sprite.frame = randi_range(0,3)
 	if randi_range(0,1) == 0:
 		predio_sprite.flip_h = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Jogador"):
-		modulate.a = 0.7
+		modulate.a = 0.4
 		#print(position.y, body.position.y)
 		
 #func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -24,7 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	#print("Area entrou")
 	if area.is_in_group("JogadorVisao"):
-		modulate.a = 0.8
+		modulate.a = 0.6
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
