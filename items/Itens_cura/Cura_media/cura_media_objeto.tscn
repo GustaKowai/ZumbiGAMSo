@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://54lug4b2qo7o"]
+
+[ext_resource type="Script" uid="uid://dacyblk64vsu7" path="res://items/Itens_cura/Cura_media/cura_media_objeto.gd" id="1_7p6eu"]
+
+[node name="Cura_media_objeto" type="Node2D"]
+script = ExtResource("1_7p6eu")
+quantidade_cura = 10

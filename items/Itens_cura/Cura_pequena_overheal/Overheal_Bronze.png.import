@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfqavr0lf06m"
-path="res://.godot/imported/Alma_Zumbi_Raro.png-0ec46632871cdbd3e0e67c9ecb94c2f2.ctex"
+uid="uid://cmtjw4h61cf1f"
+path="res://.godot/imported/Overheal_Bronze.png-9ba9798e754653ae337a0eeee53cb2c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/UI_images/Alma_Zumbi_Raro.png"
-dest_files=["res://.godot/imported/Alma_Zumbi_Raro.png-0ec46632871cdbd3e0e67c9ecb94c2f2.ctex"]
+source_file="res://items/Itens_cura/Cura_pequena_overheal/Overheal_Bronze.png"
+dest_files=["res://.godot/imported/Overheal_Bronze.png-9ba9798e754653ae337a0eeee53cb2c1.ctex"]
 
 [params]
 

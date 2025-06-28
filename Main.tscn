@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://bi57s50orpbx1"]
+[gd_scene load_steps=64 format=4 uid="uid://bi57s50orpbx1"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_m3r85"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_bjlxo"]
@@ -18,11 +18,16 @@
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="14_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="14_sqvbp"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="15_j4qnp"]
-[ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/cura_pequena.tscn" id="16_bg4s2"]
+[ext_resource type="PackedScene" uid="uid://41a5j6efahun" path="res://items/Itens_cura/Cura_media/cura_media.tscn" id="16_5mvff"]
+[ext_resource type="PackedScene" uid="uid://dkv5nog2y3mx5" path="res://items/Itens_cura/Cura_pequena_overheal/cura_pequena_overheal.tscn" id="16_40n85"]
+[ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/Cura_pequena/cura_pequena.tscn" id="16_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predio.tscn" id="16_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://f2yoxogdbj7l" path="res://mapa/Predio_2.5_Vermelho.png" id="17_kjvhd"]
+[ext_resource type="PackedScene" uid="uid://bkqhxr3sr1f1l" path="res://items/Itens_cura/Cura_grande/cura_grande.tscn" id="17_oye8v"]
 [ext_resource type="Texture2D" uid="uid://cqk15jfhi8fv6" path="res://mapa/Predio_2.5_Verzul.png" id="18_5tuhn"]
+[ext_resource type="PackedScene" uid="uid://ce0o1ftbvjds0" path="res://items/Itens_cura/Cura_media_overheal/cura_media_overheal.tscn" id="18_sph85"]
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="19_5tuhn"]
+[ext_resource type="PackedScene" uid="uid://dwj31qudwi18q" path="res://items/Itens_cura/Cura_grande_overheal/cura_grande_overheal.tscn" id="20_o7g6l"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="24_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="25_mxvw5"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="25_xrxkg"]
@@ -690,6 +695,21 @@ position = Vector2(219, -215)
 
 [node name="Cura_pequena" parent="." instance=ExtResource("16_bg4s2")]
 position = Vector2(919, -160)
+
+[node name="cura_pequena_overheal" parent="." instance=ExtResource("16_40n85")]
+position = Vector2(-466, 190)
+
+[node name="Cura_media" parent="." instance=ExtResource("16_5mvff")]
+position = Vector2(-271, -324)
+
+[node name="Cura_media_overheal" parent="." instance=ExtResource("18_sph85")]
+position = Vector2(-883, -110)
+
+[node name="Cura_grande" parent="." instance=ExtResource("17_oye8v")]
+position = Vector2(-534, -164)
+
+[node name="Cura_grande_overheal" parent="." instance=ExtResource("20_o7g6l")]
+position = Vector2(-652, -327)
 
 [node name="machinegun" parent="." instance=ExtResource("14_c2ibq")]
 position = Vector2(916, 182)

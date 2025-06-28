@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chjrycwehpevr"]
+
+[ext_resource type="Script" uid="uid://cqxx68827xaux" path="res://items/Itens_cura/Cura_grande/cura_grande_objeto.gd" id="1_hbagj"]
+
+[node name="Cura_grande_objeto" type="Node2D"]
+script = ExtResource("1_hbagj")
+quantidade_cura = 20

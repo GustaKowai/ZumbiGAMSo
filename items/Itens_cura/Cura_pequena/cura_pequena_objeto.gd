@@ -20,5 +20,5 @@ func heal_player(vida_curada: int) -> void:
 	#Caso geral em que so adiciona a quantidade da pocao a vida do player
 	else:
 		GameManager.player.player_health += vida_curada
-		print("curou 5")
+		print("curou" + str(quantidade_cura))
 	queue_free()

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce0o1ftbvjds0"]
+
+[ext_resource type="Texture2D" uid="uid://blqqmi4weblf2" path="res://items/Itens_cura/Cura_media_overheal/Overheal_Prata.png" id="1_c70s0"]
+[ext_resource type="Script" uid="uid://dnpdaw2w7konu" path="res://items/Itens_cura/Cura_media_overheal/cura_media_overheal.gd" id="2_ffa3x"]
+[ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="3_d2ykg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8c7i"]
+size = Vector2(102.857, 151.429)
+
+[node name="Cura_media_overheal" type="Sprite2D"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_c70s0")
+script = ExtResource("2_ffa3x")
+item = ExtResource("3_d2ykg")
+item_string = "res://items/Itens_cura/Cura_media_overheal/cura_media_overheal_objeto.tscn"
+image = "res://items/Itens_cura/Cura_media_overheal/Overheal_Prata.png"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.08717e-06, -1.42857)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_s8c7i")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
