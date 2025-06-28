@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://y1ynk3fo2v31"]
+
+[ext_resource type="Script" uid="uid://dgo6dhvy6jdet" path="res://weapons/shotgun/bullet_shotgun_upgrade.gd" id="1_h2akf"]
+[ext_resource type="Texture2D" uid="uid://m87a4lcdwiag" path="res://weapons/shotgun/shotgun_ammo.png" id="1_na3m6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2akf"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1xqa"]
+radius = 3.0
+
+[node name="Bullet_shotgun_upgrade" type="CharacterBody2D"]
+script = ExtResource("1_h2akf")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_na3m6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h2akf")
+
+[node name="BulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
+shape = SubResource("CircleShape2D_e1xqa")
+
+[connection signal="area_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]

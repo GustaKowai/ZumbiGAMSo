@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnu48mmkp4fe2"]
+
+[ext_resource type="Script" uid="uid://bbxqrvc7td0wh" path="res://weapons/bazuca/bullet_bazuca_se_divide.gd" id="1_o8br6"]
+[ext_resource type="PackedScene" uid="uid://cj21r20l5nulm" path="res://Misc/explosion.tscn" id="2_cd41s"]
+[ext_resource type="PackedScene" uid="uid://cjenoyonon00l" path="res://weapons/bazuca/small_bullet_bazuca.tscn" id="3_wm6wk"]
+[ext_resource type="Texture2D" uid="uid://dym11srn1q8h2" path="res://weapons/bazuca/bullet_bazuca.png" id="4_j8fy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovlqv"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rohj"]
+size = Vector2(71, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u85gu"]
+radius = 97.0
+
+[node name="bullet_bazuca_se_divide" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_o8br6")
+explosao = ExtResource("2_cd41s")
+tempo_para_dividir = 0.7
+balas_menores = ExtResource("3_wm6wk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_j8fy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_ovlqv")
+
+[node name="Hit_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_2rohj")
+
+[node name="area_dano" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_dano"]
+shape = SubResource("CircleShape2D_u85gu")
+
+[connection signal="area_entered" from="Hit_box" to="." method="_on_bullet_hit_box_area_entered"]
