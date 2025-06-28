@@ -15,7 +15,7 @@ var texture_item:Texture2D = null
 var escolha:int
 
 func _ready() -> void:
-	value.text = "X"
+	value.text = ""
 	aviso.visible = false
 	pass
 func open_shop():
@@ -93,6 +93,6 @@ func close_shop():
 	esgotado = true
 	item_sprite.visible = false
 	sprite.play("bye")
-	value.text = "X"
-	await get_tree().create_timer(1.0).timeout
+	value.text = ""
+	await get_tree().create_timer(2.0).timeout
 	GameManager.loja_fechada.emit()
