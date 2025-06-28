@@ -1,10 +1,13 @@
+class_name Cura
 extends Node2D
 
 @export var quantidade_cura: int
+@export var cura_extra:bool
 
 func _ready() -> void:
 	#Chamada para a funcao que ira curar
 	heal_player(quantidade_cura)
+	cura_extra = false
 	
 func heal_player(vida_curada: int) -> void:
 	#variavael que armazena a quantidade de vida do player antes da cura

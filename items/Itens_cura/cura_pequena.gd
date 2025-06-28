@@ -1,3 +1,4 @@
+class_name cura_item
 extends Sprite2D
 @export var item:PackedScene
 var image:String = "res://items/Itens_cura/potion__pequeno_pokemon.png"
