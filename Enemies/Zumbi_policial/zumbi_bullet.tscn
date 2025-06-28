@@ -16,6 +16,7 @@ size = Vector2(4, 4)
 size = Vector2(10, 10)
 
 [node name="Zumbi_bullet" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 64
 collision_mask = 8
 script = ExtResource("1_rvlof")

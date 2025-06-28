@@ -17,7 +17,10 @@ script = ExtResource("1_pedgb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
+y_sort_enabled = true
+position = Vector2(0, 74)
 texture = ExtResource("2_nbbv4")
+offset = Vector2(0, -74)
 hframes = 5
 vframes = 5
 frame = 1

@@ -3,13 +3,19 @@ extends TileMapLayer
 @onready var obstacles:TileMapLayer = $"../Obstacles Collision"
 @onready var timer:Timer = $Timer
 var water_tile = []
+
 func _use_tile_data_runtime_update(coords: Vector2i) -> bool:
-	if coords in obstacles.get_used_cells_by_id(0):
-		return true
+	for n in range(0,4):
+		if coords in obstacles.get_used_cells_by_id(n):
+			return true
 	return false
 
 func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
 	tile_data.set_navigation_polygon(0,null)
+	#tile_data.set_navigation_polygon(1,null)
+	#tile_data.set_navigation_polygon(2,null)
+	#tile_data.set_navigation_polygon(3,null)
+	#tile_data.set_navigation_polygon(4,null)
 
 
 #Função de teste, vai transformando a rua próxima do jogador em água. A ideia é usar isso para criar obstáculos para o jogador e evitar que ele fique muito tempo parado no mesmo lugar

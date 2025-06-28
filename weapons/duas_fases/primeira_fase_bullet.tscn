@@ -16,7 +16,10 @@ script = ExtResource("1_cpjut")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 1, 1)
+y_sort_enabled = true
+position = Vector2(0, 74)
 texture = ExtResource("2_6v02s")
+offset = Vector2(0, -74)
 hframes = 5
 vframes = 5
 frame = 1

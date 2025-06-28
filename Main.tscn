@@ -753,7 +753,6 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Predio" parent="Predios" instance=ExtResource("16_fpfj3")]
-z_as_relative = false
 position = Vector2(2288, 116)
 
 [node name="Predio2" parent="Predios" instance=ExtResource("16_fpfj3")]

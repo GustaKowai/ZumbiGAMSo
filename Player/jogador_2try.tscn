@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b3qcv045rpri2"]
+[gd_scene load_steps=32 format=3 uid="uid://b3qcv045rpri2"]
 
 [ext_resource type="Texture2D" uid="uid://bair0goj8x4gm" path="res://Player/Teste_char_sprite.png" id="1_ewfcd"]
 [ext_resource type="Script" uid="uid://q76fm24qb14u" path="res://Player/jogador_2try.gd" id="1_p0mb0"]
@@ -1478,6 +1478,9 @@ bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iame5"]
 bg_color = Color(0.339443, 0.613173, 0.920729, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex2cr"]
+size = Vector2(476, 118)
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Jogador"]]
 y_sort_enabled = true
 collision_layer = 8
@@ -1592,5 +1595,11 @@ show_percentage = false
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AreaVisao" type="Area2D" parent="." groups=["JogadorVisao"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVisao"]
+position = Vector2(1, -27)
+shape = SubResource("RectangleShape2D_ex2cr")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]

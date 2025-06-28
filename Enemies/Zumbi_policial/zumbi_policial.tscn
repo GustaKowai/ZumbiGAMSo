@@ -550,6 +550,7 @@ height = 304.0
 radius = 43.0465
 
 [node name="Zumbi_policial" type="CharacterBody2D" node_paths=PackedStringArray("follow") groups=["enemies"]]
+y_sort_enabled = true
 scale = Vector2(0.34, 0.34)
 collision_layer = 2
 collision_mask = 59
@@ -564,16 +565,18 @@ metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
 speed = 0.9
 
 [node name="Movimento" type="Sprite2D" parent="."]
-position = Vector2(-14, -162)
+position = Vector2(5.88235, -1.52588e-05)
 texture = ExtResource("3_o2s6i")
+offset = Vector2(-19.8824, -162)
 hframes = 7
 vframes = 3
 
 [node name="Ataque" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-8.82353, -141.176)
+position = Vector2(-2.94118, -2.94116)
 scale = Vector2(3, 3)
 texture = ExtResource("4_0skl4")
+offset = Vector2(-1.96078, -46.0783)
 hframes = 7
 vframes = 3
 

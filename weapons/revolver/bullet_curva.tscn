@@ -15,7 +15,10 @@ collision_mask = 2
 script = ExtResource("1_mvlhd")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 74)
 texture = ExtResource("2_ru4id")
+offset = Vector2(0, -74)
 hframes = 5
 vframes = 5
 frame = 1

@@ -16,8 +16,11 @@ script = ExtResource("1_rs5io")
 bullet_damage = 10
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 66)
 scale = Vector2(0.898322, 0.895812)
 texture = ExtResource("2_rs5io")
+offset = Vector2(0, -74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.489994, 0.488625)

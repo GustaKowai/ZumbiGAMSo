@@ -14,7 +14,10 @@ script = ExtResource("1_j0nuc")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.396078, 0.270588, 1)
+y_sort_enabled = true
+position = Vector2(0, 74)
 texture = ExtResource("2_ub3ch")
+offset = Vector2(0, -74)
 hframes = 5
 vframes = 5
 frame = 1

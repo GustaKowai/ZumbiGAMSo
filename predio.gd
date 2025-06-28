@@ -8,13 +8,27 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Jogador"):
-		modulate.a = 0.2
+		modulate.a = 0.7
 		#print(position.y, body.position.y)
 		
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Jogador"):
+#func _on_area_2d_body_exited(body: Node2D) -> void:
+	#if body.is_in_group("Jogador"):
+		#var tween = create_tween()
+		#tween.set_ease(Tween.EASE_IN)
+		#tween.set_trans(Tween.TRANS_QUINT)
+		#tween.tween_property(self,"modulate",Color.WHITE,2.0)
+		##modulate.a = 1.0
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	#print("Area entrou")
+	if area.is_in_group("JogadorVisao"):
+		modulate.a = 0.8
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("JogadorVisao"):
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN)
 		tween.set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self,"modulate",Color.WHITE,2.0)
-		#modulate.a = 1.0
+		tween.tween_property(self,"modulate",Color.WHITE,0.5)

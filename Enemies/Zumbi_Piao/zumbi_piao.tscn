@@ -101,6 +101,7 @@ _data = {
 }
 
 [node name="ZumbiPiao" type="CharacterBody2D" groups=["enemies"]]
+y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 57
@@ -124,9 +125,10 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_83e04")
 
 [node name="PiaoAtaque" type="Sprite2D" parent="HitBoxArea"]
-position = Vector2(1, -51)
+position = Vector2(2, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_pv42u")
+offset = Vector2(-2, -102)
 
 [node name="damage_digit_marker" type="Marker2D" parent="."]
 
