@@ -7,6 +7,7 @@ extends MarginContainer
 @onready var upgrade_cost_label:Label = %upgrade_cost
 @onready var upgrade_cost_image:TextureRect = %upgrade_cost_image
 @onready var card_background:NinePatchRect = %CardBackground
+@onready var upgrade_type_image:TextureRect = %upgrade_type_image
 @onready var loja = $"../../../.."
 @export var modulate_time:float = 1.0
 @export_category("Upgrades")
@@ -22,14 +23,17 @@ var card_is_choosen:String
 var buff:int
 var sub_prop:int
 var upgrade_cost_image_path:String
-var background_comum = "res://UI/loja da morte/Upgrade_custo_comum.png"
-var background_incomum = "res://UI/loja da morte/Upgrade_custo_medio.png"
-var background_rara = "res://UI/loja da morte/Upgrade_custo_raro.png"
-var background_unico = "res://UI/loja da morte/Upgrade_unico.png"
-var alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
-var alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
-var alma_rara = "res://UI/UI_images/Alma_zumbi_raro.png"
+var upgrade_type_image_path:String
 var error:bool = false
+var vazio = null
+
+const background_comum = "res://UI/loja da morte/Upgrade_custo_comum.png"
+const background_incomum = "res://UI/loja da morte/Upgrade_custo_medio.png"
+const background_rara = "res://UI/loja da morte/Upgrade_custo_raro.png"
+const background_unico = "res://UI/loja da morte/Upgrade_unico.png"
+const alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
+const alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
+const alma_rara = "res://UI/UI_images/Alma_zumbi_raro.png"
 
 func _ready() -> void:
 	if error: start_card()
@@ -79,7 +83,8 @@ func set_card():
 	upgrade_cost_label.text = "Custo: "+ str(upgrade_cost)
 	upgrade_cost_image.texture = load(upgrade_cost_image_path)
 	card_background.texture = load(card_background_path)
-
+	if upgrade_type_image_path:
+		upgrade_type_image.texture = load(upgrade_type_image_path)
 ####---------------------vvvvvv--------------------------####
 #region determinar o tipo de texto e buff
 #Essas funções servem para determinar o texto e o buff de cada carta.

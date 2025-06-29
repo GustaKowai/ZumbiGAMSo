@@ -3,8 +3,14 @@ extends StaticBody2D
 @export var tempo_para_explodir: float
 @export var dano_inimigos: int
 @export var dano_player: int
+@export var raio_explosao:float = 96.0
 @export var explosao:PackedScene
 @onready var area_da_explosao = $area_de_dano
+
+func _ready() -> void:
+	var colisao:CollisionShape2D = area_da_explosao.get_child(0)
+	colisao.shape.radius = raio_explosao
+
 
 func _process(delta: float) -> void:
 	tempo_para_explodir -=delta

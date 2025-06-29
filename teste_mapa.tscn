@@ -2703,7 +2703,6 @@ y_sort_enabled = true
 
 [node name="MobSpawner" parent="MobSapwners" instance=ExtResource("6_qxf64")]
 position = Vector2(-1890, -2808)
-mobs_per_minute = 30.0
 
 [node name="Bazuca1" parent="." instance=ExtResource("17_4gkho")]
 position = Vector2(270, -1998)

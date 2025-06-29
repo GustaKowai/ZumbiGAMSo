@@ -18,6 +18,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0yl4s")
 explosao = ExtResource("2_6lqwx")
+raio_explosao = 180.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

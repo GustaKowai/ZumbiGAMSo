@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var area_de_dano =  $area_dano
 @export var explosao:PackedScene
-
+@export var raio_explosao:float = 96.0
 var pos:Vector2
 var rota:float
 var dir: float
@@ -13,6 +13,8 @@ func _ready():
 	global_position = pos
 	global_rotation = rota
 	bullet_damage += GameManager.upgrade_bazuca[1]
+	var colisao:CollisionShape2D = area_de_dano.get_child(0)
+	colisao.shape.radius = raio_explosao
 
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
