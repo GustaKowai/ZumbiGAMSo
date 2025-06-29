@@ -13,7 +13,7 @@ radius = 3.0
 script = ExtResource("1_h2akf")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(5, 5)
 texture = ExtResource("1_na3m6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

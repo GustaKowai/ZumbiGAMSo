@@ -5,7 +5,7 @@ var rota:float
 var dir: float
 var speed = 1750
 @export var bullet_damage = 10
-var bullet_duracao = 0.17
+var bullet_duracao = 0.48
 var bullet_tempodevida = 0
 var inversao_direcao = 1
 
@@ -15,17 +15,21 @@ func _ready():
 	bullet_damage += GameManager.upgrade_shotgun[1]
 	bullet_duracao*= GameManager.upgrade_shotgun[3]*1.0/100
 	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT_IN)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self,"speed",-speed, bullet_duracao)
+	
 #Tentativa de fazer as balas desaparecerem depois de um tempo
 func _process(delta):
 	bullet_tempodevida += delta
-	if bullet_duracao < bullet_tempodevida:
-		inversao_direcao = -1
-	if (2 * bullet_duracao) < bullet_tempodevida:
+	#if bullet_duracao < bullet_tempodevida:
+	#	inversao_direcao = -1
+	if bullet_tempodevida > bullet_duracao:
 		queue_free()
-		
-		
+	
 func _physics_process(delta):
-	velocity = Vector2(speed,0).rotated(dir) * inversao_direcao
+	velocity = Vector2(speed,0).rotated(dir)
 	move_and_slide()
 
 func _on_bullet_hit_box_area_entered(area):

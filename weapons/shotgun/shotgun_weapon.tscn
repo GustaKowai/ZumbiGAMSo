@@ -154,6 +154,7 @@ _data = {
 [node name="shotgun_weapon" type="Node2D"]
 script = ExtResource("1_ukkib")
 weapon_cooldown = 0.2
+ammo = 10
 bullet_quantidade = 6
 
 [node name="Marker2D" type="Marker2D" parent="."]
