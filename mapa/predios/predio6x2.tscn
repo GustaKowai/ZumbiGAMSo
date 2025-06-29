@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4cdtitdt15np"]
+[gd_scene load_steps=6 format=3 uid="uid://b4cdtitdt15np"]
 
 [ext_resource type="Script" uid="uid://dyejfghbg5kcq" path="res://mapa/predios/predio_2x_2.gd" id="1_65v4a"]
 [ext_resource type="Texture2D" uid="uid://cuqov1tx2exnc" path="res://mapa/predios/Predios_98_largura.png" id="2_ghq2x"]
+[ext_resource type="Texture2D" uid="uid://g4igyakxp72" path="res://mapa/predios/Predios_98_largura_pitico.png" id="3_ghq2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65v4a"]
-size = Vector2(301, 394)
+resource_local_to_scene = true
+size = Vector2(301, 275)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghq2x"]
 size = Vector2(300, 32)
@@ -12,10 +14,11 @@ size = Vector2(300, 32)
 [node name="Predio6x2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_65v4a")
+sprites_alturas = Array[Texture2D]([ExtResource("2_ghq2x"), ExtResource("3_ghq2x")])
 
 [node name="predio_sprite" type="Sprite2D" parent="."]
 position = Vector2(-2, 1)
-texture = ExtResource("2_ghq2x")
+texture = ExtResource("3_ghq2x")
 offset = Vector2(152, -244)
 hframes = 4
 frame = 3
@@ -24,8 +27,9 @@ frame = 3
 position = Vector2(106, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(44.5, -290)
+position = Vector2(44.5, -230.5)
 shape = SubResource("RectangleShape2D_65v4a")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Area2D2" type="Area2D" parent="." groups=["construcao"]]
 position = Vector2(106, 1)

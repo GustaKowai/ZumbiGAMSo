@@ -18,6 +18,7 @@ func _ready() -> void:
 	value.text = ""
 	aviso.visible = false
 	pass
+	
 func open_shop():
 	esgotado = false
 	sprite.play("hello")

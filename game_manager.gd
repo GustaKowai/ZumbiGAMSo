@@ -47,7 +47,7 @@ var upgrade_revolver:Array[int] = [0,0,0,0] #[munição,dano,perfuração,bala c
 var upgrade_metralhadora:Array[int] = [0,0,100,100] #[munição,dano,spreed,velocidade de tiro]
 var upgrade_shotgun:Array[int] = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços,bala bumerangue]
 var upgrade_magnum:Array[int] = [0,0] #[munição,dano]
-var upgrade_bazuca:Array[int] = [0,0] #[munição,dano]
+var upgrade_bazuca:Array[int] = [0,0,0] #[munição,dano,Divide a bala]
 
 #Finalização do jogo em caso de game over
 func end_game():
@@ -75,4 +75,18 @@ func _process(delta):
 	var minutes = floori(seconds_elapsed/60.0)
 	var seconds = seconds_elapsed % 60
 	time_elapsed_string = "%02d:%02d" % [minutes,seconds]
-	
+
+func reset_game_status():
+	GameManager.arcade = false
+	GameManager.alma_comum = 0
+	GameManager.alma_incomum = 0
+	GameManager.alma_rara = 0
+	GameManager.vida_max_up = 0
+	GameManager.stamina_max_up = 0
+	GameManager.stamina_rege_up = 0
+	GameManager.sword_damage_up = 0
+	GameManager.upgrade_revolver = [0,0,0,0] #[munição,dano,perfuração,bala curva]
+	GameManager.upgrade_metralhadora = [0,0,100,100] #[munição,dano,spreed,velocidade de tiro]
+	GameManager.upgrade_shotgun = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
+	GameManager.upgrade_magnum = [0,0] #[munição,dano]
+	GameManager.upgrade_bazuca = [0,0,0] #[munição,dano,Upgrade da bala dividir]

@@ -40,6 +40,7 @@ func _on_bullet_hit_box_area_entered(area):
 					print(raio_explosao)
 					var modificador_escala = raio_explosao/96.0
 					explosion.scale = Vector2(modificador_escala,modificador_escala)
+					explosion.get_child(0).scale = (Vector2(1/modificador_escala,1/modificador_escala))
 					get_parent().add_child(explosion)
 				queue_free()
 	if area.is_in_group("construcao"):

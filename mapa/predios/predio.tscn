@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://barmdir8211mm"]
+[gd_scene load_steps=10 format=3 uid="uid://barmdir8211mm"]
 
 [ext_resource type="Texture2D" uid="uid://b5ehk2pbo55jo" path="res://mapa/predios/Predio_2.5_roxo.png" id="1_qtqg7"]
 [ext_resource type="Script" uid="uid://dd5ap0dvhyncg" path="res://predio.gd" id="2_10046"]
+[ext_resource type="Texture2D" uid="uid://f2yoxogdbj7l" path="res://mapa/predios/Predio_2.5_Vermelho.png" id="3_1tvp2"]
+[ext_resource type="Texture2D" uid="uid://cqk15jfhi8fv6" path="res://mapa/predios/Predio_2.5_Verzul.png" id="4_wjyqv"]
+[ext_resource type="Texture2D" uid="uid://bki5hymuxtbur" path="res://mapa/predios/Predio_2.5_roxo_pitico.png" id="5_fibp7"]
+[ext_resource type="Texture2D" uid="uid://0dj4krn8l0e0" path="res://mapa/predios/Predio_2.5_Vermelho_pitico.png" id="6_mhsjr"]
+[ext_resource type="Texture2D" uid="uid://4r2du6dms0gt" path="res://mapa/predios/Predio_2.5_Verzul_pitico.png" id="7_c32qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqsyf"]
-size = Vector2(366, 336)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtqg7"]
-size = Vector2(348, 108)
+resource_local_to_scene = true
+size = Vector2(366, 344)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10046"]
 size = Vector2(365, 30)
@@ -16,6 +19,8 @@ size = Vector2(365, 30)
 y_sort_enabled = true
 script = ExtResource("2_10046")
 sprite = ExtResource("1_qtqg7")
+sprites_3altura = Array[Texture2D]([ExtResource("4_wjyqv"), ExtResource("3_1tvp2"), ExtResource("1_qtqg7")])
+sprites_2altura = Array[Texture2D]([ExtResource("5_fibp7"), ExtResource("6_mhsjr"), ExtResource("7_c32qm")])
 
 [node name="predio_sprite" type="Sprite2D" parent="."]
 position = Vector2(183, -49)
@@ -27,20 +32,9 @@ position = Vector2(184, -208)
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -48)
+position = Vector2(-2, -50)
 shape = SubResource("RectangleShape2D_gqsyf")
-
-[node name="Collision_area" type="StaticBody2D" parent="."]
-process_mode = 4
-visible = false
-position = Vector2(183, 11)
-collision_layer = 11
-collision_mask = 11
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_area"]
-position = Vector2(-1, -65)
-shape = SubResource("RectangleShape2D_qtqg7")
-debug_color = Color(0.997608, 0.0402368, 0, 0.42)
+debug_color = Color(0.973924, 0, 0.430504, 0.42)
 
 [node name="Area2D2" type="Area2D" parent="." groups=["construcao"]]
 position = Vector2(29, 2)

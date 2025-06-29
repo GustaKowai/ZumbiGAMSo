@@ -2,41 +2,29 @@
 
 [ext_resource type="Script" uid="uid://biexed6xqy1ky" path="res://mapa/predios/predio_3x2.gd" id="1_6wpi2"]
 [ext_resource type="Texture2D" uid="uid://bex2pbrm0t8nk" path="res://mapa/predios/Predio_base_50_.png" id="1_plq11"]
+[ext_resource type="Texture2D" uid="uid://bqwqy870y374c" path="res://mapa/predios/Predio_base_2_x_2_curto.png" id="3_0pkh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plq11"]
-size = Vector2(148, 427)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wpi2"]
-size = Vector2(348, 108)
+size = Vector2(148, 309)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pkh7"]
 size = Vector2(150, 24)
 
 [node name="Predio3x2" type="Node2D"]
 script = ExtResource("1_6wpi2")
+sprites_alturas = Array[Texture2D]([ExtResource("1_plq11"), ExtResource("3_0pkh7")])
 
 [node name="predio_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_plq11")
+texture = ExtResource("3_0pkh7")
 offset = Vector2(75, -247)
 hframes = 4
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(74, -280.5)
+position = Vector2(74, -221.5)
 shape = SubResource("RectangleShape2D_plq11")
-
-[node name="Collision_area" type="StaticBody2D" parent="."]
-process_mode = 4
-visible = false
-position = Vector2(183, 11)
-collision_layer = 11
-collision_mask = 11
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_area"]
-position = Vector2(-1, -65)
-shape = SubResource("RectangleShape2D_6wpi2")
-debug_color = Color(0.997608, 0.0402368, 0, 0.42)
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Area2D2" type="Area2D" parent="." groups=["construcao"]]
 position = Vector2(29, 2)
