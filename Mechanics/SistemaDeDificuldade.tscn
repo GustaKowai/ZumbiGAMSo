@@ -4,3 +4,4 @@
 
 [node name="SistemaDeDificuldade" type="Node"]
 script = ExtResource("1_jj242")
+initial_spawn_rate = 10.0

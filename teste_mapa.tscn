@@ -2699,9 +2699,11 @@ position = Vector2(213, -27)
 [node name="Pause UI" parent="." instance=ExtResource("9_bf245")]
 
 [node name="MobSapwners" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="MobSpawner" parent="MobSapwners" instance=ExtResource("6_qxf64")]
 position = Vector2(-1890, -2808)
+mobs_per_minute = 30.0
 
 [node name="Bazuca1" parent="." instance=ExtResource("17_4gkho")]
 position = Vector2(270, -1998)
@@ -2820,25 +2822,25 @@ position = Vector2(-1512, -2700)
 [node name="Predio7" parent="Predios" instance=ExtResource("5_bt44i")]
 position = Vector2(-1188, -2970)
 
-[node name="Predio" parent="." instance=ExtResource("5_bt44i")]
+[node name="Predio12" parent="Predios" instance=ExtResource("5_bt44i")]
 position = Vector2(3078, -216)
 
-[node name="Predio2" parent="." instance=ExtResource("5_bt44i")]
+[node name="Predio13" parent="Predios" instance=ExtResource("5_bt44i")]
 position = Vector2(3186, -270)
 
-[node name="Predio3" parent="." instance=ExtResource("5_bt44i")]
+[node name="Predio14" parent="Predios" instance=ExtResource("5_bt44i")]
 position = Vector2(3456, -216)
 
-[node name="Predio6x2" parent="." instance=ExtResource("24_i7tsf")]
+[node name="Predio6x9" parent="Predios" instance=ExtResource("24_i7tsf")]
 position = Vector2(3834, -216)
 
-[node name="Predio3x2" parent="." instance=ExtResource("25_as8jo")]
+[node name="Predio3x9" parent="Predios" instance=ExtResource("25_as8jo")]
 position = Vector2(4158, -216)
 
-[node name="Predio6x3" parent="." instance=ExtResource("24_i7tsf")]
+[node name="Predio6x10" parent="Predios" instance=ExtResource("24_i7tsf")]
 position = Vector2(4320, -216)
 
-[node name="Predio4" parent="." instance=ExtResource("5_bt44i")]
+[node name="Predio15" parent="Predios" instance=ExtResource("5_bt44i")]
 position = Vector2(4644, -216)
 
 [node name="gunshotLC" parent="." instance=ExtResource("26_lmvgv")]

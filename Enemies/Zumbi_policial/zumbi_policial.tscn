@@ -559,6 +559,9 @@ follow = NodePath("FollowPlayer")
 death_prefab = ExtResource("2_0skl4")
 items = Array[PackedScene]([ExtResource("3_dq1qg"), ExtResource("4_ne34u"), ExtResource("5_3ms74"), ExtResource("6_jed5v"), ExtResource("7_lmxuk"), ExtResource("8_fs2me")])
 drop_chances = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 2.0])
+coin = ExtResource("8_fs2me")
+coins_rate = 1.0
+number_coins_max = 5
 metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
 
 [node name="FollowPlayer" parent="." instance=ExtResource("2_mri3q")]

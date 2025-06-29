@@ -11,10 +11,17 @@ extends CharacterBody2D
 @export var enemy_health:int = 40
 @export var death_prefab:PackedScene
 @export var player: Node2D
+
 @export_category("Drops")
 @export var items:Array[PackedScene]
 @export_range(0,1) var drop_rate:float = 0.5
 @export var drop_chances: Array[float]
+@export_category("coins")
+@export var coin:PackedScene
+@export_range(0,1) var coins_rate:float = 0.5
+@export var number_coins_max:int = 1
+@export var number_coins_min:int = 1
+@export var spread_area_radius:float = 10.0
 
 @onready var damage_digit_marker:Marker2D = $damage_digit_marker
 @onready var damage_digit_prefab:PackedScene = preload("res://Misc/damage_digit.tscn")
@@ -55,7 +62,8 @@ func die():
 		death_object.position = position
 		get_parent().add_child(death_object)
 	
-	drop_item()
+	await drop_item()
+	await drop_coins()
 	GameManager.kills_count += 1
 	GameManager.alma_comum += 1
 	GameManager.zombie_died.emit()
@@ -87,3 +95,16 @@ func get_random_drop_item():
 			return droped_item
 		item_chooser += drop_chance
 	return items[0] 
+	
+func drop_coins():
+	if not coin:
+		print ("Não dropo dinheiro")
+		return
+	if randf() > coins_rate: return #Checa se ele dropará um item baseado na taxa de drop do monstro
+	var number_coins = randi_range(number_coins_min,number_coins_max)
+	for n in range(1,number_coins):
+		var position_spread:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))*spread_area_radius
+		print(position_spread)
+		var item = coin.instantiate()
+		item.position = position+position_spread
+		get_parent().add_child(item)

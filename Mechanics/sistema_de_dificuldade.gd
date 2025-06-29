@@ -10,6 +10,9 @@ var time_for_nerf = 60
 var number_of_nerfs:int = 1
 var buff_de_vida:int = 0
 
+func _ready() -> void:
+	mob_spawner.mobs_per_minute = initial_spawn_rate
+
 func _process(delta):
 	#Se der game over, parar
 	if GameManager.is_game_over: return

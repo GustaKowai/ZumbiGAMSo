@@ -110,7 +110,6 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_cvpw2")
 enemies = Array[PackedScene]([ExtResource("2_8pa0e"), ExtResource("3_vdvtt"), ExtResource("4_qfv64")])
-mobs_per_minute = 2.0
 spawn_chances = Array[float]([1.0, 1.0, 0.5])
 
 [node name="SistemaDeDificuldade" parent="." node_paths=PackedStringArray("mob_spawner") instance=ExtResource("4_5ir0s")]

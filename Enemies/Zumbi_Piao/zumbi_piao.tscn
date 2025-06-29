@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1hj4msyptvsg"]
+[gd_scene load_steps=13 format=3 uid="uid://b1hj4msyptvsg"]
 
 [ext_resource type="Script" uid="uid://c6f5e0yl8bd2p" path="res://Enemies/Zumbi_Piao/zumbi_piao.gd" id="1_sjciy"]
 [ext_resource type="Texture2D" uid="uid://jbvpuwbmjcxm" path="res://Enemies/Zumbi_Piao/piao_parado.png" id="2_83e04"]
+[ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="2_elk4x"]
 [ext_resource type="Texture2D" uid="uid://dxa84q1qk5g6f" path="res://Enemies/Zumbi_Piao/piao_ataque.png" id="3_pv42u"]
 [ext_resource type="Script" uid="uid://dn58wjgtfova4" path="res://Enemies/Modulos/touch_damage.gd" id="4_83e04"]
 [ext_resource type="Script" uid="uid://dplsbq06tur5k" path="res://Enemies/Modulos/aim_and_run.gd" id="5_pv42u"]
@@ -108,6 +109,9 @@ collision_mask = 57
 script = ExtResource("1_sjciy")
 follow = NodePath("FollowPlayer")
 enemy_health = 30
+coin = ExtResource("2_elk4x")
+coins_rate = 1.0
+number_coins_max = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -54)

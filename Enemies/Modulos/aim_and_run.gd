@@ -52,5 +52,5 @@ func _on_timer_timeout() -> void:
 	is_run_on_cd = true
 	
 func knockback(direcao:Vector2,duracao:float)->void:
-	print("Tomou knockback")
+	#print("Tomou knockback")
 	enemy.velocity = direcao.normalized()*800

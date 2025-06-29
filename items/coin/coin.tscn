@@ -7,6 +7,7 @@
 radius = 25.02
 
 [node name="Coin" type="Sprite2D"]
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_bn83u")
 script = ExtResource("2_2gsyk")
 

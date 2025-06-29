@@ -37,6 +37,6 @@ func reset_game_status():
 	GameManager.sword_damage_up = 0
 	GameManager.upgrade_revolver = [0,0,0,0] #[munição,dano,perfuração,bala curva]
 	GameManager.upgrade_metralhadora = [0,0,100,100] #[munição,dano,spreed,velocidade de tiro]
-	GameManager.upgrade_shotgun = [0,0,100,100,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
+	GameManager.upgrade_shotgun = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
 	GameManager.upgrade_magnum = [0,0] #[munição,dano]
 	GameManager.upgrade_bazuca = [0,0] #[munição,dano]
