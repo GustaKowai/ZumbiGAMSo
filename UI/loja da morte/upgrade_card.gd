@@ -188,7 +188,7 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 ###-----Shotgun-----###		
 func set_card_aumenta_shotgun(upgrade_shotgun):
 	upgrade_image_path = "res://weapons/shotgun/shotgun_icon.png"
-	sub_prop = randi_range(0,4)
+	sub_prop = randi_range(0,5)
 	if sub_prop == 0:
 		upgrade_name = "Aumento de munição da shotgun"
 		buff = randi_range(1,4)
@@ -224,7 +224,16 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
 		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
-
+	if sub_prop == 5:
+		if GameManager.upgrade_shotgun[5] == 1:
+			print("Tentou")
+			error = true
+		upgrade_name = "Shotgun Boomerangue"
+		buff = 1
+		upgrade_effect = "Transforma as balas da shotgun em pequenos bumerangues, dando perfuração e fazendo elas retornarem ao atingirem a distância máxima.\n A shotgun perde a capacidade de empurrar os inimigos."
+		basic_cost = 900
+		calcula_custo_almas(basic_cost)
+		card_background_path = background_unico
 ###-----Magnum-----###		
 func set_card_aumenta_magnum(upgrade_magnum):
 	upgrade_image_path = "res://weapons/magnum/magnum_icon.png"

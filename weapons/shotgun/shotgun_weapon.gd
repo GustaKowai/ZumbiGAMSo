@@ -23,6 +23,8 @@ func _ready() -> void:
 	bullet_quantidade += GameManager.upgrade_shotgun[4]
 	ammo += GameManager.upgrade_shotgun[0]
 	GameManager.ammo = ammo
+	if GameManager.upgrade_shotgun[5] == 1:
+		bullet_path = load("res://weapons/shotgun/bullet_shotgun_upgrade.tscn")
 func on_weapon_collected(string): #Essa função serve para largar a arma
 	print("larguei a arma")
 	queue_free()
