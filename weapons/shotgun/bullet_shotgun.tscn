@@ -28,6 +28,8 @@ shape = SubResource("CircleShape2D_5cu7k")
 
 [node name="BulletHitBox" type="Area2D" parent="."]
 scale = Vector2(0.489994, 0.488625)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
 shape = SubResource("CircleShape2D_voacf")

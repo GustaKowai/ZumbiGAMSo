@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://mx483cl0emlm"]
+
+[ext_resource type="Script" uid="uid://c5w0g78b7lvqg" path="res://weapons/machinegun/machinegun_bullet_upgrade.gd" id="1_6444i"]
+[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_oswky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56lyd"]
+size = Vector2(3, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyswa"]
+size = Vector2(17, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6444i"]
+radius = 142.004
+
+[node name="machinegun_bullet_upgrade" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6444i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oswky")
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, 0)
+shape = SubResource("RectangleShape2D_56lyd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_tyswa")
+
+[node name="range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+shape = SubResource("CircleShape2D_6444i")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_machinegun_bullet_hit_box_area_entered"]
+[connection signal="area_entered" from="range" to="." method="achando_zumbi"]

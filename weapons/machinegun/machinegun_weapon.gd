@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var bullet_path = preload("res://weapons/machinegun/machine_gun_bullet.tscn")
+@onready var bullet_path = preload("res://weapons/machinegun/machinegun_bullet_upgrade.tscn")
 @onready var player = get_parent()
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
