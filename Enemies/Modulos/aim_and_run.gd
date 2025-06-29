@@ -50,3 +50,7 @@ func _on_timer_timeout() -> void:
 	animation_player.play("idle")
 	enemy.velocity = Vector2(0,0)
 	is_run_on_cd = true
+	
+func knockback(direcao:Vector2,duracao:float)->void:
+	print("Tomou knockback")
+	enemy.velocity = direcao.normalized()*800

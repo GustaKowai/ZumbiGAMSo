@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c6f5e0yl8bd2p" path="res://Enemies/Zumbi_Piao/zumbi_piao.gd" id="1_sjciy"]
 [ext_resource type="Texture2D" uid="uid://jbvpuwbmjcxm" path="res://Enemies/Zumbi_Piao/piao_parado.png" id="2_83e04"]
 [ext_resource type="Texture2D" uid="uid://dxa84q1qk5g6f" path="res://Enemies/Zumbi_Piao/piao_ataque.png" id="3_pv42u"]
-[ext_resource type="Script" uid="uid://dn58wjgtfova4" path="res://Enemies/Zumbi_Piao/touch_damage.gd" id="4_83e04"]
-[ext_resource type="Script" uid="uid://dplsbq06tur5k" path="res://Enemies/Zumbi_Piao/aim_and_run.gd" id="5_pv42u"]
+[ext_resource type="Script" uid="uid://dn58wjgtfova4" path="res://Enemies/Modulos/touch_damage.gd" id="4_83e04"]
+[ext_resource type="Script" uid="uid://dplsbq06tur5k" path="res://Enemies/Modulos/aim_and_run.gd" id="5_pv42u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_elk4x"]
 radius = 50.01
@@ -100,12 +100,13 @@ _data = {
 &"idle": SubResource("Animation_elk4x")
 }
 
-[node name="ZumbiPiao" type="CharacterBody2D" groups=["enemies"]]
+[node name="ZumbiPiao" type="CharacterBody2D" node_paths=PackedStringArray("follow") groups=["enemies"]]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 57
 script = ExtResource("1_sjciy")
+follow = NodePath("FollowPlayer")
 enemy_health = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://b7q4nvqwm5s8v"]
+[gd_scene load_steps=46 format=4 uid="uid://b7q4nvqwm5s8v"]
 
 [ext_resource type="Texture2D" uid="uid://d4io3jv6q1qfc" path="res://WhatsApp Image 2025-06-26 at 17.44.02.jpeg" id="1_3swv8"]
 [ext_resource type="Texture2D" uid="uid://cidac6n537qn6" path="res://mapa/imagens/Tile_set_calcada-rua.png" id="1_6qxri"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="23_3kg1p"]
 [ext_resource type="PackedScene" uid="uid://b4cdtitdt15np" path="res://mapa/predios/predio6x2.tscn" id="24_i7tsf"]
 [ext_resource type="PackedScene" uid="uid://c2ycb0nxhim4m" path="res://mapa/predios/predio3x2.tscn" id="25_as8jo"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="26_lmvgv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -2686,7 +2687,7 @@ tile_set = SubResource("TileSet_5sndw")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_iqwyk")]
 z_as_relative = false
-position = Vector2(-270, -1782)
+position = Vector2(-2538, -3186)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
@@ -2839,3 +2840,24 @@ position = Vector2(4320, -216)
 
 [node name="Predio4" parent="." instance=ExtResource("5_bt44i")]
 position = Vector2(4644, -216)
+
+[node name="gunshotLC" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(270, -2268)
+
+[node name="gunshotLC2" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(-2484, -3078)
+
+[node name="gunshotLC3" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(-2322, -3078)
+
+[node name="gunshotLC4" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(-2484, -2916)
+
+[node name="gunshotLC5" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(-2322, -2916)
+
+[node name="gunshotLC6" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(-2808, -3078)
+
+[node name="gunshotLC7" parent="." instance=ExtResource("26_lmvgv")]
+position = Vector2(-2808, -2916)

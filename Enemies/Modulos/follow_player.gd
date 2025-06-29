@@ -8,6 +8,7 @@ var animation_player:AnimationPlayer
 var var_diff:Vector2
 var position_running = "side" 
 var nav_agent:NavigationAgent2D
+var knockback_direction:Vector2 = Vector2(0,0)
 
 func _ready():
 	enemy = get_parent()
@@ -20,9 +21,11 @@ func _physics_process(_delta:float):
 	if GameManager.is_game_over: return
 	
 	var_diff = to_local(nav_agent.get_next_path_position()) #pega o próximo ponto do caminho calculado para o jogador
-	if not enemy.is_attacking:
+	if not enemy.is_attacking and not enemy.knockback:
 		move()
-
+	if enemy.knockback:
+		move_back()
+		
 func move():
 	var normalize_diffe = var_diff.normalized() #Transforma o vetor apontando para o próximo ponto em um versor
 	var input_vector = normalize_diffe 
@@ -56,3 +59,17 @@ func make_path(): #Calcula e cria o melhor caminho até o jogador, desviando de 
 
 func _on_timer_timeout():
 	make_path()
+
+func knockback(direcao:Vector2,duracao:float)->void:
+	knockback_direction = direcao
+	enemy.knockback = true
+	print("Tomou knockback")
+	await get_tree().create_timer(duracao).timeout
+	enemy.knockback = false
+	
+func move_back():
+	var normalize_diffe = knockback_direction.normalized() #Transforma o vetor apontando para o próximo ponto em um versor
+	var input_vector = normalize_diffe 
+	enemy.velocity = input_vector * 800.0
+	print(enemy.velocity)
+	enemy.move_and_slide()

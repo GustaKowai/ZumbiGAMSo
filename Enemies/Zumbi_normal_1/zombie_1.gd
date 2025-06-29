@@ -22,6 +22,8 @@ extends CharacterBody2D
 var is_attacking:bool = false
 var died:bool = false
 var facing_position:String
+var knockback:bool = false
+
 
 func damage(amount: int):
 	enemy_health -=amount

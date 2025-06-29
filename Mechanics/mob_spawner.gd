@@ -27,7 +27,7 @@ func _process(delta):
 	
 func set_cooldown(): #Essa função determina um cooldown aleatório ao redor do cooldown pre-definido
 	var interval = 60.0/mobs_per_minute
-	cooldown = randi_range(interval/2,3*interval/2)
+	cooldown = randf_range(interval/2,3*interval/2)
 	
 func spawn_zombie():#Essa é a função que invoca o zumbi.
 	var enemy_index = randi_range(0,enemies.size()-1)
