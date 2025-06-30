@@ -91,7 +91,7 @@ theme_override_constants/margin_right = 30
 
 [node name="upgrade_type_image" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/upgrade_image/MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
