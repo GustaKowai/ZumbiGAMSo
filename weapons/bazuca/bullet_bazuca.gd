@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var area_de_dano =  $area_dano
 @export var explosao:PackedScene
-@export var raio_explosao:float = 96.0
+@export var raio_explosao:float = 144.0
 var pos:Vector2
 var rota:float
 var dir: float
@@ -36,9 +36,9 @@ func _on_bullet_hit_box_area_entered(area):
 					var explosion = explosao.instantiate()
 					explosion.position = position
 					var colisao:CollisionShape2D = area_de_dano.get_child(0)
-					var raio_explosao = colisao.shape.radius
+					#var raio_explosao = colisao.shape.radius
 					print(raio_explosao)
-					var modificador_escala = raio_explosao/96.0
+					var modificador_escala = raio_explosao/144.0
 					explosion.scale = Vector2(modificador_escala,modificador_escala)
 					explosion.get_child(0).scale = (Vector2(1/modificador_escala,1/modificador_escala))
 					get_parent().add_child(explosion)

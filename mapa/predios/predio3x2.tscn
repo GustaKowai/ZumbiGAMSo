@@ -8,15 +8,18 @@
 size = Vector2(148, 309)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pkh7"]
-size = Vector2(150, 24)
+size = Vector2(150, 48)
 
 [node name="Predio3x2" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_6wpi2")
 sprites_alturas = Array[Texture2D]([ExtResource("1_plq11"), ExtResource("3_0pkh7")])
 
 [node name="predio_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_0pkh7")
-offset = Vector2(75, -247)
+y_sort_enabled = true
+position = Vector2(76, -60)
+texture = ExtResource("1_plq11")
+offset = Vector2(-1, -187)
 hframes = 4
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -32,7 +35,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(46, -99)
+position = Vector2(46, -87)
 shape = SubResource("RectangleShape2D_0pkh7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

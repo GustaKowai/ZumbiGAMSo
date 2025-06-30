@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var area_de_dano =  $area_dano
 @export var explosao:PackedScene
+@export var raio_explosao_proportional:float = 0.7
+@export var raio_explosao:float
 
 var pos:Vector2
 var rota:float
@@ -12,7 +14,11 @@ var bullet_damage
 func _ready():
 	global_position = pos
 	global_rotation = rota
+	raio_explosao *= raio_explosao_proportional
+	print(raio_explosao)
 	bullet_damage += GameManager.upgrade_bazuca[1]
+	var colisao:CollisionShape2D = area_de_dano.get_child(0)
+	colisao.shape.radius = raio_explosao
 
 func _physics_process(delta):
 	velocity = Vector2.RIGHT.rotated(rotation) * speed
@@ -34,9 +40,9 @@ func _on_bullet_hit_box_area_entered(area):
 					var explosion = explosao.instantiate()
 					explosion.position = position
 					var colisao:CollisionShape2D = area_de_dano.get_child(0)
-					var raio_explosao = colisao.shape.radius
+					#var raio_explosao = colisao.shape.radius
 					print(raio_explosao)
-					var modificador_escala = raio_explosao/96.0
+					var modificador_escala = raio_explosao/144.0
 					explosion.scale = Vector2(modificador_escala,modificador_escala)
 					get_parent().add_child(explosion)
 				queue_free()
