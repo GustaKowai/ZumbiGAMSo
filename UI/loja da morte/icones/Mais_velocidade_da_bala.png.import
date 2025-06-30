@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfqavr0lf06m"
-path="res://.godot/imported/Alma_zumbi_raro.png-42a2e621f26e2baa54fb5969518f5ad3.ctex"
+uid="uid://cwx446w8kt8l1"
+path="res://.godot/imported/Mais_velocidade_da_bala.png-94fb52b081efa895605af74bb233ef58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/UI_images/Alma_zumbi_raro.png"
-dest_files=["res://.godot/imported/Alma_zumbi_raro.png-42a2e621f26e2baa54fb5969518f5ad3.ctex"]
+source_file="res://UI/loja da morte/icones/Mais_velocidade_da_bala.png"
+dest_files=["res://.godot/imported/Mais_velocidade_da_bala.png-94fb52b081efa895605af74bb233ef58.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfqavr0lf06m"
-path="res://.godot/imported/Alma_zumbi_raro.png-42a2e621f26e2baa54fb5969518f5ad3.ctex"
+uid="uid://bef8muj8vdnqi"
+path="res://.godot/imported/Mais_dano_na_bala.png-b8723b2197d803fe0fd34a63529959b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/UI_images/Alma_zumbi_raro.png"
-dest_files=["res://.godot/imported/Alma_zumbi_raro.png-42a2e621f26e2baa54fb5969518f5ad3.ctex"]
+source_file="res://UI/loja da morte/icones/Mais_dano_na_bala.png"
+dest_files=["res://.godot/imported/Mais_dano_na_bala.png-b8723b2197d803fe0fd34a63529959b7.ctex"]
 
 [params]
 

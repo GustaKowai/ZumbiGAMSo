@@ -34,6 +34,17 @@ const background_unico = "res://UI/loja da morte/Upgrade_unico.png"
 const alma_comum = "res://UI/UI_images/Alma_Comum_UI.png"
 const alma_incomum = "res://UI/UI_images/Alma_Zumbi_incomum.png"
 const alma_rara = "res://UI/UI_images/Alma_zumbi_raro.png"
+const vida_max = "res://UI/loja da morte/icones/Vida_max.png"
+const stam_reg = "res://UI/loja da morte/icones/Stamina1.png"
+const stam_max = "res://UI/loja da morte/icones/Stamina2.png"
+const sword_damage = "res://UI/loja da morte/icones/Dano_arma_branca.png"
+const less_spread = "res://UI/loja da morte/icones/Menor_espalhamento.png"
+const more_speed = "res://UI/loja da morte/icones/Mais_velocidade_da_bala.png"
+const more_pierce = "res://UI/loja da morte/icones/Mais_perfuracao.png"
+const more_ammo = "res://UI/loja da morte/icones/Mais_municao.png"
+const more_frags = "res://UI/loja da morte/icones/Mais_estilhacos.png"
+const more_damage = "res://UI/loja da morte/icones/Mais_dano_na_bala.png"
+
 
 func _ready() -> void:
 	if error: start_card()
@@ -97,6 +108,7 @@ func set_card_aumenta_algo(algo_up):
 	
 ###-----Player-----###	
 func set_card_aumenta_vida_max(vida_max_up):
+	upgrade_image_path = vida_max
 	upgrade_name = "Aumento de vida máxima"
 	buff = randi_range(5,10)
 	upgrade_effect = "Aumenta a vida máxima do jogador em "+ str(buff)
@@ -104,6 +116,7 @@ func set_card_aumenta_vida_max(vida_max_up):
 	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_stamina_max(stamina_max_up):
+	upgrade_image_path = stam_max
 	upgrade_name = "Aumento de Stamina Max"
 	buff = randi_range(10,20)
 	upgrade_effect = "Aumenta a Stamina máxima do jogador em "+ str(buff)
@@ -111,6 +124,7 @@ func set_card_aumenta_stamina_max(stamina_max_up):
 	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_stamina_regen(stamina_rege_up):
+	upgrade_image_path = stam_reg
 	upgrade_name = "Aumento de Regeneração de stamina"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta a  regeneração de stamina do jogador em "+ str(buff)
@@ -118,6 +132,7 @@ func set_card_aumenta_stamina_regen(stamina_rege_up):
 	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_sword_damage(sword_damage_up):
+	upgrade_image_path = sword_damage
 	upgrade_name = "Aumento de dano da espada do jogador"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta o dano de ataque com espada do jogador em "+ str(buff)
@@ -129,18 +144,21 @@ func set_card_aumenta_revolver(upgrade_revolver):
 	upgrade_image_path = "res://weapons/revolver/revolver_icon_2.png"
 	sub_prop = randi_range(0,3)
 	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição do revólver"
 		buff = randi_range(1,3)
 		upgrade_effect = "Aumenta a munição máxima do revólver em " + str(buff)
 		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano do revólver"
 		buff = randi_range(2,10)
 		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
 		basic_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
+		upgrade_type_image_path = more_pierce
 		upgrade_name = "Aumento de perfuração"
 		buff = randi_range(1,3)
 		upgrade_effect = "Permite que a bala do revólver atravesse " + str(buff) + " zumbis a mais"
@@ -162,12 +180,14 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
 	sub_prop = randi_range(0,3)
 	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição da metralhadora"
 		buff = randi_range(10,30)
 		upgrade_effect = "Aumenta a munição máxima da metralhadora em " + str(buff)
 		basic_cost = (20+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da metralhadora"
 		buff = randi_range(1,3)
 		upgrade_effect  = "Aumenta o dano da metralhadora em " + str(buff)
@@ -177,6 +197,7 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		if GameManager.upgrade_metralhadora[2] <= 0:
 			print("Tentou")
 			error = true
+		upgrade_type_image_path = less_spread
 		upgrade_name = "Mira melhor"
 		buff = randi_range(min(10,GameManager.upgrade_metralhadora[2]),min(50,GameManager.upgrade_metralhadora[2]))
 		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
@@ -184,6 +205,7 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		buff = -buff
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 3:
+		upgrade_type_image_path = more_speed
 		upgrade_name = "Mais velocidade de tiro"
 		buff = randi_range(20,60)
 		upgrade_effect = "Aumenta a velocidade de tiro em " +str(buff)+"%"
@@ -195,12 +217,14 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 	upgrade_image_path = "res://weapons/shotgun/shotgun_icon.png"
 	sub_prop = randi_range(0,5)
 	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição da shotgun"
 		buff = randi_range(1,4)
 		upgrade_effect = "Aumenta a munição máxima da shotgun em " + str(buff)
 		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da shotgun"
 		buff = randi_range(5,10)
 		upgrade_effect  = "Aumenta o dano da shotgun em " + str(buff)
@@ -210,6 +234,7 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		if GameManager.upgrade_shotgun[2] <= 0:
 			print("Tentou")
 			error = true
+		upgrade_type_image_path = less_spread
 		upgrade_name = "Mira melhor"
 		buff = randi_range(min(10,GameManager.upgrade_shotgun[2]),min(50,GameManager.upgrade_shotgun[2]))
 		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
@@ -224,6 +249,7 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		basic_cost = buff*GameManager.upgrade_shotgun[sub_prop]/10
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 4:
+		upgrade_type_image_path = more_frags
 		upgrade_name = "Mais estilhaços!"
 		buff = randi_range(1,3)
 		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
@@ -244,12 +270,14 @@ func set_card_aumenta_magnum(upgrade_magnum):
 	upgrade_image_path = "res://weapons/magnum/magnum_icon.png"
 	sub_prop = randi_range(0,1)
 	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição da Magnum"
 		buff = randi_range(1,4)
 		upgrade_effect = "Aumenta a munição máxima da Magnum em " + str(buff)
 		basic_cost = (200+2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da Magnum"
 		buff = randi_range(5,10)
 		upgrade_effect  = "Aumenta o dano da Magnum em " + str(buff)
@@ -261,12 +289,14 @@ func set_card_aumenta_bazuca(upgrade_bazuca):
 	upgrade_image_path = "res://weapons/bazuca/bazuca.png"
 	sub_prop = randi_range(0,1)
 	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição da Bazuca"
 		buff = randi_range(1,2)
 		upgrade_effect = "Aumenta a munição máxima da Bazuca em " + str(buff)
 		basic_cost = (200+2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da Bazuca"
 		buff = randi_range(10,20)
 		upgrade_effect  = "Aumenta o dano da Bazuca em " + str(buff)
