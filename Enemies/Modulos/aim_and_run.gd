@@ -39,7 +39,7 @@ func mira_no_player():
 func corre_pro_player():
 	animation_player.play("ataque")
 	enemy.velocity = mira_no_player().normalized()*speed
-	#print("A minha velocidade é",enemy.velocity)
+	#print_debug("A minha velocidade é",enemy.velocity)
 	timer_node.start(stun_time)
 
 func _on_hit_box_area_body_entered(body: Node2D) -> void:
@@ -52,5 +52,5 @@ func _on_timer_timeout() -> void:
 	is_run_on_cd = true
 	
 func knockback(direcao:Vector2,duracao:float)->void:
-	#print("Tomou knockback")
+	#print_debug("Tomou knockback")
 	enemy.velocity = direcao.normalized()*800

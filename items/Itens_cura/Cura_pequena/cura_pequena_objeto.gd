@@ -16,9 +16,9 @@ func heal_player(vida_curada: int) -> void:
 	#Ex: se o jogador tiver 37 de vida ao curar 5 de vida ele deve ir para 40(limte de vida) e nao 42
 	if controle_de_vida > (GameManager.player.max_health - vida_curada) and controle_de_vida <= GameManager.player.max_health:
 		GameManager.player.player_health = GameManager.player.max_health
-		print("curou para vida maxima")
+		print_debug("curou para vida maxima")
 	#Caso geral em que so adiciona a quantidade da pocao a vida do player
 	else:
 		GameManager.player.player_health += vida_curada
-		print("curou" + str(quantidade_cura))
+		print_debug("curou" + str(quantidade_cura))
 	queue_free()

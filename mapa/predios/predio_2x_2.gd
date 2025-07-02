@@ -20,7 +20,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Jogador"):
 		modulate.a = 0.2
-		#print(position.y, body.position.y)
+		#print_debug(position.y, body.position.y)
 		
 #func _on_area_2d_body_exited(body: Node2D) -> void:
 	#if body.is_in_group("Jogador"):
@@ -32,7 +32,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	#print("Area entrou")
+	#print_debug("Area entrou")
 	if area.is_in_group("JogadorVisao"):
 		modulate.a = 0.6
 

@@ -84,7 +84,7 @@ func start_card() -> void:
 			"Bazuca":
 				set_card_aumenta_bazuca(GameManager.upgrade_bazuca)
 			_:
-				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
+				print_debug("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
 #Essa função adiciona os valores criados no objeto carta
 func set_card():
@@ -166,7 +166,7 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 3:
 		if GameManager.upgrade_revolver[3] == 1:
-			print("Tentou")
+			print_debug("Tentou")
 			error = true
 		upgrade_name = "Balas gemeas curvas"
 		buff = 1
@@ -195,7 +195,7 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
 		if GameManager.upgrade_metralhadora[2] <= 0:
-			print("Tentou")
+			print_debug("Tentou")
 			error = true
 		upgrade_type_image_path = less_spread
 		upgrade_name = "Mira melhor"
@@ -232,14 +232,14 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
 		if GameManager.upgrade_shotgun[2] <= 0:
-			print("Tentou")
+			print_debug("Tentou")
 			error = true
 		upgrade_type_image_path = less_spread
 		upgrade_name = "Mira melhor"
 		buff = randi_range(min(10,GameManager.upgrade_shotgun[2]),min(50,GameManager.upgrade_shotgun[2]))
 		upgrade_effect = "Reduz o espalhamento das balas em " +str(buff)+"%"
 		basic_cost = snapped(10/((upgrade_shotgun[sub_prop]-(buff))*0.01+0.01),1) #func set_card_aumenta_algo(algo_up):
-		#print("Denominador: "+ str(((upgrade_shotgun[sub_prop]-(buff))*0.01+0.01)))
+		#print_debug("Denominador: "+ str(((upgrade_shotgun[sub_prop]-(buff))*0.01+0.01)))
 		buff = -buff
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 3:
@@ -257,7 +257,7 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 5:
 		if GameManager.upgrade_shotgun[5] == 1:
-			print("Tentou")
+			print_debug("Tentou")
 			error = true
 		upgrade_name = "Shotgun Boomerangue"
 		buff = 1
@@ -315,33 +315,33 @@ func _on_button_pressed() -> void:
 	match card_is_choosen:
 			"Vida_max":
 				GameManager.vida_max_up += buff
-				print("Sua vida máxima agora é ",40+GameManager.vida_max_up)
+				print_debug("Sua vida máxima agora é ",40+GameManager.vida_max_up)
 			"Stamina_max":
 				GameManager.stamina_max_up+=buff
-				print("Sua Stamina máxima agora é ",100+GameManager.stamina_max_up)
+				print_debug("Sua Stamina máxima agora é ",100+GameManager.stamina_max_up)
 			"Stamina_rege":
 				GameManager.stamina_rege_up+=buff
-				print("Stamina rege +")
+				print_debug("Stamina rege +")
 			"sword_damage":
 				GameManager.sword_damage_up+=buff
-				print("Sword +")
+				print_debug("Sword +")
 			"Revolver":
 				GameManager.upgrade_revolver[sub_prop]+=buff
-				print("REVOLVER", GameManager.upgrade_revolver[sub_prop],sub_prop)
+				print_debug("REVOLVER", GameManager.upgrade_revolver[sub_prop],sub_prop)
 			"Metralhadora":
 				GameManager.upgrade_metralhadora[sub_prop]+=buff
-				print(GameManager.upgrade_metralhadora[sub_prop])
+				print_debug(GameManager.upgrade_metralhadora[sub_prop])
 			"Shotgun":
 				GameManager.upgrade_shotgun[sub_prop]+=buff
-				print("SHOTGUN")
+				print_debug("SHOTGUN")
 			"Magnum":
 				GameManager.upgrade_magnum[sub_prop]+=buff
-				print("MAGNUM")
+				print_debug("MAGNUM")
 			"Bazuca":
 				GameManager.upgrade_bazuca[sub_prop]+=buff
-				print("BAZUCA")
+				print_debug("BAZUCA")
 			_:
-				print("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
+				print_debug("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
 	loja.atualiza_almas()
 
@@ -365,27 +365,27 @@ func have_souls(soul_type):
 	if soul_type == alma_comum:
 		if GameManager.alma_comum > upgrade_cost:
 			GameManager.alma_comum -= upgrade_cost
-			print("Você agora tem ",GameManager.alma_comum," almas")
+			print_debug("Você agora tem ",GameManager.alma_comum," almas")
 			return true
 		else:
-			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
+			print_debug("VOCÊ NÃO TEM ALMA SUFICIENTE")
 			loja.aviso_almas()
 			return false
 	elif soul_type == alma_incomum:
 		if GameManager.alma_incomum > upgrade_cost:
 			GameManager.alma_incomum -= upgrade_cost
-			print("Você agora tem ",GameManager.alma_incomum," almas")
+			print_debug("Você agora tem ",GameManager.alma_incomum," almas")
 			return true
 		else:
-			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
+			print_debug("VOCÊ NÃO TEM ALMA SUFICIENTE")
 			loja.aviso_almas()
 			return false
 	elif soul_type == alma_rara:
 		if GameManager.alma_rara > upgrade_cost:
 			GameManager.alma_rara -= upgrade_cost
-			print("Você agora tem ",GameManager.alma_rara," almas")
+			print_debug("Você agora tem ",GameManager.alma_rara," almas")
 			return true
 		else:
-			print("VOCÊ NÃO TEM ALMA SUFICIENTE")
+			print_debug("VOCÊ NÃO TEM ALMA SUFICIENTE")
 			loja.aviso_almas()
 			return false

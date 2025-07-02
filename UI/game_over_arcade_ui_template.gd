@@ -15,7 +15,7 @@ func _ready() -> void:
 	pontuacao_tempo = GameManager.pontuacao_tempo
 	check_for_record()
 	if recorde_mortes or recorde_tempo:
-		print(recorde_mortes or recorde_tempo)
+		print_debug(recorde_mortes or recorde_tempo)
 		PopupRecord.visible = true
 	escrever_recordes()
 

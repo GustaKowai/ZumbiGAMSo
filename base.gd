@@ -26,11 +26,11 @@ func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
 			#var rand_vector = Vector2(randf_range(90,800),0)
 			#rand_vector = rand_vector.rotated(randf_range(0,2*PI))
 			#var position_choosen = player_position + rand_vector
-			#print(player_position,position_choosen)
+			#print_debug(player_position,position_choosen)
 			#var tile_position = local_to_map(position_choosen)
-			#print(tile_position)
+			#print_debug(tile_position)
 			#var tile_data:TileData = get_cell_tile_data(tile_position)
-			#print(tile_data)
+			#print_debug(tile_data)
 			#if tile_data:
 				#var e_rua = tile_data.get_custom_data("e_rua")
 				#if e_rua:
@@ -38,5 +38,5 @@ func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
 					#water_tile.append(tile_position)
 					#set_cells_terrain_connect(water_tile,0,0)
 				#else:
-					#print("não é rua")
+					#print_debug("não é rua")
 		#timer.start()

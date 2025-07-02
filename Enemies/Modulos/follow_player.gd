@@ -63,7 +63,7 @@ func _on_timer_timeout():
 func knockback(direcao:Vector2,duracao:float)->void:
 	knockback_direction = direcao
 	enemy.knockback = true
-	#print("Tomou knockback")
+	#print_debug("Tomou knockback")
 	await get_tree().create_timer(duracao).timeout
 	enemy.knockback = false
 	
@@ -71,5 +71,5 @@ func move_back():
 	var normalize_diffe = knockback_direction.normalized() #Transforma o vetor apontando para o próximo ponto em um versor
 	var input_vector = normalize_diffe 
 	enemy.velocity = input_vector * 800.0
-	#print(enemy.velocity)
+	#print_debug(enemy.velocity)
 	enemy.move_and_slide()

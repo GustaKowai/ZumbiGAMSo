@@ -46,7 +46,7 @@ func change_weapon_equiped(weapon_sprite_path):
 	texture_weapon = load(weapon_sprite_path)
 	weapon_bar.texture_under = texture_weapon
 	weapon_bar.texture_progress = texture_weapon
-	#print("troquei")
+	#print_debug("troquei")
 
 func change_item_equiped(item_sprite_path):
 	if item_sprite_path:
@@ -79,9 +79,9 @@ func update_weapon_cd():
 		if GameManager.player.weapon_cooldown >=0:
 			var player_cd:float = round_to_dec(GameManager.player.weapon_cooldown,2) 
 			weapon_bar.value = (player_cd-0.01/GameManager.weapon_cd)*100
-			#print("weapon cd atual =", player_cd)
-			#print("weapon cd=", GameManager.weapon_cd)
-			#print(weapon_bar.value)
+			#print_debug("weapon cd atual =", player_cd)
+			#print_debug("weapon cd=", GameManager.weapon_cd)
+			#print_debug(weapon_bar.value)
 	if GameManager.ammo <= 0 and texture_weapon:
 		GameManager.ammo = 0
 		texture_weapon = null
