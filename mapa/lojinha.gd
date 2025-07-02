@@ -84,8 +84,9 @@ func buy():
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	aviso.text = "Aperte Q para comprar"
-	aviso.visible = true
+	if not esgotado:
+		aviso.text = "Aperte Q para comprar"
+		aviso.visible = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
