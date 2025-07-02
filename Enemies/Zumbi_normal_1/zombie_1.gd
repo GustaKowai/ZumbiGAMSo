@@ -9,8 +9,9 @@ extends CharacterBody2D
 
 @export_category("Fight")
 @export var enemy_health:int = 40
+@export var health_for_buff:float = 1
 @export var death_prefab:PackedScene
-@export var player: Node2D
+var player: Node2D
 
 @export_category("Drops")
 @export var items:Array[PackedScene]
@@ -30,7 +31,11 @@ var is_attacking:bool = false
 var died:bool = false
 var facing_position:String
 var knockback:bool = false
+var buff:float = 0
 
+func _ready() -> void:
+	enemy_health += snappedi(health_for_buff*buff,1) 
+	#print_debug("Vida desse zumbi = ",enemy_health)
 
 func damage(amount: int):
 	enemy_health -=amount
@@ -72,7 +77,7 @@ func die():
 	
 func drop_item():
 	if not items:
-		print ("Não tenho drop")
+		#print ("Não tenho drop")
 		return
 	if randf() > drop_rate: return #Checa se ele dropará um item baseado na taxa de drop do monstro
 	var item = get_random_drop_item().instantiate()
@@ -98,13 +103,13 @@ func get_random_drop_item():
 	
 func drop_coins():
 	if not coin:
-		print ("Não dropo dinheiro")
+		#print ("Não dropo dinheiro")
 		return
 	if randf() > coins_rate: return #Checa se ele dropará um item baseado na taxa de drop do monstro
 	var number_coins = randi_range(number_coins_min,number_coins_max)
 	for n in range(1,number_coins):
 		var position_spread:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))*spread_area_radius
-		print(position_spread)
+		#print_debug(position_spread)
 		var item = coin.instantiate()
 		item.position = position+position_spread
 		get_parent().add_child(item)

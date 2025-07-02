@@ -39,7 +39,7 @@ var stamina_value:float = 0.0
 var player_health:int:
 	set(new_value):
 		player_health = new_value
-		#print("Vida = ",new_value)
+		#print_debug("Vida = ",new_value)
 		GameManager.life_changed.emit()
 var player_shield:int:
 	set(new_value):
@@ -231,7 +231,7 @@ func damage(amount:int):
 	if player_health <= 0:
 		return
 	self.player_health -=amount
-	#print("Player recebeu dano de ",amount,". A vida atual é de ",player_health,"/")
+	#print_debug("Player recebeu dano de ",amount,". A vida atual é de ",player_health,"/")
 	#piscar o player:
 	modulate = Color.ORANGE
 	var tween = create_tween()
@@ -250,7 +250,7 @@ func damage_to_shield(amount:int):
 		tween.set_ease(Tween.EASE_IN)
 		tween.set_trans(Tween.TRANS_QUINT)
 		tween.tween_property(self,"modulate",Color.WHITE,0.3)
-		#print(player_shield)
+		#print_debug(player_shield)
 	else:
 		amount -= player_shield
 		player_shield = 0
@@ -296,7 +296,7 @@ func damage_to_shield(amount:int):
 	#
 	#get_parent().add_child(bullet)#Instancia a bala
 	#ammo -= 1
-	#print(ammo)
+	#print_debug(ammo)
 	#if ammo == 0:
 		##Remove a arma se ficar sem munição
 		#bullet_path = null 
@@ -320,7 +320,7 @@ func update_player_stats():
 	sword_damage += GameManager.sword_damage_up
 	#Passa o player para o GameManager
 	GameManager.player = self
-	#print(player_health,max_stamina)
+	#print_debug(player_health,max_stamina)
 	
 func die():
 	GameManager.end_game()

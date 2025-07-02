@@ -603,3 +603,4 @@ shape = SubResource("CircleShape2D_lxmr4")
 position = Vector2(-2.94118, -261.765)
 
 [node name="AttackRanged" parent="." instance=ExtResource("12_lxmr4")]
+controle_de_buff_de_dano = 1.0

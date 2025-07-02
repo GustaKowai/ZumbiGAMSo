@@ -23,13 +23,13 @@ func despawn():
 
 func explode():
 	#Escrita de controle 
-	print("EXPLODIUUU")
+	#print_debug("EXPLODIUUU")
 	if explosao:
 		var explosion = explosao.instantiate()
 		explosion.position = position
 		var colisao:CollisionShape2D = area_da_explosao.get_child(0)
 		var raio_explosao = colisao.shape.radius
-		print(raio_explosao)
+		#print_debug(raio_explosao)
 		var modificador_escala = raio_explosao/144.0
 		explosion.scale = Vector2(modificador_escala,modificador_escala)
 		explosion.get_child(0).scale = (Vector2(1/modificador_escala,1/modificador_escala))

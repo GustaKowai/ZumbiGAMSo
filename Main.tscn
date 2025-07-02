@@ -666,9 +666,8 @@ remote_path = NodePath("../../Camera2D")
 update_rotation = false
 update_scale = false
 
-[node name="Zombie1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_m2mbd")]
+[node name="Zombie1" parent="." instance=ExtResource("4_m2mbd")]
 position = Vector2(447, 391)
-player = NodePath("../Jogador")
 drop_chances = Array[float]([1.0, 1.0])
 
 [node name="Skull" parent="." instance=ExtResource("5_cx32y")]

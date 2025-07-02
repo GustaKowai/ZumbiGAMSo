@@ -8,6 +8,7 @@ var position_running:String = "side"
 var dmg_area:Area2D
 var atk_direction: Vector2
 
+@export var controle_de_buff_de_dano:float = 1 #Quanto de dano extra que causá por buff do mob spawner
 @export var dano_zombie:int = 1
 var attack_cooldown:float
 var atk_cd:float = 0.6
@@ -17,6 +18,8 @@ func _ready():
 	sprite =enemy.get_node("Movimento")
 	dmg_area = $DmgArea
 	animation_player = enemy.get_node("AnimationPlayer")
+	dano_zombie += snappedi(controle_de_buff_de_dano*enemy.buff,1)
+	#print_debug("Dano desse zumbi ao ataque = ",dano_zombie) 
 
 func _process(delta):
 	update_atk_cd(delta)
@@ -38,7 +41,7 @@ func deal_damage_to_player():
 			var player: Jogador = area.get_parent()
 			var player_direction:Vector2 = (player.position - enemy.position).normalized()
 			var dot_product:float = player_direction.dot(atk_direction)
-			#print(dot_product)
+			#print_debug(dot_product)
 			if dot_product > 0.6:#Verifica se o Player está na frente do zumbi
 				player.damage(dano_zombie)
 

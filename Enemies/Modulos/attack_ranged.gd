@@ -1,6 +1,8 @@
 extends Node2D
 @onready var bullet_point:Marker2D = $BulletPoint
 @export var bullet_path:PackedScene
+@export var controle_de_buff_de_dano:float
+var dano_extra_zombie = 0
 var enemy: Enemy
 var sprite:Sprite2D
 var animation_player:AnimationPlayer
@@ -15,6 +17,8 @@ func _ready():
 	enemy = get_parent()
 	sprite =enemy.get_node("Movimento")
 	animation_player = enemy.get_node("AnimationPlayer")
+	dano_extra_zombie += snappedi(controle_de_buff_de_dano*enemy.buff,1)
+	#print_debug("Dano extra do tiro desse zumbi = ",dano_extra_zombie) 
 	player = GameManager.player
 
 func _process(delta: float) -> void:
@@ -67,6 +71,7 @@ func shoot():
 
 func fire_bullet():
 	var bullet = bullet_path.instantiate()
+	bullet.bullet_damage += dano_extra_zombie
 	match shoot_direction:
 		"Down":
 			bullet.dir = PI/2
