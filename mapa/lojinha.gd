@@ -23,11 +23,11 @@ func open_shop():
 	esgotado = false
 	sprite.play("hello")
 	set_timer()
-	await get_tree().create_timer(1.1).timeout
+	await get_tree().create_timer(1.1,false).timeout
 	start_shop()
 	item_sprite.visible = true
 	aviso.visible = false
-	await get_tree().create_timer(tempo_de_expediente).timeout
+	await get_tree().create_timer(tempo_de_expediente,false).timeout
 	close_shop()
 	
 func _input(event: InputEvent) -> void:
@@ -57,7 +57,7 @@ func set_timer():
 	
 func start_shop():
 	escolha = randi_range(0,lista_itens.size()-1)
-	print_debug(escolha)
+	#print_debug(get_tree().paused)
 	var item_escolhido:PackedScene = lista_itens[escolha]
 	var item = item_escolhido.instantiate()
 	#print_debug(item.image)
@@ -96,5 +96,5 @@ func close_shop():
 	item_sprite.visible = false
 	sprite.play("bye")
 	value.text = ""
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0,false).timeout
 	GameManager.loja_fechada.emit()
