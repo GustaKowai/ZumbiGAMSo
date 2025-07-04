@@ -5,7 +5,7 @@ extends StaticBody2D
 @export var dano_player: int
 @export var raio_explosao:float = 144.0
 @export var explosao:PackedScene
-@onready var area_da_explosao = $area_de_dano
+@onready var area_da_explosao:Area2D = $area_de_dano
 
 func _ready() -> void:
 	var colisao:CollisionShape2D = area_da_explosao.get_child(0)
@@ -28,7 +28,7 @@ func explode():
 		var explosion = explosao.instantiate()
 		explosion.position = position
 		var colisao:CollisionShape2D = area_da_explosao.get_child(0)
-		var raio_explosao = colisao.shape.radius
+		var raio_explosao:float = colisao.shape.radius
 		#print_debug(raio_explosao)
 		var modificador_escala = raio_explosao/144.0
 		explosion.scale = Vector2(modificador_escala,modificador_escala)
