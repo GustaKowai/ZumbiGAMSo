@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctyurigo5xvqo"]
+
+[ext_resource type="Texture2D" uid="uid://m87a4lcdwiag" path="res://weapons/shotgun/shotgun_ammo.png" id="1_lfvop"]
+[ext_resource type="Script" uid="uid://b2gy1c1wgufrc" path="res://weapons/shotgun/bullet_ghost.gd" id="2_g7m25"]
+
+[node name="BulletGhost" type="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("1_lfvop")
+script = ExtResource("2_g7m25")

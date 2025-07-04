@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://y1ynk3fo2v31"]
+[gd_scene load_steps=6 format=3 uid="uid://y1ynk3fo2v31"]
 
 [ext_resource type="Script" uid="uid://dgo6dhvy6jdet" path="res://weapons/shotgun/bullet_shotgun_upgrade.gd" id="1_h2akf"]
 [ext_resource type="Texture2D" uid="uid://m87a4lcdwiag" path="res://weapons/shotgun/shotgun_ammo.png" id="1_na3m6"]
+[ext_resource type="PackedScene" uid="uid://ctyurigo5xvqo" path="res://weapons/shotgun/bullet_ghost.tscn" id="2_e1xqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2akf"]
-radius = 1.0
+radius = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1xqa"]
 radius = 3.0
@@ -15,6 +16,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_h2akf")
 bullet_duracao = 1.0
+bullet_ghost = ExtResource("2_e1xqa")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_na3m6")

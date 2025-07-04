@@ -59,10 +59,10 @@ func _on_machinegun_bullet_hit_box_area_entered(area: Area2D) -> void:
 #	velocity = Vector2(speed,0).rotated(dir)
 
 func achando_zumbi(area:Area2D):
-	print_debug(area)
+	#print_debug(area)
 	if !entrou:
 		if area.is_in_group("EnemyHitBox"):
-			print_debug("Achou zumbi")
+			#print_debug("Achou zumbi")
 			var enemy:Enemy
 			enemy = area.get_parent()
 			var zumbi_position = enemy.global_position
