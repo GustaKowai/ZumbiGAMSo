@@ -27,7 +27,7 @@ collision_layer = 32
 collision_mask = 10
 script = ExtResource("1_x178b")
 tempo_para_explodir = 1.1
-dano_inimigos = 40
+dano_inimigos = 45
 dano_player = 10
 explosao = ExtResource("2_wlaxr")
 

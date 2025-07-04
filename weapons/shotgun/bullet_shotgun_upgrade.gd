@@ -3,7 +3,7 @@ extends CharacterBody2D
 var pos:Vector2
 var rota:float
 var dir: float
-var speed = 650
+var speed = 1750
 @export var bullet_damage = 10
 @export var bullet_duracao = 0.48
 @export var bullet_ghost:PackedScene
