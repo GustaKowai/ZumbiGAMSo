@@ -5,7 +5,7 @@ var rota:float
 var dir: float
 var speed = 1750
 @export var bullet_damage = 10
-var bullet_duracao = 0.48
+@export var bullet_duracao = 0.48
 var bullet_tempodevida = 0
 var inversao_direcao = 1
 
@@ -19,7 +19,23 @@ func _ready():
 	tween.set_ease(Tween.EASE_OUT_IN)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self,"speed",-speed, bullet_duracao)
+	var color_tween = create_tween()
+	color_tween.set_trans(Tween.TRANS_LINEAR)
+	color_tween.tween_property(self,"modulate",Color.BLUE_VIOLET,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.BLUE,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.SKY_BLUE,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.GREEN,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.YELLOW,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.ORANGE,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.RED,bullet_duracao/14)
 	
+	color_tween.tween_property(self,"modulate",Color.RED,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.ORANGE,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.YELLOW,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.GREEN,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.SKY_BLUE,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.BLUE,bullet_duracao/14)
+	color_tween.tween_property(self,"modulate",Color.BLUE_VIOLET,bullet_duracao/14)
 #Tentativa de fazer as balas desaparecerem depois de um tempo
 func _process(delta):
 	bullet_tempodevida += delta

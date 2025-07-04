@@ -29,7 +29,6 @@ script = ExtResource("1_x178b")
 tempo_para_explodir = 1.1
 dano_inimigos = 40
 dano_player = 10
-raio_explosao = 400.0
 explosao = ExtResource("2_wlaxr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
