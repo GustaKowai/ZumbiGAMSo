@@ -35,25 +35,25 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_bullet_hit_box_area_entered(area):
-	if area.is_in_group("EnemyHitBox"):
+	if area.is_in_group("EnemyHitBox") or area.is_in_group("construcao"):
 		var area_da_explosao = area_de_dano.get_overlapping_areas()
 		for areas_afetadas in area_da_explosao:
 			if areas_afetadas.is_in_group("EnemyHitBox"):
 				var enemy:Enemy = areas_afetadas.get_parent()
 				enemy.damage(bullet_damage)
-				if explosao:
-					var explosion = explosao.instantiate()
-					explosion.position = position
-					var colisao:CollisionShape2D = area_de_dano.get_child(0)
-					#var raio_explosao = colisao.shape.radius
-					print(raio_explosao)
-					var modificador_escala = raio_explosao/144.0
-					explosion.scale = Vector2(modificador_escala,modificador_escala)
-					get_parent().add_child(explosion)
-				queue_free()
-	if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		if explosao:
+			var explosion = explosao.instantiate()
+			explosion.position = position
+			var colisao:CollisionShape2D = area_de_dano.get_child(0)
+			#var raio_explosao = colisao.shape.radius
+			print(raio_explosao)
+			var modificador_escala = raio_explosao/144.0
+			explosion.scale = Vector2(modificador_escala,modificador_escala)
+			get_parent().add_child(explosion)
 		queue_free()
+	#if area.is_in_group("construcao"):
+		##print("Acertei um predio")
+		#queue_free()
 
 func dividir():
 	var angle_offset = deg_to_rad(30)
