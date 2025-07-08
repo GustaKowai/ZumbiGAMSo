@@ -91,6 +91,6 @@ func add_ghost():
 			ida_volta = -1
 	var ghost = bullet_ghost.instantiate()
 	ghost.set_property(position,$BulletSprite.scale*2,choosen_color)
-	print_debug(position,$BulletSprite.scale,choosen_color)
+	#print_debug(position,$BulletSprite.scale,choosen_color)
 	get_tree().current_scene.add_child(ghost)
 	

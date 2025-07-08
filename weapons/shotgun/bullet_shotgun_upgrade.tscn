@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ctyurigo5xvqo" path="res://weapons/shotgun/bullet_ghost.tscn" id="2_e1xqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2akf"]
-radius = 0.5
+radius = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1xqa"]
 radius = 3.0
