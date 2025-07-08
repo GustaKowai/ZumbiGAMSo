@@ -14,6 +14,7 @@ var firing:bool = false
 var mode:int = 1
 var bullet_interval:float = 10
 var bullets_shooted:int = 0
+var bullet_accel:float = 0
 
 func _ready() -> void:
 	#print("Pronto!")
@@ -27,38 +28,45 @@ func _ready() -> void:
 	GameManager.ammo = ammo
 
 func on_weapon_collected(string): #Essa função serve para largar a arma
+	if string == "res://weapons/duas_fases/Arma_fase_2.png" or "res://weapons/duas_fases/Arma_fase_1.png":
+		return
 	#print("larguei a arma")
 	queue_free()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("FireGun"):
 		mode = 1
 		bullets_shooted = 0
+		bullet_accel = 0
 		bullet_spreed = PI/10
 		fireGun()
 		fire_bullet(bullet_path_1)
 	if Input.is_action_pressed("FireGun") and firing == true:
 		var bullet_path:PackedScene
 		if mode == 1:
-			bullet_interval = 10
+			bullet_interval = 15 - bullet_accel
 			bullet_path = bullet_path_1
 		if mode == 2:
 			bullet_interval = 15
 			bullet_path = bullet_path_2
 		interval += 1
+		bullet_accel += delta*2
 		if interval>=bullet_interval:
 			interval = 0
+			print_debug(bullet_interval)
 			player.weapon_cooldown = weapon_cooldown
 			player.is_shooting = true
 			fire_bullet(bullet_path)
 			bullets_shooted += 1
-			print(bullets_shooted)
+			#print_debug(bullets_shooted)
 			if bullets_shooted > 30:
+				GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_2.png")
 				mode = 2
 				bullet_spreed = PI/5
 		
 	if Input.is_action_just_released("FireGun"):
 		firing = false
+		GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_1.png")
 
 func fireGun():
 	if ammo <= 0:

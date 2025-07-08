@@ -1,17 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://sagssett8ap6"]
 
-[ext_resource type="Texture2D" uid="uid://dt4ey14mlingg" path="res://weapons/machinegun/machinegun.png" id="1_y00pl"]
-[ext_resource type="Script" uid="uid://brcmhdsg3f2oa" path="res://weapons/machinegun/machinegun.gd" id="2_qdtf6"]
+[ext_resource type="Texture2D" uid="uid://dkhfrclohmfdv" path="res://weapons/duas_fases/Arma_fase_1.png" id="1_m5vus"]
+[ext_resource type="Script" uid="uid://dr4kejbaqms1a" path="res://weapons/duas_fases/duas_fases.gd" id="2_35f48"]
 [ext_resource type="PackedScene" uid="uid://bnqpqsfpq8wt1" path="res://weapons/duas_fases/duas_fases_weapon.tscn" id="3_m5vus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krhnj"]
-size = Vector2(192, 74)
+size = Vector2(136, 106)
 
 [node name="duas_fases" type="Sprite2D"]
-modulate = Color(0.266701, 0.484858, 1, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_y00pl")
-script = ExtResource("2_qdtf6")
+texture = ExtResource("1_m5vus")
+script = ExtResource("2_35f48")
 weapon = ExtResource("3_m5vus")
 
 [node name="Area2D" type="Area2D" parent="."]
