@@ -50,6 +50,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
+	#print_debug(speed)
 	move_and_slide()
 
 func _on_bullet_hit_box_area_entered(area):
@@ -65,14 +66,14 @@ func _on_bullet_hit_box_area_entered(area):
 func set_ghosts():
 	#Efeitos visuais de fantasma:
 	add_child(ghost_timer)
-	ghost_timer.wait_time = bullet_duracao/14 # Set delay to 2 seconds
+	ghost_timer.wait_time = bullet_duracao/14
 	ghost_timer.start()
 	ghost_timer.timeout.connect(add_ghost)
 	
 func add_ghost():
 	var choosen_color:Color
 	ghost_color +=ida_volta
-	print(ghost_color)
+	#print_debug(ghost_color)
 	match ghost_color:
 		1: 
 			choosen_color = Color.BLUE_VIOLET
