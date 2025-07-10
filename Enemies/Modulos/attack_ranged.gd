@@ -48,7 +48,7 @@ func try_shoot():
 				shoot_direction = "Down"
 				shoot()
 		if point_weapon.y <=accuracy and point_weapon.y >= 0:
-			print(point_weapon.y)
+			#print_debug(point_weapon.y)
 			if point_weapon.x > 0:
 				shoot_direction = "Right"
 				shoot()

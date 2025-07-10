@@ -15,7 +15,7 @@ func _ready():
 	sprite =enemy.get_node("Movimento")
 	animation_player = enemy.get_node("AnimationPlayer")
 	nav_agent = get_node("NavigationAgent2D")
-	
+	#print_debug(nav_agent.path_desired_distance)
 
 func _physics_process(_delta:float):
 	if GameManager.is_game_over: return
