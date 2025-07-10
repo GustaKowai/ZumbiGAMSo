@@ -74,7 +74,7 @@ func knockback(direcao:Vector2,duracao:float)->void:
 func move_back():
 	var normalize_diffe = knockback_direction.normalized() #Transforma o vetor apontando para o próximo ponto em um versor
 	var input_vector = normalize_diffe 
-	enemy.velocity = input_vector * 800.0
+	enemy.velocity = input_vector * 0.0
 	#print_debug(enemy.velocity)
 	enemy.move_and_slide()
 
