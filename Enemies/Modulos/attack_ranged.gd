@@ -9,7 +9,7 @@ var animation_player:AnimationPlayer
 var var_diff:Vector2
 var player:Jogador
 var attack_cooldown:float
-var atk_cd:float = 0.7
+@export var atk_cd:float = 0.7
 @export var range = 200
 @export var accuracy = 30
 var shoot_direction:String
@@ -47,7 +47,8 @@ func try_shoot():
 			else:
 				shoot_direction = "Down"
 				shoot()
-		if point_weapon.y <=accuracy and point_weapon.y >= -accuracy:
+		if point_weapon.y <=accuracy and point_weapon.y >= 0:
+			print(point_weapon.y)
 			if point_weapon.x > 0:
 				shoot_direction = "Right"
 				shoot()

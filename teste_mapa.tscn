@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://b7q4nvqwm5s8v"]
+[gd_scene load_steps=51 format=4 uid="uid://b7q4nvqwm5s8v"]
 
 [ext_resource type="Texture2D" uid="uid://d4io3jv6q1qfc" path="res://WhatsApp Image 2025-06-26 at 17.44.02.jpeg" id="1_3swv8"]
 [ext_resource type="Texture2D" uid="uid://cidac6n537qn6" path="res://mapa/imagens/Tile_set_calcada-rua.png" id="1_6qxri"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ycb0nxhim4m" path="res://mapa/predios/predio3x2.tscn" id="25_as8jo"]
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="26_lmvgv"]
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="28_c2fho"]
+[ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="29_pcl1a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -3792,7 +3793,7 @@ position = Vector2(-3186, -756)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_iqwyk")]
 z_as_relative = false
-position = Vector2(-648, -1296)
+position = Vector2(-614, -681)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
@@ -3804,6 +3805,7 @@ position = Vector2(213, -27)
 [node name="Pause UI" parent="." instance=ExtResource("9_bf245")]
 
 [node name="MobSapwners" type="Node2D" parent="."]
+process_mode = 4
 y_sort_enabled = true
 
 [node name="MobSpawner2" parent="MobSapwners" instance=ExtResource("6_qxf64")]
@@ -3894,3 +3896,6 @@ position = Vector2(2212, -1801)
 
 [node name="duas_fases" parent="." instance=ExtResource("28_c2fho")]
 position = Vector2(-363, -1446)
+
+[node name="ZumbiTanque" parent="." instance=ExtResource("29_pcl1a")]
+position = Vector2(369, -1020)

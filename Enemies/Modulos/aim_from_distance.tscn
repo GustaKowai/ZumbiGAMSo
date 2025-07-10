@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc4bylx0blnya"]
+[gd_scene load_steps=2 format=3 uid="uid://co4qnwjt7oyg0"]
 
-[ext_resource type="Script" uid="uid://dia28tnqpxnkf" path="res://Enemies/Modulos/follow_player.gd" id="1_ghrro"]
+[ext_resource type="Script" uid="uid://isgi85ec4o5w" path="res://Enemies/Tanque/aim_from_distance.gd" id="1_0tucb"]
 
-[node name="FollowPlayer" type="Node2D"]
-script = ExtResource("1_ghrro")
-speed = 2.0
+[node name="Aim_from_distance" type="Node2D"]
+script = ExtResource("1_0tucb")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
