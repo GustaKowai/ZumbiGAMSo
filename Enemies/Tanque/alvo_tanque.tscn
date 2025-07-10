@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkmkgv53m6ja6"]
+
+[ext_resource type="Texture2D" uid="uid://d2av10o6a4lir" path="res://Misc/Area_explosao.png" id="1_ml5oe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1uuh"]
+radius = 12.0416
+
+[node name="AlvoTanque" type="Sprite2D"]
+modulate = Color(12.154, 0, 0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ml5oe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_d1uuh")

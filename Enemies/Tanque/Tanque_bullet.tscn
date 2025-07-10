@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cayrwhll3wno7"]
+
+[ext_resource type="Script" uid="uid://mod74nb3hfvg" path="res://Enemies/Tanque/tanque_bullet.gd" id="1_7rpbt"]
+[ext_resource type="PackedScene" uid="uid://cj21r20l5nulm" path="res://Misc/explosion.tscn" id="2_45ypt"]
+
+[sub_resource type="Gradient" id="Gradient_m7fqv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7rpbt"]
+gradient = SubResource("Gradient_m7fqv")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7fqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45ypt"]
+size = Vector2(111, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rpbt"]
+radius = 288.0
+
+[node name="TanqueBullet" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 8
+script = ExtResource("1_7rpbt")
+speed = 1200
+explosao = ExtResource("2_45ypt")
+raio_explosao = 288.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.50001, 0)
+scale = Vector2(1.70312, 0.375)
+texture = SubResource("GradientTexture2D_7rpbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m7fqv")
+
+[node name="bulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletHitBox"]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_45ypt")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-56, -1)
+shape = SubResource("CircleShape2D_7rpbt")
+
+[connection signal="area_entered" from="bulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]
