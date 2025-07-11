@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmxkcw0kliguc"]
+
+[ext_resource type="Script" uid="uid://c4oq20kbotxtp" path="res://Enemies/Tanque/attack_alvo.gd" id="1_x51e1"]
+[ext_resource type="PackedScene" uid="uid://cayrwhll3wno7" path="res://Enemies/Tanque/Tanque_bullet.tscn" id="2_pjlqj"]
+[ext_resource type="PackedScene" uid="uid://bkmkgv53m6ja6" path="res://Enemies/Tanque/alvo_tanque.tscn" id="3_4614s"]
+
+[node name="Attack_alvo" type="Node2D"]
+script = ExtResource("1_x51e1")
+bullet_path = ExtResource("2_pjlqj")
+range = 300
+alvo_scene = ExtResource("3_4614s")
+
+[node name="BulletPoint" type="Marker2D" parent="."]

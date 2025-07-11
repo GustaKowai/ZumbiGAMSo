@@ -9,6 +9,7 @@ signal life_changed()
 signal shield_changed()
 signal zombie_died()
 signal loja_fechada()
+signal bala_explodida()
 #Gerenciamento da run:
 var player:Jogador
 var player_position: Vector2

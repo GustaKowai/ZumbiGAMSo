@@ -20,7 +20,7 @@ func _ready():
 func _physics_process(_delta:float):
 	if GameManager.is_game_over: return
 	#print_debug(position.distance_squared_to(GameManager.player_position))
-	if global_position.distance_squared_to(GameManager.player_position) > 300000:
+	if global_position.distance_squared_to(GameManager.player_position) > 400000:
 		#print_debug("navegando",global_position.distance_squared_to(GameManager.player_position))
 		var_diff = to_local(nav_agent.get_next_path_position()) #pega o próximo ponto do caminho calculado para o jogador
 	else:

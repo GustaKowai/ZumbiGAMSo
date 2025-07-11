@@ -1,18 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3ulr52hoy0k7"]
+[gd_scene load_steps=18 format=3 uid="uid://b3ulr52hoy0k7"]
 
 [ext_resource type="Script" uid="uid://wpi10st1p4oc" path="res://Enemies/Tanque/zumbi_tanque.gd" id="1_7ocfp"]
 [ext_resource type="Texture2D" uid="uid://cdxomkn02yxrs" path="res://Enemies/Tanque/Tank_zombie_shot_-_Sheet.png" id="2_psch1"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="2_vi08e"]
 [ext_resource type="Texture2D" uid="uid://dip0pkdn78bf6" path="res://Enemies/Tanque/Tank_zombie_walk-Sheet.png" id="3_ihe2r"]
-[ext_resource type="PackedScene" uid="uid://fllngnphnijk" path="res://Enemies/Modulos/attack_ranged.tscn" id="4_psch1"]
 [ext_resource type="PackedScene" uid="uid://co4qnwjt7oyg0" path="res://Enemies/Modulos/aim_from_distance.tscn" id="5_ihe2r"]
-[ext_resource type="PackedScene" uid="uid://cayrwhll3wno7" path="res://Enemies/Tanque/Tanque_bullet.tscn" id="6_240e7"]
+[ext_resource type="PackedScene" uid="uid://cmxkcw0kliguc" path="res://Enemies/Modulos/attack_alvo.tscn" id="6_vi08e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihe2r"]
 size = Vector2(83, 38)
 
 [sub_resource type="Animation" id="Animation_ihe2r"]
-resource_name = "Fire Down"
+resource_name = "Fire Down Cannon"
 length = 1.5
 step = 0.05
 tracks/0/type = "value"
@@ -22,7 +21,7 @@ tracks/0/path = NodePath("Ataque:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.05),
+"times": PackedFloat32Array(0, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -5), Vector2(0, 5), Vector2(0, -5), Vector2(0, 5), Vector2(0, -5), Vector2(0, 5), Vector2(0, 0)]
@@ -63,36 +62,39 @@ tracks/3/keys = {
 "update": 1,
 "values": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackRanged:position")
+tracks/4/path = NodePath("Attack_alvo")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 133)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AttackRanged")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.15),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"mirar"
+}, {
 "args": [],
 "method": &"fire_bullet"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Attack_alvo:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 95)]
+}
 
 [sub_resource type="Animation" id="Animation_vi08e"]
-resource_name = "Fire Left"
-length = 1.2
+resource_name = "Fire Left Cannon"
+length = 1.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -137,7 +139,7 @@ tracks/3/path = NodePath("Ataque:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
@@ -149,41 +151,44 @@ tracks/4/path = NodePath("Ataque:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.45, 0.5, 0.6, 0.7, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackRanged:position")
+tracks/5/path = NodePath("Attack_alvo:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-70, 40)]
+"values": [Vector2(-98, -12)]
 }
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AttackRanged")
+tracks/6/path = NodePath("Attack_alvo")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"mirar"
+}, {
 "args": [],
 "method": &"fire_bullet"
 }]
 }
 
 [sub_resource type="Animation" id="Animation_240e7"]
-resource_name = "Fire Right"
-length = 1.2
+resource_name = "Fire Right Cannon"
+length = 1.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -216,7 +221,7 @@ tracks/2/path = NodePath("Ataque:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1), Vector2i(8, 1), Vector2i(9, 1), Vector2i(10, 1)]
@@ -228,53 +233,56 @@ tracks/3/path = NodePath("Ataque:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.45, 0.5, 0.6, 0.7, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackRanged:position")
+tracks/4/path = NodePath("Ataque:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(95, 40)]
+"update": 1,
+"values": [false]
 }
-tracks/5/type = "method"
+tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackRanged")
+tracks/5/path = NodePath("Attack_alvo:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(91, -13)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Attack_alvo")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"mirar"
+}, {
 "args": [],
 "method": &"fire_bullet"
 }]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Ataque:flip_h")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_psch1"]
-resource_name = "Fire Up"
-length = 1.2
+resource_name = "Fire Up Cannon"
+length = 1.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -307,7 +315,7 @@ tracks/2/path = NodePath("Ataque:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0), Vector2i(10, 0)]
@@ -319,21 +327,24 @@ tracks/3/path = NodePath("Ataque:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.45, 0.5, 0.6, 0.7, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 5), Vector2(0, -5), Vector2(0, 5), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 5), Vector2(0, -5), Vector2(0, 5), Vector2(0, -5), Vector2(0, 5), Vector2(0, -5), Vector2(0, 0)]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackRanged")
+tracks/4/path = NodePath("Attack_alvo")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"mirar"
+}, {
 "args": [],
 "method": &"fire_bullet"
 }]
@@ -341,14 +352,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackRanged:position")
+tracks/5/path = NodePath("Attack_alvo:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(12, -44)]
+"values": [Vector2(0, -96)]
 }
 
 [sub_resource type="Animation" id="Animation_wc75f"]
@@ -404,50 +415,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackRanged:position")
+tracks/4/path = NodePath("Ataque:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(95, 40)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Ataque:flip_h")
+tracks/5/path = NodePath("Ataque:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [11]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Ataque:frame")
+tracks/6/path = NodePath("Movimento:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [11]
+"values": [12]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Movimento:frame")
+tracks/7/path = NodePath("Attack_alvo:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
+"update": 0,
+"values": [Vector2(0, -96)]
 }
 
 [sub_resource type="Animation" id="Animation_fpmxf"]
@@ -578,10 +589,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fpmxf"]
 _data = {
-&"Fire Down": SubResource("Animation_ihe2r"),
-&"Fire Left": SubResource("Animation_vi08e"),
-&"Fire Right": SubResource("Animation_240e7"),
-&"Fire Up": SubResource("Animation_psch1"),
+&"Fire Down Cannon": SubResource("Animation_ihe2r"),
+&"Fire Left Cannon": SubResource("Animation_vi08e"),
+&"Fire Right Cannon": SubResource("Animation_240e7"),
+&"Fire Up Cannon": SubResource("Animation_psch1"),
 &"RESET": SubResource("Animation_wc75f"),
 &"Walk Down": SubResource("Animation_fpmxf"),
 &"Walk Side": SubResource("Animation_y2mif"),
@@ -598,6 +609,7 @@ collision_mask = 59
 script = ExtResource("1_7ocfp")
 enemy_health = 100
 death_prefab = ExtResource("2_vi08e")
+alma_dropada = 2
 metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -623,12 +635,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_fpmxf")
 }
 
-[node name="AttackRanged" parent="." instance=ExtResource("4_psch1")]
-position = Vector2(95, 40)
-bullet_path = ExtResource("6_240e7")
-atk_cd = 1.5
-range = 300
-
 [node name="Aim_from_distance" parent="." instance=ExtResource("5_ihe2r")]
 speed = 1.0
 
@@ -640,3 +646,7 @@ shape = SubResource("RectangleShape2D_vi08e")
 
 [node name="damage_digit_marker" type="Marker2D" parent="."]
 position = Vector2(0, -35)
+
+[node name="Attack_alvo" parent="." instance=ExtResource("6_vi08e")]
+position = Vector2(0, -96)
+range = 400

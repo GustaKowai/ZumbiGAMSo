@@ -23,6 +23,7 @@ var player: Node2D
 @export var number_coins_max:int = 1
 @export var number_coins_min:int = 1
 @export var spread_area_radius:float = 10.0
+@export_enum("Comum", "Incomum", "Rara") var alma_dropada: int
 
 @onready var damage_digit_marker:Marker2D = $damage_digit_marker
 @onready var damage_digit_prefab:PackedScene = preload("res://Misc/damage_digit.tscn")
@@ -70,7 +71,12 @@ func die():
 	await drop_item()
 	await drop_coins()
 	GameManager.kills_count += 1
-	GameManager.alma_comum += 1
+	if alma_dropada == 1:
+		GameManager.alma_comum += 1
+	if alma_dropada == 2:
+		GameManager.alma_incomum += 1
+	if alma_dropada == 3:
+		GameManager.alma_rara += 1
 	GameManager.zombie_died.emit()
 	GameManager.infection_level -= GameManager.infection_power
 	queue_free()

@@ -562,6 +562,7 @@ drop_chances = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 2.0])
 coin = ExtResource("8_fs2me")
 coins_rate = 1.0
 number_coins_max = 5
+alma_dropada = 1
 metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
 
 [node name="FollowPlayer" parent="." instance=ExtResource("2_mri3q")]

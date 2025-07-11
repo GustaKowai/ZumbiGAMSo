@@ -1,16 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkmkgv53m6ja6"]
+[gd_scene load_steps=7 format=3 uid="uid://bkmkgv53m6ja6"]
 
 [ext_resource type="Texture2D" uid="uid://d2av10o6a4lir" path="res://Misc/Area_explosao.png" id="1_ml5oe"]
+[ext_resource type="Script" uid="uid://4k3o6oky5r8p" path="res://Enemies/Tanque/alvo_tanque.gd" id="2_d1uuh"]
+[ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="3_yur1n"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d1uuh"]
+a = Vector2(0, -35)
+b = Vector2(0, 39.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yur1n"]
+a = Vector2(35, 0)
+b = Vector2(-35, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1uuh"]
-radius = 12.0416
+radius = 143.605
 
 [node name="AlvoTanque" type="Sprite2D"]
 modulate = Color(12.154, 0, 0, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_ml5oe")
+script = ExtResource("2_d1uuh")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Alvo_area" type="Area2D" parent="." groups=["alvo"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alvo_area"]
+shape = SubResource("SegmentShape2D_d1uuh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Alvo_area"]
+shape = SubResource("SegmentShape2D_yur1n")
+
+[node name="Damage_area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_area"]
 shape = SubResource("CircleShape2D_d1uuh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -35.0
+offset_right = 2.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -35.0
+offset_top = -2.5
+offset_right = 36.0
+offset_bottom = 2.5
+
+[node name="SkullPixelResize" type="Sprite2D" parent="."]
+texture = ExtResource("3_yur1n")
+hframes = 7
+vframes = 2

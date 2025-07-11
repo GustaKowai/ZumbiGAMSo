@@ -37,6 +37,7 @@ version_control/autoload_on_startup=true
 EnemyHitBox=""
 enemies=""
 construcao=""
+alvo=""
 
 [gui]
 
