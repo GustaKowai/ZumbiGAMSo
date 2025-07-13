@@ -52,10 +52,10 @@ func fireGun():
 			player.sprite.flip_h = false
 			player.animation_player.play("Fire_up")
 	elif player.position_running == "side":
-		if player.sprite.flip_h:
+		if not player.sprite.flip_h:
 			animation_player.play("fire_side_left")
 			player.animation_player.play("Fire_side_left")
-		if not player.sprite.flip_h:
+		if player.sprite.flip_h:
 			animation_player.play("fire_side_right")	
 			player.animation_player.play("Fire_side_right")
 
@@ -73,11 +73,11 @@ func fire_bullet():
 				bullet.pos = marker.global_position
 				bullet.rota =-PI/2 + desvio_bala#-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 		elif player.position_running == "side":
-			if player.sprite.flip_h:
+			if not player.sprite.flip_h:
 				bullet.dir = PI + desvio_bala#-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 				bullet.pos = marker.global_position
 				bullet.rota = PI + desvio_bala#-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
-			if not player.sprite.flip_h:
+			if player.sprite.flip_h:
 				bullet.dir = desvio_bala#-PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
 				bullet.pos = marker.global_position
 				bullet.rota =desvio_bala# -PI/2 + bullet_range + i*((PI-2*bullet_range)/(bullet_quantidade+1))
