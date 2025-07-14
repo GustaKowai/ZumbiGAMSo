@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://e8k7xu3p8q1j"]
+
+[ext_resource type="Texture2D" uid="uid://b6tate20hp5ft" path="res://weapons/arma_slow/Arma_slow.png" id="1_bw4lo"]
+[ext_resource type="Script" uid="uid://ds4sg1u6dkbss" path="res://weapons/arma_slow/slow_gun_object.gd" id="2_855yh"]
+[ext_resource type="PackedScene" uid="uid://c7jm3bqlgrce1" path="res://weapons/arma_slow/slow_gun_weapon.tscn" id="3_855yh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff17n"]
+size = Vector2(180, 87)
+
+[node name="slow_gun_object" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_bw4lo")
+script = ExtResource("2_855yh")
+weapon = ExtResource("3_855yh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-16, 10.5)
+shape = SubResource("RectangleShape2D_ff17n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
