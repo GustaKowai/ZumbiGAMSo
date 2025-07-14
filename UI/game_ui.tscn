@@ -213,12 +213,12 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="AlmaZumbiIncomum" type="Sprite2D" parent="Ui_top"]
-position = Vector2(763, 96)
+position = Vector2(763, 103)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_wjxh5")
 
 [node name="AlmaZumbiRaro" type="Sprite2D" parent="Ui_top"]
-position = Vector2(737, 99)
+position = Vector2(737, 94)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_abi8r")
 
@@ -338,7 +338,7 @@ texture_under = ExtResource("6_ywmy4")
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="Vinheta" type="Sprite2D" parent="."]
-position = Vector2(722.855, 402.731)
+position = Vector2(723, 400)
 scale = Vector2(3.00199, 3.00199)
 texture = ExtResource("15_fifbr")
 
