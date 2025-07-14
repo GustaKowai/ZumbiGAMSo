@@ -15,7 +15,7 @@ func _ready():
 	global_position = pos
 	global_rotation = rota
 	raio_explosao *= raio_explosao_proportional
-	print(raio_explosao)
+	#print_debug(raio_explosao)
 	bullet_damage += GameManager.upgrade_bazuca[1]
 	var colisao:CollisionShape2D = area_de_dano.get_child(0)
 	colisao.shape.radius = raio_explosao
@@ -41,11 +41,11 @@ func _on_bullet_hit_box_area_entered(area):
 			explosion.position = position
 			var colisao:CollisionShape2D = area_de_dano.get_child(0)
 			#var raio_explosao = colisao.shape.radius
-			print(raio_explosao)
+			#print_debug(raio_explosao)
 			var modificador_escala = raio_explosao/144.0
 			explosion.scale = Vector2(modificador_escala,modificador_escala)
 			get_parent().add_child(explosion)
 		queue_free()
 	#if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		#print_debug("Acertei um predio")
 		#queue_free()

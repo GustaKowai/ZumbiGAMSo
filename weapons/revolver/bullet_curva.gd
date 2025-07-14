@@ -16,7 +16,7 @@ func _ready():
 	bullet_damage += GameManager.upgrade_revolver[1]
 	piercing += GameManager.upgrade_revolver[2]
 	curvatura = 0# randf_range(-1,1)
-	print(curvatura)
+	#print_debug(curvatura)
 	if GameManager.ammo % 2 == 0:
 		cima_baixo = -1
 		sprite.modulate = Color.BLUE
@@ -43,5 +43,5 @@ func _on_bullet_hit_box_area_entered(area):
 			queue_free()
 		piercing -= 1
 	if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		#print_debug("Acertei um predio")
 		queue_free()

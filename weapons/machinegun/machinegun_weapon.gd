@@ -14,7 +14,7 @@ var interval = 0
 var firing = false
 
 func _ready() -> void:
-	#print("Pronto!")
+	#print_debug("Pronto!")
 	#Isso aqui é para a arma não aparecer no sprite quando for pega, apenas quando for usada
 	sprite.visible = false
 	#Envia para o gamemanager e para o player o cd da arma
@@ -29,7 +29,7 @@ func _ready() -> void:
 	GameManager.ammo = ammo
 
 func on_weapon_collected(string): #Essa função serve para largar a arma
-	#print("larguei a arma")
+	#print_debug("larguei a arma")
 	queue_free()
 
 func _process(delta: float) -> void:
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
 		interval += velocidade_tiros
-		print(interval)
+		#print_debug(interval)
 		if interval>=intervalo_entre_tiros:
 			interval = 0
 			player.weapon_cooldown = weapon_cooldown

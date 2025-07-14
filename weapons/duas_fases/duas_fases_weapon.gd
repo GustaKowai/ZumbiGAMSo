@@ -17,7 +17,7 @@ var bullets_shooted:int = 0
 var bullet_accel:float = 0
 
 func _ready() -> void:
-	#print("Pronto!")
+	#print_debug("Pronto!")
 	#Isso aqui é para a arma não aparecer no sprite quando for pega, apenas quando for usada
 	sprite.visible = false
 	#Envia para o gamemanager e para o player o cd da arma
@@ -28,10 +28,10 @@ func _ready() -> void:
 	GameManager.ammo = ammo
 
 func on_weapon_collected(string): #Essa função serve para largar a arma
-	print_debug(string)
+	#print_debug(string)
 	if string == "res://weapons/duas_fases/Arma_fase_2.png" or string == "res://weapons/duas_fases/Arma_fase_1.png":
 		return
-	print_debug("larguei a arma de duas fases")
+	#print_debug("larguei a arma de duas fases")
 	queue_free()
 
 func _physics_process(delta: float) -> void:
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		bullet_accel += delta*2
 		if interval>=bullet_interval:
 			interval = 0
-			print_debug(bullet_interval)
+			#print_debug(bullet_interval)
 			player.weapon_cooldown = weapon_cooldown
 			player.is_shooting = true
 			fire_bullet(bullet_path)

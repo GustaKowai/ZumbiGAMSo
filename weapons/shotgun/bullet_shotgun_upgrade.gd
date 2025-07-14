@@ -60,7 +60,7 @@ func _on_bullet_hit_box_area_entered(area):
 		#enemy.follow.knockback(velocity,0.2)
 		#queue_free()
 	if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		#print_debug("Acertei um predio")
 		queue_free()
 
 func set_ghosts():

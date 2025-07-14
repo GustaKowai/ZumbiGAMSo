@@ -182,7 +182,7 @@ func machinegun_shoot():
 	bullet.pos = bullet_point.global_position
 	bullet.rota = Vector2.RIGHT.angle_to(local_target)
 	bullet.bullet_damage = 1
-	get_tree().get_root().get_node("Node2D").add_child(bullet)#Instancia a bala
+	get_tree().get_root().get_node("Main").add_child(bullet)#Instancia a bala
 
 func start_shooting():
 	modo_metralhadora = true

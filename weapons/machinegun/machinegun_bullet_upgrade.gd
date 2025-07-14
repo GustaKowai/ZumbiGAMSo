@@ -35,10 +35,10 @@ func _on_machinegun_bullet_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyHitBox"):
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
-		#print(bullet_damage)
+		#print_debug(bullet_damage)
 		queue_free()
 	if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		#print_debug("Acertei um predio")
 		queue_free()
 
 #func tentando_atirar():
@@ -46,7 +46,7 @@ func _on_machinegun_bullet_hit_box_area_entered(area: Area2D) -> void:
 #	menor_distancia = 0
 #	var bala_position = global_position
 #	for area in areas:
-#		print(area)
+#		print_debug(area)
 #		if area.is_in_group("EnemyHitBox"): #Detecta se alguma área detectada é um inimigo
 #			var zumbi_position = area.global_position
 #			var distancia_bala_zumbi = bala_position.distance_to(zumbi_position)
@@ -55,7 +55,7 @@ func _on_machinegun_bullet_hit_box_area_entered(area: Area2D) -> void:
 #				position_closest_zumbi = area.global_position
 #				direcao_zumbi = -(position_closest_zumbi - bala_position)
 #				velocity = direcao_zumbi * speed
-#				print("mirei")
+#				print_debug("mirei")
 #	velocity = Vector2(speed,0).rotated(dir)
 
 func achando_zumbi(area:Area2D):

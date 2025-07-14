@@ -73,7 +73,7 @@ func get_random_enemy():
 
 func check_spawn_rates():
 	var current_time = snappedi(GameManager.time_elapsed,1)
-	#print_debug(current_time)
+	#print_debug(current_time,controle_tempo)
 	if current_time == controle_tempo: return
 	controle_tempo = current_time
 	if current_time%tempo_buff_spawn_policial_seg == 0:
@@ -85,3 +85,4 @@ func check_spawn_rates():
 	if current_time%tempo_buff_spawn_tanque_seg == 0:
 		spawn_chances[3] += buff_spawn_tanque
 		if spawn_chances[3] > 0.5: spawn_chances[3] = 0.5
+	print_debug(spawn_chances)

@@ -2826,7 +2826,7 @@ sources/0 = SubResource("TileSetAtlasSource_ykbud")
 sources/2 = SubResource("TileSetAtlasSource_p4rm6")
 sources/3 = SubResource("TileSetAtlasSource_7t6gu")
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [-477.0]

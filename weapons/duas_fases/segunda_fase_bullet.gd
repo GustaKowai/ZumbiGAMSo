@@ -25,5 +25,5 @@ func _on_segunda_fase_bullet_hit_box_area_entered(area: Area2D) -> void:
 		enemy.damage(bullet_damage)
 		#queue_free()
 	if area.is_in_group("construcao"):
-		print("Acertei um predio")
+		#print_debug("Acertei um predio")
 		queue_free()

@@ -29,5 +29,5 @@ func _on_bullet_hit_box_area_entered(area):
 			queue_free()
 		piercing -= 1
 	if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		#print_debug("Acertei um predio")
 		queue_free()
