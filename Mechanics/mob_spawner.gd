@@ -8,7 +8,15 @@ extends Node2D
 @export var enemies:Array[PackedScene] #Array de criaturas possíveis de serem invocadas
 @export var spawn_chances: Array[float]
 @onready var animation_player = $AnimationPlayer
+@export_category("Buffs de spawn")
+@export var buff_spawn_policial:float
+@export var tempo_buff_spawn_policial_seg:int
+@export var buff_spawn_piao:float
+@export var tempo_buff_spawn_piao_seg:int
+@export var buff_spawn_tanque:float
+@export var tempo_buff_spawn_tanque_seg:int
 
+var controle_tempo:int = 0
 #buff por spawn
 var numero_de_ativacoes:int = 0
 
@@ -20,6 +28,7 @@ func _ready():
 
 
 func _process(delta):
+	check_spawn_rates()
 	
 	#Se quiser que apenas os spawners próximos ao player invoquem monstros:
 	if position.distance_to(GameManager.player_position) > 1500:return
@@ -61,3 +70,18 @@ func get_random_enemy():
 			return choosed_enemy
 		enemy_chooser += spawn_chance
 	return enemies[0] 
+
+func check_spawn_rates():
+	var current_time = snappedi(GameManager.time_elapsed,1)
+	#print_debug(current_time)
+	if current_time == controle_tempo: return
+	controle_tempo = current_time
+	if current_time%tempo_buff_spawn_policial_seg == 0:
+		spawn_chances[1] += buff_spawn_policial
+		if spawn_chances[1] > 1: spawn_chances[1] = 1
+	if current_time%tempo_buff_spawn_piao_seg == 0:
+		spawn_chances[2] += buff_spawn_piao
+		if spawn_chances[2] > 1: spawn_chances[2] = 1
+	if current_time%tempo_buff_spawn_tanque_seg == 0:
+		spawn_chances[3] += buff_spawn_tanque
+		if spawn_chances[3] > 0.5: spawn_chances[3] = 0.5

@@ -77,7 +77,7 @@ func die():
 		GameManager.alma_incomum += 1
 	if alma_dropada == 2:
 		GameManager.alma_rara += 1
-	print_debug(alma_dropada)
+	#print_debug(alma_dropada)
 	GameManager.zombie_died.emit()
 	GameManager.infection_level -= GameManager.infection_power
 	queue_free()

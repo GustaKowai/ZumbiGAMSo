@@ -3805,7 +3805,6 @@ position = Vector2(213, -27)
 [node name="Pause UI" parent="." instance=ExtResource("9_bf245")]
 
 [node name="MobSapwners" type="Node2D" parent="."]
-process_mode = 4
 y_sort_enabled = true
 
 [node name="MobSpawner2" parent="MobSapwners" instance=ExtResource("6_qxf64")]
@@ -3813,6 +3812,9 @@ position = Vector2(2674, 837)
 
 [node name="MobSpawner" parent="MobSapwners" instance=ExtResource("6_qxf64")]
 position = Vector2(389, -1573)
+
+[node name="MobSpawner3" parent="MobSapwners" instance=ExtResource("6_qxf64")]
+position = Vector2(-894, -1080)
 
 [node name="Bazuca1" parent="." instance=ExtResource("17_4gkho")]
 position = Vector2(-789, -1415)
@@ -3899,6 +3901,3 @@ position = Vector2(-363, -1446)
 
 [node name="ZumbiTanque" parent="." instance=ExtResource("29_pcl1a")]
 position = Vector2(369, -1020)
-
-[node name="ZumbiTanque2" parent="." instance=ExtResource("29_pcl1a")]
-position = Vector2(-943, -946)
