@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnqpd3svaysmm"]
+[gd_scene load_steps=5 format=3 uid="uid://cnqpd3svaysmm"]
 
 [ext_resource type="Script" uid="uid://n73fh02vswdq" path="res://items/slow_item/slow_object.gd" id="1_80qee"]
 [ext_resource type="Texture2D" uid="uid://deq7bd58yxkm1" path="res://items/slow_item/Area_cola.png" id="2_80qee"]
+[ext_resource type="PackedScene" uid="uid://04kcj0mm8hkt" path="res://Misc/slow_effect.tscn" id="2_ym6ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80qee"]
 size = Vector2(224.667, 233.667)
@@ -9,6 +10,7 @@ size = Vector2(224.667, 233.667)
 [node name="SlowObject" type="Node2D"]
 z_index = -1
 script = ExtResource("1_80qee")
+slow_effect = ExtResource("2_ym6ts")
 
 [node name="ColaObject" type="Sprite2D" parent="."]
 position = Vector2(-6, -105.667)

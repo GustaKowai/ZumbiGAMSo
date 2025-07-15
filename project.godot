@@ -39,6 +39,7 @@ EnemyHitBox=""
 enemies=""
 construcao=""
 alvo=""
+tanque=""
 
 [gui]
 

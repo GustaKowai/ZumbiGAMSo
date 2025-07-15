@@ -6,14 +6,16 @@ extends StaticBody2D
 @export var raio_explosao:float = 144.0
 @export var explosao:PackedScene
 @onready var area_da_explosao:Area2D = $area_de_dano
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 func _ready() -> void:
 	var colisao:CollisionShape2D = area_da_explosao.get_child(0)
 	colisao.shape.radius = raio_explosao
-
+	texture_progress_bar.max_value = tempo_para_explodir
 
 func _process(delta: float) -> void:
 	tempo_para_explodir -=delta
+	texture_progress_bar.value = texture_progress_bar.max_value-tempo_para_explodir
 	if tempo_para_explodir <=0:
 		explode()
 		despawn()

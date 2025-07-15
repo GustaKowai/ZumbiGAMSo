@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://b7q4nvqwm5s8v"]
+[gd_scene load_steps=54 format=4 uid="uid://b7q4nvqwm5s8v"]
 
 [ext_resource type="Texture2D" uid="uid://d4io3jv6q1qfc" path="res://WhatsApp Image 2025-06-26 at 17.44.02.jpeg" id="1_3swv8"]
 [ext_resource type="Texture2D" uid="uid://cidac6n537qn6" path="res://mapa/imagens/Tile_set_calcada-rua.png" id="1_6qxri"]
@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="28_c2fho"]
 [ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="29_pcl1a"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="30_jcoem"]
+[ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="31_4wm7y"]
+[ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="32_p11ld"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -3906,3 +3908,9 @@ position = Vector2(369, -1020)
 
 [node name="Zumbi_policial" parent="." instance=ExtResource("30_jcoem")]
 position = Vector2(-1070, -824)
+
+[node name="SlowItem" parent="." instance=ExtResource("31_4wm7y")]
+position = Vector2(-1033, -1200)
+
+[node name="slow_gun_object" parent="." instance=ExtResource("32_p11ld")]
+position = Vector2(-323, -1221)

@@ -3,6 +3,7 @@ extends Node2D
 @onready var area_cola:Area2D = $AreaCola
 @export var duration:float = 15.0
 @export var glue_power:float = 5
+@export var slow_effect:PackedScene
 
 func _ready() -> void:
 	var bodys:Array[Node2D] = area_cola.get_overlapping_bodies() #Detecta todas as áreas que estão dentro da área de dano do inimigo
@@ -21,13 +22,18 @@ func despawn():
 	queue_free()
 
 func _on_area_cola_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and not body.is_in_group("tanque"):
 		body.modulate = Color.LIGHT_GOLDENROD
 		var zombie_movement = body.get_node("FollowPlayer")
 		zombie_movement.speed *= 1.0/glue_power
+		var slow = slow_effect.instantiate()
+		body.add_child(slow)
 
 func _on_area_cola_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and not body.is_in_group("tanque"):
 		body.modulate = Color.WHITE
 		var zombie_movement = body.get_node("FollowPlayer")
 		zombie_movement.speed *= glue_power
+		if body.get_node("slow_effect"):
+			var efeito = body.get_node("slow_effect")
+			efeito.queue_free()
