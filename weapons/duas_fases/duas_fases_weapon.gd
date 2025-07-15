@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var bullet_path_1:PackedScene = preload("res://weapons/duas_fases/primeira_fase_bullet.tscn")
 @onready var bullet_path_2:PackedScene = preload("res://weapons/duas_fases/segunda_fase_bullet.tscn")
+var bullet_path:PackedScene
 @onready var player:Jogador = get_parent()
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var marker:Marker2D = $Marker2D
@@ -47,9 +48,9 @@ func _physics_process(delta: float) -> void:
 		bullet_accel = 0
 		bullet_spreed = PI/10
 		fireGun()
-		fire_bullet(bullet_path_1)
+		bullet_path = bullet_path_1
+		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
-		var bullet_path:PackedScene
 		if mode == 1:
 			bullet_interval = 15 - bullet_accel
 			firing_mode1()
@@ -64,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			#print_debug(bullet_interval)
 			player.weapon_cooldown = weapon_cooldown*10000
 			player.is_shooting = true
-			fire_bullet(bullet_path)
+			fire_bullet()
 			bullets_shooted += 1
 			charge_animation.speed_scale = 1+bullets_shooted/15
 			#print_debug(bullets_shooted)
@@ -130,7 +131,7 @@ func firing_mode1():
 			animation_player.play("firing_side_right")	
 			player.animation_player.play("firing right")
 
-func fire_bullet(bullet_path):
+func fire_bullet():
 	#Determina a direção do tiro e cria a bala
 	var bullet = bullet_path.instantiate()
 	var bullet_deviation = randf_range(-bullet_spreed,bullet_spreed)

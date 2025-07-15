@@ -50,6 +50,20 @@ tracks/1/keys = {
 "method": &"set_firing"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [null],
+"method": &"fire_bullet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1iur2"]
 resource_name = "fire_side_left"
@@ -78,6 +92,20 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"set_firing"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [null],
+"method": &"fire_bullet"
 }]
 }
 
@@ -281,9 +309,10 @@ libraries = {
 position = Vector2(51, -46)
 
 [node name="Charge_animation" type="AnimatedSprite2D" parent="Marker2D"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_lv7im")
 autoplay = "default"
-frame_progress = 0.85564
+frame_progress = 0.929906
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -27.0

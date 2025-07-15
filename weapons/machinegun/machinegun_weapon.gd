@@ -35,7 +35,6 @@ func on_weapon_collected(string): #Essa função serve para largar a arma
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("FireGun"):
 		fireGun()
-		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
 		interval += velocidade_tiros
 		firing_animation()
