@@ -38,14 +38,16 @@ func _process(delta: float) -> void:
 		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
 		interval += velocidade_tiros
+		firing_animation()
 		#print_debug(interval)
 		if interval>=intervalo_entre_tiros:
 			interval = 0
-			player.weapon_cooldown = weapon_cooldown
+			player.weapon_cooldown = weapon_cooldown*1000
 			player.is_shooting = true
 			fire_bullet()
 		
 	if Input.is_action_just_released("FireGun"):
+		player.weapon_cooldown = weapon_cooldown
 		firing = false
 
 func fireGun():
@@ -56,7 +58,7 @@ func fireGun():
 		return
 	#Define como atacando:
 	player.is_shooting = true
-	player.weapon_cooldown = weapon_cooldown
+	player.weapon_cooldown = weapon_cooldown*1000
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
 			animation_player.play("fire_down")
@@ -73,6 +75,27 @@ func fireGun():
 		if player.sprite.flip_h:
 			animation_player.play("fire_side_right")	
 			player.animation_player.play("Fire_side_right")
+
+func firing_animation():
+	if ammo <= 0:
+		return
+	
+	#Determina a qual direção vai atacar e qual animação vai usar:
+	if player.position_running == "down":
+			animation_player.play("firing_down")
+			player.sprite.flip_h = false
+			player.animation_player.play("firing down")
+	elif player.position_running == "up":
+			animation_player.play("firing_up")
+			player.sprite.flip_h = false
+			player.animation_player.play("firing up")
+	elif player.position_running == "side":
+		if not player.sprite.flip_h:
+			animation_player.play("firing_side_left")
+			player.animation_player.play("firing left")
+		if player.sprite.flip_h:
+			animation_player.play("firing_side_right")	
+			player.animation_player.play("firing right")
 
 func fire_bullet():
 	#Determina a direção do tiro e cria a bala
@@ -99,6 +122,7 @@ func fire_bullet():
 	ammo -= 1
 	GameManager.ammo = ammo
 	if ammo == 0:
+		player.weapon_cooldown = weapon_cooldown
 		firing = false
 		queue_free() #Solta a arma se ficar sem munição
 

@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		var bullet_path:PackedScene
 		if mode == 1:
 			bullet_interval = 15 - bullet_accel
+			firing_mode1()
 			bullet_path = bullet_path_1
 		if mode == 2:
 			bullet_interval = 15
@@ -61,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		if interval>=bullet_interval:
 			interval = 0
 			#print_debug(bullet_interval)
-			player.weapon_cooldown = weapon_cooldown
+			player.weapon_cooldown = weapon_cooldown*10000
 			player.is_shooting = true
 			fire_bullet(bullet_path)
 			bullets_shooted += 1
@@ -75,6 +76,7 @@ func _physics_process(delta: float) -> void:
 				bullet_spreed = PI/5
 		
 	if Input.is_action_just_released("FireGun"):
+		player.weapon_cooldown = weapon_cooldown
 		charge_animation.visible = false
 		firing = false
 		bullets_shooted = 0
@@ -88,7 +90,7 @@ func fireGun():
 		return
 	#Define como atacando:
 	player.is_shooting = true
-	player.weapon_cooldown = weapon_cooldown
+	player.weapon_cooldown = weapon_cooldown*10000
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
 			animation_player.play("fire_down")
@@ -105,6 +107,28 @@ func fireGun():
 		if player.sprite.flip_h:
 			animation_player.play("fire_side_right")	
 			player.animation_player.play("Fire_side_right")
+	
+
+func firing_mode1():
+	if ammo <= 0:
+		return
+	
+	#Determina a qual direção vai atacar e qual animação vai usar:
+	if player.position_running == "down":
+			animation_player.play("firing_down")
+			player.sprite.flip_h = false
+			player.animation_player.play("firing down")
+	elif player.position_running == "up":
+			animation_player.play("firing_up")
+			player.sprite.flip_h = false
+			player.animation_player.play("firing up")
+	elif player.position_running == "side":
+		if not player.sprite.flip_h:
+			animation_player.play("firing_side_left")
+			player.animation_player.play("firing left")
+		if player.sprite.flip_h:
+			animation_player.play("firing_side_right")	
+			player.animation_player.play("firing right")
 
 func fire_bullet(bullet_path):
 	#Determina a direção do tiro e cria a bala
@@ -131,6 +155,7 @@ func fire_bullet(bullet_path):
 	ammo -= 1
 	GameManager.ammo = ammo
 	if ammo == 0:
+		player.weapon_cooldown = weapon_cooldown
 		firing = false
 		queue_free() #Solta a arma se ficar sem munição
 
