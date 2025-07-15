@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://mx483cl0emlm"]
 
 [ext_resource type="Script" uid="uid://c5w0g78b7lvqg" path="res://weapons/machinegun/machinegun_bullet_upgrade.gd" id="1_6444i"]
-[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_oswky"]
+[ext_resource type="Texture2D" uid="uid://cpvrgvhj0eno4" path="res://weapons/machinegun/machinegun_bullet.png" id="2_6444i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56lyd"]
 size = Vector2(3, 8)
@@ -18,10 +18,8 @@ collision_mask = 2
 script = ExtResource("1_6444i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_oswky")
-hframes = 5
-vframes = 5
-frame = 1
+rotation = 0.785398
+texture = ExtResource("2_6444i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6.5, 0)

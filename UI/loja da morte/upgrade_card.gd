@@ -296,7 +296,7 @@ func set_card_aumenta_magnum(upgrade_magnum):
 ###-----Bazuca-----###		
 func set_card_aumenta_bazuca(upgrade_bazuca):
 	upgrade_image_path = "res://weapons/bazuca/bazuca.png"
-	sub_prop = randi_range(0,1)
+	sub_prop = randi_range(0,2)
 	if sub_prop == 0:
 		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição da Bazuca"
@@ -311,6 +311,16 @@ func set_card_aumenta_bazuca(upgrade_bazuca):
 		upgrade_effect  = "Aumenta o dano da Bazuca em " + str(buff)
 		basic_cost  = (20+2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
+	if sub_prop == 2:
+		if GameManager.upgrade_bazuca[2] == 1:
+			print_debug("Tentou")
+			error = true
+		upgrade_name = "Tiro que divide"
+		buff = 1
+		upgrade_effect = "Após viajar por um tempo a bala se divide em duas, cada uma com uma explosão com 70% do tamanho e do dano da explosão original"
+		basic_cost = 900
+		calcula_custo_almas(basic_cost)
+		card_background_path = background_unico
 #func set_card_aumenta_algo(algo_up):
 	#TODO
 #func set_card_aumenta_algo(algo_up):
