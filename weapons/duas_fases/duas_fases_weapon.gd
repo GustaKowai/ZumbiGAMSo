@@ -6,6 +6,8 @@ extends Node2D
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var marker:Marker2D = $Marker2D
 @onready var sprite:Sprite2D = $Sprite2D
+@onready var charge_bar:TextureProgressBar = $TextureProgressBar
+@onready var charge_animation:AnimatedSprite2D = $Marker2D/Charge_animation
 @export var weapon_cooldown:float = 0.1
 @export var ammo:int = 50
 @export var bullet_spreed:float = PI/10
@@ -13,7 +15,10 @@ var interval:float = 0
 var firing:bool = false
 var mode:int = 1
 var bullet_interval:float = 10
-var bullets_shooted:int = 0
+var bullets_shooted:int:
+	set(new_value):
+		bullets_shooted = new_value
+		charge_bar.value = bullets_shooted
 var bullet_accel:float = 0
 
 func _ready() -> void:
@@ -36,6 +41,7 @@ func on_weapon_collected(string): #Essa função serve para largar a arma
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("FireGun"):
+		charge_animation.visible = true
 		mode = 1
 		bullets_shooted = 0
 		bullet_accel = 0
@@ -59,14 +65,19 @@ func _physics_process(delta: float) -> void:
 			player.is_shooting = true
 			fire_bullet(bullet_path)
 			bullets_shooted += 1
+			charge_animation.speed_scale = 1+bullets_shooted/15
 			#print_debug(bullets_shooted)
-			if bullets_shooted > 30:
+			if bullets_shooted >= 20:
+				charge_animation.visible = false
+				bullets_shooted = 20
 				GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_2.png")
 				mode = 2
 				bullet_spreed = PI/5
 		
 	if Input.is_action_just_released("FireGun"):
+		charge_animation.visible = false
 		firing = false
+		bullets_shooted = 0
 		GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_1.png")
 
 func fireGun():

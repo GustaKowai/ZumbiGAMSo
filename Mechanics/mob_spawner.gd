@@ -85,4 +85,4 @@ func check_spawn_rates():
 	if current_time%tempo_buff_spawn_tanque_seg == 0:
 		spawn_chances[3] += buff_spawn_tanque
 		if spawn_chances[3] > 0.5: spawn_chances[3] = 0.5
-	print_debug(spawn_chances)
+	#print_debug(spawn_chances)

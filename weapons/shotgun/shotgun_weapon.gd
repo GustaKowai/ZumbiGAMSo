@@ -5,6 +5,8 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
 @onready var sprite = $Sprite2D
+@onready var sound = $Shotgun
+
 @export var weapon_cooldown = 0.4
 @export var ammo = 3
 @export var bullet_range = PI/2 #
@@ -42,6 +44,7 @@ func fireGun():
 	#Define como atacando:
 	player.is_shooting = true
 	player.weapon_cooldown = weapon_cooldown
+	sound.play()
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
 			animation_player.play("fire_down")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://di3wi6hwjnyt0"]
+[gd_scene load_steps=10 format=3 uid="uid://di3wi6hwjnyt0"]
 
 [ext_resource type="Script" uid="uid://cm5jfydxsy824" path="res://weapons/shotgun/shotgun_weapon.gd" id="1_ukkib"]
 [ext_resource type="Texture2D" uid="uid://blg47g2847ltg" path="res://weapons/shotgun/shotgun_icon.png" id="2_pu67e"]
+[ext_resource type="AudioStream" uid="uid://lx0841smoua1" path="res://weapons/shotgun/shotgun.mp3" id="3_1feo2"]
 
 [sub_resource type="Animation" id="Animation_rmlsm"]
 length = 0.001
@@ -166,3 +167,7 @@ texture = ExtResource("2_pu67e")
 libraries = {
 &"": SubResource("AnimationLibrary_myk8d")
 }
+
+[node name="Shotgun" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-10, 6)
+stream = ExtResource("3_1feo2")

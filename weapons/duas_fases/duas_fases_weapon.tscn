@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnqpqsfpq8wt1"]
+[gd_scene load_steps=17 format=3 uid="uid://bnqpqsfpq8wt1"]
 
 [ext_resource type="Script" uid="uid://dan16vcap36ve" path="res://weapons/duas_fases/duas_fases_weapon.gd" id="1_i6d35"]
+[ext_resource type="Texture2D" uid="uid://dcxog6se23cio" path="res://weapons/duas_fases/Barra_vazia_carga.png" id="2_breao"]
+[ext_resource type="Texture2D" uid="uid://cjea8ew4ye116" path="res://weapons/duas_fases/Charge_up_effect-Sheet.png" id="2_y2oae"]
+[ext_resource type="Texture2D" uid="uid://2cf5l34ekcp8" path="res://weapons/duas_fases/Barra_cheia_carga.png" id="3_y2oae"]
 
 [sub_resource type="Animation" id="Animation_baq8j"]
 length = 0.001
@@ -147,6 +150,49 @@ _data = {
 &"fire_up": SubResource("Animation_nypq0")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_17mo4"]
+atlas = ExtResource("2_y2oae")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t3vd"]
+atlas = ExtResource("2_y2oae")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bcku"]
+atlas = ExtResource("2_y2oae")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v204u"]
+atlas = ExtResource("2_y2oae")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7ree"]
+atlas = ExtResource("2_y2oae")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lv7im"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17mo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t3vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bcku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v204u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7ree")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="duas_fases" type="Node2D"]
 script = ExtResource("1_i6d35")
 
@@ -159,3 +205,18 @@ libraries = {
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(51, -46)
+
+[node name="Charge_animation" type="AnimatedSprite2D" parent="Marker2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_lv7im")
+autoplay = "default"
+frame_progress = 0.931714
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -27.0
+offset_top = -100.0
+offset_right = 27.0
+offset_bottom = -60.0
+max_value = 20.0
+texture_under = ExtResource("2_breao")
+texture_progress = ExtResource("3_y2oae")
