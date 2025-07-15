@@ -46,20 +46,20 @@ func _physics_process(delta: float) -> void:
 		mode = 1
 		bullets_shooted = 0
 		bullet_accel = 0
-		bullet_spreed = PI/10
+		bullet_spreed = PI/12
 		fireGun()
 		bullet_path = bullet_path_1
 		fire_bullet()
 	if Input.is_action_pressed("FireGun") and firing == true:
 		if mode == 1:
-			bullet_interval = 15 - bullet_accel
+			bullet_interval = 10 - bullet_accel
 			firing_mode1()
 			bullet_path = bullet_path_1
 		if mode == 2:
 			bullet_interval = 15
 			bullet_path = bullet_path_2
 		interval += 1
-		bullet_accel += delta*2
+		bullet_accel += delta*4
 		if interval>=bullet_interval:
 			interval = 0
 			#print_debug(bullet_interval)
@@ -69,12 +69,12 @@ func _physics_process(delta: float) -> void:
 			bullets_shooted += 1
 			charge_animation.speed_scale = 1+bullets_shooted/15
 			#print_debug(bullets_shooted)
-			if bullets_shooted >= 20:
+			if bullets_shooted >= 30 and mode == 1:
 				charge_animation.visible = false
 				bullets_shooted = 20
 				GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_2.png")
 				mode = 2
-				bullet_spreed = PI/5
+				bullet_spreed = PI/24
 		
 	if Input.is_action_just_released("FireGun"):
 		player.weapon_cooldown = weapon_cooldown

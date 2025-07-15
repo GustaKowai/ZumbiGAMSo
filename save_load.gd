@@ -42,7 +42,6 @@ func load_data():
 		GameManager.upgrade_shotgun = config.get_value(type, "upgrade_shotgun")
 		GameManager.upgrade_magnum = config.get_value(type, "upgrade_magnum")
 		GameManager.upgrade_bazuca = config.get_value(type, "upgrade_bazuca")
-
 func save_arcade():
 	var config = ConfigFile.new()
 	config.set_value("recorde","Zumbi_mortos",GameManager.pontuacao_mortes)

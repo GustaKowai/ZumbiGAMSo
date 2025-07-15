@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://game_manager.gd"
 SaveLoad="*res://save_load.gd"
+AudioController="*res://audio/audio_controller.tscn"
 
 [display]
 

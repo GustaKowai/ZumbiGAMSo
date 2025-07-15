@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var bullet_path = preload("res://weapons/machinegun/machinegun_bullet_upgrade.tscn")
+@onready var bullet_path = preload("res://weapons/machinegun/machine_gun_bullet.tscn")
 @onready var player = get_parent()
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
@@ -25,6 +25,8 @@ func _ready() -> void:
 	bullet_spreed *= GameManager.upgrade_metralhadora[2]*1.0/100
 	ammo += GameManager.upgrade_metralhadora[0]
 	velocidade_tiros *= GameManager.upgrade_metralhadora[3]*1.0/100
+	if GameManager.upgrade_metralhadora[4] == 1:
+		bullet_path = preload("res://weapons/machinegun/machinegun_bullet_upgrade.tscn")
 	#Envia para o GameManager a munição inicial da arma:
 	GameManager.ammo = ammo
 

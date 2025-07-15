@@ -36,6 +36,7 @@ func fireGun():
 	#Define como atacando:
 	player.is_shooting = true
 	player.weapon_cooldown = weapon_cooldown
+	AudioController.play_shoot()
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
 			animation_player.play("fire_down")

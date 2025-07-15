@@ -45,7 +45,7 @@ var stamina_max_up:int = 0
 var stamina_rege_up:int = 0
 var sword_damage_up:int = 0
 var upgrade_revolver:Array[int] = [0,0,0,0] #[munição,dano,perfuração,bala curva]
-var upgrade_metralhadora:Array[int] = [0,0,100,100] #[munição,dano,spreed,velocidade de tiro]
+var upgrade_metralhadora:Array[int] = [0,0,100,100,0] #[munição,dano,spreed,velocidade de tiro,tiro segue]
 var upgrade_shotgun:Array[int] = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços,bala bumerangue]
 var upgrade_magnum:Array[int] = [0,0] #[munição,dano]
 var upgrade_bazuca:Array[int] = [0,0,0] #[munição,dano,Divide a bala]
@@ -87,7 +87,7 @@ func reset_game_status():
 	GameManager.stamina_rege_up = 0
 	GameManager.sword_damage_up = 0
 	GameManager.upgrade_revolver = [0,0,0,0] #[munição,dano,perfuração,bala curva]
-	GameManager.upgrade_metralhadora = [0,0,100,100] #[munição,dano,spreed,velocidade de tiro]
+	GameManager.upgrade_metralhadora = [0,0,100,100,0] #[munição,dano,spreed,velocidade de tiro,segue alvo]
 	GameManager.upgrade_shotgun = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
 	GameManager.upgrade_magnum = [0,0] #[munição,dano]
 	GameManager.upgrade_bazuca = [0,0,0] #[munição,dano,Upgrade da bala dividir]

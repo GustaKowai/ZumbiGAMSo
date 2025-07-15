@@ -178,7 +178,7 @@ func set_card_aumenta_revolver(upgrade_revolver):
 ###-----Metralhadora-----###
 func set_card_aumenta_metralhadora(upgrade_metralhadora):
 	upgrade_image_path = "res://weapons/machinegun/machinegun.png"
-	sub_prop = randi_range(0,3)
+	sub_prop = randi_range(0,4)
 	if sub_prop == 0:
 		upgrade_type_image_path = more_ammo
 		upgrade_name = "Aumento de munição da metralhadora"
@@ -211,7 +211,16 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		upgrade_effect = "Aumenta a velocidade de tiro em " +str(buff)+"%"
 		basic_cost = buff*GameManager.upgrade_metralhadora[sub_prop]/10
 		calcula_custo_almas(basic_cost)
-
+	if sub_prop == 4:
+		if GameManager.upgrade_metralhadora[4] == 1:
+			print_debug("Tentou")
+			error = true
+		upgrade_name = "Balas que seguem"
+		buff = 1
+		upgrade_effect = "Faz as balas da metralhadora seguirem o alvo mais próximo"
+		basic_cost = 900
+		calcula_custo_almas(basic_cost)
+		card_background_path = background_unico
 ###-----Shotgun-----###		
 func set_card_aumenta_shotgun(upgrade_shotgun):
 	upgrade_image_path = "res://weapons/shotgun/shotgun_icon.png"
