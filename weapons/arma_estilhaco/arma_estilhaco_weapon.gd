@@ -1,12 +1,12 @@
 extends Node2D
 
-@onready var bullet_path = preload("res://weapons/bazuca/bullet_bazuca_se_divide.tscn")
+@onready var bullet_path = preload("res://weapons/arma_estilhaco/arma_estilhaco_bullet.tscn")
 @onready var player = get_parent()
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
 @onready var sprite = $Sprite2D
 @export var weapon_cooldown = 0.9
-@export var ammo = 2
+@export var ammo = 10
 
 func _ready() -> void:
 	#print_debug("Pronto!")
@@ -18,8 +18,6 @@ func _ready() -> void:
 	GameManager.weapon_collected.connect(on_weapon_collected)
 	#Envia para o GameManager a munição inicial da arma:
 	ammo += GameManager.upgrade_bazuca[0]
-	if GameManager.upgrade_bazuca[2] == 1:
-		bullet_path = preload("res://weapons/bazuca/bullet_bazuca_se_divide.tscn")
 	GameManager.ammo = ammo
 
 func on_weapon_collected(string): #Essa função serve para largar a arma

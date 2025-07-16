@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg5dhq82reee8"]
+
+[ext_resource type="Texture2D" uid="uid://ca76afdhlg4uy" path="res://weapons/arma_estilhaco/Arma_de_estilhaco.png" id="1_3dxlm"]
+[ext_resource type="Script" uid="uid://bdipw33qmtx2h" path="res://weapons/arma_estilhaco/arma_estilhaco_object.gd" id="1_iotfw"]
+[ext_resource type="PackedScene" uid="uid://dmc33cre01yu0" path="res://weapons/arma_estilhaco/arma_estilhaco_weapon.tscn" id="3_ocdt5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohh0h"]
+radius = 52.5
+height = 185.0
+
+[node name="arma_estilhaco_object" type="Sprite2D"]
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("1_3dxlm")
+script = ExtResource("1_iotfw")
+weapon = ExtResource("3_ocdt5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-10, -2.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ohh0h")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
