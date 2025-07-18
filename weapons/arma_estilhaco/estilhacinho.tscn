@@ -11,7 +11,7 @@ radius = 5.65685
 height = 16.9706
 
 [node name="estilhacinho" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_ktl24")
 

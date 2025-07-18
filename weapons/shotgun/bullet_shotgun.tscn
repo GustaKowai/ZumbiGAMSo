@@ -11,7 +11,7 @@ radius = 2.23607
 radius = 6.0
 
 [node name="bullet_shotgun" type="CharacterBody2D"]
-collision_layer = 64
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rs5io")
 bullet_hit_scene = ExtResource("2_5cu7k")

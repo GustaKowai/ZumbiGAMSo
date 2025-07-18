@@ -15,7 +15,7 @@ size = Vector2(71, 15)
 radius = 97.0
 
 [node name="bullet_bazuca_se_divide" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_o8br6")
 explosao = ExtResource("2_cd41s")
