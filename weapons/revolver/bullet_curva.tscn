@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt26glj0gkd0l"]
+[gd_scene load_steps=6 format=3 uid="uid://bt26glj0gkd0l"]
 
 [ext_resource type="Script" uid="uid://bvff73j0tgpba" path="res://weapons/revolver/bullet_curva.gd" id="1_mvlhd"]
 [ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_ru4id"]
+[ext_resource type="PackedScene" uid="uid://iqfr03all6v7" path="res://Misc/bullet_hit.tscn" id="2_x4tve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ql5"]
 size = Vector2(4, 8)
@@ -13,6 +14,7 @@ size = Vector2(19, 10)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_mvlhd")
+bullet_hit_scene = ExtResource("2_x4tve")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true

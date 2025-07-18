@@ -12,7 +12,7 @@ size = Vector2(19, 10)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_dsbx1")
 bullet_hit_scene = ExtResource("2_yo754")
 

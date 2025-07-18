@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dexysvve172hx"]
+[gd_scene load_steps=9 format=3 uid="uid://dexysvve172hx"]
 
 [ext_resource type="Script" uid="uid://crt3ud0lkj5y1" path="res://weapons/magnum/magnum_weapon.gd" id="1_5lry1"]
+[ext_resource type="PackedScene" uid="uid://bfy8qv44twiav" path="res://Misc/fire_animation.tscn" id="2_pxuqi"]
 
 [sub_resource type="Animation" id="Animation_5lry1"]
 resource_name = "RESET"
@@ -147,6 +148,7 @@ _data = {
 
 [node name="Magnum_Weapon" type="Node2D"]
 script = ExtResource("1_5lry1")
+fire_animation = ExtResource("2_pxuqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

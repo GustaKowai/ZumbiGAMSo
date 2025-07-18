@@ -7,6 +7,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @export var weapon_cooldown = 0.9
 @export var ammo = 10
+@export var fire_animation:PackedScene
 
 func _ready() -> void:
 	#print_debug("Pronto!")
@@ -76,8 +77,27 @@ func fire_bullet():
 			bullet.pos = marker.global_position
 			bullet.rota = 0
 	get_parent().get_parent().add_child(bullet)#Instancia a bala
+	firing_animation_play()
 	ammo -= 1
 	GameManager.ammo = ammo
 	#print_debug(ammo)
 	if ammo == 0:
 		queue_free() #Solta a arma se ficar sem munição
+
+func firing_animation_play():
+	if fire_animation:
+		var firing = fire_animation.instantiate()
+		if player.position_running == "down":
+				firing.pos = marker.global_position
+				firing.rota = PI/2
+		elif player.position_running == "up":
+				firing.pos = marker.global_position
+				firing.rota = -PI/2
+		elif player.position_running == "side":
+			if not player.sprite.flip_h:
+				firing.pos = marker.global_position
+				firing.rota = PI
+			if player.sprite.flip_h:
+				firing.pos = marker.global_position
+				firing.rota = 0
+		get_parent().get_parent().add_child(firing)#Instancia a bala
