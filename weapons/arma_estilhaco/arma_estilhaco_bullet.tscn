@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw06a4ass8ioc"]
+
+[ext_resource type="Script" uid="uid://dw8p14h7dwl10" path="res://weapons/arma_estilhaco/arma_estilhaco_bullet.gd" id="1_0sir8"]
+[ext_resource type="Texture2D" uid="uid://bp2kl348p3gx7" path="res://weapons/arma_estilhaco/Estilhaco.png" id="2_7yw5n"]
+[ext_resource type="PackedScene" uid="uid://bim44wxtfob76" path="res://weapons/arma_estilhaco/estilhacinho.tscn" id="2_lo2fj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lo2fj"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x62j0"]
+radius = 12.0
+
+[node name="arma_estilhaco_bullet" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0sir8")
+estilhacinho = ExtResource("2_lo2fj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7yw5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lo2fj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x62j0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_bullet_hit_box_area_entered"]
