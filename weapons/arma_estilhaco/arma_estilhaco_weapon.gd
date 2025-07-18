@@ -81,4 +81,3 @@ func fire_bullet():
 	#print_debug(ammo)
 	if ammo == 0:
 		queue_free() #Solta a arma se ficar sem munição
-		

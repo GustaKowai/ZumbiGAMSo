@@ -7,6 +7,7 @@ var speed = 1750
 @export var bullet_damage = 10
 @export var bullet_duracao = 0.48
 @export var bullet_ghost:PackedScene
+@export var bullet_hit_scene:PackedScene
 var bullet_tempodevida = 0
 var inversao_direcao = 1
 var ghost_color = 0
@@ -23,28 +24,9 @@ func _ready():
 	tween.set_ease(Tween.EASE_OUT_IN)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self,"speed",-speed, bullet_duracao)
-	#var color_tween = create_tween()
-	#color_tween.set_trans(Tween.TRANS_LINEAR)
-	#color_tween.tween_property(self,"modulate",Color.BLUE_VIOLET,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.BLUE,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.SKY_BLUE,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.GREEN,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.YELLOW,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.ORANGE,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.RED,bullet_duracao/14)
-	#
-	#color_tween.tween_property(self,"modulate",Color.RED,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.ORANGE,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.YELLOW,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.GREEN,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.SKY_BLUE,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.BLUE,bullet_duracao/14)
-	#color_tween.tween_property(self,"modulate",Color.BLUE_VIOLET,bullet_duracao/14)
-#Tentativa de fazer as balas desaparecerem depois de um tempo
+	
 func _process(delta):
 	bullet_tempodevida += delta
-	#if bullet_duracao < bullet_tempodevida:
-	#	inversao_direcao = -1
 	if bullet_tempodevida > bullet_duracao:
 		queue_free()
 	
@@ -57,9 +39,11 @@ func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox"):
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
+		set_bullet_hit()
 		#enemy.follow.knockback(velocity,0.2)
 		#queue_free()
 	if area.is_in_group("construcao"):
+		set_bullet_hit()
 		#print_debug("Acertei um predio")
 		queue_free()
 
@@ -95,3 +79,10 @@ func add_ghost():
 	#print_debug(position,$BulletSprite.scale,choosen_color)
 	get_tree().current_scene.add_child(ghost)
 	
+		
+func set_bullet_hit():
+	if bullet_hit_scene:
+		var bullet_hit = bullet_hit_scene.instantiate()
+		bullet_hit.global_position = global_position
+		bullet_hit.global_rotation = global_rotation
+		get_parent().get_parent().add_child(bullet_hit)

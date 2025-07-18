@@ -7,6 +7,7 @@ var speed:int = 650
 var bullet_damage:int = 16
 var piercing = 0
 @export var estilhacinho:PackedScene
+@export var bullet_hit_scene:PackedScene
 
 func _ready():
 	global_position = pos
@@ -24,13 +25,15 @@ func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox"):
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
+		set_bullet_hit()
 		var enemy_position = enemy.global_position
 		dividir()
 		if piercing <= 0:
 			queue_free()
 		piercing -= 1
 	if area.is_in_group("construcao"):
-		#print("Acertei um predio")
+		set_bullet_hit()
+		dividir()
 		queue_free()
 
 func dividir():
@@ -44,3 +47,9 @@ func dividir():
 	
 	queue_free()
 	
+func set_bullet_hit():
+	if bullet_hit_scene:
+		var bullet_hit = bullet_hit_scene.instantiate()
+		bullet_hit.global_position = global_position
+		bullet_hit.global_rotation = global_rotation
+		get_parent().get_parent().add_child(bullet_hit)

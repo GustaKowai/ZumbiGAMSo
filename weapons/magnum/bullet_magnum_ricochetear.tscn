@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://kqmm1ecdum7b"]
+[gd_scene load_steps=6 format=3 uid="uid://kqmm1ecdum7b"]
 
 [ext_resource type="Script" uid="uid://mcmm8poc5l7p" path="res://weapons/magnum/bullet_magnum_ricochetear.gd" id="1_dsbx1"]
 [ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_lsben"]
+[ext_resource type="PackedScene" uid="uid://iqfr03all6v7" path="res://Misc/bullet_hit.tscn" id="2_yo754"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1oog"]
 size = Vector2(3, 8)
@@ -13,6 +14,7 @@ size = Vector2(19, 10)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_dsbx1")
+bullet_hit_scene = ExtResource("2_yo754")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.396078, 0.270588, 1)
