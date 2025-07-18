@@ -4,6 +4,7 @@ var pos:Vector2
 var rota:float
 var dir: float
 var speed = 2000
+@export var bullet_hit_scene:PackedScene
 @export var bullet_damage = 40
 var bullet_duracao = 0.12
 var bullet_tempodevida = 0
@@ -29,10 +30,18 @@ func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox"):
 		var enemy:Enemy  = area.get_parent()
 		enemy.damage(bullet_damage)
+		set_bullet_hit()
 		enemy.follow.knockback(velocity,0.2)
 		queue_free()
 	if area.is_in_group("construcao"):
+		set_bullet_hit()
 		#print_debug("Acertei um predio")
 		queue_free()
-
+		
+func set_bullet_hit():
+	if bullet_hit_scene:
+		var bullet_hit = bullet_hit_scene.instantiate()
+		bullet_hit.global_position = global_position
+		bullet_hit.global_rotation = global_rotation
+		get_parent().get_parent().add_child(bullet_hit)
 	

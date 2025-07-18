@@ -5,11 +5,13 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
 @onready var sprite = $Sprite2D
+@onready var firing_animation_machinegun: AnimatedSprite2D = $Marker2D/firing_animation_machinegun
 @export var weapon_cooldown = 0.1
 @export var ammo = 100
 @export var bullet_spreed = PI/10
 @export var intervalo_entre_tiros = 5.0
 @export var velocidade_tiros = 1.0
+@export var fire_animation:PackedScene
 var interval = 0
 var firing = false
 
@@ -37,6 +39,7 @@ func on_weapon_collected(string): #Essa função serve para largar a arma
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("FireGun"):
 		fireGun()
+		player.weapon_cooldown = weapon_cooldown
 	if Input.is_action_pressed("FireGun") and firing == true:
 		interval += velocidade_tiros
 		firing_animation()
@@ -48,8 +51,10 @@ func _process(delta: float) -> void:
 			fire_bullet()
 		
 	if Input.is_action_just_released("FireGun"):
-		player.weapon_cooldown = weapon_cooldown
-		firing = false
+		if firing:
+			firing_animation_machinegun.visible = false
+			player.weapon_cooldown = weapon_cooldown
+			firing = false
 
 func fireGun():
 	if ammo <= 0:
@@ -128,4 +133,28 @@ func fire_bullet():
 		queue_free() #Solta a arma se ficar sem munição
 
 func set_firing():
-	firing = true
+	if Input.is_action_pressed("FireGun"): 
+		firing_animation_machinegun.visible = true
+		firing = true
+
+func firing_animation_play():
+	if fire_animation:
+		var firing_effect = fire_animation.instantiate()
+		if player.position_running == "down":
+				firing_effect.pos = marker.global_position
+				firing_animation_machinegun.rotation = PI/2
+				firing_effect.rota = PI/2
+		elif player.position_running == "up":
+				firing_effect.pos = marker.global_position
+				firing_animation_machinegun.rotation = -PI/2
+				firing_effect.rota = -PI/2
+		elif player.position_running == "side":
+			if not player.sprite.flip_h:
+				firing_effect.pos = marker.global_position
+				firing_animation_machinegun.rotation = PI
+				firing_effect.rota = PI
+			if player.sprite.flip_h:
+				firing_effect.pos = marker.global_position
+				firing_animation_machinegun.rotation = 0
+				firing_effect.rota = 0
+		get_parent().get_parent().add_child(firing_effect)#Instancia a bala

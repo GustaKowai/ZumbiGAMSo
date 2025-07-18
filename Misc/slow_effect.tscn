@@ -84,11 +84,11 @@ animations = [{
 [node name="slow_effect" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -73)
+position = Vector2(11, -74)
 sprite_frames = SubResource("SpriteFrames_0jvw3")
 autoplay = "default"
 frame_progress = 0.448224
 
 [node name="IconEffect" type="Sprite2D" parent="."]
-position = Vector2(-9, -117)
+position = Vector2(0, -94)
 texture = ExtResource("2_c0nxe")

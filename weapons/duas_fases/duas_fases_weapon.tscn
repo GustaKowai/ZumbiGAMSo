@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnqpqsfpq8wt1"]
+[gd_scene load_steps=30 format=3 uid="uid://bnqpqsfpq8wt1"]
 
 [ext_resource type="Script" uid="uid://dan16vcap36ve" path="res://weapons/duas_fases/duas_fases_weapon.gd" id="1_i6d35"]
+[ext_resource type="PackedScene" uid="uid://bfy8qv44twiav" path="res://Misc/fire_animation.tscn" id="2_4t3vd"]
+[ext_resource type="Texture2D" uid="uid://cn753xt6l1aoq" path="res://weapons/duas_fases/Charge_up_effect_-_sheet.png" id="2_17mo4"]
 [ext_resource type="Texture2D" uid="uid://dcxog6se23cio" path="res://weapons/duas_fases/Barra_vazia_carga.png" id="2_breao"]
-[ext_resource type="Texture2D" uid="uid://cjea8ew4ye116" path="res://weapons/duas_fases/Charge_up_effect-Sheet.png" id="2_y2oae"]
 [ext_resource type="Texture2D" uid="uid://2cf5l34ekcp8" path="res://weapons/duas_fases/Barra_cheia_carga.png" id="3_y2oae"]
+[ext_resource type="Texture2D" uid="uid://umd8faacdxl7" path="res://Misc/Animacao_tiro..png" id="4_2bcku"]
 [ext_resource type="Texture2D" uid="uid://d0j8wpuaiiu3r" path="res://weapons/guia_arma.png" id="5_17mo4"]
 
 [sub_resource type="Animation" id="Animation_baq8j"]
@@ -57,11 +59,25 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0.2001),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [null],
-"method": &"fire_bullet"
+"args": [],
+"method": &"firing_animation_play"
 }]
 }
 
@@ -108,6 +124,20 @@ tracks/2/keys = {
 "method": &"fire_bullet"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"firing_animation_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_x1oww"]
 resource_name = "fire_side_right"
@@ -139,6 +169,34 @@ tracks/1/keys = {
 "method": &"set_firing"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"firing_animation_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_nypq0"]
 resource_name = "fire_up"
@@ -167,6 +225,34 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"set_firing"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_bullet"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"firing_animation_play"
 }]
 }
 
@@ -252,32 +338,37 @@ _data = {
 &"firing_up": SubResource("Animation_17mo4")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_17mo4"]
-atlas = ExtResource("2_y2oae")
-region = Rect2(0, 0, 30, 30)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4t3vd"]
-atlas = ExtResource("2_y2oae")
-region = Rect2(30, 0, 30, 30)
+atlas = ExtResource("2_17mo4")
+region = Rect2(0, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bcku"]
-atlas = ExtResource("2_y2oae")
-region = Rect2(60, 0, 30, 30)
+atlas = ExtResource("2_17mo4")
+region = Rect2(36, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v204u"]
-atlas = ExtResource("2_y2oae")
-region = Rect2(90, 0, 30, 30)
+atlas = ExtResource("2_17mo4")
+region = Rect2(72, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7ree"]
-atlas = ExtResource("2_y2oae")
-region = Rect2(120, 0, 30, 30)
+atlas = ExtResource("2_17mo4")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv7im"]
+atlas = ExtResource("2_17mo4")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iy4h"]
+atlas = ExtResource("2_17mo4")
+region = Rect2(180, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqvhe"]
+atlas = ExtResource("2_17mo4")
+region = Rect2(216, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lv7im"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_17mo4")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4t3vd")
 }, {
@@ -289,14 +380,56 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c7ree")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv7im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iy4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqvhe")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvrob"]
+atlas = ExtResource("4_2bcku")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4air"]
+atlas = ExtResource("4_2bcku")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ikqc"]
+atlas = ExtResource("4_2bcku")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_texqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvrob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4air")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ikqc")
+}, {
+"duration": 1.5,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
 }]
 
 [node name="duas_fases" type="Node2D"]
 script = ExtResource("1_i6d35")
+fire_animation = ExtResource("2_4t3vd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -312,7 +445,13 @@ position = Vector2(51, -46)
 visible = false
 sprite_frames = SubResource("SpriteFrames_lv7im")
 autoplay = "default"
-frame_progress = 0.263695
+frame_progress = 0.675429
+
+[node name="firing_animation_machinegun" type="AnimatedSprite2D" parent="Marker2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_texqx")
+autoplay = "default"
+frame_progress = 0.11244
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -27.0

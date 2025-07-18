@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcq3772f07hv6"]
+[gd_scene load_steps=11 format=3 uid="uid://dcq3772f07hv6"]
 
 [ext_resource type="Texture2D" uid="uid://bib7osiivb2fq" path="res://weapons/revolver/revolver_sprite.png" id="1_2kbmr"]
 [ext_resource type="Script" uid="uid://dduihkx7nclg2" path="res://weapons/revolver/revolver_weapon.gd" id="1_4368f"]
+[ext_resource type="PackedScene" uid="uid://bfy8qv44twiav" path="res://Misc/fire_animation.tscn" id="2_hp77a"]
 [ext_resource type="Texture2D" uid="uid://d0j8wpuaiiu3r" path="res://weapons/guia_arma.png" id="3_ppbpp"]
 
 [sub_resource type="Animation" id="Animation_hp77a"]
@@ -550,6 +551,7 @@ _data = {
 
 [node name="revolver_weapon" type="Node2D"]
 script = ExtResource("1_4368f")
+fire_animation = ExtResource("2_hp77a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

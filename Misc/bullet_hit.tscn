@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://iqfr03all6v7"]
+
+[ext_resource type="Texture2D" uid="uid://djw8g7xschyu8" path="res://Misc/Bala_atingiu.png" id="1_l31v1"]
+[ext_resource type="Script" uid="uid://bfdf6g61w8421" path="res://Misc/bullet_hit.gd" id="2_xma6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xma6q"]
+atlas = ExtResource("1_l31v1")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k0sc"]
+atlas = ExtResource("1_l31v1")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s587"]
+atlas = ExtResource("1_l31v1")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4brl"]
+atlas = ExtResource("1_l31v1")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6bqy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xma6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k0sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s587")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4brl")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Bullet_hit" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6bqy8")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+script = ExtResource("2_xma6q")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

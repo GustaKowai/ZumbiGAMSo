@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://byyhm84gpfchc"]
+[gd_scene load_steps=14 format=3 uid="uid://byyhm84gpfchc"]
 
 [ext_resource type="Script" uid="uid://dtt30owl243mv" path="res://weapons/machinegun/machinegun_weapon.gd" id="1_nypq0"]
+[ext_resource type="PackedScene" uid="uid://bfy8qv44twiav" path="res://Misc/fire_animation.tscn" id="2_1iur2"]
+[ext_resource type="Texture2D" uid="uid://umd8faacdxl7" path="res://Misc/Animacao_tiro..png" id="2_k0vwm"]
 
 [sub_resource type="Animation" id="Animation_baq8j"]
 length = 0.001
@@ -203,10 +205,43 @@ _data = {
 &"fire_up": SubResource("Animation_nypq0")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvrob"]
+atlas = ExtResource("2_k0vwm")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4air"]
+atlas = ExtResource("2_k0vwm")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ikqc"]
+atlas = ExtResource("2_k0vwm")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1iur2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvrob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4air")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ikqc")
+}, {
+"duration": 1.5,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
 [node name="machinegun_weapon" type="Node2D"]
 script = ExtResource("1_nypq0")
 ammo = 50
 bullet_spreed = 0.15
+fire_animation = ExtResource("2_1iur2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -217,3 +252,8 @@ libraries = {
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(51, -46)
+
+[node name="firing_animation_machinegun" type="AnimatedSprite2D" parent="Marker2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_1iur2")
+autoplay = "default"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkjjpdldof5ak"]
+[gd_scene load_steps=6 format=3 uid="uid://bkjjpdldof5ak"]
 
 [ext_resource type="Script" uid="uid://cff6dh6vejt5k" path="res://weapons/shotgun/bullet_shotgun.gd" id="1_rs5io"]
+[ext_resource type="PackedScene" uid="uid://iqfr03all6v7" path="res://Misc/bullet_hit.tscn" id="2_5cu7k"]
 [ext_resource type="Texture2D" uid="uid://m87a4lcdwiag" path="res://weapons/shotgun/shotgun_ammo.png" id="2_rs5io"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5cu7k"]
@@ -13,6 +14,7 @@ radius = 6.0
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_rs5io")
+bullet_hit_scene = ExtResource("2_5cu7k")
 bullet_damage = 10
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
