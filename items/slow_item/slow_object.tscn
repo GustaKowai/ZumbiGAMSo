@@ -13,6 +13,7 @@ script = ExtResource("1_80qee")
 slow_effect = ExtResource("2_ym6ts")
 
 [node name="ColaObject" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.662745)
 position = Vector2(-6, -105.667)
 texture = ExtResource("2_80qee")
 offset = Vector2(0.333346, 106.667)
