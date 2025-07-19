@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var bullet_path = preload("res://weapons/bazuca/bullet_bazuca_se_divide.tscn")
+@onready var bullet_path = preload("res://weapons/bazuca/bullet_bazuca.tscn")
 @onready var player = get_parent()
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D

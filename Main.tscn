@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=62 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -19,10 +19,27 @@
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="15_2r7dt"]
 [ext_resource type="PackedScene" uid="uid://b4cdtitdt15np" path="res://mapa/predios/predio6x2.tscn" id="16_3b0ty"]
 [ext_resource type="PackedScene" uid="uid://c2ycb0nxhim4m" path="res://mapa/predios/predio3x2.tscn" id="17_bg4s2"]
+[ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/Cura_pequena/cura_pequena.tscn" id="21_sqvbp"]
+[ext_resource type="PackedScene" uid="uid://dwj31qudwi18q" path="res://items/Itens_cura/Cura_grande_overheal/cura_grande_overheal.tscn" id="22_gb15f"]
+[ext_resource type="PackedScene" uid="uid://41a5j6efahun" path="res://items/Itens_cura/Cura_media/cura_media.tscn" id="22_hri7i"]
+[ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="23_w3rk5"]
+[ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="24_5mvff"]
+[ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="24_oye8v"]
+[ext_resource type="PackedScene" uid="uid://ce0o1ftbvjds0" path="res://items/Itens_cura/Cura_media_overheal/cura_media_overheal.tscn" id="24_sph85"]
+[ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="25_40n85"]
+[ext_resource type="PackedScene" uid="uid://dkv5nog2y3mx5" path="res://items/Itens_cura/Cura_pequena_overheal/cura_pequena_overheal.tscn" id="25_o7g6l"]
+[ext_resource type="PackedScene" uid="uid://bkqhxr3sr1f1l" path="res://items/Itens_cura/Cura_grande/cura_grande.tscn" id="27_gb15f"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="27_odk1d"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="28_pby55"]
+[ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="33_x3yn0"]
+[ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="34_1w2xm"]
+[ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="34_sph85"]
 [ext_resource type="PackedScene" uid="uid://q63k8cy1r535" path="res://Mechanics/LOJAS/gerador_de_lojas.tscn" id="36_rrpn1"]
 [ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://Mechanics/LOJAS/lojinha.tscn" id="37_auvpe"]
+[ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="37_gngx1"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="38_jt61w"]
+[ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="39_v8qla"]
+[ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="40_y1tbi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -2670,19 +2687,25 @@ texture_region_size = Vector2i(54, 54)
 0:0/size_in_atlas = Vector2i(3, 2)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 35)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-76.204, -29.9171, 75.6395, -29.9171, 77.8974, 10.725, -75.6395, 5.64474)
 3:0/size_in_atlas = Vector2i(3, 2)
 3:0/0 = 0
 3:0/0/texture_origin = Vector2i(0, 35)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-76.204, -29.9171, 75.6395, -29.9171, 77.8974, 10.725, -75.6395, 5.64474)
 6:0/size_in_atlas = Vector2i(3, 2)
 6:0/0 = 0
 6:0/0/texture_origin = Vector2i(0, 35)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-76.204, -29.9171, 75.6395, -29.9171, 77.8974, 10.725, -75.6395, 5.64474)
 0:2/size_in_atlas = Vector2i(2, 3)
 0:2/0 = 0
 0:2/0/texture_origin = Vector2i(25, 0)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-69.9948, -66.0434, 20.8855, -65.479, 18.6276, 61.5277, -69.9948, 63.2211)
 3:2/size_in_atlas = Vector2i(2, 3)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44.5934, -66.6079, 43.4645, -68.3013, 45.1579, 64.35, -45.1579, 63.2211)
 6:2/size_in_atlas = Vector2i(2, 3)
 6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44.5934, -66.6079, 43.4645, -68.3013, 45.1579, 64.35, -45.1579, 63.2211)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdb40"]
 texture = ExtResource("11_5tfui")
@@ -2856,7 +2879,7 @@ tile_map_data = PackedByteArray("AAAnAPP/AAAAAAAAAAArAPP/AAAAAAAAABAvAPP/AAAGAAA
 tile_set = SubResource("TileSet_wrbn1")
 
 [node name="Predios" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.152941)
+modulate = Color(1, 1, 1, 0.25098)
 y_sort_enabled = true
 
 [node name="Predio6x2" parent="Predios" instance=ExtResource("16_3b0ty")]
@@ -3798,32 +3821,96 @@ y_sort_enabled = true
 
 [node name="MobSpawner2" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(2674, 837)
+spawn_chances = Array[float]([1.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 20
+buff_spawn_tanque = 0.0
 
 [node name="MobSpawner" parent="MobSapwners" instance=ExtResource("27_odk1d")]
-position = Vector2(389, -1573)
+position = Vector2(-110, -1706)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
 
 [node name="MobSpawner3" parent="MobSapwners" instance=ExtResource("27_odk1d")]
-position = Vector2(-894, -1080)
+position = Vector2(-923, -1268)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+
+[node name="MobSpawner4" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(-2669, -4074)
+spawn_chances = Array[float]([1.0, 0.1, 0.1, 0.0])
+
+[node name="MobSpawner5" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(136, -4068)
+spawn_chances = Array[float]([1.0, 0.1, 0.1, 0.0])
+
+[node name="MobSpawner6" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(3146, -2853)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+
+[node name="MobSpawner7" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(2456, -605)
+spawn_chances = Array[float]([1.0, 0.1, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_piao_seg = 15
+buff_spawn_tanque = 0.0
+
+[node name="MobSpawner8" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(1808, -26)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+
+[node name="MobSpawner9" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(-3175, 3072)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+
+[node name="MobSpawner10" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(-1359, 1968)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+
+[node name="MobSpawner11" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(4733, 2246)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_piao_seg = 15
+
+[node name="MobSpawner12" parent="MobSapwners" instance=ExtResource("27_odk1d")]
+position = Vector2(-242, 1217)
+spawn_chances = Array[float]([1.0, 0.0, 0.1, 0.0])
+tempo_buff_spawn_policial_seg = 15
 
 [node name="Gerador de lojas" parent="." instance=ExtResource("36_rrpn1")]
+numero_de_lojas_abertas = 7
 
 [node name="Lojinha" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(1080, -1674)
+lista_itens = Array[PackedScene]([ExtResource("27_gb15f"), ExtResource("22_gb15f"), ExtResource("22_hri7i"), ExtResource("24_sph85"), ExtResource("25_o7g6l")])
+lista_precos = Array[int]([15, 30, 10, 25, 20])
 
 [node name="Lojinha5" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(-2054, -2232)
+lista_itens = Array[PackedScene]([ExtResource("23_w3rk5"), ExtResource("21_sqvbp"), ExtResource("24_5mvff"), ExtResource("24_oye8v"), ExtResource("25_40n85"), ExtResource("22_hri7i")])
+lista_precos = Array[int]([5, 5, 15, 50, 15, 10])
 
 [node name="Lojinha6" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(-922, -3271)
+lista_itens = Array[PackedScene]([ExtResource("25_40n85"), ExtResource("24_5mvff"), ExtResource("23_w3rk5"), ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("27_gb15f")])
+lista_precos = Array[int]([15, 15, 5, 5, 10, 15])
 
 [node name="Lojinha7" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(1994, 1790)
 
 [node name="Lojinha8" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(-1693, -1280)
+lista_itens = Array[PackedScene]([ExtResource("23_w3rk5"), ExtResource("21_sqvbp"), ExtResource("24_5mvff"), ExtResource("24_oye8v"), ExtResource("25_40n85"), ExtResource("22_hri7i")])
+lista_precos = Array[int]([5, 5, 15, 50, 15, 10])
 
 [node name="Lojinha9" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(1990, -826)
+lista_itens = Array[PackedScene]([ExtResource("27_gb15f"), ExtResource("22_gb15f"), ExtResource("22_hri7i"), ExtResource("24_sph85"), ExtResource("25_o7g6l")])
+lista_precos = Array[int]([15, 30, 10, 25, 20])
 
 [node name="Lojinha2" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(-2006, 2011)
@@ -3836,10 +3923,86 @@ position = Vector2(3129, -184)
 
 [node name="Lojinha4" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(2296, -2243)
+lista_itens = Array[PackedScene]([ExtResource("27_gb15f"), ExtResource("22_gb15f"), ExtResource("22_hri7i"), ExtResource("24_sph85"), ExtResource("25_o7g6l")])
+lista_precos = Array[int]([10, 25, 5, 15, 10])
+
+[node name="Lojinha11" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-2066, -3589)
+tempo_de_expediente = 60.0
+lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
+lista_precos = Array[int]([5, 10, 5, 15])
+
+[node name="Lojinha12" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(323, -362)
+lista_itens = Array[PackedScene]([ExtResource("23_w3rk5"), ExtResource("24_5mvff"), ExtResource("24_oye8v"), ExtResource("25_40n85"), ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("27_gb15f")])
+lista_precos = Array[int]([5, 15, 50, 15, 5, 10, 15])
+
+[node name="Lojinha13" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(4021, 555)
+
+[node name="Lojinha14" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(1881, 947)
+
+[node name="Lojinha15" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-3193, 1912)
+
+[node name="Lojinha16" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-648, -1702)
+lista_itens = Array[PackedScene]([ExtResource("23_w3rk5"), ExtResource("21_sqvbp"), ExtResource("24_5mvff"), ExtResource("24_oye8v"), ExtResource("25_40n85"), ExtResource("22_hri7i")])
+lista_precos = Array[int]([5, 5, 15, 50, 15, 10])
+
+[node name="Lojinha17" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-997, -2047)
+lista_itens = Array[PackedScene]([ExtResource("24_oye8v"), ExtResource("25_40n85")])
+lista_precos = Array[int]([25, 10])
+
+[node name="Lojinha18" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-146, -3504)
+lista_itens = Array[PackedScene]([ExtResource("25_40n85"), ExtResource("24_oye8v")])
+lista_precos = Array[int]([15, 50])
+
+[node name="Lojinha19" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-2181, -3588)
+tempo_de_expediente = 60.0
+lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
+lista_precos = Array[int]([5, 10, 5, 15])
+
+[node name="Lojinha20" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-2290, -3589)
+tempo_de_expediente = 60.0
+lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
+lista_precos = Array[int]([5, 10, 5, 15])
+
+[node name="Lojinha21" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
+position = Vector2(-2404, -3591)
+tempo_de_expediente = 60.0
+lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
+lista_precos = Array[int]([5, 10, 5, 15])
 
 [node name="Pause UI" parent="." instance=ExtResource("14_s8pq5")]
 
 [node name="GameUI" parent="." instance=ExtResource("15_2r7dt")]
 
+[node name="arma_estilhaco_object" parent="." instance=ExtResource("33_x3yn0")]
+position = Vector2(3973, 1797)
+
+[node name="slow_gun_object" parent="." instance=ExtResource("34_1w2xm")]
+position = Vector2(-8, -3750)
+
 [node name="magnum" parent="." instance=ExtResource("13_2griv")]
-position = Vector2(214, -33)
+position = Vector2(-1872, -3501)
+
+[node name="Bazuca1" parent="." instance=ExtResource("34_sph85")]
+position = Vector2(2215, -1805)
+
+[node name="machinegun" parent="." instance=ExtResource("37_gngx1")]
+position = Vector2(4572, -314)
+
+[node name="gunshotLC" parent="." instance=ExtResource("38_jt61w")]
+position = Vector2(2669, -248)
+
+[node name="duas_fases" parent="." instance=ExtResource("39_v8qla")]
+position = Vector2(-3057, 1423)
+
+[node name="revolver" parent="." instance=ExtResource("40_y1tbi")]
+position = Vector2(-244, -27)

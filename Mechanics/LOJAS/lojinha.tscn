@@ -385,7 +385,7 @@ size = Vector2(102, 29)
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_gg830")
-tempo_de_expediente = 5.0
+tempo_de_expediente = 120.0
 lista_itens = Array[PackedScene]([ExtResource("2_5owt3"), ExtResource("3_a1hgr"), ExtResource("4_o1esk"), ExtResource("5_j56os"), ExtResource("6_5owt3")])
 lista_precos = Array[int]([3, 4, 5, 2, 8])
 item = ExtResource("2_ftksf")
@@ -451,7 +451,7 @@ position = Vector2(-1, 9.5)
 shape = SubResource("RectangleShape2D_5owt3")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(75, 18)
+position = Vector2(36, 39)
 
 [connection signal="timeout" from="Sprite/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
