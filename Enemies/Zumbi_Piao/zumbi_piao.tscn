@@ -1,11 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1hj4msyptvsg"]
+[gd_scene load_steps=19 format=3 uid="uid://b1hj4msyptvsg"]
 
 [ext_resource type="Script" uid="uid://c6f5e0yl8bd2p" path="res://Enemies/Zumbi_Piao/zumbi_piao.gd" id="1_sjciy"]
 [ext_resource type="Texture2D" uid="uid://jbvpuwbmjcxm" path="res://Enemies/Zumbi_Piao/piao_parado.png" id="2_83e04"]
+[ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="2_bjobl"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="2_elk4x"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="3_0pu26"]
 [ext_resource type="Texture2D" uid="uid://dxa84q1qk5g6f" path="res://Enemies/Zumbi_Piao/piao_ataque.png" id="3_pv42u"]
 [ext_resource type="Script" uid="uid://dn58wjgtfova4" path="res://Enemies/Modulos/touch_damage.gd" id="4_83e04"]
+[ext_resource type="PackedScene" uid="uid://b7d8u6qsiv6pp" path="res://weapons/magnum/magnum.tscn" id="4_vcfty"]
 [ext_resource type="Script" uid="uid://dplsbq06tur5k" path="res://Enemies/Modulos/aim_and_run.gd" id="5_pv42u"]
+[ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_tvflk"]
+[ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="6_e5p6g"]
+[ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="7_y0h7m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_elk4x"]
 radius = 50.01
@@ -109,8 +115,10 @@ collision_mask = 57
 script = ExtResource("1_sjciy")
 follow = NodePath("FollowPlayer")
 enemy_health = 30
+items = Array[PackedScene]([ExtResource("2_bjobl"), ExtResource("3_0pu26"), ExtResource("4_vcfty"), ExtResource("5_tvflk"), ExtResource("6_e5p6g"), ExtResource("7_y0h7m")])
+drop_chances = Array[float]([1.0, 0.5, 0.5, 0.2, 0.2, 0.2])
 coin = ExtResource("2_elk4x")
-coins_rate = 1.0
+coins_rate = 0.8
 number_coins_max = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

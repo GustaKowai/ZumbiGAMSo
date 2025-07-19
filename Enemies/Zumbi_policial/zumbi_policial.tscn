@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cv42hqm70wbs1"]
+[gd_scene load_steps=27 format=3 uid="uid://cv42hqm70wbs1"]
 
 [ext_resource type="Script" uid="uid://d33i06minnvnj" path="res://Enemies/Zumbi_policial/zumbi_policial.gd" id="1_v3dll"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0skl4"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="6_jed5v"]
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="7_lmxuk"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="8_fs2me"]
+[ext_resource type="PackedScene" uid="uid://b7d8u6qsiv6pp" path="res://weapons/magnum/magnum.tscn" id="8_jed5v"]
+[ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="9_lmxuk"]
+[ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="10_fs2me"]
 [ext_resource type="PackedScene" uid="uid://fllngnphnijk" path="res://Enemies/Modulos/attack_ranged.tscn" id="12_lxmr4"]
 
 [sub_resource type="Animation" id="Animation_5iqex"]
@@ -556,11 +559,13 @@ collision_mask = 59
 script = ExtResource("1_v3dll")
 follow = NodePath("FollowPlayer")
 death_prefab = ExtResource("2_0skl4")
-items = Array[PackedScene]([ExtResource("3_dq1qg"), ExtResource("4_ne34u"), ExtResource("5_3ms74"), ExtResource("6_jed5v"), ExtResource("7_lmxuk"), ExtResource("8_fs2me")])
-drop_chances = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 2.0])
+items = Array[PackedScene]([ExtResource("3_dq1qg"), ExtResource("4_ne34u"), ExtResource("5_3ms74"), ExtResource("6_jed5v"), ExtResource("7_lmxuk"), ExtResource("8_jed5v"), ExtResource("9_lmxuk"), ExtResource("10_fs2me")])
+drop_rate = 0.7
+drop_chances = Array[float]([0.3, 0.5, 0.5, 0.7, 0.7, 0.7, 0.5, 0.5])
 coin = ExtResource("8_fs2me")
-coins_rate = 1.0
-number_coins_max = 5
+coins_rate = 0.8
+number_coins_max = 10
+number_coins_min = 3
 alma_dropada = 1
 metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
 

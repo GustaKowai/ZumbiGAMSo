@@ -3885,7 +3885,7 @@ tempo_buff_spawn_policial_seg = 15
 numero_de_lojas_abertas = 7
 
 [node name="Lojinha" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
-position = Vector2(1080, -1674)
+position = Vector2(1040, -1724)
 lista_itens = Array[PackedScene]([ExtResource("27_gb15f"), ExtResource("22_gb15f"), ExtResource("22_hri7i"), ExtResource("24_sph85"), ExtResource("25_o7g6l")])
 lista_precos = Array[int]([15, 30, 10, 25, 20])
 

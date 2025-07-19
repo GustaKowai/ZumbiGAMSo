@@ -1,12 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://b3ulr52hoy0k7"]
+[gd_scene load_steps=40 format=3 uid="uid://b3ulr52hoy0k7"]
 
 [ext_resource type="Script" uid="uid://wpi10st1p4oc" path="res://Enemies/Tanque/zumbi_tanque.gd" id="1_7ocfp"]
 [ext_resource type="Texture2D" uid="uid://cdxomkn02yxrs" path="res://Enemies/Tanque/Tank_zombie_shot_-_Sheet.png" id="2_psch1"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="2_vi08e"]
+[ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="3_fpmxf"]
 [ext_resource type="Texture2D" uid="uid://dip0pkdn78bf6" path="res://Enemies/Tanque/Tank_zombie_walk-Sheet.png" id="3_ihe2r"]
+[ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="3_y2mif"]
+[ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="4_g8dq6"]
+[ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_2s3u2"]
 [ext_resource type="Texture2D" uid="uid://buis3fm6x4xp1" path="res://Enemies/Tanque/Tank_ligh_attack-Sheet.png" id="5_240e7"]
 [ext_resource type="PackedScene" uid="uid://co4qnwjt7oyg0" path="res://Enemies/Modulos/aim_from_distance.tscn" id="5_ihe2r"]
+[ext_resource type="PackedScene" uid="uid://b7d8u6qsiv6pp" path="res://weapons/magnum/magnum.tscn" id="6_5hlpf"]
 [ext_resource type="PackedScene" uid="uid://cmxkcw0kliguc" path="res://Enemies/Modulos/attack_alvo.tscn" id="6_vi08e"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="7_j0whp"]
 [ext_resource type="PackedScene" uid="uid://drnuy8hf8bwi6" path="res://Enemies/Zumbi_policial/zumbi_bullet.tscn" id="8_wc75f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihe2r"]
@@ -1786,6 +1792,12 @@ script = ExtResource("1_7ocfp")
 follow = NodePath("FollowPlayer")
 enemy_health = 100
 death_prefab = ExtResource("2_vi08e")
+items = Array[PackedScene]([ExtResource("3_y2mif"), ExtResource("4_g8dq6"), ExtResource("5_2s3u2"), ExtResource("6_5hlpf"), ExtResource("7_j0whp")])
+drop_chances = Array[float]([1.0, 0.3, 0.5, 0.5, 0.5])
+coin = ExtResource("3_fpmxf")
+coins_rate = 0.8
+number_coins_max = 5
+number_coins_min = 15
 alma_dropada = 2
 metadata/_custom_type_script = "uid://deg0bfjw6tyyf"
 
