@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cebw4qso4jojm"
-path="res://.godot/imported/lojinha_teste.png-c90b3a7f20c0ce92c7afbda03d37713a.ctex"
+uid="uid://dbbr8nba5ugqb"
+path="res://.godot/imported/magnum_bullet.png-33526a47c90fbb15f0292971a4e7d7f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/lojinha_teste.png"
-dest_files=["res://.godot/imported/lojinha_teste.png-c90b3a7f20c0ce92c7afbda03d37713a.ctex"]
+source_file="res://weapons/magnum/magnum_bullet.png"
+dest_files=["res://.godot/imported/magnum_bullet.png-33526a47c90fbb15f0292971a4e7d7f5.ctex"]
 
 [params]
 

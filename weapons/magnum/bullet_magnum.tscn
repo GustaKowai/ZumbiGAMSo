@@ -2,38 +2,33 @@
 
 [ext_resource type="Script" uid="uid://cegla2c4u7fb" path="res://weapons/magnum/bullet_magnum.gd" id="1_j0nuc"]
 [ext_resource type="PackedScene" uid="uid://iqfr03all6v7" path="res://Misc/bullet_hit.tscn" id="2_q5750"]
-[ext_resource type="Texture2D" uid="uid://cy6hfx3ip083y" path="res://weapons/revolver/Gun_sprite.png" id="2_ub3ch"]
+[ext_resource type="Texture2D" uid="uid://dbbr8nba5ugqb" path="res://weapons/magnum/magnum_bullet.png" id="3_q5750"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1oog"]
-size = Vector2(3, 8)
+size = Vector2(2, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bs7e"]
-size = Vector2(19, 10)
+size = Vector2(16, 8)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_j0nuc")
 bullet_hit_scene = ExtResource("2_q5750")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.396078, 0.270588, 1)
 y_sort_enabled = true
 position = Vector2(0, 74)
-texture = ExtResource("2_ub3ch")
+texture = ExtResource("3_q5750")
 offset = Vector2(0, -74)
-hframes = 5
-vframes = 5
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.5, 0)
+position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_l1oog")
 
 [node name="BulletHitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1bs7e")
 
 [connection signal="area_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjpuub1yn4r6s"
-path="res://.godot/imported/lojinha_fechada.png-7ce6e8d74f1c1688e7b51f05d42682e4.ctex"
+path="res://.godot/imported/lojinha_fechada.png-23136d1c0fd322641d9c9f53b11572cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/lojinha_fechada.png"
-dest_files=["res://.godot/imported/lojinha_fechada.png-7ce6e8d74f1c1688e7b51f05d42682e4.ctex"]
+source_file="res://Mechanics/LOJAS/lojinha_fechada.png"
+dest_files=["res://.godot/imported/lojinha_fechada.png-23136d1c0fd322641d9c9f53b11572cd.ctex"]
 
 [params]
 

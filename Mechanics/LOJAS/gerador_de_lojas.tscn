@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://q63k8cy1r535"]
 
-[ext_resource type="Script" uid="uid://b1njhppfhr4si" path="res://Mechanics/gerador_de_lojas.gd" id="1_ow74f"]
+[ext_resource type="Script" uid="uid://b1njhppfhr4si" path="res://Mechanics/LOJAS/gerador_de_lojas.gd" id="1_ow74f"]
 
 [node name="Gerador de lojas" type="Node2D"]
 z_as_relative = false

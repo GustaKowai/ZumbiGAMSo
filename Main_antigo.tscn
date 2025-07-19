@@ -34,9 +34,9 @@
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="24_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="25_mxvw5"]
 [ext_resource type="PackedScene" uid="uid://cv42hqm70wbs1" path="res://Enemies/Zumbi_policial/zumbi_policial.tscn" id="25_xrxkg"]
-[ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://mapa/lojinha.tscn" id="26_xrxkg"]
+[ext_resource type="PackedScene" uid="uid://da8c53dsvfgrq" path="res://Mechanics/LOJAS/lojinha.tscn" id="26_xrxkg"]
 [ext_resource type="PackedScene" uid="uid://b1hj4msyptvsg" path="res://Enemies/Zumbi_Piao/zumbi_piao.tscn" id="28_hri7i"]
-[ext_resource type="PackedScene" uid="uid://q63k8cy1r535" path="res://Mechanics/gerador_de_lojas.tscn" id="29_w3rk5"]
+[ext_resource type="PackedScene" uid="uid://q63k8cy1r535" path="res://Mechanics/LOJAS/gerador_de_lojas.tscn" id="29_w3rk5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vacb0"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)

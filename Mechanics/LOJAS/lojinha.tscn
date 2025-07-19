@@ -1,15 +1,15 @@
 [gd_scene load_steps=62 format=3 uid="uid://da8c53dsvfgrq"]
 
-[ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://mapa/lojinha.gd" id="1_gg830"]
-[ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://mapa/lojinha_teste.png" id="1_kyu8p"]
+[ext_resource type="Script" uid="uid://blxm7er8juw5" path="res://Mechanics/LOJAS/lojinha.gd" id="1_gg830"]
+[ext_resource type="Texture2D" uid="uid://cebw4qso4jojm" path="res://Mechanics/LOJAS/lojinha_teste.png" id="1_kyu8p"]
 [ext_resource type="PackedScene" uid="uid://dho8kcond14n3" path="res://items/slow_item/slow_item.tscn" id="2_5owt3"]
 [ext_resource type="PackedScene" uid="uid://dbucupwgjx487" path="res://items/item_equipped.tscn" id="2_ftksf"]
 [ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/Cura_pequena/cura_pequena.tscn" id="3_a1hgr"]
 [ext_resource type="PackedScene" uid="uid://cx2rokbdvte28" path="res://items/taunt_item/taunt_item.tscn" id="4_o1esk"]
 [ext_resource type="PackedScene" uid="uid://b826otmslxvpk" path="res://items/turret/turret_item.tscn" id="5_j56os"]
 [ext_resource type="PackedScene" uid="uid://cfeopnp4qhnh1" path="res://items/bomb_item/Bomb_item.tscn" id="6_5owt3"]
-[ext_resource type="Texture2D" uid="uid://cjpuub1yn4r6s" path="res://mapa/lojinha_fechada.png" id="9_a1hgr"]
-[ext_resource type="Texture2D" uid="uid://dsew6jihbgelh" path="res://mapa/lojinha_reabrindo.png" id="10_o1esk"]
+[ext_resource type="Texture2D" uid="uid://cjpuub1yn4r6s" path="res://Mechanics/LOJAS/lojinha_fechada.png" id="9_a1hgr"]
+[ext_resource type="Texture2D" uid="uid://dsew6jihbgelh" path="res://Mechanics/LOJAS/lojinha_reabrindo.png" id="10_o1esk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg830"]
 atlas = ExtResource("1_kyu8p")
