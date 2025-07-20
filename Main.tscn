@@ -2965,7 +2965,6 @@ tile_map_data = PackedByteArray("AAAYAB8AAAAAAAIAAADf/+b/AgAAAAAAAADf/+f/AgAAAAA
 tile_set = SubResource("TileSet_wrbn1")
 
 [node name="Predios" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
 
 [node name="Predio6x2" parent="Predios" instance=ExtResource("16_3b0ty")]
@@ -4147,6 +4146,7 @@ position = Vector2(4021, 555)
 
 [node name="Lojinha14" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(1882, 937)
+lista_precos = Array[int]([5, 5, 15, 50, 10])
 
 [node name="Lojinha15" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(-3191, 1897)
