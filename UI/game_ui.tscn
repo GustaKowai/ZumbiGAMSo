@@ -217,10 +217,22 @@ position = Vector2(763, 103)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_wjxh5")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ui_top/AlmaZumbiIncomum"]
+libraries = {
+&"": SubResource("AnimationLibrary_abi8r")
+}
+autoplay = "new_animation"
+
 [node name="AlmaZumbiRaro" type="Sprite2D" parent="Ui_top"]
 position = Vector2(737, 94)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_abi8r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ui_top/AlmaZumbiRaro"]
+libraries = {
+&"": SubResource("AnimationLibrary_abi8r")
+}
+autoplay = "new_animation"
 
 [node name="timer_label" type="Label" parent="Ui_top"]
 unique_name_in_owner = true

@@ -358,16 +358,16 @@ func set_card_aumenta_slow(upgrade_slow):
 	sub_prop = randi_range(0,1)
 	if sub_prop == 0:
 		upgrade_type_image_path = more_ammo
-		upgrade_name = "Aumento de munição da arma de estilhaços"
+		upgrade_name = "Aumento de munição da arma de slow"
 		buff = randi_range(1,4)
-		upgrade_effect = "Aumenta a munição máxima da arma de estilhaços em " + str(buff)
+		upgrade_effect = "Aumenta a munição máxima da arma de slow em " + str(buff)
 		basic_cost = (2*upgrade_slow[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_type_image_path = more_damage
-		upgrade_name = "Aumento de dano da arma de estilhaços"
+		upgrade_name = "Aumento de dano da arma de slow"
 		buff = randi_range(5,10)
-		upgrade_effect  = "Aumenta o dano da arma de estilhaços em " + str(buff)
+		upgrade_effect  = "Aumenta o dano da arma de slow em " + str(buff)
 		basic_cost  = (2*upgrade_slow[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 ###-----duas fases-----###		
@@ -458,7 +458,7 @@ func calcula_custo_almas(custo_alma):
 #Essa função checa se o jogador tem a quantidade de almas suficientes.
 func have_souls(soul_type):
 	if soul_type == alma_comum:
-		if GameManager.alma_comum > upgrade_cost:
+		if GameManager.alma_comum >= upgrade_cost:
 			GameManager.alma_comum -= upgrade_cost
 			print_debug("Você agora tem ",GameManager.alma_comum," almas")
 			return true
@@ -467,7 +467,7 @@ func have_souls(soul_type):
 			loja.aviso_almas()
 			return false
 	elif soul_type == alma_incomum:
-		if GameManager.alma_incomum > upgrade_cost:
+		if GameManager.alma_incomum >= upgrade_cost:
 			GameManager.alma_incomum -= upgrade_cost
 			print_debug("Você agora tem ",GameManager.alma_incomum," almas")
 			return true
@@ -476,7 +476,7 @@ func have_souls(soul_type):
 			loja.aviso_almas()
 			return false
 	elif soul_type == alma_rara:
-		if GameManager.alma_rara > upgrade_cost:
+		if GameManager.alma_rara >= upgrade_cost:
 			GameManager.alma_rara -= upgrade_cost
 			print_debug("Você agora tem ",GameManager.alma_rara," almas")
 			return true

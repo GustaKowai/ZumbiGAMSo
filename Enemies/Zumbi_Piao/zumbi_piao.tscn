@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1hj4msyptvsg"]
+[gd_scene load_steps=20 format=3 uid="uid://b1hj4msyptvsg"]
 
 [ext_resource type="Script" uid="uid://c6f5e0yl8bd2p" path="res://Enemies/Zumbi_Piao/zumbi_piao.gd" id="1_sjciy"]
+[ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0pu26"]
 [ext_resource type="Texture2D" uid="uid://jbvpuwbmjcxm" path="res://Enemies/Zumbi_Piao/piao_parado.png" id="2_83e04"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="2_bjobl"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="2_elk4x"]
@@ -115,6 +116,7 @@ collision_mask = 57
 script = ExtResource("1_sjciy")
 follow = NodePath("FollowPlayer")
 enemy_health = 30
+death_prefab = ExtResource("2_0pu26")
 items = Array[PackedScene]([ExtResource("2_bjobl"), ExtResource("3_0pu26"), ExtResource("4_vcfty"), ExtResource("5_tvflk"), ExtResource("6_e5p6g"), ExtResource("7_y0h7m")])
 drop_chances = Array[float]([1.0, 0.5, 0.5, 0.2, 0.2, 0.2])
 coin = ExtResource("2_elk4x")
@@ -152,7 +154,7 @@ libraries = {
 
 [node name="Touch_Damage" type="Node2D" parent="."]
 script = ExtResource("4_83e04")
-damage = 5
+damage = 2
 damage_timer = 2.0
 
 [node name="FollowPlayer" type="Node2D" parent="."]
