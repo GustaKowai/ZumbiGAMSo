@@ -84,6 +84,7 @@ text = "Voltar ao menu"
 title = "Novo recorde!"
 initial_position = 1
 size = Vector2i(355, 100)
+visible = true
 unresizable = true
 ok_button_text = "Salvar"
 
@@ -93,7 +94,7 @@ offset_top = 8.0
 offset_right = 347.0
 offset_bottom = 59.0
 
-[node name="NomeJogador" type="TextEdit" parent="PopupRecorde"]
+[node name="NomeJogador" type="LineEdit" parent="PopupRecorde"]
 unique_name_in_owner = true
 offset_left = 8.0
 offset_top = 8.0
@@ -101,6 +102,8 @@ offset_right = 347.0
 offset_bottom = 59.0
 size_flags_vertical = 3
 placeholder_text = "Seu nome"
+max_length = 20
+caret_blink = true
 
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="confirmed" from="PopupRecorde" to="." method="_on_popup_panel_confirmed"]

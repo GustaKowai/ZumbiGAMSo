@@ -1,5 +1,5 @@
 extends CanvasLayer
-@onready var nomeJogador:TextEdit = %NomeJogador
+@onready var nomeJogador:LineEdit = %NomeJogador
 @onready var testeLabel:Label = $VBoxContainer/HBoxContainer/RecordeMortes/Label5
 @onready var recordeMortes = $VBoxContainer/HBoxContainer/RecordeMortes
 @onready var recordeTempo = $VBoxContainer/HBoxContainer/RecordeTempo
@@ -23,6 +23,9 @@ func _on_menu_pressed() -> void:
 	GameManager.reset()
 	get_tree().change_scene_to_file("res://UI/menu.tscn")
 
+func _input(event):
+	if Input.is_key_pressed(KEY_ENTER):
+		get_tree().set_input_as_handled()
 
 func _on_popup_panel_confirmed() -> void:
 	if recorde_mortes:

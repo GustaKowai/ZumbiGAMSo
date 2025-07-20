@@ -76,7 +76,8 @@ func reset():
 	
 	
 func _process(delta):
-	time_elapsed += delta
+	if not is_game_over:
+		time_elapsed += delta
 	var seconds_elapsed = floori(time_elapsed)
 	var minutes = floori(seconds_elapsed/60.0)
 	var seconds = seconds_elapsed % 60

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1c761mq7s428"]
+[gd_scene load_steps=12 format=3 uid="uid://1c761mq7s428"]
 
 [ext_resource type="Script" uid="uid://c45q2bavo6g3q" path="res://Mechanics/mob_spawner.gd" id="1_cvpw2"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/Zumbi_normal_1/zombie_1.tscn" id="2_8pa0e"]
@@ -107,6 +107,9 @@ _data = {
 &"Surge": SubResource("Animation_r81ak")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufsxt"]
+radius = 1500.0
+
 [node name="MobSpawner" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_cvpw2")
@@ -131,3 +134,8 @@ libraries = {
 position = Vector2(-1, -47)
 texture = ExtResource("4_vdvtt")
 hframes = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ufsxt")
+debug_color = Color(1, 0, 0.101961, 0.72549)
