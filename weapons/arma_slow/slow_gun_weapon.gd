@@ -5,7 +5,7 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var marker = $Marker2D
 @onready var sprite = $Sprite2D
-@export var weapon_cooldown = 0.7
+@export var weapon_cooldown = 0.4
 @export var ammo = 6
 
 func _ready() -> void:

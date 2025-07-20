@@ -4006,3 +4006,6 @@ position = Vector2(-3057, 1423)
 
 [node name="revolver" parent="." instance=ExtResource("40_y1tbi")]
 position = Vector2(-244, -27)
+
+[node name="arma_estilhaco_object2" parent="." instance=ExtResource("33_x3yn0")]
+position = Vector2(-16, -156)

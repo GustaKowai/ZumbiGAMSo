@@ -5,7 +5,8 @@ var rota:float
 var dir: float
 var speed:int = 650
 var bullet_damage:int = 16
-var piercing = 0
+var piercing:int = 0
+var numero_estilhacos:int = 10
 @export var estilhacinho:PackedScene
 @export var bullet_hit_scene:PackedScene
 
@@ -37,13 +38,13 @@ func _on_bullet_hit_box_area_entered(area):
 		queue_free()
 
 func dividir():
-	var angle_offset = deg_to_rad(45)
-	for direction in [1, 3, 5, 7]:
+	var angle_offset = PI/numero_estilhacos
+	for direction in range(0,numero_estilhacos):
 		var sub = estilhacinho.instantiate()
 		sub.bullet_damage = bullet_damage * 0.5
 		get_parent().add_child(sub)
 		sub.global_position = global_position
-		sub.rotation = rotation + angle_offset * direction
+		sub.rotation = rotation + direction*2*PI/numero_estilhacos + angle_offset
 	
 	queue_free()
 	

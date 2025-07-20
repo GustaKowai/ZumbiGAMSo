@@ -20,6 +20,7 @@ var weapon_cd:float
 var texto_morte:String
 var is_taunting:bool = false
 var taunt_position:Vector2
+var scene_to_load:String
 
 #Gerenciamento Arcade:
 var arcade:bool = false

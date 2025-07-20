@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6nwep21lamhu" path="res://weapons/bazuca/small_bullet_bazuca.gd" id="1_80sy2"]
 [ext_resource type="PackedScene" uid="uid://cj21r20l5nulm" path="res://Misc/explosion.tscn" id="2_3skew"]
-[ext_resource type="Texture2D" uid="uid://dym11srn1q8h2" path="res://weapons/bazuca/bullet_bazuca.png" id="3_s0akl"]
+[ext_resource type="Texture2D" uid="uid://bsavyxq2kqslx" path="res://weapons/bazuca/Bala_bazuca_.png" id="3_80sy2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2k8q"]
 size = Vector2(6, 9)
@@ -20,8 +20,8 @@ script = ExtResource("1_80sy2")
 explosao = ExtResource("2_3skew")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_s0akl")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_80sy2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 0)
