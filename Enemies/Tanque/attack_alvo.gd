@@ -18,12 +18,14 @@ var shoot_direction:String
 var ID_tiro:int = 0
 var modo_metralhadora:bool = false
 var end_shooting_in_progress:bool = false
+var raio_explosao:float = 144.0
 
 func _ready():
 	enemy = get_parent()
 	sprite =enemy.get_node("Movimento")
 	animation_player = enemy.get_node("AnimationPlayer")
 	dano_extra_zombie += snappedi(controle_de_buff_de_dano*enemy.buff,1)
+	raio_explosao = enemy.raio_explosao
 	#print_debug("Dano extra do tiro desse zumbi = ",dano_extra_zombie) 
 	player = GameManager.player
 
@@ -82,6 +84,7 @@ func fire_bullet():
 	var bullet = bullet_path.instantiate()
 	bullet.ID = ID_tiro
 	bullet.bullet_damage += dano_extra_zombie
+	bullet.raio_explosao = raio_explosao
 	match shoot_direction:
 		"Down":
 			bullet.dir = PI/2
@@ -107,6 +110,7 @@ func mirar():
 	ID_tiro = randi()
 	alvo.ID = ID_tiro
 	alvo.global_position = posicao_alvo
+	alvo.scale = Vector2(raio_explosao/144.0,raio_explosao/144.0)
 	get_parent().get_parent().add_child(alvo)
 
 

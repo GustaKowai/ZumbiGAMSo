@@ -12,6 +12,7 @@ var piercing = 0
 func _ready():
 	global_position = pos
 	global_rotation = rota
+	bullet_damage+= GameManager.upgrade_slow[1]
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
 	move_and_slide()

@@ -10,6 +10,7 @@ var bullet_damage = 8
 func _ready():
 	global_position = pos
 	global_rotation = rota
+	bullet_damage += GameManager.upgrade_duas_fases[1]
 
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)

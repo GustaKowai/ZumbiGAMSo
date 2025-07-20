@@ -83,6 +83,12 @@ func start_card() -> void:
 				set_card_aumenta_magnum(GameManager.upgrade_magnum)
 			"Bazuca":
 				set_card_aumenta_bazuca(GameManager.upgrade_bazuca)
+			"Estilhaco":
+				set_card_aumenta_estilhaco(GameManager.upgrade_estilhaco)
+			"Slow":
+				set_card_aumenta_slow(GameManager.upgrade_slow)
+			"Duas fases":
+				set_card_aumenta_duas_fases(GameManager.upgrade_duas_fases)
 			_:
 				print_debug("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
@@ -112,7 +118,7 @@ func set_card_aumenta_vida_max(vida_max_up):
 	upgrade_name = "Aumento de vida máxima"
 	buff = randi_range(5,10)
 	upgrade_effect = "Aumenta a vida máxima do jogador em "+ str(buff)
-	basic_cost = (80+2*vida_max_up+buff)*(buff+1)/2
+	basic_cost = (2*vida_max_up+buff)*(buff+1)/2
 	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_stamina_max(stamina_max_up):
@@ -120,7 +126,7 @@ func set_card_aumenta_stamina_max(stamina_max_up):
 	upgrade_name = "Aumento de Stamina Max"
 	buff = randi_range(10,20)
 	upgrade_effect = "Aumenta a Stamina máxima do jogador em "+ str(buff)
-	basic_cost = (200+2*stamina_max_up+buff)*(buff+1)/2
+	basic_cost = (2*stamina_max_up+buff)*(buff+1)/2
 	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_stamina_regen(stamina_rege_up):
@@ -128,7 +134,7 @@ func set_card_aumenta_stamina_regen(stamina_rege_up):
 	upgrade_name = "Aumento de Regeneração de stamina"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta a  regeneração de stamina do jogador em "+ str(buff)
-	basic_cost = (200+2*stamina_rege_up+buff)*(buff+1)/2
+	basic_cost = (2*stamina_rege_up+buff)*(buff+1)/2
 	calcula_custo_almas(basic_cost)
 	
 func set_card_aumenta_sword_damage(sword_damage_up):
@@ -136,7 +142,7 @@ func set_card_aumenta_sword_damage(sword_damage_up):
 	upgrade_name = "Aumento de dano da espada do jogador"
 	buff = randi_range(1,5)
 	upgrade_effect = "Aumenta o dano de ataque com espada do jogador em "+ str(buff)
-	basic_cost = (200+2*sword_damage_up+buff)*(buff+1)/2
+	basic_cost = (2*sword_damage_up+buff)*(buff+1)/2
 	calcula_custo_almas(basic_cost)
 	
 ###-----Revolver-----###	
@@ -148,21 +154,21 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_name = "Aumento de munição do revólver"
 		buff = randi_range(1,3)
 		upgrade_effect = "Aumenta a munição máxima do revólver em " + str(buff)
-		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano do revólver"
 		buff = randi_range(2,10)
 		upgrade_effect  = "Aumenta o dano do revólver em " + str(buff)
-		basic_cost  = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		basic_cost  = (2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
 		upgrade_type_image_path = more_pierce
 		upgrade_name = "Aumento de perfuração"
 		buff = randi_range(1,3)
 		upgrade_effect = "Permite que a bala do revólver atravesse " + str(buff) + " zumbis a mais"
-		basic_cost = (200+2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_revolver[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 3:
 		if GameManager.upgrade_revolver[3] == 1:
@@ -171,7 +177,7 @@ func set_card_aumenta_revolver(upgrade_revolver):
 		upgrade_name = "Balas gemeas curvas"
 		buff = 1
 		upgrade_effect = "Transforma as balas do revólver em duas balas gêmeas que atiram juntas, orbitando uma a outra. \n Perfuração base 3 e dano base 30"
-		basic_cost = 900
+		basic_cost = 30000
 		calcula_custo_almas(basic_cost)
 		card_background_path = background_unico
 
@@ -184,14 +190,14 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		upgrade_name = "Aumento de munição da metralhadora"
 		buff = randi_range(10,30)
 		upgrade_effect = "Aumenta a munição máxima da metralhadora em " + str(buff)
-		basic_cost = (20+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da metralhadora"
 		buff = randi_range(1,3)
 		upgrade_effect  = "Aumenta o dano da metralhadora em " + str(buff)
-		basic_cost  = (20+2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
+		basic_cost  = (2*upgrade_metralhadora[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
 		if GameManager.upgrade_metralhadora[2] <= 0:
@@ -218,7 +224,7 @@ func set_card_aumenta_metralhadora(upgrade_metralhadora):
 		upgrade_name = "Balas que seguem"
 		buff = 1
 		upgrade_effect = "Faz as balas da metralhadora seguirem o alvo mais próximo"
-		basic_cost = 900
+		basic_cost = 7000000
 		calcula_custo_almas(basic_cost)
 		card_background_path = background_unico
 ###-----Shotgun-----###		
@@ -230,14 +236,14 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		upgrade_name = "Aumento de munição da shotgun"
 		buff = randi_range(1,4)
 		upgrade_effect = "Aumenta a munição máxima da shotgun em " + str(buff)
-		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da shotgun"
 		buff = randi_range(5,10)
 		upgrade_effect  = "Aumenta o dano da shotgun em " + str(buff)
-		basic_cost  = (20+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
+		basic_cost  = (2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
 		if GameManager.upgrade_shotgun[2] <= 0:
@@ -262,7 +268,7 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		upgrade_name = "Mais estilhaços!"
 		buff = randi_range(1,3)
 		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
-		basic_cost = (200+2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_shotgun[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 5:
 		if GameManager.upgrade_shotgun[5] == 1:
@@ -271,7 +277,7 @@ func set_card_aumenta_shotgun(upgrade_shotgun):
 		upgrade_name = "Shotgun Boomerangue"
 		buff = 1
 		upgrade_effect = "Transforma as balas da shotgun em pequenos bumerangues, dando perfuração e fazendo elas retornarem ao atingirem a distância máxima.\n A shotgun perde a capacidade de empurrar os inimigos."
-		basic_cost = 900
+		basic_cost = 5000000
 		calcula_custo_almas(basic_cost)
 		card_background_path = background_unico
 ###-----Magnum-----###		
@@ -283,14 +289,14 @@ func set_card_aumenta_magnum(upgrade_magnum):
 		upgrade_name = "Aumento de munição da Magnum"
 		buff = randi_range(1,4)
 		upgrade_effect = "Aumenta a munição máxima da Magnum em " + str(buff)
-		basic_cost = (200+2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da Magnum"
 		buff = randi_range(5,10)
 		upgrade_effect  = "Aumenta o dano da Magnum em " + str(buff)
-		basic_cost  = (20+2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
+		basic_cost  = (2*upgrade_magnum[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 
 ###-----Bazuca-----###		
@@ -302,14 +308,14 @@ func set_card_aumenta_bazuca(upgrade_bazuca):
 		upgrade_name = "Aumento de munição da Bazuca"
 		buff = randi_range(1,2)
 		upgrade_effect = "Aumenta a munição máxima da Bazuca em " + str(buff)
-		basic_cost = (200+2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
+		basic_cost = (2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 1:
 		upgrade_type_image_path = more_damage
 		upgrade_name = "Aumento de dano da Bazuca"
 		buff = randi_range(10,20)
 		upgrade_effect  = "Aumenta o dano da Bazuca em " + str(buff)
-		basic_cost  = (20+2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
+		basic_cost  = (2*upgrade_bazuca[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
 	if sub_prop == 2:
 		if GameManager.upgrade_bazuca[2] == 1:
@@ -318,9 +324,70 @@ func set_card_aumenta_bazuca(upgrade_bazuca):
 		upgrade_name = "Tiro que divide"
 		buff = 1
 		upgrade_effect = "Após viajar por um tempo a bala se divide em duas, cada uma com uma explosão com 70% do tamanho e do dano da explosão original"
-		basic_cost = 900
+		basic_cost = 20000
 		calcula_custo_almas(basic_cost)
 		card_background_path = background_unico
+###-----estilhaço-----###		
+func set_card_aumenta_estilhaco(upgrade_estilhaco):
+	upgrade_image_path = "res://weapons/arma_estilhaco/Arma_de_estilhaco.png"
+	sub_prop = randi_range(0,2)
+	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
+		upgrade_name = "Aumento de munição da arma de estilhaços"
+		buff = randi_range(1,4)
+		upgrade_effect = "Aumenta a munição máxima da arma de estilhaços em " + str(buff)
+		basic_cost = (2*upgrade_estilhaco[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
+		upgrade_name = "Aumento de dano da arma de estilhaços"
+		buff = randi_range(5,10)
+		upgrade_effect  = "Aumenta o dano da arma de estilhaços em " + str(buff)
+		basic_cost  = (2*upgrade_estilhaco[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 2:
+		upgrade_type_image_path = more_frags
+		upgrade_name = "Mais estilhaços!"
+		buff = randi_range(1,3)
+		upgrade_effect = "Aumenta a quantidade de estilhaços em " + str(buff)
+		basic_cost = (2*upgrade_estilhaco[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+###-----slow-----###		
+func set_card_aumenta_slow(upgrade_slow):
+	upgrade_image_path = "res://weapons/arma_estilhaco/Arma_de_estilhaco.png"
+	sub_prop = randi_range(0,1)
+	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
+		upgrade_name = "Aumento de munição da arma de estilhaços"
+		buff = randi_range(1,4)
+		upgrade_effect = "Aumenta a munição máxima da arma de estilhaços em " + str(buff)
+		basic_cost = (2*upgrade_slow[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
+		upgrade_name = "Aumento de dano da arma de estilhaços"
+		buff = randi_range(5,10)
+		upgrade_effect  = "Aumenta o dano da arma de estilhaços em " + str(buff)
+		basic_cost  = (2*upgrade_slow[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+###-----duas fases-----###		
+func set_card_aumenta_duas_fases(upgrade_duas_fases):
+	upgrade_image_path = "res://weapons/duas_fases/Arma_fase_1.png"
+	sub_prop = randi_range(0,1)
+	if sub_prop == 0:
+		upgrade_type_image_path = more_ammo
+		upgrade_name = "Aumento de munição da arma de duas fases"
+		buff = randi_range(1,4)
+		upgrade_effect = "Aumenta a munição máxima da arma de duas fases em " + str(buff)
+		basic_cost = (2*upgrade_duas_fases[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
+		upgrade_name = "Aumento de dano da arma de duas fases"
+		buff = randi_range(5,10)
+		upgrade_effect  = "Aumenta o dano da arma de duas fases em " + str(buff)
+		basic_cost  = (2*upgrade_duas_fases[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
 	#TODO
 #func set_card_aumenta_algo(algo_up):
@@ -359,6 +426,15 @@ func _on_button_pressed() -> void:
 			"Bazuca":
 				GameManager.upgrade_bazuca[sub_prop]+=buff
 				print_debug("BAZUCA")
+			"Estilhaco":
+				GameManager.upgrade_estilhaco[sub_prop]+=buff
+				print_debug("Estilhaco")
+			"Slow":
+				GameManager.upgrade_slow[sub_prop]+=buff
+				print_debug("Slow")
+			"Duas fases":
+				GameManager.upgrade_duas_fases[sub_prop]+=buff
+				print_debug("Duas fases")
 			_:
 				print_debug("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()
@@ -370,12 +446,12 @@ func calcula_custo_almas(custo_alma):
 		upgrade_cost = custo_alma
 		upgrade_cost_image_path = alma_comum
 		card_background_path = background_comum
-	elif custo_alma <99999:
-		upgrade_cost = snapped(custo_alma/100,1)
+	elif custo_alma <999999:
+		upgrade_cost = snapped(custo_alma/1000,1)
 		upgrade_cost_image_path = alma_incomum
 		card_background_path = background_incomum
 	else:
-		upgrade_cost = snapped(custo_alma/10000,1)
+		upgrade_cost = snapped(custo_alma/1000000,1)
 		upgrade_cost_image_path = alma_rara
 		card_background_path = background_rara
 

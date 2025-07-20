@@ -50,6 +50,10 @@ var upgrade_metralhadora:Array[int] = [0,0,100,100,0] #[munição,dano,spreed,ve
 var upgrade_shotgun:Array[int] = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços,bala bumerangue]
 var upgrade_magnum:Array[int] = [0,0] #[munição,dano]
 var upgrade_bazuca:Array[int] = [0,0,0] #[munição,dano,Divide a bala]
+var upgrade_estilhaco:Array[int] = [0,0,0] #[munição,dano,mais estilhaços]
+var upgrade_slow:Array[int] = [0,0] #[munição,dano]
+var upgrade_duas_fases:Array[int] = [0,0] #[munição,dano]
+
 
 #Finalização do jogo em caso de game over
 func end_game():
@@ -92,3 +96,6 @@ func reset_game_status():
 	GameManager.upgrade_shotgun = [0,0,100,100,0,0] #[munição,dano,spread,alcance,quandidade de estilhaços]
 	GameManager.upgrade_magnum = [0,0] #[munição,dano]
 	GameManager.upgrade_bazuca = [0,0,0] #[munição,dano,Upgrade da bala dividir]
+	GameManager.upgrade_estilhaco = [0,0,0] #[munição,dano,mais estilhaços]
+	GameManager.upgrade_slow = [0,0] #[munição,dano]
+	GameManager.upgrade_duas_fases = [0,0] #[munição,dano]

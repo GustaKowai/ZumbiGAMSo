@@ -20,6 +20,7 @@ collision_mask = 0
 script = ExtResource("1_o8br6")
 explosao = ExtResource("2_cd41s")
 tempo_para_dividir = 0.7
+raio_explosao = 180.0
 balas_menores = ExtResource("3_wm6wk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

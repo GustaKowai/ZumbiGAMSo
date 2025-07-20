@@ -34,7 +34,7 @@ func explode():
 		#print_debug(raio_explosao)
 		var modificador_escala = raio_explosao/144.0
 		explosion.scale = Vector2(modificador_escala,modificador_escala)
-		explosion.get_child(0).scale = (Vector2(1/modificador_escala,1/modificador_escala))
+		explosion.get_node("Explosao").scale = (Vector2(1/modificador_escala,1/modificador_escala))
 		get_parent().add_child(explosion)
 	#Array com todas as areas afetadas pela explosao
 	var areas_afetadas:Array[Area2D] = area_da_explosao.get_overlapping_areas()

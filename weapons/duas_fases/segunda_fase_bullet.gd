@@ -4,12 +4,13 @@ var pos:Vector2
 var rota:float
 var dir: float
 var speed = 500
-var bullet_damage = 50
+var bullet_damage = 40
 @export var bullet_hit_scene:PackedScene
 
 func _ready():
 	global_position = pos
 	global_rotation = rota
+	bullet_damage += 5*GameManager.upgrade_duas_fases[1]
 
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)

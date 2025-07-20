@@ -7,7 +7,7 @@ var dir: float
 @export var speed:int = 800
 @export var bullet_damage:int = 8
 @export var explosao:PackedScene
-@export var raio_explosao:float = 144.0
+var raio_explosao:float = 144.0
 var ID:int
 
 func _ready():
@@ -45,7 +45,7 @@ func _on_bullet_hit_box_area_entered(area):
 			var colisao:CollisionShape2D = area_de_dano.get_child(0)
 			var modificador_escala = raio_explosao/144.0
 			explosion.scale = Vector2(modificador_escala,modificador_escala)
-			explosion.get_child(0).scale = (Vector2(1/modificador_escala,1/modificador_escala))
+			explosion.get_node("Explosao").scale = (Vector2(1/modificador_escala,1/modificador_escala))
 			get_parent().add_child(explosion)
 		GameManager.bala_explodida.emit(ID)
 		queue_free()

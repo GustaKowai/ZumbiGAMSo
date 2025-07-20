@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=63 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="38_jt61w"]
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="39_v8qla"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="40_y1tbi"]
+[ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="41_1w2xm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -3817,6 +3818,7 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="MobSapwners" type="Node2D" parent="."]
+process_mode = 4
 y_sort_enabled = true
 
 [node name="MobSpawner2" parent="MobSapwners" instance=ExtResource("27_odk1d")]
@@ -4009,3 +4011,9 @@ position = Vector2(-244, -27)
 
 [node name="arma_estilhaco_object2" parent="." instance=ExtResource("33_x3yn0")]
 position = Vector2(-16, -156)
+
+[node name="BombItem" parent="." instance=ExtResource("25_40n85")]
+position = Vector2(13, -535)
+
+[node name="ZumbiTanque" parent="." instance=ExtResource("41_1w2xm")]
+position = Vector2(-1486, -1002)

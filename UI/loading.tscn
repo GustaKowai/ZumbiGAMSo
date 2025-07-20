@@ -111,6 +111,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_07qht")
+tips = Array[String](["Lojas em locais diferentes tem estoques diferentes! Lembre-se de dar uma volta quando quiser fazer compras.", "Zumbis apenas serão invocados em círculos de invocação próximos ao jogador. Cuidado, quanto mais um círculo de invocação é usado, mais fortes são os zumbis dele.", "Os tipos e proporções de zumbis variam com o tempo. Tente sobreviver mais para ver zumbis mais fortes.", "Zumbis dão tipos diferentes de almas. Zumbis mais fortes dão almas mais raras.", "No modo arcade não tem upgrades! Tente bater o recorde dos seus amigos.", "As vezes irritar um necromante pode não ser uma boa ideia. Na maioria das vezes, na verdade.", "Aumente a perfuração das armas para atingir mais inimigos com elas.", "Algumas armas tem upgrades especiais que mudam bastante a funcionalidade das armas. Esses upgrades são caros mas podem valer a pena"])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

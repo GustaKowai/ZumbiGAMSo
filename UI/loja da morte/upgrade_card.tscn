@@ -42,7 +42,7 @@ possibilities_target = Dictionary[int, String]({
 })
 target_possibilities = Dictionary[String, Array]({
 "Player": ["Vida_max", "Stamina_max", "Stamina_rege", "sword_damage"],
-"Weapon": ["Revolver", "Metralhadora", "Shotgun", "Magnum", "Bazuca"]
+"Weapon": ["Revolver", "Metralhadora", "Shotgun", "Magnum", "Bazuca", "Estilhaco", "Slow", "Duas fases"]
 })
 metadata/_edit_pinned_properties_ = [&"possibilities_target"]
 

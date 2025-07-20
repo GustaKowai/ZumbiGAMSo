@@ -6,13 +6,15 @@ var dir: float
 var speed:int = 650
 var bullet_damage:int = 16
 var piercing:int = 0
-var numero_estilhacos:int = 10
+var numero_estilhacos:int = 4
 @export var estilhacinho:PackedScene
 @export var bullet_hit_scene:PackedScene
 
 func _ready():
 	global_position = pos
 	global_rotation = rota
+	bullet_damage += GameManager.upgrade_estilhaco[1]
+	numero_estilhacos += GameManager.upgrade_estilhaco[2]
 func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(dir)
 	move_and_slide()

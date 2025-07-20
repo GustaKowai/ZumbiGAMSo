@@ -80,21 +80,25 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Upgrade_card2" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
+visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Upgrade_card3" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
+visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Upgrade_card4" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
+visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
 
 [node name="Upgrade_card" parent="VBoxContainer/HBoxContainer2/CardContainer" instance=ExtResource("1_1rh6l")]
+visible = false
 layout_mode = 2
 possibilities_target = Dictionary[int, String]({})
 target_possibilities = Dictionary[int, String]({})
@@ -136,5 +140,6 @@ texture = ExtResource("5_wfiba")
 layout_mode = 2
 text = "0"
 
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Voltar_pro_jogo" to="." method="_on_voltar_pro_jogo_pressed"]
