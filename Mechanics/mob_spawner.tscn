@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1c761mq7s428"]
+[gd_scene load_steps=13 format=3 uid="uid://1c761mq7s428"]
 
 [ext_resource type="Script" uid="uid://c45q2bavo6g3q" path="res://Mechanics/mob_spawner.gd" id="1_cvpw2"]
 [ext_resource type="PackedScene" uid="uid://dv3uon3yb6fja" path="res://Enemies/Zumbi_normal_1/zombie_1.tscn" id="2_8pa0e"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1hj4msyptvsg" path="res://Enemies/Zumbi_Piao/zumbi_piao.tscn" id="4_qfv64"]
 [ext_resource type="Texture2D" uid="uid://3blmsmke7851" path="res://Mechanics/Spawn_Zumbi.png" id="4_vdvtt"]
 [ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="5_ufsxt"]
+[ext_resource type="PackedScene" uid="uid://drgphmmirdwle" path="res://Enemies/zumbi militar/zumbi_militar.tscn" id="6_1hb7a"]
 
 [sub_resource type="Animation" id="Animation_1yabf"]
 length = 0.001
@@ -113,14 +114,16 @@ radius = 1500.0
 [node name="MobSpawner" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_cvpw2")
-enemies = Array[PackedScene]([ExtResource("2_8pa0e"), ExtResource("3_vdvtt"), ExtResource("4_qfv64"), ExtResource("5_ufsxt")])
-spawn_chances = Array[float]([1.0, 0.0, 0.0, 0.0])
+enemies = Array[PackedScene]([ExtResource("2_8pa0e"), ExtResource("3_vdvtt"), ExtResource("4_qfv64"), ExtResource("5_ufsxt"), ExtResource("6_1hb7a")])
+spawn_chances = Array[float]([2.0, 0.0, 0.0, 0.0, 0.0])
 buff_spawn_policial = 0.1
 tempo_buff_spawn_policial_seg = 10
 buff_spawn_piao = 0.1
 tempo_buff_spawn_piao_seg = 10
 buff_spawn_tanque = 0.1
 tempo_buff_spawn_tanque_seg = 90
+buff_spawn_militar = 0.1
+tempo_buff_spawn_militar_seg = 20
 
 [node name="SistemaDeDificuldade" parent="." node_paths=PackedStringArray("mob_spawner") instance=ExtResource("4_5ir0s")]
 mob_spawner = NodePath("..")

@@ -15,6 +15,8 @@ extends Node2D
 @export var tempo_buff_spawn_piao_seg:int
 @export var buff_spawn_tanque:float
 @export var tempo_buff_spawn_tanque_seg:int
+@export var buff_spawn_militar:float
+@export var tempo_buff_spawn_militar_seg:int
 
 var controle_tempo:int = 0
 #buff por spawn
@@ -81,8 +83,11 @@ func check_spawn_rates():
 		if spawn_chances[1] > 1: spawn_chances[1] = 1
 	if current_time%tempo_buff_spawn_piao_seg == 0:
 		spawn_chances[2] += buff_spawn_piao
-		if spawn_chances[2] > 1: spawn_chances[2] = 1
+		if spawn_chances[2] > 1.5: spawn_chances[2] = 1.5
 	if current_time%tempo_buff_spawn_tanque_seg == 0:
 		spawn_chances[3] += buff_spawn_tanque
 		if spawn_chances[3] > 0.5: spawn_chances[3] = 0.5
+	if current_time%tempo_buff_spawn_militar_seg == 0:
+		spawn_chances[4] += buff_spawn_militar
+		if spawn_chances[4] > 0.7: spawn_chances[4] = 0.7
 	#print_debug(spawn_chances)

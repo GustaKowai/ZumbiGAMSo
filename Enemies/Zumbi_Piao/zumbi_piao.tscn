@@ -288,6 +288,7 @@ autoplay = "idle"
 script = ExtResource("4_83e04")
 damage = 2
 damage_timer = 2.0
+controle_de_buff_de_dano = 0.5
 
 [node name="FollowPlayer" type="Node2D" parent="."]
 script = ExtResource("5_pv42u")
