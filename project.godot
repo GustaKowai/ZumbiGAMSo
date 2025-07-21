@@ -13,7 +13,7 @@ config_version=5
 config/name="Zombie teste"
 run/main_scene="uid://b8umxxej1friv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bvnyw3syyqcom"
 
 [autoload]
 

@@ -38,3 +38,9 @@ func play_animations():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "alma_presa":
 		get_tree().change_scene_to_file("res://UI/loading.tscn")
+
+
+func _on_tutorial_pressed() -> void:
+	GameManager.reset_game_status()
+	GameManager.scene_to_load = "res://Tutorial/Tutorial.tscn"
+	play_animations()

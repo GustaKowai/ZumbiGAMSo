@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var alma_comum = %alma_comum
 @onready var alma_incomum = %alma_incomum
 @onready var alma_rara = %alma_rara
+@onready var confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 
 func _ready():
 	hide()
@@ -20,3 +21,15 @@ func _process(delta):
 			alma_rara.text = str(GameManager.alma_rara)
 			show()
 			get_tree().paused = true	
+
+
+func _on_button_pressed() -> void:
+	confirmation_dialog.visible = true
+
+
+func _on_confirmation_dialog_confirmed() -> void:
+	get_tree().change_scene_to_file("res://UI/menu.tscn")
+
+
+func _on_confirmation_dialog_canceled() -> void:
+	confirmation_dialog.visible = false

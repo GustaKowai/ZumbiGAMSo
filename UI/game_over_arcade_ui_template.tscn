@@ -84,7 +84,6 @@ text = "Voltar ao menu"
 title = "Novo recorde!"
 initial_position = 1
 size = Vector2i(355, 100)
-visible = true
 unresizable = true
 ok_button_text = "Salvar"
 
