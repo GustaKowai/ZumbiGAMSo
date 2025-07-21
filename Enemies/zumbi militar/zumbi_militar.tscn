@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drgphmmirdwle"]
+[gd_scene load_steps=26 format=3 uid="uid://drgphmmirdwle"]
 
 [ext_resource type="Script" uid="uid://dlx7qqiddy8lj" path="res://Enemies/zumbi militar/zumbi_militar.gd" id="1_0vjyd"]
 [ext_resource type="PackedScene" uid="uid://bc4bylx0blnya" path="res://Enemies/Modulos/follow_player.tscn" id="1_76ckf"]
@@ -6,7 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_jpopq"]
 [ext_resource type="Texture2D" uid="uid://d0rnobwshfhvl" path="res://Enemies/zumbi militar/Zumbi_militar_atirando_todas_direcoes_sprite_sheet.png" id="3_76ckf"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="3_la8eg"]
+[ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="3_ro8d5"]
+[ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="4_c7e0l"]
 [ext_resource type="PackedScene" uid="uid://fllngnphnijk" path="res://Enemies/Modulos/attack_ranged.tscn" id="4_la8eg"]
+[ext_resource type="PackedScene" uid="uid://b7d8u6qsiv6pp" path="res://weapons/magnum/magnum.tscn" id="5_da73v"]
+[ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="6_8pe7l"]
+[ext_resource type="PackedScene" uid="uid://dmc33cre01yu0" path="res://weapons/arma_estilhaco/arma_estilhaco_weapon.tscn" id="7_o6a1t"]
+[ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="8_32okj"]
 [ext_resource type="PackedScene" uid="uid://bxs51gf8knquk" path="res://Enemies/zumbi militar/zumbi_bullet2.tscn" id="8_f1mct"]
 
 [sub_resource type="Animation" id="Animation_5iqex"]
@@ -550,7 +556,9 @@ script = ExtResource("1_0vjyd")
 follow = NodePath("FollowPlayer")
 enemy_health = 60
 death_prefab = ExtResource("2_jpopq")
+items = Array[PackedScene]([ExtResource("3_ro8d5"), ExtResource("4_c7e0l"), ExtResource("5_da73v"), ExtResource("6_8pe7l"), ExtResource("7_o6a1t"), ExtResource("8_32okj")])
 drop_rate = 0.8
+drop_chances = Array[float]([0.4, 0.6, 0.6, 0.6, 0.3, 0.2])
 coin = ExtResource("3_la8eg")
 coins_rate = 0.9
 number_coins_max = 5
