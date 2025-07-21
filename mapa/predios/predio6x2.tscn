@@ -21,7 +21,6 @@ position = Vector2(133, -62)
 texture = ExtResource("2_ghq2x")
 offset = Vector2(17, -181)
 hframes = 4
-frame = 3
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(106, 1)
