@@ -4006,92 +4006,120 @@ y_sort_enabled = true
 [node name="MobSpawner2" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(2674, 837)
 spawn_chances = Array[float]([2.0, 0.1, 0.0, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 20
+tempo_buff_spawn_policial_seg = 30
 buff_spawn_tanque = 0.0
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-110, -1706)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner3" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-923, -1268)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner4" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-2669, -4074)
 spawn_chances = Array[float]([2.0, 0.1, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner5" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(136, -4068)
 spawn_chances = Array[float]([2.0, 0.1, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner6" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(3146, -2853)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner7" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(2456, -605)
 spawn_chances = Array[float]([2.0, 0.1, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
 tempo_buff_spawn_piao_seg = 15
 buff_spawn_tanque = 0.0
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner8" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(1808, -26)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner9" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-3175, 3072)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner10" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-1359, 1968)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner11" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(4733, 2246)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
 tempo_buff_spawn_piao_seg = 15
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner12" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-242, 1218)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
-tempo_buff_spawn_policial_seg = 15
+tempo_buff_spawn_policial_seg = 45
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner13" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-3645, 1643)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner14" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(4875, -69)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner15" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(2016, 2407)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner16" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-1589, -2834)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner17" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-2802, -770)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner18" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(1575, -2257)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner19" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(307, 3012)
 spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+tempo_buff_spawn_policial_seg = 30
+tempo_buff_spawn_militar_seg = 60
 
 [node name="Gerador de lojas" parent="." instance=ExtResource("36_rrpn1")]
 numero_de_lojas_abertas = 7
