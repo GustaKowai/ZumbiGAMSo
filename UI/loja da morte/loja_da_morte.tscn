@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://d03o2pxlmfven" path="res://UI/loja da morte/loja_da_morte.gd" id="1_cnfjm"]
 [ext_resource type="Texture2D" uid="uid://cmalfo76fe8gs" path="res://UI/loja da morte/Upgrade_screen.png" id="3_mrer4"]
 [ext_resource type="Texture2D" uid="uid://d2asjxc1rnp4i" path="res://UI/UI_images/Alma_Comum_UI.png" id="3_v20dk"]
-[ext_resource type="Texture2D" uid="uid://b2eyfu887i70i" path="res://UI/UI_images/Alma_zumbi_Incomum.png" id="4_mrer4"]
-[ext_resource type="Texture2D" uid="uid://cyfqavr0lf06m" path="res://UI/UI_images/Alma_Zumbi_Raro.png" id="5_wfiba"]
+[ext_resource type="Texture2D" uid="uid://b2eyfu887i70i" path="res://UI/UI_images/Alma_Zumbi_incomum.png" id="4_mrer4"]
+[ext_resource type="Texture2D" uid="uid://cyfqavr0lf06m" path="res://UI/UI_images/Alma_zumbi_raro.png" id="5_wfiba"]
 [ext_resource type="Texture2D" uid="uid://w1xcjbqyrm7o" path="res://UI/loja da morte/Reroll.png" id="7_wfiba"]
 [ext_resource type="Texture2D" uid="uid://bf0h06xg60aju" path="res://UI/loja da morte/Save.png" id="8_fcdm7"]
 
