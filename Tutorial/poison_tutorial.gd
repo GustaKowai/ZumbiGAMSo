@@ -13,8 +13,7 @@ func _process(delta: float) -> void:
 			#Se a area for do Jogador, ele recebe o dano de player
 			if areas.is_in_group("JogadorHitBox"):
 				var jogador:Jogador = areas.get_parent()
-				jogador.damage(dano)
-				if jogador.position.x < 0:
-					jogador.position.x += 54
-				else: 
+				if jogador.position.x > 0:
 					jogador.position.x -= 54
+				elif jogador.position.x < 0:
+					jogador.position.x += 54

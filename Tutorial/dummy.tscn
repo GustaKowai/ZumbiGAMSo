@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://db01hw7pvlkau"]
+
+[ext_resource type="Script" uid="uid://bxvvsrrvx4j8m" path="res://Tutorial/dummy.gd" id="1_aruxu"]
+[ext_resource type="Texture2D" uid="uid://ch8upr7gg0388" path="res://Tutorial/saco_pancada.jpeg" id="1_d34d4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aruxu"]
+size = Vector2(80, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4ite"]
+size = Vector2(49, 118)
+
+[node name="dummy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 59
+script = ExtResource("1_aruxu")
+health_for_buff = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.884858, 1.01111)
+texture = ExtResource("1_d34d4")
+
+[node name="HitBoxArea" type="Area2D" parent="." groups=["EnemyHitBox"]]
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBoxArea"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_aruxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_a4ite")

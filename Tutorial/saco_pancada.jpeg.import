@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfqavr0lf06m"
-path="res://.godot/imported/Alma_Zumbi_Raro.png-0ec46632871cdbd3e0e67c9ecb94c2f2.ctex"
+uid="uid://ch8upr7gg0388"
+path="res://.godot/imported/saco_pancada.jpeg-9d7f0d52ee27229e38b27782f1629a85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/UI_images/Alma_Zumbi_Raro.png"
-dest_files=["res://.godot/imported/Alma_Zumbi_Raro.png-0ec46632871cdbd3e0e67c9ecb94c2f2.ctex"]
+source_file="res://Tutorial/saco_pancada.jpeg"
+dest_files=["res://.godot/imported/saco_pancada.jpeg-9d7f0d52ee27229e38b27782f1629a85.ctex"]
 
 [params]
 
