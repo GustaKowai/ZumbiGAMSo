@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxs51gf8knquk"]
+
+[ext_resource type="Script" uid="uid://bgbf03a8niyo3" path="res://Enemies/Zumbi_policial/zumbi_bullet.gd" id="1_va0xf"]
+[ext_resource type="Texture2D" uid="uid://dtf5vghfrqgng" path="res://Enemies/zumbi militar/Bala_zumbi_militar.png" id="2_va0xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq0ap"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy18v"]
+size = Vector2(30, 20)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_va0xf")
+bullet_damage = 5
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+texture = ExtResource("2_va0xf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tq0ap")
+
+[node name="bulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletHitBox"]
+shape = SubResource("RectangleShape2D_oy18v")
+debug_color = Color(0, 0.6, 0.7, 0)
+
+[connection signal="area_entered" from="bulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]

@@ -22,6 +22,7 @@ explosao = ExtResource("2_45ypt")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.50001, 0)
 texture = ExtResource("3_7bawf")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m7fqv")

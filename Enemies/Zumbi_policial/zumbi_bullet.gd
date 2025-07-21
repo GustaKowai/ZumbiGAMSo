@@ -4,7 +4,7 @@ var pos:Vector2
 var rota:float
 var dir: float
 var speed:int = 600
-var bullet_damage:int = 4
+@export var bullet_damage:int = 4
 
 func _ready():
 	global_position = pos

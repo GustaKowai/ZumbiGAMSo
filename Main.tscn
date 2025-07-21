@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=68 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -40,8 +40,9 @@
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="38_jt61w"]
 [ext_resource type="PackedScene" uid="uid://sagssett8ap6" path="res://weapons/duas_fases/duas_fases.tscn" id="39_v8qla"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="40_y1tbi"]
-[ext_resource type="Texture2D" uid="uid://d4la77mh5hj8n" path="res://mapa/imagens/Borda_do_mundo.png" id="41_1w2xm"]
+[ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="41_1w2xm"]
 [ext_resource type="Script" uid="uid://denadhpxhq8dw" path="res://poison.gd" id="42_gngx1"]
+[ext_resource type="Texture2D" uid="uid://d4la77mh5hj8n" path="res://mapa/imagens/Borda_do_mundo.png" id="42_jt61w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -2846,7 +2847,7 @@ sources/2 = SubResource("TileSetAtlasSource_8h1yq")
 sources/3 = SubResource("TileSetAtlasSource_fykug")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gngx1"]
-texture = ExtResource("41_1w2xm")
+texture = ExtResource("42_jt61w")
 texture_region_size = Vector2i(54, 54)
 1:0/animation_separation = Vector2i(3, 0)
 1:0/animation_frame_0/duration = 1.0
@@ -4183,6 +4184,9 @@ position = Vector2(-2403, -3614)
 tempo_de_expediente = 60.0
 lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
 lista_precos = Array[int]([5, 10, 5, 15])
+
+[node name="ZumbiTanque" parent="." instance=ExtResource("41_1w2xm")]
+position = Vector2(-440, -250)
 
 [node name="Pause UI" parent="." instance=ExtResource("14_s8pq5")]
 

@@ -2,23 +2,24 @@
 
 [ext_resource type="Script" uid="uid://c6f5e0yl8bd2p" path="res://Enemies/Zumbi_Piao/zumbi_piao.gd" id="1_sjciy"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0pu26"]
-[ext_resource type="Texture2D" uid="uid://jbvpuwbmjcxm" path="res://Enemies/Zumbi_Piao/piao_parado.png" id="2_83e04"]
 [ext_resource type="PackedScene" uid="uid://cbrug38wa8paa" path="res://weapons/revolver/revolver.tscn" id="2_bjobl"]
 [ext_resource type="PackedScene" uid="uid://dmw7ea12mggsu" path="res://items/coin/coin.tscn" id="2_elk4x"]
 [ext_resource type="PackedScene" uid="uid://qbgilvkkekmo" path="res://weapons/shotgun/shotgun.tscn" id="3_0pu26"]
-[ext_resource type="Texture2D" uid="uid://dxa84q1qk5g6f" path="res://Enemies/Zumbi_Piao/piao_ataque.png" id="3_pv42u"]
 [ext_resource type="Script" uid="uid://dn58wjgtfova4" path="res://Enemies/Modulos/touch_damage.gd" id="4_83e04"]
 [ext_resource type="PackedScene" uid="uid://b7d8u6qsiv6pp" path="res://weapons/magnum/magnum.tscn" id="4_vcfty"]
 [ext_resource type="Script" uid="uid://dplsbq06tur5k" path="res://Enemies/Modulos/aim_and_run.gd" id="5_pv42u"]
 [ext_resource type="PackedScene" uid="uid://dkkymgxcb5lt" path="res://weapons/machinegun/machinegun.tscn" id="5_tvflk"]
 [ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="6_e5p6g"]
 [ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="7_y0h7m"]
+[ext_resource type="Texture2D" uid="uid://c28qv1b3x3erv" path="res://Enemies/Zumbi_Piao/Spinning_boi_standby-Sheet.png" id="10_0pu26"]
+[ext_resource type="Texture2D" uid="uid://bbtu86olj64ew" path="res://Enemies/Zumbi_Piao/Spinning_bo_attacki-Sheet.png" id="11_vcfty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_elk4x"]
-radius = 50.01
+radius = 38.2099
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mm17o"]
-radius = 65.0308
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pu26"]
+radius = 26.0
+height = 100.0
 
 [sub_resource type="Animation" id="Animation_mm17o"]
 length = 0.001
@@ -46,9 +47,60 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBoxArea/PiaoAtaque:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxArea/PiaoParado:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBoxArea/CollisionShape2D2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBoxArea/CollisionShape2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pv42u"]
 resource_name = "ataque"
+length = 0.4
+loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,9 +125,48 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBoxArea/PiaoAtaque:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxArea/CollisionShape2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBoxArea/CollisionShape2D2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_elk4x"]
 resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,6 +191,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBoxArea/PiaoParado:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxArea/CollisionShape2D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBoxArea/CollisionShape2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wmg0x"]
 _data = {
@@ -110,7 +237,6 @@ _data = {
 
 [node name="ZumbiPiao" type="CharacterBody2D" node_paths=PackedStringArray("follow") groups=["enemies"]]
 y_sort_enabled = true
-scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 57
 script = ExtResource("1_sjciy")
@@ -124,26 +250,31 @@ coins_rate = 0.8
 number_coins_max = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -54)
+position = Vector2(-2, -42)
 shape = SubResource("CircleShape2D_elk4x")
 
 [node name="HitBoxArea" type="Area2D" parent="." groups=["EnemyHitBox"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="HitBoxArea"]
+visible = false
 position = Vector2(1, -55)
-shape = SubResource("CircleShape2D_mm17o")
+polygon = PackedVector2Array(-3, 65, 53, -49, -55, -49)
 
 [node name="PiaoParado" type="Sprite2D" parent="HitBoxArea"]
 visible = false
-position = Vector2(0.999996, -57)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_83e04")
+position = Vector2(-2, -72)
+texture = ExtResource("10_0pu26")
+hframes = 8
 
 [node name="PiaoAtaque" type="Sprite2D" parent="HitBoxArea"]
-position = Vector2(2, 0)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_pv42u")
-offset = Vector2(-2, -102)
+position = Vector2(0, -6)
+texture = ExtResource("11_vcfty")
+offset = Vector2(0, -72)
+hframes = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBoxArea"]
+position = Vector2(0, -50)
+shape = SubResource("CapsuleShape2D_0pu26")
 
 [node name="damage_digit_marker" type="Marker2D" parent="."]
 
@@ -151,6 +282,7 @@ offset = Vector2(-2, -102)
 libraries = {
 &"": SubResource("AnimationLibrary_wmg0x")
 }
+autoplay = "idle"
 
 [node name="Touch_Damage" type="Node2D" parent="."]
 script = ExtResource("4_83e04")
