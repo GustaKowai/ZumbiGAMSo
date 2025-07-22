@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8umxxej1friv"]
+[gd_scene load_steps=17 format=3 uid="uid://b8umxxej1friv"]
 
 [ext_resource type="Script" uid="uid://0esq6oacq8dl" path="res://UI/menu.gd" id="1_0h2wq"]
 [ext_resource type="Texture2D" uid="uid://cnh68c6g4tb0d" path="res://UI/menu_images/Menu.png" id="2_4hkxj"]
+[ext_resource type="Texture2D" uid="uid://6gxnkahf2avr" path="res://UI/menu_images/Name_card.png" id="3_dhncy"]
 [ext_resource type="Theme" uid="uid://btle3jrchq4jy" path="res://UI/menu.tres" id="3_qmqfe"]
 [ext_resource type="Texture2D" uid="uid://dtw1dnwwkqej2" path="res://UI/menu_images/Exit_button.png" id="4_e05sn"]
 [ext_resource type="Texture2D" uid="uid://7ktk6onsevan" path="res://UI/menu_images/Soul.png" id="5_e05sn"]
@@ -351,6 +352,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4hkxj")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 613.0
+offset_bottom = 245.0
+texture = ExtResource("3_dhncy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
