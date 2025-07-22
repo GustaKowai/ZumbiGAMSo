@@ -19,6 +19,9 @@ script = ExtResource("1_h2akf")
 bullet_duracao = 1.0
 bullet_ghost = ExtResource("2_e1xqa")
 bullet_hit_scene = ExtResource("3_iiyiu")
+speed = 1750
+bullet_damage = 10
+piercing = 10000
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_na3m6")
