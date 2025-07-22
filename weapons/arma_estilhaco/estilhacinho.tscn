@@ -16,6 +16,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_ktl24")
 bullet_hit_scene = ExtResource("2_a34x7")
+speed = 800
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_8d11e")
