@@ -7,7 +7,6 @@ func _ready():
 
 func _physics_process(delta):
 	move_front()
-	desapear_on_distance()
 
 func _on_segunda_fase_bullet_hit_box_area_entered(area: Area2D) -> void:
 	hit_enemy(area)

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var bullet_hit_scene:PackedScene
 @export var speed:int
 @export var bullet_damage:int
-@export var piercing = 0
+@export var piercing:int = 0
 var pos:Vector2
 var rota:float
 var dir: float

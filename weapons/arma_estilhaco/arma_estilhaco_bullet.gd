@@ -7,9 +7,9 @@ func _ready():
 	set_start_position()
 	bullet_damage += GameManager.upgrade_estilhaco[1]
 	numero_estilhacos += GameManager.upgrade_estilhaco[2]
+	
 func _physics_process(delta):
 	move_front()
-	desapear_on_distance()
 
 func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox") or area.is_in_group("construcao"):
