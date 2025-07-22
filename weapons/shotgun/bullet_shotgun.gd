@@ -1,17 +1,10 @@
-extends CharacterBody2D
+extends Bullet_base
 
-var pos:Vector2
-var rota:float
-var dir: float
-var speed = 2000
-@export var bullet_hit_scene:PackedScene
-@export var bullet_damage = 40
 var bullet_duracao = 0.12
 var bullet_tempodevida = 0
 
 func _ready():
-	global_position = pos
-	global_rotation = rota
+	set_start_position()
 	bullet_damage += GameManager.upgrade_shotgun[1]
 	bullet_duracao*= GameManager.upgrade_shotgun[3]*1.0/100
 	
@@ -23,25 +16,10 @@ func _process(delta):
 		
 		
 func _physics_process(delta):
-	velocity = Vector2(speed,0).rotated(dir)
-	move_and_slide()
+	move_front()
 
 func _on_bullet_hit_box_area_entered(area):
-	if area.is_in_group("EnemyHitBox"):
-		var enemy:Enemy  = area.get_parent()
-		enemy.damage(bullet_damage)
-		set_bullet_hit()
-		enemy.follow.knockback(velocity,0.2)
-		queue_free()
-	if area.is_in_group("construcao"):
-		set_bullet_hit()
-		#print_debug("Acertei um predio")
-		queue_free()
-		
-func set_bullet_hit():
-	if bullet_hit_scene:
-		var bullet_hit = bullet_hit_scene.instantiate()
-		bullet_hit.global_position = global_position
-		bullet_hit.global_rotation = global_rotation
-		get_parent().get_parent().add_child(bullet_hit)
+	hit_enemy(area)
+	desapear_on_hit_building(area)
+	knockback_enemy(area,0.2)
 	

@@ -15,6 +15,8 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_dsbx1")
 bullet_hit_scene = ExtResource("2_yo754")
+speed = 500
+bullet_damage = 26
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.396078, 0.270588, 1)

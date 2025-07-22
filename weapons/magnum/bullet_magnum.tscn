@@ -15,6 +15,9 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_j0nuc")
 bullet_hit_scene = ExtResource("2_q5750")
+speed = 500
+bullet_damage = 26
+piercing = 10000
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true

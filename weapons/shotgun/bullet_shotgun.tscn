@@ -15,6 +15,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rs5io")
 bullet_hit_scene = ExtResource("2_5cu7k")
+speed = 2000
 bullet_damage = 10
 
 [node name="BulletSprite" type="Sprite2D" parent="."]

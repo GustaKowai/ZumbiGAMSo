@@ -46,3 +46,8 @@ func set_bullet_hit():
 		bullet_hit.global_position = global_position
 		bullet_hit.global_rotation = global_rotation
 		get_parent().get_parent().add_child(bullet_hit)
+		
+func knockback_enemy(area,time_knockback:float):
+	if area.is_in_group("EnemyHitBox"):
+		var enemy:Enemy  = area.get_parent()
+		enemy.follow.knockback(velocity,time_knockback)
