@@ -20,7 +20,7 @@ func move_front():
 	
 func desapear_on_distance():
 	if GameManager.player:
-		if position.distance_squared_to(GameManager.player.position) > 1000000:
+		if position.distance_squared_to(GameManager.player.position) > 5000000:
 			queue_free()
 	else:
 		queue_free()
