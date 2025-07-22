@@ -1,19 +1,12 @@
-extends CharacterBody2D
+extends Bullet_base
 @onready var sprite:Sprite2D = $BulletSprite
 
-var pos:Vector2
-var rota:float
-var dir: float
-var speed:int = 1000
-var bullet_damage:int = 30
-var piercing = 3
 var curvatura:float = 0
 var cima_baixo:int
-@export var bullet_hit_scene:PackedScene
+
 
 func _ready():
-	global_position = pos
-	global_rotation = rota
+	set_start_position()
 	bullet_damage += GameManager.upgrade_revolver[1]
 	piercing += GameManager.upgrade_revolver[2]
 	curvatura = 0# randf_range(-1,1)
@@ -24,34 +17,15 @@ func _ready():
 	else:
 		cima_baixo = 1
 		sprite.modulate = Color.RED
+		
 func _physics_process(delta):
 	dir = cima_baixo*sin(curvatura) 
 	curvatura += 0.5
 	global_rotation = rota+dir
 	velocity = Vector2(speed,0).rotated(rota+dir)
 	move_and_slide()
-	if GameManager.player:
-		if position.distance_squared_to(GameManager.player.position) > 1000000:
-			queue_free()
-	else:
-		queue_free()
+	desapear_on_distance()
 
 func _on_bullet_hit_box_area_entered(area):
-	if area.is_in_group("EnemyHitBox"):
-		var enemy:Enemy  = area.get_parent()
-		enemy.damage(bullet_damage)
-		set_bullet_hit()
-		if piercing <= 0:
-			queue_free()
-		piercing -= 1
-	if area.is_in_group("construcao"):
-		set_bullet_hit()
-		#print_debug("Acertei um predio")
-		queue_free()
-		
-func set_bullet_hit():
-	if bullet_hit_scene:
-		var bullet_hit = bullet_hit_scene.instantiate()
-		bullet_hit.global_position = global_position
-		bullet_hit.global_rotation = global_rotation
-		get_parent().get_parent().add_child(bullet_hit)
+	hit_enemy(area)
+	desapear_on_hit_building(area)

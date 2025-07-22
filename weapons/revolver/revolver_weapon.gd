@@ -60,7 +60,7 @@ func fireGun():
 				animation_player.play("fire_side_right")
 				player.animation_player.play("Fire_side_right")
 
-func fire_bullet():
+func fire_1_bullet():
 	if ammo <= 0: queue_free()
 	#Determina a direção do tiro e cria a bala
 	var bullet = bullet_path.instantiate()
@@ -88,10 +88,10 @@ func fire_bullet():
 	if ammo <= 0:
 		queue_free() #Solta a arma se ficar sem munição
 
-func fire_n_bullet():
+func fire_bullet():
 	firing_animation_play()
-	fire_bullet()
-	if upgrade and ammo > 0: fire_bullet()
+	fire_1_bullet()
+	if upgrade and ammo > 0: fire_1_bullet()
 
 func print_message():
 	pass

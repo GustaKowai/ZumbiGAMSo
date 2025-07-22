@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7sef8ve6wa7y"]
+
+[ext_resource type="Script" uid="uid://cgq8vbecfm3yl" path="res://base_bullet.gd" id="1_h1bej"]
+
+[node name="Base_bullet" type="CharacterBody2D"]
+script = ExtResource("1_h1bej")
