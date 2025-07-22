@@ -354,7 +354,7 @@ func set_card_aumenta_estilhaco(upgrade_estilhaco):
 		calcula_custo_almas(basic_cost)
 ###-----slow-----###		
 func set_card_aumenta_slow(upgrade_slow):
-	upgrade_image_path = "res://weapons/arma_estilhaco/Arma_de_estilhaco.png"
+	upgrade_image_path = "res://weapons/arma_slow/Arma_slow.png"
 	sub_prop = randi_range(0,1)
 	if sub_prop == 0:
 		upgrade_type_image_path = more_ammo
