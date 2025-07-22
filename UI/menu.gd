@@ -1,6 +1,8 @@
 extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	animation_player.play("alma_solta")
 
 func _on_jogar_pressed() -> void:
 	SaveLoad.load_data()
