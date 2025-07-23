@@ -19,6 +19,7 @@ _data = {
 texture = ExtResource("1_hfse1")
 script = ExtResource("2_2vrku")
 weapon = ExtResource("3_uw68t")
+arma_string = "res://weapons/revolver/revolver_icon_2.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

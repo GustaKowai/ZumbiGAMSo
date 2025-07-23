@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqehhieu7u271"]
+
+[ext_resource type="Script" uid="uid://ccgqybjbg8mp" path="res://arma_coletavel.gd" id="1_uyc0w"]
+
+[node name="Arma_coletavel" type="Sprite2D"]
+script = ExtResource("1_uyc0w")

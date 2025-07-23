@@ -43,7 +43,9 @@ func _process(delta):
 	
 
 func change_weapon_equiped(weapon_sprite_path):
+	#print_debug(weapon_sprite_path)
 	texture_weapon = load(weapon_sprite_path)
+	#print_debug(texture_weapon)
 	weapon_bar.texture_under = texture_weapon
 	weapon_bar.texture_progress = texture_weapon
 	#print_debug("troquei")
