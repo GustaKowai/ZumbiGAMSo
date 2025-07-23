@@ -13,6 +13,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_an7ta")
 script = ExtResource("2_an7ta")
 weapon = ExtResource("3_apfrx")
+arma_string = "res://weapons/shotgun/shotgun_icon.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

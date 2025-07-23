@@ -11,6 +11,7 @@ radius = 35.0
 texture = ExtResource("1_6m0fi")
 script = ExtResource("1_t5gdr")
 weapon = ExtResource("3_uhhka")
+arma_string = "res://weapons/magnum/magnum_icon.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

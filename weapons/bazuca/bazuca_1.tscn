@@ -14,6 +14,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_nqm7k")
 script = ExtResource("1_6bh4v")
 weapon = ExtResource("3_26dui")
+arma_string = "res://weapons/bazuca/bazuca.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

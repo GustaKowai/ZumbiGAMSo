@@ -12,6 +12,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_krhnj")
 script = ExtResource("2_scr7x")
 weapon = ExtResource("3_t5wbn")
+arma_string = "res://weapons/machinegun/machinegun.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

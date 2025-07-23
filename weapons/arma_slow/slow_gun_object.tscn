@@ -12,6 +12,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_bw4lo")
 script = ExtResource("2_855yh")
 weapon = ExtResource("3_855yh")
+arma_string = "res://weapons/arma_slow/Arma_slow.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

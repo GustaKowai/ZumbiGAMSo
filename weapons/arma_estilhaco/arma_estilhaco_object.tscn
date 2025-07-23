@@ -13,6 +13,7 @@ scale = Vector2(0.55, 0.55)
 texture = ExtResource("1_3dxlm")
 script = ExtResource("1_iotfw")
 weapon = ExtResource("3_ocdt5")
+arma_string = "res://weapons/arma_estilhaco/Arma_de_estilhaco.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

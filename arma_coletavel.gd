@@ -1,4 +1,4 @@
-class_name arma_coletavel
+class_name Arma_Coletavel
 extends Sprite2D
 
 @export var weapon:PackedScene

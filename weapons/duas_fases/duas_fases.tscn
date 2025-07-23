@@ -12,6 +12,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m5vus")
 script = ExtResource("2_35f48")
 weapon = ExtResource("3_m5vus")
+arma_string = "res://weapons/duas_fases/Arma_fase_1.png"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
