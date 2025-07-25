@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://3rja3fm1f0fx"]
+
+[ext_resource type="Texture2D" uid="uid://c1bcfyavli8mk" path="res://Tutorial/seta.jpg" id="1_ontnm"]
+[ext_resource type="Script" uid="uid://rwldgujstshl" path="res://Tutorial/desc_vida_escudo.gd" id="1_tlkwh"]
+
+[node name="Desc_vida_escudo" type="CanvasLayer"]
+script = ExtResource("1_tlkwh")
+
+[node name="seta_vida_escudo" type="TextureRect" parent="."]
+offset_left = 299.0
+offset_top = 591.0
+offset_right = 659.0
+offset_bottom = 951.0
+rotation = 4.71239
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ontnm")
+
+[node name="Texto_vida_escudo" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 5
+offset_left = 132.0
+offset_top = 133.0
+offset_right = 432.0
+offset_bottom = 202.0
+scale = Vector2(1.4, 1.4)
+text = "Esses são sua vida(em vermelho) 
+e seu escudo(azul). 
+Se sua vida zerar eu 
+venho te visitar"

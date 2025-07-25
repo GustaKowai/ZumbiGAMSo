@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq42ahm3e3syn"]
+
+[ext_resource type="Texture2D" uid="uid://c1bcfyavli8mk" path="res://Tutorial/seta.jpg" id="1_57mko"]
+[ext_resource type="Script" uid="uid://dv2i1pl73ktbu" path="res://Tutorial/desc_moedas_zumbi.gd" id="1_sug4m"]
+
+[node name="Desc_moedas_zumbi" type="CanvasLayer"]
+script = ExtResource("1_sug4m")
+
+[node name="Texto_moeda_zumbi" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+offset_left = 151.0
+offset_top = 119.0
+offset_right = 376.0
+offset_bottom = 188.0
+scale = Vector2(1.5, 1.5)
+text = "Ali estão dispostos a 
+quantidade de moedas 
+coletas e zumbis mortos 
+nessa run"
+
+[node name="seta_moeda_zumbi" type="TextureRect" parent="."]
+z_index = 5
+offset_left = 747.0
+offset_top = 179.0
+offset_right = 1107.0
+offset_bottom = 539.0
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_57mko")

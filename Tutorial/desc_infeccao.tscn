@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://couirwsx2dnr6"]
+
+[ext_resource type="Script" uid="uid://2p68pbdudufl" path="res://Tutorial/desc_infeccao.gd" id="1_505lk"]
+[ext_resource type="Texture2D" uid="uid://c1bcfyavli8mk" path="res://Tutorial/seta.jpg" id="1_gohmx"]
+
+[node name="Desc_infeccao" type="CanvasLayer"]
+script = ExtResource("1_505lk")
+
+[node name="seta_vida_escudo" type="TextureRect" parent="."]
+offset_left = 1201.0
+offset_top = 287.0
+offset_right = 1561.0
+offset_bottom = 647.0
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gohmx")
+flip_h = true
+
+[node name="Texto_vida_escudo" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 5
+offset_left = 132.0
+offset_top = 133.0
+offset_right = 432.0
+offset_bottom = 202.0
+scale = Vector2(1.4, 1.4)
+text = "Essa é a barra de infecção, 
+quando ela se encher significa
+que não existe mais salvação
+para esse mundo"

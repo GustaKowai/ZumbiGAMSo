@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://b873f8ngy522f"]
+[gd_scene load_steps=54 format=4 uid="uid://b873f8ngy522f"]
 
 [ext_resource type="Script" uid="uid://cqctmvjtldrb1" path="res://Tutorial/tutorial.gd" id="1_f2drb"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rjgc8"]
@@ -19,6 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://cr4ldsewxwrls" path="res://Tutorial/ataque_melee.tscn" id="16_1uqyg"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="16_78018"]
 [ext_resource type="PackedScene" uid="uid://b3qcv045rpri2" path="res://Player/jogador_2try.tscn" id="17_twdup"]
+[ext_resource type="PackedScene" uid="uid://dr77s6teo6o3d" path="res://Tutorial/introdução_necromante.tscn" id="18_xobj3"]
+[ext_resource type="PackedScene" uid="uid://b1d7vug6wrxyb" path="res://Tutorial/descricao_tela.tscn" id="19_j1fac"]
+[ext_resource type="PackedScene" uid="uid://dq42ahm3e3syn" path="res://Tutorial/desc_moedas_zumbi.tscn" id="20_qpfw8"]
+[ext_resource type="PackedScene" uid="uid://3rja3fm1f0fx" path="res://Tutorial/desc_vida_escudo.tscn" id="21_84jua"]
+[ext_resource type="PackedScene" uid="uid://couirwsx2dnr6" path="res://Tutorial/desc_infeccao.tscn" id="22_wyg2x"]
+[ext_resource type="PackedScene" uid="uid://c1htc1mxihnhk" path="res://Tutorial/desc_itens_arma.tscn" id="23_c3dwn"]
 [ext_resource type="PackedScene" uid="uid://pogo3isobqxq" path="res://UI/pause_ui.tscn" id="31_52m13"]
 [ext_resource type="PackedScene" uid="uid://scqbfaec4i5" path="res://UI/game_ui.tscn" id="32_6482m"]
 [ext_resource type="Texture2D" uid="uid://d4la77mh5hj8n" path="res://mapa/imagens/Borda_do_mundo.png" id="41_0khaq"]
@@ -3030,7 +3036,7 @@ update_rotation = false
 update_scale = false
 
 [node name="dummy" parent="." instance=ExtResource("15_f2drb")]
-position = Vector2(-575, -26)
+position = Vector2(-376, -55)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
@@ -3043,9 +3049,27 @@ position_smoothing_enabled = true
 
 [node name="Pause UI" parent="." instance=ExtResource("31_52m13")]
 
-[node name="Ataque_melee" parent="." instance=ExtResource("16_1uqyg")]
-
 [node name="GameUI" parent="." instance=ExtResource("32_6482m")]
+
+[node name="Introdução_necromante" parent="." instance=ExtResource("18_xobj3")]
+
+[node name="Descricao_tela(sem_texto)" parent="." instance=ExtResource("19_j1fac")]
+visible = false
+
+[node name="Desc_moedas_zumbi" parent="." instance=ExtResource("20_qpfw8")]
+visible = false
+
+[node name="Desc_vida_escudo" parent="." instance=ExtResource("21_84jua")]
+visible = false
+
+[node name="Desc_itens_arma" parent="." instance=ExtResource("23_c3dwn")]
+visible = false
+
+[node name="Desc_infeccao" parent="." instance=ExtResource("22_wyg2x")]
+visible = false
+
+[node name="Ataque_melee" parent="." instance=ExtResource("16_1uqyg")]
+visible = false
 
 [node name="Predios" type="Node2D" parent="."]
 position = Vector2(-3, 0)
@@ -3097,3 +3121,10 @@ position = Vector2(912, 191)
 shape = SubResource("RectangleShape2D_a4klu")
 
 [connection signal="morreu" from="dummy" to="Ataque_melee" method="_on_dummy_morreu"]
+[connection signal="moedas" from="Introdução_necromante" to="Descricao_tela(sem_texto)" method="aparecer_desc_tela"]
+[connection signal="moedas" from="Introdução_necromante" to="Desc_moedas_zumbi" method="aparecer_moedas"]
+[connection signal="vida" from="Desc_moedas_zumbi" to="Desc_vida_escudo" method="aparecer_vida"]
+[connection signal="armas" from="Desc_vida_escudo" to="Desc_itens_arma" method="aparecer_armas"]
+[connection signal="infeccao" from="Desc_itens_arma" to="Desc_infeccao" method="aparecer_infeccao"]
+[connection signal="dummy" from="Desc_infeccao" to="dummy" method="chamou_dummy"]
+[connection signal="dummy" from="Desc_infeccao" to="Ataque_melee" method="chamou_melle"]
