@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=68 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -2677,11 +2677,18 @@ texture_region_size = Vector2i(54, 54)
 10:1/0/y_sort_origin = 24
 10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.82237, 15.8053, 3.95132, 13.5474, 3.95132, 27, -2.2579, 27)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gngx1"]
+scenes/1/scene = ExtResource("17_bg4s2")
+scenes/1/display_placeholder = ExtResource("17_bg4s2")
+scenes/2/scene = ExtResource("16_3b0ty")
+scenes/3/scene = ExtResource("28_pby55")
+
 [sub_resource type="TileSet" id="TileSet_uy3go"]
 tile_size = Vector2i(54, 54)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_4bst2")
 sources/0 = SubResource("TileSetAtlasSource_oaklg")
+sources/2 = SubResource("TileSetScenesCollectionSource_gngx1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yf3a2"]
 texture = ExtResource("12_38apo")
