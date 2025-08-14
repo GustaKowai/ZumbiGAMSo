@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite_movimento:Sprite2D = $Movimento
 @onready var sprite_ataque:Sprite2D = $Ataque
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
+
 @export_category("Movimento")
 @export var follow:Node2D
 
