@@ -1548,4 +1548,7 @@ one_shot = true
 position = Vector2(1, -27)
 shape = SubResource("RectangleShape2D_ex2cr")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
