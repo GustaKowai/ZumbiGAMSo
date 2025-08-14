@@ -7,6 +7,7 @@ var var_diff:Vector2
 var position_running:String = "side" 
 var dmg_area:Area2D
 var atk_direction: Vector2
+@onready var audio_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var controle_de_buff_de_dano:float = 1 #Quanto de dano extra que causá por buff do mob spawner
 @export var dano_zombie:int = 1
@@ -58,6 +59,7 @@ func attack():
 	#Define como atacando:
 	enemy.is_attacking = true
 	attack_cooldown = atk_cd
+	audio_player_2d.play()
 	#Define a animação que será usada para atacar
 	if enemy.follow.position_running == "side":
 		if sprite.flip_h:
