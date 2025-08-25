@@ -1,5 +1,6 @@
 extends Node2D
 @onready var bullet_point:Marker2D = $BulletPoint
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var bullet_path:PackedScene
 @export var machinegun_bullet:PackedScene
 @export var controle_de_buff_de_dano:float
@@ -85,6 +86,7 @@ func fire_bullet():
 	bullet.ID = ID_tiro
 	bullet.bullet_damage += dano_extra_zombie
 	bullet.raio_explosao = raio_explosao
+	audio_player.play()
 	match shoot_direction:
 		"Down":
 			bullet.dir = PI/2

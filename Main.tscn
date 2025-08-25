@@ -4022,7 +4022,7 @@ tempo_buff_spawn_militar_seg = 60
 
 [node name="MobSpawner3" parent="MobSapwners" instance=ExtResource("27_odk1d")]
 position = Vector2(-923, -1268)
-spawn_chances = Array[float]([2.0, 0.0, 0.1, 0.0, 0.0])
+spawn_chances = Array[float]([2.0, 0.0, 0.1, 3.0, 0.0])
 tempo_buff_spawn_policial_seg = 45
 tempo_buff_spawn_militar_seg = 60
 

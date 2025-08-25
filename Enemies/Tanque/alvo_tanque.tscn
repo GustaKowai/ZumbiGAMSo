@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkmkgv53m6ja6"]
+[gd_scene load_steps=8 format=3 uid="uid://bkmkgv53m6ja6"]
 
 [ext_resource type="Texture2D" uid="uid://d2av10o6a4lir" path="res://Misc/Area_explosao.png" id="1_ml5oe"]
 [ext_resource type="Script" uid="uid://4k3o6oky5r8p" path="res://Enemies/Tanque/alvo_tanque.gd" id="2_d1uuh"]
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="3_yur1n"]
+[ext_resource type="AudioStream" uid="uid://b4uhhx1bk4wt1" path="res://Enemies/Tanque/tank-missileLock.wav" id="4_wtmnu"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d1uuh"]
 a = Vector2(0, -35)
@@ -51,3 +52,7 @@ offset_bottom = 2.5
 texture = ExtResource("3_yur1n")
 hframes = 7
 vframes = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wtmnu")
+bus = &"sfx"
