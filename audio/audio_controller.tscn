@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv2w7h0h6wmmj"]
+[gd_scene load_steps=9 format=3 uid="uid://dv2w7h0h6wmmj"]
 
 [ext_resource type="Script" uid="uid://c7wer30q8pm2e" path="res://audio/audio_controller.gd" id="1_e6jji"]
 [ext_resource type="AudioStream" uid="uid://lx0841smoua1" path="res://audio/weapon_sounds/shotgun.mp3" id="2_dr783"]
 [ext_resource type="AudioStream" uid="uid://cdkr36x4afop" path="res://audio/weapon_sounds/magnum.wav" id="3_aufy8"]
 [ext_resource type="AudioStream" uid="uid://cumacjjo7wdop" path="res://audio/weapon_sounds/revolver.wav" id="4_blxgy"]
+[ext_resource type="AudioStream" uid="uid://cqk5h0ubeskqk" path="res://audio/weapon_sounds/metralhadora-singleshot.wav" id="5_vys8g"]
 [ext_resource type="AudioStream" uid="uid://c6xkclkyxh1x0" path="res://audio/weapon_sounds/shotgun-upgrade.wav" id="5_xujww"]
 [ext_resource type="AudioStream" uid="uid://ckf5h1jw0dr35" path="res://audio/weapon_sounds/revolver-upgrade.wav" id="6_vys8g"]
+[ext_resource type="AudioStream" uid="uid://tomdmv5osout" path="res://audio/weapon_sounds/metralhadora-autofiring.wav" id="8_h7rxg"]
 
 [node name="AudioController" type="Node2D"]
 script = ExtResource("1_e6jji")
 biblioteca_armas = Dictionary[String, Resource]({
+"res://weapons/machinegun/machinegun.png": ExtResource("5_vys8g"),
 "res://weapons/magnum/magnum_icon.png": ExtResource("3_aufy8"),
 "res://weapons/revolver/revolver_icon_2.png": ExtResource("4_blxgy"),
 "res://weapons/shotgun/shotgun_icon.png": ExtResource("2_dr783")
@@ -20,3 +23,8 @@ biblioteca_armas_upadas = Dictionary[String, Resource]({
 })
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
+
+[node name="keepShootingMachineGun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_h7rxg")
+bus = &"sfx"

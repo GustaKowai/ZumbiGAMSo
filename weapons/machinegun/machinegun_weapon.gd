@@ -41,6 +41,8 @@ func _process(delta: float) -> void:
 		fireGun()
 		player.weapon_cooldown = weapon_cooldown
 	if Input.is_action_pressed("FireGun") and firing == true:
+		if not AudioController.keep_shooting_machine_gun.playing:
+			AudioController.keep_shooting()
 		interval += velocidade_tiros
 		firing_animation()
 		#print_debug(interval)
@@ -52,6 +54,7 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_released("FireGun"):
 		if firing:
+			AudioController.stop_shooting()
 			firing_animation_machinegun.visible = false
 			player.weapon_cooldown = weapon_cooldown
 			firing = false
@@ -64,6 +67,7 @@ func fireGun():
 		return
 	#Define como atacando:
 	player.is_shooting = true
+	AudioController.play_shoot()
 	player.weapon_cooldown = weapon_cooldown*1000
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
@@ -130,6 +134,7 @@ func fire_bullet():
 	if ammo == 0:
 		player.weapon_cooldown = weapon_cooldown
 		firing = false
+		AudioController.stop_shooting()
 		queue_free() #Solta a arma se ficar sem munição
 
 func set_firing():

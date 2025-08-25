@@ -1,5 +1,6 @@
 extends Node2D
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
+@onready var keep_shooting_machine_gun: AudioStreamPlayer = $keepShootingMachineGun
 
 @export var biblioteca_armas:Dictionary[String,Resource]
 @export var biblioteca_armas_upadas:Dictionary[String,Resource]
@@ -11,6 +12,12 @@ func _ready() -> void:
 func play_shoot():
 	shoot_sound.play()
 
+func keep_shooting():
+	keep_shooting_machine_gun.play()
+
+func stop_shooting():
+	keep_shooting_machine_gun.stop()
+	
 func change_weapon_sound(weapon):
 	check_upgrades()
 	#print_debug(weapon)
@@ -30,5 +37,4 @@ func check_upgrades():
 	checagem_de_upgrades["res://weapons/shotgun/shotgun_icon.png"] = GameManager.upgrade_shotgun[5]
 	#print_debug(checagem_de_upgrades)
 	#print_debug(GameManager.upgrade_revolver)
-	
 	
