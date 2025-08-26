@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr4ldsewxwrls"]
+[gd_scene load_steps=5 format=3 uid="uid://cr4ldsewxwrls"]
 
 [ext_resource type="Script" uid="uid://ynm7ex70iqd5" path="res://Tutorial/ataque_melee.gd" id="1_dwm8j"]
 [ext_resource type="Texture2D" uid="uid://dq6ud3n4ycm84" path="res://Tutorial/morte.png" id="1_n0hyn"]
 [ext_resource type="Texture2D" uid="uid://chi4b7hmgt2a0" path="res://Tutorial/balao_tutorial.jpg" id="2_dwm8j"]
+[ext_resource type="PackedScene" uid="uid://db01hw7pvlkau" path="res://Tutorial/dummy.tscn" id="2_yg0vn"]
 
 [node name="Ataque_melee" type="CanvasLayer"]
 script = ExtResource("1_dwm8j")
+inimigo_scene = ExtResource("2_yg0vn")
 
 [node name="Morte" type="TextureRect" parent="."]
 offset_left = 1191.0

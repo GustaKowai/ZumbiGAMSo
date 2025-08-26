@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb65abo445hfo"]
+
+[ext_resource type="Texture2D" uid="uid://c3dsc83r53vd4" path="res://weapons/revolver/revolver_icon_2.png" id="1_b7obj"]
+[ext_resource type="Script" uid="uid://b5gt25dx2kx8n" path="res://weapons/revolver/revolver.gd" id="2_yysc4"]
+[ext_resource type="PackedScene" uid="uid://dtnujappyj0hy" path="res://weapons/arma_tutorial/revolver_tutorial_weapon.tscn" id="3_b7obj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7tlib"]
+radius = 33.3766
+
+[node name="revolver_tutorial" type="Sprite2D"]
+texture = ExtResource("1_b7obj")
+script = ExtResource("2_yysc4")
+weapon = ExtResource("3_b7obj")
+arma_string = "res://weapons/revolver/revolver_icon_2.png"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7tlib")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

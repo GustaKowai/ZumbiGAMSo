@@ -7,8 +7,7 @@ extends Node2D
 func _ready():
 	GameManager.game_over.connect(trigger_game_over)
 	GameManager.time_elapsed = 0
-	
-	
+
 func trigger_game_over():
 	if game_ui:
 		game_ui.queue_free()

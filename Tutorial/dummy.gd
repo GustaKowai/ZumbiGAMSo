@@ -3,10 +3,6 @@ extends Enemy
 #Sinal para indicar que o dummy morreu
 signal morreu
 
-#Esconde o dummy em primeiro momento
-func _ready() -> void:
-	hide()
-
 #Habilita a visao ao receber o sinal "dummy"
 func chamou_dummy():
 	visible = true
