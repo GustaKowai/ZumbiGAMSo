@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwqv2j0cyst4s"]
+
+[ext_resource type="Script" uid="uid://jo5clrbfmt1d" path="res://besta.gd" id="1_2nupd"]
+[ext_resource type="Texture2D" uid="uid://dogyiqwh8v5d4" path="res://weapons/besta/Crossbow.png" id="1_rboyp"]
+[ext_resource type="PackedScene" uid="uid://b4ludhywjgss0" path="res://weapons/besta/besta_weapon.tscn" id="2_rboyp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rboyp"]
+radius = 41.0038
+height = 190.024
+
+[node name="besta" type="Sprite2D"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_rboyp")
+script = ExtResource("1_2nupd")
+weapon = ExtResource("2_rboyp")
+arma_string = "res://weapons/besta/Crossbow.png"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
+rotation = 1.5666
+shape = SubResource("CapsuleShape2D_rboyp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfqavr0lf06m"
-path="res://.godot/imported/Alma_zumbi_raro.png-42a2e621f26e2baa54fb5969518f5ad3.ctex"
+uid="uid://dogyiqwh8v5d4"
+path="res://.godot/imported/Crossbow.png-1e7ac5dca6f42a0eb37f50675f4559bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/UI_images/Alma_zumbi_raro.png"
-dest_files=["res://.godot/imported/Alma_zumbi_raro.png-42a2e621f26e2baa54fb5969518f5ad3.ctex"]
+source_file="res://weapons/besta/Crossbow.png"
+dest_files=["res://.godot/imported/Crossbow.png-1e7ac5dca6f42a0eb37f50675f4559bb.ctex"]
 
 [params]
 
