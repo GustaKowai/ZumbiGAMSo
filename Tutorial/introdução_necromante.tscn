@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dr77s6teo6o3d"]
 
 [ext_resource type="Script" uid="uid://csiwhlwag7qxo" path="res://Tutorial/introdução_necromante.gd" id="1_m2rml"]
-[ext_resource type="Texture2D" uid="uid://dq6ud3n4ycm84" path="res://Tutorial/morte.png" id="1_um866"]
-[ext_resource type="Texture2D" uid="uid://chi4b7hmgt2a0" path="res://Tutorial/balao_tutorial.jpg" id="2_m2rml"]
 [ext_resource type="PackedScene" uid="uid://b1d7vug6wrxyb" path="res://Tutorial/descricao_tela.tscn" id="2_tksos"]
 [ext_resource type="PackedScene" uid="uid://dq42ahm3e3syn" path="res://Tutorial/desc_moedas_zumbi.tscn" id="3_482lp"]
+[ext_resource type="Texture2D" uid="uid://i8c3ff0xrq0t" path="res://Tutorial/Death_tutorial.png" id="4_tksos"]
+[ext_resource type="Texture2D" uid="uid://c7b1oxfoj573x" path="res://Tutorial/baloes_de_fala/Primeria_fala.png" id="5_482lp"]
 
 [node name="Introdução_necromante" type="CanvasLayer"]
 script = ExtResource("1_m2rml")
@@ -13,30 +13,17 @@ desc_tela_moedas = ExtResource("3_482lp")
 
 [node name="Morte" type="TextureRect" parent="."]
 z_index = 5
-offset_left = 1015.0
-offset_top = 374.0
-offset_right = 2215.0
-offset_bottom = 1649.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_um866")
-
-[node name="Tetxo" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-z_index = 6
-offset_left = 192.0
-offset_top = 109.0
-offset_right = 521.0
-offset_bottom = 295.0
-scale = Vector2(3, 3)
-text = "Bem vindo mortal! (Resto da lore)
-Agora vou te ensinar a 
-sobreviver nesse mundo
-"
+offset_left = 1090.0
+offset_top = 216.0
+offset_right = 1228.0
+offset_bottom = 417.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_tksos")
 
 [node name="Balao" type="TextureRect" parent="."]
-offset_left = 20.0
-offset_top = -6.0
-offset_right = 2404.0
-offset_bottom = 938.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_m2rml")
+offset_left = 365.0
+offset_top = 213.0
+offset_right = 645.0
+offset_bottom = 325.0
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("5_482lp")

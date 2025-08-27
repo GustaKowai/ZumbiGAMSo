@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://b873f8ngy522f"]
+[gd_scene load_steps=54 format=4 uid="uid://b873f8ngy522f"]
 
 [ext_resource type="Script" uid="uid://cqctmvjtldrb1" path="res://Tutorial/tutorial.gd" id="1_f2drb"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rjgc8"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="16_78018"]
 [ext_resource type="PackedScene" uid="uid://b3qcv045rpri2" path="res://Player/jogador_2try.tscn" id="17_twdup"]
 [ext_resource type="PackedScene" uid="uid://dr77s6teo6o3d" path="res://Tutorial/introdução_necromante.tscn" id="18_xobj3"]
-[ext_resource type="PackedScene" uid="uid://b1d7vug6wrxyb" path="res://Tutorial/descricao_tela.tscn" id="19_j1fac"]
 [ext_resource type="PackedScene" uid="uid://dq42ahm3e3syn" path="res://Tutorial/desc_moedas_zumbi.tscn" id="20_qpfw8"]
 [ext_resource type="PackedScene" uid="uid://3rja3fm1f0fx" path="res://Tutorial/desc_vida_escudo.tscn" id="21_84jua"]
 [ext_resource type="PackedScene" uid="uid://couirwsx2dnr6" path="res://Tutorial/desc_infeccao.tscn" id="22_wyg2x"]
@@ -3029,6 +3028,7 @@ tile_map_data = PackedByteArray("AADn//n/AgAAAAAAAADn//j/AgAAAAAAAADo//j/AgAAAAA
 tile_set = SubResource("TileSet_wrbn1")
 
 [node name="Jogador" parent="." instance=ExtResource("17_twdup")]
+position = Vector2(-1, 65)
 sword_damage = 15
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Jogador"]
@@ -3037,9 +3037,10 @@ update_rotation = false
 update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 65)
 process_callback = 0
 limit_left = -1024
-limit_top = -324
+limit_top = -500
 limit_right = 910
 limit_bottom = 702
 limit_smoothed = true
@@ -3050,9 +3051,6 @@ position_smoothing_enabled = true
 [node name="GameUI" parent="." instance=ExtResource("32_6482m")]
 
 [node name="Introdução_necromante" parent="." instance=ExtResource("18_xobj3")]
-
-[node name="Descricao_tela(sem_texto)" parent="." instance=ExtResource("19_j1fac")]
-visible = false
 
 [node name="Desc_moedas_zumbi" parent="." instance=ExtResource("20_qpfw8")]
 visible = false
@@ -3073,6 +3071,7 @@ visible = false
 visible = false
 
 [node name="item" parent="." instance=ExtResource("25_hbbou")]
+visible = false
 
 [node name="Predios" type="Node2D" parent="."]
 position = Vector2(-3, 0)
@@ -3101,8 +3100,23 @@ position = Vector2(-606, 814)
 [node name="Predio3" parent="Predios" instance=ExtResource("16_78018")]
 position = Vector2(-1277, 813)
 
+[node name="Predio6x2" parent="Predios" instance=ExtResource("14_u8jpl")]
+position = Vector2(-1131, -317)
+
+[node name="Predio3x2" parent="Predios" instance=ExtResource("15_av7so")]
+position = Vector2(-814, -311)
+
 [node name="Predio" parent="Predios" instance=ExtResource("16_78018")]
 position = Vector2(307, 813)
+
+[node name="Predio2" parent="Predios" instance=ExtResource("16_78018")]
+position = Vector2(-645, -319)
+
+[node name="Predio4" parent="Predios" instance=ExtResource("16_78018")]
+position = Vector2(-269, -324)
+
+[node name="Predio3x6" parent="Predios" instance=ExtResource("15_av7so")]
+position = Vector2(102, -319)
 
 [node name="Limites" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0.529412)
@@ -3123,7 +3137,18 @@ shape = SubResource("RectangleShape2D_a4klu")
 position = Vector2(912, 191)
 shape = SubResource("RectangleShape2D_a4klu")
 
-[connection signal="moedas" from="Introdução_necromante" to="Descricao_tela(sem_texto)" method="aparecer_desc_tela"]
+[node name="Predio3x2" parent="." instance=ExtResource("15_av7so")]
+position = Vector2(265, -316)
+
+[node name="Predio3x3" parent="." instance=ExtResource("15_av7so")]
+position = Vector2(428, -314)
+
+[node name="Predio3x4" parent="." instance=ExtResource("15_av7so")]
+position = Vector2(594, -314)
+
+[node name="Predio" parent="." instance=ExtResource("16_78018")]
+position = Vector2(755, -322)
+
 [connection signal="moedas" from="Introdução_necromante" to="Desc_moedas_zumbi" method="aparecer_moedas"]
 [connection signal="vida" from="Desc_moedas_zumbi" to="Desc_vida_escudo" method="aparecer_vida"]
 [connection signal="armas" from="Desc_vida_escudo" to="Desc_itens_arma" method="aparecer_armas"]

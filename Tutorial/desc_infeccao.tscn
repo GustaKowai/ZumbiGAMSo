@@ -1,30 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://couirwsx2dnr6"]
+[gd_scene load_steps=4 format=3 uid="uid://couirwsx2dnr6"]
 
 [ext_resource type="Script" uid="uid://2p68pbdudufl" path="res://Tutorial/desc_infeccao.gd" id="1_505lk"]
-[ext_resource type="Texture2D" uid="uid://c1bcfyavli8mk" path="res://Tutorial/seta.jpg" id="1_gohmx"]
+[ext_resource type="Texture2D" uid="uid://2m6nwpmvg1ou" path="res://Tutorial/Seta.png" id="2_af4a2"]
+[ext_resource type="Texture2D" uid="uid://i8c3ff0xrq0t" path="res://Tutorial/Death_tutorial.png" id="3_0tkcw"]
 
 [node name="Desc_infeccao" type="CanvasLayer"]
 script = ExtResource("1_505lk")
 
-[node name="seta_vida_escudo" type="TextureRect" parent="."]
-offset_left = 1201.0
-offset_top = 287.0
-offset_right = 1561.0
-offset_bottom = 647.0
-rotation = 0.785398
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_gohmx")
-flip_h = true
+[node name="seta" type="TextureRect" parent="."]
+offset_left = 1306.0
+offset_top = 383.0
+offset_right = 1396.0
+offset_bottom = 518.0
+rotation = 1.5708
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_af4a2")
 
-[node name="Texto_vida_escudo" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-z_index = 5
-offset_left = 132.0
-offset_top = 133.0
-offset_right = 432.0
-offset_bottom = 202.0
-scale = Vector2(1.4, 1.4)
-text = "Essa é a barra de infecção, 
-quando ela se encher significa
-que não existe mais salvação
-para esse mundo"
+[node name="fala" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="morte" type="TextureRect" parent="."]
+offset_left = 100.0
+offset_top = 246.0
+offset_right = 238.0
+offset_bottom = 447.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_0tkcw")
+flip_h = true

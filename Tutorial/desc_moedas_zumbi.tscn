@@ -1,30 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq42ahm3e3syn"]
+[gd_scene load_steps=5 format=3 uid="uid://dq42ahm3e3syn"]
 
-[ext_resource type="Texture2D" uid="uid://c1bcfyavli8mk" path="res://Tutorial/seta.jpg" id="1_57mko"]
 [ext_resource type="Script" uid="uid://dv2i1pl73ktbu" path="res://Tutorial/desc_moedas_zumbi.gd" id="1_sug4m"]
+[ext_resource type="Texture2D" uid="uid://2m6nwpmvg1ou" path="res://Tutorial/Seta.png" id="2_ndnvy"]
+[ext_resource type="Texture2D" uid="uid://sbi3ltph1q8" path="res://Tutorial/baloes_de_fala/fala_zumbis_moeda.png" id="3_dw553"]
+[ext_resource type="Texture2D" uid="uid://i8c3ff0xrq0t" path="res://Tutorial/Death_tutorial.png" id="4_dw553"]
 
 [node name="Desc_moedas_zumbi" type="CanvasLayer"]
 script = ExtResource("1_sug4m")
 
-[node name="Texto_moeda_zumbi" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-z_index = 2
-offset_left = 151.0
-offset_top = 119.0
-offset_right = 376.0
-offset_bottom = 188.0
-scale = Vector2(1.5, 1.5)
-text = "Ali estão dispostos a 
-quantidade de moedas 
-coletas e zumbis mortos 
-nessa run"
+[node name="fala" type="TextureRect" parent="."]
+offset_left = 365.0
+offset_top = 213.0
+offset_right = 645.0
+offset_bottom = 325.0
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("3_dw553")
 
 [node name="seta_moeda_zumbi" type="TextureRect" parent="."]
 z_index = 5
-offset_left = 747.0
-offset_top = 179.0
-offset_right = 1107.0
-offset_bottom = 539.0
-rotation = 0.785398
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_57mko")
+offset_left = 712.0
+offset_top = 135.0
+offset_right = 802.0
+offset_bottom = 270.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_ndnvy")
+
+[node name="Morte" type="TextureRect" parent="."]
+offset_left = 100.0
+offset_top = 246.0
+offset_right = 238.0
+offset_bottom = 447.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_dw553")
+flip_h = true
