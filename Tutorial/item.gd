@@ -18,7 +18,7 @@ func chamou_item():
 	visible = true
 	var item = item_scene.instantiate()
 	get_parent().add_child(item)
-	item.global_position = Vector2(114,282)
+	item.global_position = Vector2(-105,282)
 	GameManager.player.player_shield = 0
 	GameManager.player.player_health = 35
 	visivel = true

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1d7vug6wrxyb"]
+[gd_scene load_steps=3 format=3 uid="uid://b1d7vug6wrxyb"]
 
 [ext_resource type="Script" uid="uid://q4bb6p8kx304" path="res://Tutorial/descricao_tela.gd" id="1_a0he0"]
-[ext_resource type="Texture2D" uid="uid://dq6ud3n4ycm84" path="res://Tutorial/morte.png" id="2_d5bky"]
-[ext_resource type="Texture2D" uid="uid://chi4b7hmgt2a0" path="res://Tutorial/balao_tutorial.jpg" id="3_i0aaw"]
+[ext_resource type="Texture2D" uid="uid://i8c3ff0xrq0t" path="res://Tutorial/Death_tutorial.png" id="2_vfx88"]
 
 [node name="Descricao_tela(sem_texto)" type="CanvasLayer"]
 script = ExtResource("1_a0he0")
@@ -11,16 +10,8 @@ script = ExtResource("1_a0he0")
 z_index = 2
 offset_left = 32.0
 offset_top = 246.0
-offset_right = 1232.0
-offset_bottom = 1521.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_d5bky")
-
-[node name="Balao" type="TextureRect" parent="."]
-offset_left = 65.0
-offset_top = 78.0
-offset_right = 1802.0
-offset_bottom = 898.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_i0aaw")
+offset_right = 170.0
+offset_bottom = 447.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_vfx88")
 flip_h = true

@@ -1,41 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjyh711v2c75e"]
 
-[ext_resource type="Texture2D" uid="uid://chi4b7hmgt2a0" path="res://Tutorial/balao_tutorial.jpg" id="1_bano7"]
 [ext_resource type="Script" uid="uid://cp42ba3xb3eok" path="res://Tutorial/ataque_arma.gd" id="1_q1nak"]
-[ext_resource type="Texture2D" uid="uid://dq6ud3n4ycm84" path="res://Tutorial/morte.png" id="2_q1nak"]
 [ext_resource type="PackedScene" uid="uid://bb65abo445hfo" path="res://weapons/arma_tutorial/revolver_tutorial.tscn" id="2_rpgtr"]
 [ext_resource type="PackedScene" uid="uid://db01hw7pvlkau" path="res://Tutorial/dummy.tscn" id="3_ss67e"]
+[ext_resource type="Texture2D" uid="uid://b8g7l6s25r8qp" path="res://Tutorial/baloes_de_fala/Fala_ataque_arma.png" id="4_ss67e"]
+[ext_resource type="Texture2D" uid="uid://i8c3ff0xrq0t" path="res://Tutorial/Death_tutorial.png" id="5_ky7uw"]
 
 [node name="ataque_arma" type="CanvasLayer"]
 script = ExtResource("1_q1nak")
 weapon = ExtResource("2_rpgtr")
 inimigo_scene = ExtResource("3_ss67e")
 
-[node name="Balao" type="TextureRect" parent="."]
-offset_left = 186.0
-offset_top = 23.0
-offset_right = 2816.0
-offset_bottom = 886.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_bano7")
-flip_h = true
+[node name="fala" type="TextureRect" parent="."]
+offset_left = 390.0
+offset_top = 19.0
+offset_right = 670.0
+offset_bottom = 131.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_ss67e")
 
 [node name="Morte" type="TextureRect" parent="."]
-offset_left = 10.0
-offset_top = 143.0
-offset_right = 1210.0
-offset_bottom = 1418.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_q1nak")
+offset_left = 118.0
+offset_top = 75.0
+offset_right = 256.0
+offset_bottom = 276.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_ky7uw")
 flip_h = true
-
-[node name="Label" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-offset_left = 279.0
-offset_top = 71.0
-offset_right = 608.0
-offset_bottom = 122.0
-scale = Vector2(2, 2)
-text = "Passe por cima da arma para 
-pega-la e utilize o botão esquerdo 
-para atirar"

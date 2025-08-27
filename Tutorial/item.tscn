@@ -1,42 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://chv3lcjexww6m"]
 
-[ext_resource type="Texture2D" uid="uid://chi4b7hmgt2a0" path="res://Tutorial/balao_tutorial.jpg" id="1_bo77q"]
 [ext_resource type="Script" uid="uid://ctgq3cu2bibn4" path="res://Tutorial/item.gd" id="1_m4t58"]
-[ext_resource type="Texture2D" uid="uid://dq6ud3n4ycm84" path="res://Tutorial/morte.png" id="2_m4t58"]
 [ext_resource type="PackedScene" uid="uid://uifdexlixxhh" path="res://items/Itens_cura/Cura_pequena/cura_pequena.tscn" id="2_oakmk"]
 [ext_resource type="PackedScene" uid="uid://d37j06syhcwc1" path="res://Tutorial/fim_tutorial.tscn" id="3_ckvod"]
+[ext_resource type="Texture2D" uid="uid://db68kweupsnv7" path="res://Tutorial/baloes_de_fala/fala_item_usavel.png" id="4_ckvod"]
+[ext_resource type="Texture2D" uid="uid://i8c3ff0xrq0t" path="res://Tutorial/Death_tutorial.png" id="4_oakmk"]
 
 [node name="item" type="CanvasLayer"]
 script = ExtResource("1_m4t58")
 item_scene = ExtResource("2_oakmk")
 fim_scene = ExtResource("3_ckvod")
 
-[node name="Balao" type="TextureRect" parent="."]
-offset_left = 164.0
-offset_top = 14.0
-offset_right = 2867.0
-offset_bottom = 1077.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_bo77q")
-flip_h = true
+[node name="Fala" type="TextureRect" parent="."]
+offset_left = 390.0
+offset_top = 19.0
+offset_right = 670.0
+offset_bottom = 131.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_ckvod")
 
 [node name="Morte" type="TextureRect" parent="."]
-offset_left = -7.0
-offset_top = 144.0
-offset_right = 1193.0
-offset_bottom = 1419.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_m4t58")
+offset_left = 118.0
+offset_top = 75.0
+offset_right = 256.0
+offset_bottom = 276.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_oakmk")
 flip_h = true
-
-[node name="Label" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-offset_left = 279.0
-offset_top = 71.0
-offset_right = 608.0
-offset_bottom = 122.0
-scale = Vector2(2, 2)
-text = "Passe por cima da poção para 
-pega-la e utilize \"E\" para
-se curar. Ela é um item consumivel 
-e só pode ser usada uma vez"
