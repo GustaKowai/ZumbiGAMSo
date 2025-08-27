@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://d37j06syhcwc1"]
+
+[ext_resource type="Script" uid="uid://jpplbvaoh5p7" path="res://Tutorial/fim_tutorial.gd" id="1_b2drc"]
+[ext_resource type="Texture2D" uid="uid://dq6ud3n4ycm84" path="res://Tutorial/morte.png" id="1_hxmh5"]
+[ext_resource type="Texture2D" uid="uid://chi4b7hmgt2a0" path="res://Tutorial/balao_tutorial.jpg" id="2_b2drc"]
+
+[node name="Fim_tutorial" type="CanvasLayer"]
+script = ExtResource("1_b2drc")
+
+[node name="Morte" type="TextureRect" parent="."]
+z_index = 5
+offset_left = 1015.0
+offset_top = 374.0
+offset_right = 2215.0
+offset_bottom = 1649.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_hxmh5")
+
+[node name="Tetxo" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+offset_left = 150.0
+offset_top = 95.0
+offset_right = 479.0
+offset_bottom = 281.0
+scale = Vector2(3, 3)
+text = "Até que para um simples humano 
+você se saiu bem. Agora vá matar 
+alguns zumbis de verdade."
+
+[node name="Balao" type="TextureRect" parent="."]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 2404.0
+offset_bottom = 938.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b2drc")
