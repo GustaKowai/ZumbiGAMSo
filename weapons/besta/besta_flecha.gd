@@ -22,10 +22,13 @@ func _on_bullet_hit_box_area_entered(area):
 	hit_enemy(area)
 	desapear_on_hit_building(area)
 
+
 func _exit_tree() -> void:
 	print_debug("cai")
 	flecha = flecha_coletavel.instantiate()
 	print_debug(flecha,global_position,get_parent())
 	flecha.global_position = global_position
-	get_parent().add_child(flecha)
+	if velocity.x >= 0:
+		flecha.flip_h = true
+	get_parent().add_child.call_deferred(flecha)
 	print_debug("Eu deveria ter dropado a flecha")

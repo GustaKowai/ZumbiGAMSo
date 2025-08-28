@@ -11,6 +11,8 @@ size = Vector2(5, 2)
 size = Vector2(10, 4)
 
 [node name="besta_flecha" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_xnacw")
 flecha_coletavel = ExtResource("2_gm0xa")
 speed = 500
@@ -32,5 +34,4 @@ shape = SubResource("RectangleShape2D_gm0xa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
 shape = SubResource("RectangleShape2D_h5oue")
 
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="area_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]

@@ -550,7 +550,6 @@ _data = {
 
 [node name="besta_weapon" type="Node2D"]
 script = ExtResource("1_bdvnh")
-ammo = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
