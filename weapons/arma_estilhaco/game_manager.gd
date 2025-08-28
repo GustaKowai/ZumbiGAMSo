@@ -21,6 +21,13 @@ var texto_morte:String
 var is_taunting:bool = false
 var taunt_position:Vector2
 var scene_to_load:String
+var weapon_type_light:Array = [
+	"res://weapons/arma_estilhaco/Arma_de_estilhaco.png",
+	"res://weapons/arma_slow/Arma_slow.png",
+	"res://weapons/besta/Crossbow.png",
+	"res://weapons/magnum/magnum_icon.png",
+	"res://weapons/revolver/revolver_icon_2.png"
+	]
 
 #Gerenciamento Arcade:
 var arcade:bool = false

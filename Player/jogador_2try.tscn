@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://q76fm24qb14u" path="res://Player/jogador_2try.gd" id="1_p0mb0"]
 [ext_resource type="Texture2D" uid="uid://m75sbvax7nkm" path="res://Player/Player_movement.png" id="4_lwkrp"]
 [ext_resource type="Texture2D" uid="uid://d1rc44lq6ngra" path="res://Player/Personagem_idle_all.png" id="5_ex2cr"]
+[ext_resource type="Texture2D" uid="uid://cp6lwinn42qad" path="res://Player/Personagem_hattack.png" id="5_lwkrp"]
 [ext_resource type="Texture2D" uid="uid://dld6da6x6wjgy" path="res://Player/Player_melee_attack_-_sprite_sheet.png" id="6_ex2cr"]
-[ext_resource type="Texture2D" uid="uid://bni8nhnxft0qb" path="res://Player/Personagem_attack.png" id="7_gatv6"]
 
 [sub_resource type="Animation" id="Animation_tio1n"]
 resource_name = "Atk Up"
@@ -1475,7 +1475,7 @@ vframes = 3
 visible = false
 position = Vector2(-1, -43)
 scale = Vector2(3, 3)
-texture = ExtResource("7_gatv6")
+texture = ExtResource("5_lwkrp")
 flip_h = true
 hframes = 6
 vframes = 3

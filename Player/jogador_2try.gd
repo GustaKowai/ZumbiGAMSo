@@ -58,6 +58,7 @@ var weapon_cooldown:float = 0
 func _ready():
 	#Faz o update dos status e passa para o Game Manager
 	update_player_stats()
+	GameManager.weapon_collected.connect(change_weapon_instance)
 	#stamina_bar.value = 0
 	player_shield = 10
 	
@@ -94,6 +95,12 @@ func _physics_process(_delta):
 		target_velocity *= 0.1
 	velocity = lerp(velocity,target_velocity,lerp_smoothness)
 	move_and_slide()
+
+func change_weapon_instance(weapon):
+	if weapon in GameManager.weapon_type_light:
+		sprite_player_attack.texture = load("res://Player/Personagem_attack.png")
+	else:
+		sprite_player_attack.texture = load("res://Player/Personagem_hattack.png")
 
 #region Funções do dash:
 func dash():

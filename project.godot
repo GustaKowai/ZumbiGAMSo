@@ -21,7 +21,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-GameManager="*res://game_manager.gd"
+GameManager="*res://weapons/arma_estilhaco/game_manager.gd"
 SaveLoad="*res://save_load.gd"
 AudioController="*res://audio/audio_controller.tscn"
 
