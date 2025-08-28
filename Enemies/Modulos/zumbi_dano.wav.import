@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bqpormx32wbio"
-path="res://.godot/imported/zumbi-morte.wav-60e7e0796d39e20568c781d3fcdb1486.sample"
+path="res://.godot/imported/zumbi_dano.wav-a27d73dfef9caa092e025bc2b9423901.sample"
 
 [deps]
 
-source_file="res://Enemies/Modulos/zumbi-morte.wav"
-dest_files=["res://.godot/imported/zumbi-morte.wav-60e7e0796d39e20568c781d3fcdb1486.sample"]
+source_file="res://Enemies/Modulos/zumbi_dano.wav"
+dest_files=["res://.godot/imported/zumbi_dano.wav-a27d73dfef9caa092e025bc2b9423901.sample"]
 
 [params]
 

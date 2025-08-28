@@ -2,6 +2,7 @@ extends Bullet_base
 
 var numero_estilhacos:int = 4
 @export var estilhacinho:PackedScene
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready():
 	set_start_position()
@@ -13,6 +14,7 @@ func _physics_process(delta):
 
 func _on_bullet_hit_box_area_entered(area):
 	if area.is_in_group("EnemyHitBox") or area.is_in_group("construcao"):
+		audio_player.play()
 		dividir()
 		hit_enemy(area)
 		desapear_on_hit_building(area)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmxf7mgi2h5f7" path="res://Misc/Skull_pixel_resize.png" id="1_vmmoc"]
 [ext_resource type="Texture2D" uid="uid://mj328q57g1q2" path="res://Misc/Shadow_sprite.png" id="2_soon1"]
 [ext_resource type="Texture2D" uid="uid://cca545juu520l" path="res://Misc/circle_test.png" id="4_i0c1c"]
-[ext_resource type="AudioStream" uid="uid://bqpormx32wbio" path="res://Enemies/Modulos/zumbi-morte.wav" id="5_yfw0v"]
+[ext_resource type="AudioStream" uid="uid://bdskaeniv7md8" path="res://Enemies/Modulos/zombie-death-final.wav" id="5_yfw0v"]
 
 [sub_resource type="Animation" id="Animation_iv11f"]
 resource_name = "FLip"
@@ -253,4 +253,3 @@ hframes = 4
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yfw0v")
 attenuation = 3.13834
-bus = &"sfx"

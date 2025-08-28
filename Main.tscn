@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=70 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://denadhpxhq8dw" path="res://poison.gd" id="42_gngx1"]
 [ext_resource type="Texture2D" uid="uid://d4la77mh5hj8n" path="res://mapa/imagens/Borda_do_mundo.png" id="42_jt61w"]
 [ext_resource type="PackedScene" uid="uid://cwqv2j0cyst4s" path="res://weapons/besta/besta.tscn" id="43_jt61w"]
+[ext_resource type="PackedScene" uid="uid://p2kvq36s6tdh" path="res://weapons/besta/flecha_coletavel.tscn" id="44_v8qla"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -4269,3 +4270,6 @@ shape = SubResource("RectangleShape2D_1w2xm")
 
 [node name="besta" parent="." instance=ExtResource("43_jt61w")]
 position = Vector2(-22, -186)
+
+[node name="flecha_coletavel" parent="." instance=ExtResource("44_v8qla")]
+position = Vector2(-207, -230)

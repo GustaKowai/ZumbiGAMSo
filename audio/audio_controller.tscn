@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv2w7h0h6wmmj"]
+[gd_scene load_steps=11 format=3 uid="uid://dv2w7h0h6wmmj"]
 
 [ext_resource type="Script" uid="uid://c7wer30q8pm2e" path="res://audio/audio_controller.gd" id="1_e6jji"]
 [ext_resource type="AudioStream" uid="uid://lx0841smoua1" path="res://audio/weapon_sounds/shotgun.mp3" id="2_dr783"]
@@ -6,12 +6,16 @@
 [ext_resource type="AudioStream" uid="uid://cumacjjo7wdop" path="res://audio/weapon_sounds/revolver.wav" id="4_blxgy"]
 [ext_resource type="AudioStream" uid="uid://cqk5h0ubeskqk" path="res://audio/weapon_sounds/metralhadora-singleshot.wav" id="5_vys8g"]
 [ext_resource type="AudioStream" uid="uid://c6xkclkyxh1x0" path="res://audio/weapon_sounds/shotgun-upgrade.wav" id="5_xujww"]
+[ext_resource type="AudioStream" uid="uid://o3sfjbbefxho" path="res://audio/weapon_sounds/armaEstilhaco_tiro.wav" id="6_2fxmg"]
 [ext_resource type="AudioStream" uid="uid://ckf5h1jw0dr35" path="res://audio/weapon_sounds/revolver-upgrade.wav" id="6_vys8g"]
+[ext_resource type="AudioStream" uid="uid://xsfx3v1qcbxp" path="res://audio/weapon_sounds/armaSlow.wav" id="7_pmoot"]
 [ext_resource type="AudioStream" uid="uid://tomdmv5osout" path="res://audio/weapon_sounds/metralhadora-autofiring.wav" id="8_h7rxg"]
 
 [node name="AudioController" type="Node2D"]
 script = ExtResource("1_e6jji")
 biblioteca_armas = Dictionary[String, Resource]({
+"res://weapons/arma_estilhaco/Arma_de_estilhaco.png": ExtResource("6_2fxmg"),
+"res://weapons/arma_slow/Arma_slow.png": ExtResource("7_pmoot"),
 "res://weapons/machinegun/machinegun.png": ExtResource("5_vys8g"),
 "res://weapons/magnum/magnum_icon.png": ExtResource("3_aufy8"),
 "res://weapons/revolver/revolver_icon_2.png": ExtResource("4_blxgy"),

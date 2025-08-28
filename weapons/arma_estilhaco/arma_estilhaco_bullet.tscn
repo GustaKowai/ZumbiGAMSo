@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw06a4ass8ioc"]
+[gd_scene load_steps=8 format=3 uid="uid://cw06a4ass8ioc"]
 
 [ext_resource type="Script" uid="uid://dw8p14h7dwl10" path="res://weapons/arma_estilhaco/arma_estilhaco_bullet.gd" id="1_0sir8"]
 [ext_resource type="Texture2D" uid="uid://bp2kl348p3gx7" path="res://weapons/arma_estilhaco/Estilhaco.png" id="2_7yw5n"]
 [ext_resource type="PackedScene" uid="uid://bim44wxtfob76" path="res://weapons/arma_estilhaco/estilhacinho.tscn" id="2_lo2fj"]
 [ext_resource type="PackedScene" uid="uid://iqfr03all6v7" path="res://Misc/bullet_hit.tscn" id="3_lo2fj"]
+[ext_resource type="AudioStream" uid="uid://uopu6ja3pmuf" path="res://audio/weapon_sounds/armaEstilhaco_impacto.wav" id="5_x62j0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lo2fj"]
 radius = 6.0
@@ -30,5 +31,9 @@ shape = SubResource("CircleShape2D_lo2fj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_x62j0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_x62j0")
+bus = &"sfx"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_bullet_hit_box_area_entered"]

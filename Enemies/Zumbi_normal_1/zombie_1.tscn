@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dv3uon3yb6fja"]
+[gd_scene load_steps=26 format=3 uid="uid://dv3uon3yb6fja"]
 
 [ext_resource type="Script" uid="uid://deg0bfjw6tyyf" path="res://Enemies/Zumbi_normal_1/zombie_1.gd" id="1_g3x2a"]
 [ext_resource type="Texture2D" uid="uid://cbkajvj3e17om" path="res://Enemies/Zumbi_normal_1/teste_zumbi_sprite.png" id="1_shrhs"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bygcoggygxwxn" path="res://Enemies/Zumbi_normal_1/Ataques_para_todo_lado.png" id="9_5wtdy"]
 [ext_resource type="PackedScene" uid="uid://bc4bylx0blnya" path="res://Enemies/Modulos/follow_player.tscn" id="10_gqk4f"]
 [ext_resource type="PackedScene" uid="uid://ck2aw63f5d2xo" path="res://Enemies/Modulos/attack_melee.tscn" id="11_gqk4f"]
+[ext_resource type="AudioStream" uid="uid://bqpormx32wbio" path="res://Enemies/Modulos/zumbi_dano.wav" id="14_26s7g"]
 
 [sub_resource type="Animation" id="Animation_sib5i"]
 resource_name = "Atk down"
@@ -671,3 +672,7 @@ position = Vector2(-1, -91)
 [node name="FollowPlayer" parent="." instance=ExtResource("10_gqk4f")]
 
 [node name="AttackMelee" parent="." instance=ExtResource("11_gqk4f")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_26s7g")
+bus = &"sfx"

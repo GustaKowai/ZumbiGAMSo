@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1hj4msyptvsg"]
+[gd_scene load_steps=21 format=3 uid="uid://b1hj4msyptvsg"]
 
 [ext_resource type="Script" uid="uid://c6f5e0yl8bd2p" path="res://Enemies/Zumbi_Piao/zumbi_piao.gd" id="1_sjciy"]
 [ext_resource type="PackedScene" uid="uid://cc8grslu500nd" path="res://Misc/skull.tscn" id="2_0pu26"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="7_y0h7m"]
 [ext_resource type="Texture2D" uid="uid://c28qv1b3x3erv" path="res://Enemies/Zumbi_Piao/Spinning_boi_standby-Sheet.png" id="10_0pu26"]
 [ext_resource type="Texture2D" uid="uid://bbtu86olj64ew" path="res://Enemies/Zumbi_Piao/Spinning_bo_attacki-Sheet.png" id="11_vcfty"]
+[ext_resource type="AudioStream" uid="uid://buhbip3ygx3b8" path="res://Enemies/Zumbi_Piao/tornadoZumbi.wav" id="14_vcfty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_elk4x"]
 radius = 38.2099
@@ -298,6 +299,10 @@ stun_time = 2.0
 
 [node name="Timer" type="Timer" parent="FollowPlayer"]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_vcfty")
+bus = &"sfx"
 
 [connection signal="area_entered" from="HitBoxArea" to="Touch_Damage" method="_on_hit_box_area_area_entered"]
 [connection signal="body_entered" from="HitBoxArea" to="FollowPlayer" method="_on_hit_box_area_body_entered"]

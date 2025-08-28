@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var audio_player: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 @onready var enemy:Enemy
 @onready var animation_player:AnimationPlayer
 @onready var timer_node: Timer = $Timer
@@ -37,6 +38,7 @@ func mira_no_player():
 		return Vector2(0,0)
 		
 func corre_pro_player():
+	audio_player.play()
 	animation_player.play("ataque")
 	enemy.velocity = mira_no_player().normalized()*speed
 	#print_debug("A minha velocidade é",enemy.velocity)
@@ -47,6 +49,7 @@ func _on_hit_box_area_body_entered(body: Node2D) -> void:
 	enemy.velocity = enemy.velocity.rotated(PI+desvio)
 
 func _on_timer_timeout() -> void:
+	audio_player.stop()
 	animation_player.play("idle")
 	enemy.velocity = Vector2(0,0)
 	is_run_on_cd = true

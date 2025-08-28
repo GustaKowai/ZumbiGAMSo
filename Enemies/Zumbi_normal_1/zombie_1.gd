@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite_movimento:Sprite2D = $Movimento
 @onready var sprite_ataque:Sprite2D = $Ataque
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export_category("Movimento")
 @export var follow:Node2D
@@ -47,7 +48,8 @@ func damage(amount: int):
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self,"modulate",Color.WHITE,0.3)
-	
+	if audio_player:
+		audio_player.play()
 	#Mostrar o dano:
 	var damage_digit = damage_digit_prefab.instantiate()
 	damage_digit.value = amount

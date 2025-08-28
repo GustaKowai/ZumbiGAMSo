@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwqv2j0cyst4s"]
 
-[ext_resource type="Script" uid="uid://jo5clrbfmt1d" path="res://besta.gd" id="1_2nupd"]
+[ext_resource type="Script" uid="uid://jo5clrbfmt1d" path="res://weapons/besta/besta.gd" id="1_2nupd"]
 [ext_resource type="Texture2D" uid="uid://dogyiqwh8v5d4" path="res://weapons/besta/Crossbow.png" id="1_rboyp"]
 [ext_resource type="PackedScene" uid="uid://b4ludhywjgss0" path="res://weapons/besta/besta_weapon.tscn" id="2_rboyp"]
 

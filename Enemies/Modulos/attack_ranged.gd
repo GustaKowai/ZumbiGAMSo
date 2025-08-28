@@ -1,5 +1,7 @@
 extends Node2D
 @onready var bullet_point:Marker2D = $BulletPoint
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 @export var bullet_path:PackedScene
 @export var controle_de_buff_de_dano:float
 var dano_extra_zombie = 0
@@ -60,6 +62,7 @@ func shoot():
 	if enemy.is_attacking:return
 	enemy.is_attacking = true
 	attack_cooldown = atk_cd
+	audio_player.play()
 	match shoot_direction:
 		"Up":
 			animation_player.play("Fire Up")

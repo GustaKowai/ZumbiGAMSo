@@ -1,24 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnanlfq8cp62i"]
+[gd_scene load_steps=6 format=3 uid="uid://dnanlfq8cp62i"]
 
 [ext_resource type="Script" uid="uid://chmc1lr18s1uw" path="res://weapons/besta/besta_flecha.gd" id="1_xnacw"]
+[ext_resource type="Texture2D" uid="uid://ciytfhexs0g51" path="res://weapons/besta/Flecha_bala.png" id="2_2dq7a"]
+[ext_resource type="PackedScene" uid="uid://p2kvq36s6tdh" path="res://weapons/besta/flecha_coletavel.tscn" id="2_gm0xa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xnacw"]
-radius = 2.23607
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm0xa"]
+size = Vector2(5, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5oue"]
+size = Vector2(10, 4)
 
 [node name="besta_flecha" type="CharacterBody2D"]
 script = ExtResource("1_xnacw")
+flecha_coletavel = ExtResource("2_gm0xa")
 speed = 500
 bullet_damage = 20
 piercing = 2
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 66)
-scale = Vector2(0.898322, 0.895812)
+position = Vector2(0, 74)
+texture = ExtResource("2_2dq7a")
 offset = Vector2(0, -74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.489994, 0.488625)
-shape = SubResource("CircleShape2D_xnacw")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gm0xa")
 
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[node name="BulletHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
+shape = SubResource("RectangleShape2D_h5oue")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="area_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_area_entered"]
