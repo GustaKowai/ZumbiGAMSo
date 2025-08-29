@@ -60,7 +60,7 @@ var upgrade_bazuca:Array[int] = [0,0,0] #[munição,dano,Divide a bala]
 var upgrade_estilhaco:Array[int] = [0,0,0] #[munição,dano,mais estilhaços]
 var upgrade_slow:Array[int] = [0,0] #[munição,dano]
 var upgrade_duas_fases:Array[int] = [0,0] #[munição,dano]
-
+var upgrade_besta:Array[int]=[0,0] #[perfuração, dano]
 
 #Finalização do jogo em caso de game over
 func end_game():
@@ -107,3 +107,4 @@ func reset_game_status():
 	GameManager.upgrade_estilhaco = [0,0,0] #[munição,dano,mais estilhaços]
 	GameManager.upgrade_slow = [0,0] #[munição,dano]
 	GameManager.upgrade_duas_fases = [0,0] #[munição,dano]
+	GameManager.upgrade_besta = [0,0]  #[perfuração, dano]

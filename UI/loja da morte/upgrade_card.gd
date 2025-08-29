@@ -89,6 +89,8 @@ func start_card() -> void:
 				set_card_aumenta_slow(GameManager.upgrade_slow)
 			"Duas fases":
 				set_card_aumenta_duas_fases(GameManager.upgrade_duas_fases)
+			"Besta":
+				set_card_aumenta_besta(GameManager.upgrade_besta)
 			_:
 				print_debug("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 
@@ -388,8 +390,24 @@ func set_card_aumenta_duas_fases(upgrade_duas_fases):
 		upgrade_effect  = "Aumenta o dano da arma de duas fases em " + str(buff)
 		basic_cost  = (2*upgrade_duas_fases[sub_prop]+buff)*(buff+1)/2
 		calcula_custo_almas(basic_cost)
-#func set_card_aumenta_algo(algo_up):
-	#TODO
+###-----besta-----###
+func set_card_aumenta_besta(upgrade_besta):
+	upgrade_image_path = "res://weapons/besta/Crossbow.png"
+	sub_prop = randi_range(0,1)
+	if sub_prop == 0:
+		upgrade_type_image_path = more_pierce
+		upgrade_name = "Aumento de perfuração da flecha da besta"
+		buff = randi_range(1,4)
+		upgrade_effect = "Aumenta a perfuração da flecha da besta em " + str(buff)
+		basic_cost = (2*upgrade_besta[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
+	if sub_prop == 1:
+		upgrade_type_image_path = more_damage
+		upgrade_name = "Aumento de dano da arma besta"
+		buff = randi_range(5,10)
+		upgrade_effect  = "Aumenta o dano da besta em " + str(buff)
+		basic_cost  = (2*upgrade_besta[sub_prop]+buff)*(buff+1)/2
+		calcula_custo_almas(basic_cost)
 #func set_card_aumenta_algo(algo_up):
 	#TODO
 
@@ -435,6 +453,9 @@ func _on_button_pressed() -> void:
 			"Duas fases":
 				GameManager.upgrade_duas_fases[sub_prop]+=buff
 				print_debug("Duas fases")
+			"Besta":
+				GameManager.upgrade_besta[sub_prop]+=buff
+				print_debug("Besta")
 			_:
 				print_debug("Aumentou alguma outra coisa, talvez a ",card_is_choosen)
 	loja.reset_cards()

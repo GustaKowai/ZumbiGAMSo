@@ -7,8 +7,8 @@ var flecha:Node
 
 func _ready():
 	set_start_position()
-	#bullet_damage += GameManager.upgrade_shotgun[1]
-	#bullet_duracao*= GameManager.upgrade_shotgun[3]*1.0/100
+	bullet_damage += GameManager.upgrade_besta[1]
+	piercing += GameManager.upgrade_besta[0]
 	
 func _process(delta):
 	bullet_tempodevida += delta

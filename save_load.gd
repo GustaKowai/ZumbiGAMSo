@@ -19,6 +19,7 @@ func save():
 	config.set_value("upgrades","upgrade_estilhaco", GameManager.upgrade_estilhaco)
 	config.set_value("upgrades","upgrade_slow", GameManager.upgrade_slow)
 	config.set_value("upgrades","upgrade_duas_fases", GameManager.upgrade_duas_fases)
+	config.set_value("upgrades","upgrade_besta", GameManager.upgrade_besta)
 	config.save(save_path)
 	
 func load_data():
@@ -48,6 +49,7 @@ func load_data():
 		GameManager.upgrade_estilhaco = config.get_value(type, "upgrade_estilhaco")
 		GameManager.upgrade_slow = config.get_value(type, "upgrade_slow")
 		GameManager.upgrade_duas_fases = config.get_value(type, "upgrade_duas_fases")
+		GameManager.upgrade_besta = config.get_value(type, "upgrade_besta")
 func save_arcade():
 	var config = ConfigFile.new()
 	config.set_value("recorde","Zumbi_mortos",GameManager.pontuacao_mortes)
