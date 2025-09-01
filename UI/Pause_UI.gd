@@ -3,9 +3,9 @@ extends CanvasLayer
 @onready var alma_comum = %alma_comum
 @onready var alma_incomum = %alma_incomum
 @onready var alma_rara = %alma_rara
-@onready var confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 @onready var pause_time_count: Label = %pause_time_count
 @onready var pause_kill_count: Label = %pause_kill_count
+@onready var confirmation_dialog: ConfirmationDialog = %pause_confirmation
 
 func _ready():
 	hide()
@@ -28,6 +28,7 @@ func _process(delta):
 
 
 func _on_button_pressed() -> void:
+	print_debug("testando")
 	confirmation_dialog.visible = true
 
 

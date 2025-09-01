@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d1tul5c4pj28"]
+
+[ext_resource type="Texture2D" uid="uid://ddvf8vgxwsd0u" path="res://UI/pause_menu_images/Botao_menu_de_pause-normal.png" id="1_xbgpt"]
+[ext_resource type="Texture2D" uid="uid://c2an3l547iacc" path="res://UI/pause_menu_images/Botao_menu_de_pause-pressed.png" id="2_ioggl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmqfe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e05sn"]
+texture = ExtResource("1_xbgpt")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dte3n"]
+texture = ExtResource("1_xbgpt")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kfjwn"]
+texture = ExtResource("2_ioggl")
+texture_margin_left = 20.0
+texture_margin_top = 25.0
+texture_margin_right = 20.0
+texture_margin_bottom = 25.0
+
+[resource]
+Button/font_sizes/font_size = 28
+Button/styles/focus = SubResource("StyleBoxEmpty_qmqfe")
+Button/styles/hover = SubResource("StyleBoxTexture_e05sn")
+Button/styles/normal = SubResource("StyleBoxTexture_dte3n")
+Button/styles/pressed = SubResource("StyleBoxTexture_kfjwn")
