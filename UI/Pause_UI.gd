@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var alma_incomum = %alma_incomum
 @onready var alma_rara = %alma_rara
 @onready var confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
+@onready var pause_time_count: Label = %pause_time_count
+@onready var pause_kill_count: Label = %pause_kill_count
 
 func _ready():
 	hide()
@@ -19,6 +21,8 @@ func _process(delta):
 			alma_comum.text = str(GameManager.alma_comum)
 			alma_incomum.text = str(GameManager.alma_incomum)
 			alma_rara.text = str(GameManager.alma_rara)
+			pause_time_count.text = GameManager.time_elapsed_string
+			pause_kill_count.text = str(GameManager.kills_count)
 			show()
 			get_tree().paused = true	
 

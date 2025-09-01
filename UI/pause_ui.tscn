@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://pogo3isobqxq"]
+[gd_scene load_steps=4 format=3 uid="uid://pogo3isobqxq"]
 
 [ext_resource type="Script" uid="uid://dvt41modb6api" path="res://UI/Pause_UI.gd" id="1_h3pfr"]
 [ext_resource type="Theme" uid="uid://btle3jrchq4jy" path="res://UI/menu.tres" id="2_7d37g"]
+[ext_resource type="Texture2D" uid="uid://daq40xmgwtgjc" path="res://UI/pause_menu_images/Menu_pause.png" id="2_hq2fy"]
 
 [node name="Pause UI" type="CanvasLayer"]
 process_mode = 3
@@ -24,53 +25,62 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-columns = 2
+size_flags_vertical = 3
 
-[node name="Soul_count" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(720, 405)
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 6
-text = "Almas comuns:"
-horizontal_alignment = 2
+texture = ExtResource("2_hq2fy")
 
-[node name="alma_comum" type="Label" parent="VBoxContainer/GridContainer"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(210, 300)
 layout_mode = 2
-size_flags_horizontal = 4
-text = "0"
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 35
 
-[node name="Soul_count2" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Almas Incomuns:"
-horizontal_alignment = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_bottom = 160
 
-[node name="alma_incomum" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="alma_comum" type="Label" parent="VBoxContainer/CenterContainer/MarginContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 6
 text = "0"
 
-[node name="Soul_count3" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 90
+
+[node name="alma_incomum" type="Label" parent="VBoxContainer/CenterContainer/MarginContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+text = "0"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 150
+
+[node name="alma_rara" type="Label" parent="VBoxContainer/CenterContainer/MarginContainer/MarginContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 6
-text = "Almas raras:"
-horizontal_alignment = 2
-
-[node name="alma_rara" type="Label" parent="VBoxContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 text = "0"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/CenterContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -85,6 +95,37 @@ dialog_text = "Deseja mesmo voltar ao menu principal?
 Seu progresso não será salvo."
 dialog_autowrap = true
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="HBoxContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 320
+theme_override_constants/margin_bottom = 100
+
+[node name="pause_time_count" type="Label" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "00:00"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 330
+theme_override_constants/margin_bottom = 100
+
+[node name="pause_kill_count" type="Label" parent="HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
