@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfqavr0lf06m"
-path="res://.godot/imported/Alma_Zumbi_Raro.png-0ec46632871cdbd3e0e67c9ecb94c2f2.ctex"
+uid="uid://b2rlmm4ox606e"
+path="res://.godot/imported/infeccao.png-47281b3f1cf5c587fa51b4d680c7ede6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/UI_images/Alma_Zumbi_Raro.png"
-dest_files=["res://.godot/imported/Alma_Zumbi_Raro.png-0ec46632871cdbd3e0e67c9ecb94c2f2.ctex"]
+source_file="res://Tutorial/baloes_de_fala/infeccao.png"
+dest_files=["res://.godot/imported/infeccao.png-47281b3f1cf5c587fa51b4d680c7ede6.ctex"]
 
 [params]
 
