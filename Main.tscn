@@ -4167,7 +4167,7 @@ position = Vector2(-3427, 2542)
 
 [node name="Lojinha10" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(3128, -209)
-lista_precos = Array[int]([5, 5, 5, 30, 8])
+lista_precos = Array[int]([5, 5, 5, 30, 10])
 
 [node name="Lojinha4" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(2296, -2243)
