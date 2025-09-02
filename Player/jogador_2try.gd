@@ -19,6 +19,7 @@ const PHANTON_GREEN:Color = Color(0, 1, 0, 0.5)
 #@onready var sprite_player_idle:Sprite2D = $Sprites/player_idle
 @onready var sprite_player_attack:Sprite2D = $Sprites/player_attack
 @onready var sprites:Node2D = $Sprites
+@onready var player_shoot: Sprite2D = $Sprites/player_shoot
 
 
 @export_category("Movement")
@@ -98,9 +99,9 @@ func _physics_process(_delta):
 
 func change_weapon_instance(weapon):
 	if weapon in GameManager.weapon_type_light:
-		sprite_player_attack.texture = load("res://Player/Personagem_attack.png")
+		player_shoot.texture = load("res://Player/Personagem_attack.png")
 	else:
-		sprite_player_attack.texture = load("res://Player/Personagem_hattack.png")
+		player_shoot.texture = load("res://Player/Personagem_hattack.png")
 
 #region Funções do dash:
 func dash():

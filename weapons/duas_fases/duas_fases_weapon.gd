@@ -46,6 +46,7 @@ func on_weapon_collected(string): #Essa função serve para largar a arma
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("FireGun"):
 		mode = 1
+		sprite.texture = load("res://weapons/duas_fases/Arma_primeira_fase-Sheet.png")
 		bullets_shooted = 0
 		bullet_accel = 0
 		bullet_spreed = PI/12
@@ -77,13 +78,16 @@ func _physics_process(delta: float) -> void:
 				bullets_shooted = 20
 				GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_2.png")
 				mode = 2
+				sprite.texture = load("res://weapons/duas_fases/Arma_segunda_fase-Sheet.png")
 				bullet_spreed = PI/24
 		
 	if Input.is_action_just_released("FireGun"):
 		player.weapon_cooldown = weapon_cooldown
 		if firing:
+			animation_player.stop()
 			charge_animation.visible = false
 			firing_animation_machinegun.visible = false
+			sprite.visible = false
 			firing = false
 			bullets_shooted = 0
 			GameManager.weapon_collected.emit("res://weapons/duas_fases/Arma_fase_1.png")
@@ -117,6 +121,7 @@ func fireGun():
 
 func firing_mode1():
 	if ammo <= 0:
+		animation_player.stop()
 		return
 	#Determina a qual direção vai atacar e qual animação vai usar:
 	if player.position_running == "down":
