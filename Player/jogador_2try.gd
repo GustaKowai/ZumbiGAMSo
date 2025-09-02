@@ -65,7 +65,7 @@ func _ready():
 	
 func _process(delta):
 	#Passa a informação da posição do player para o Game Manager
-	GameManager.player_position = position
+	GameManager.player_position = global_position
 	#Obtem o vetor de input:	
 	input_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	play_run_iddle()
@@ -206,6 +206,8 @@ func attack():
 	#Define como atacando:
 	is_attacking = true
 	attack_cooldown = 0.6
+	print_debug(global_position)
+	print_debug(GameManager.player_position)
 	
 	if position_running == "down":
 		animation_player.play("Atk Down")
