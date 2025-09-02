@@ -206,8 +206,8 @@ func attack():
 	#Define como atacando:
 	is_attacking = true
 	attack_cooldown = 0.6
-	print_debug(global_position)
-	print_debug(GameManager.player_position)
+	#print_debug(global_position)
+	#print_debug(GameManager.player_position)
 	
 	if position_running == "down":
 		animation_player.play("Atk Down")
