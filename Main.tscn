@@ -2939,6 +2939,7 @@ size = Vector2(63, 2490)
 [node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(-318, 97)
 script = ExtResource("1_6lq86")
 game_ui = NodePath("GameUI")
 game_over_ui_template = ExtResource("2_rlwvx")
@@ -4166,6 +4167,7 @@ position = Vector2(-3427, 2542)
 
 [node name="Lojinha10" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(3128, -209)
+lista_precos = Array[int]([5, 5, 5, 30, 8])
 
 [node name="Lojinha4" parent="Gerador de lojas" instance=ExtResource("37_auvpe")]
 position = Vector2(2296, -2243)

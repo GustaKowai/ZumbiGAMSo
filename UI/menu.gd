@@ -12,7 +12,9 @@ func _on_jogar_pressed() -> void:
 
 
 func _on_controles_pressed() -> void:
-	pass
+	GameManager.arcade = false
+	GameManager.scene_to_load = "res://UI/game_over_arcade_ui_template.tscn"
+	play_animations()
 
 
 func _on_sair_pressed() -> void:
