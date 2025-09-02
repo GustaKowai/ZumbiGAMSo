@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8mypnrhy3q53"]
+[gd_scene load_steps=6 format=3 uid="uid://c8mypnrhy3q53"]
 
 [ext_resource type="Script" uid="uid://c4ut638io8epr" path="res://UI/game_over_arcade_ui_template.gd" id="1_ic1lo"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ic1lo"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_r0hl3"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_2a6eb"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7ryt"]
+font_size = 25
+
 [node name="GameOverArcadeUiTemplate" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_ic1lo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -11,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.597176, 0.597176, 0.597176, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -21,11 +34,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-size_flags_vertical = 6
 text = "Leaderboard"
+label_settings = SubResource("LabelSettings_ic1lo")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "For those who defied Death, but met it regardless"
+label_settings = SubResource("LabelSettings_r0hl3")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -33,46 +54,56 @@ size_flags_vertical = 3
 theme_override_constants/separation = 399
 alignment = 1
 
-[node name="RecordeMortes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Mais tempo sobrevivido"
+text = "Those who conquered time"
+label_settings = SubResource("LabelSettings_2a6eb")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+[node name="RecordeMortes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/RecordeMortes"]
 layout_mode = 2
 text = "111111111"
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/RecordeMortes"]
 layout_mode = 2
 text = "33333"
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/RecordeMortes"]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/RecordeMortes"]
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/RecordeMortes"]
 layout_mode = 2
 
-[node name="RecordeTempo" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Mais zumbis mortos"
+text = "Those who saved the souls"
+label_settings = SubResource("LabelSettings_q7ryt")
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
+[node name="RecordeTempo" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/RecordeTempo"]
 layout_mode = 2
 text = "22222"
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/RecordeTempo"]
 layout_mode = 2
 text = "44444"
 
-[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/RecordeTempo"]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/RecordeTempo"]
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/RecordeTempo"]
 layout_mode = 2
 
 [node name="Menu" type="Button" parent="VBoxContainer"]

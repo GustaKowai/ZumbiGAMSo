@@ -1,9 +1,10 @@
 extends CanvasLayer
 @onready var nomeJogador:LineEdit = %NomeJogador
 @onready var testeLabel:Label = $VBoxContainer/HBoxContainer/RecordeMortes/Label5
-@onready var recordeMortes = $VBoxContainer/HBoxContainer/RecordeMortes
-@onready var recordeTempo = $VBoxContainer/HBoxContainer/RecordeTempo
 @onready var PopupRecord:AcceptDialog = $PopupRecorde
+@onready var recordeMortes: VBoxContainer = %RecordeMortes
+@onready var recordeTempo: VBoxContainer = %RecordeTempo
+
 var pontuacao_mortes:Array
 var pontuacao_tempo:Array
 var recorde_mortes:bool = false
@@ -65,6 +66,7 @@ func escrever_recordes():
 	for player in pontuacao_tempo:
 		var name_label = Label.new()
 		name_label.text = player[0]+" "+player[2]+" tempo sobrevivido"
+		#name_label.label_settings.font_size = 25
 		name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		recordeTempo.add_child(name_label)
 
