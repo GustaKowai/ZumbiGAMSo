@@ -111,6 +111,7 @@ func mirar():
 	var alvo = alvo_scene.instantiate()
 	ID_tiro = randi()
 	alvo.ID = ID_tiro
+	print_debug(posicao_alvo,GameManager.player_position)
 	alvo.global_position = posicao_alvo
 	alvo.scale = Vector2(raio_explosao/144.0,raio_explosao/144.0)
 	get_parent().get_parent().add_child(alvo)

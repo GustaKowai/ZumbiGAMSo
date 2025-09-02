@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=71 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://bkqhxr3sr1f1l" path="res://items/Itens_cura/Cura_grande/cura_grande.tscn" id="27_gb15f"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="27_odk1d"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="28_pby55"]
-[ext_resource type="PackedScene" uid="uid://drgphmmirdwle" path="res://Enemies/zumbi militar/zumbi_militar.tscn" id="31_c2s76"]
 [ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="32_f4ese"]
 [ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="33_x3yn0"]
 [ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="34_1w2xm"]
@@ -2941,7 +2940,6 @@ size = Vector2(63, 2490)
 [node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(-318, 97)
 script = ExtResource("1_6lq86")
 game_ui = NodePath("GameUI")
 game_over_ui_template = ExtResource("2_rlwvx")
@@ -3993,6 +3991,7 @@ position = Vector2(-2268, 918)
 position = Vector2(-1890, 918)
 
 [node name="Jogador" parent="." instance=ExtResource("6_duj8j")]
+position = Vector2(318, -97)
 sword_damage = 15
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Jogador"]
@@ -4001,6 +4000,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(318, -97)
 process_callback = 0
 limit_left = -3834
 limit_top = -4480
@@ -4230,12 +4230,6 @@ tempo_de_expediente = 60.0
 lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
 lista_precos = Array[int]([5, 10, 5, 15])
 
-[node name="Zumbi_Militar" parent="Gerador de lojas" instance=ExtResource("31_c2s76")]
-position = Vector2(-499, -18)
-
-[node name="ZumbiTanque" parent="Gerador de lojas" instance=ExtResource("32_f4ese")]
-position = Vector2(-309, -178)
-
 [node name="Pause UI" parent="." instance=ExtResource("14_s8pq5")]
 
 [node name="GameUI" parent="." instance=ExtResource("15_2r7dt")]
@@ -4280,6 +4274,9 @@ shape = SubResource("RectangleShape2D_1w2xm")
 
 [node name="besta" parent="." instance=ExtResource("43_jt61w")]
 position = Vector2(-22, -186)
+
+[node name="ZumbiTanque" parent="." instance=ExtResource("32_f4ese")]
+position = Vector2(-309, -178)
 
 [node name="flecha_coletavel" parent="." instance=ExtResource("44_v8qla")]
 position = Vector2(-207, -230)
