@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=69 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://bkqhxr3sr1f1l" path="res://items/Itens_cura/Cura_grande/cura_grande.tscn" id="27_gb15f"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="27_odk1d"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="28_pby55"]
-[ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="32_f4ese"]
 [ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="33_x3yn0"]
 [ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="34_1w2xm"]
 [ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="34_sph85"]
@@ -44,7 +43,6 @@
 [ext_resource type="Script" uid="uid://denadhpxhq8dw" path="res://poison.gd" id="42_gngx1"]
 [ext_resource type="Texture2D" uid="uid://d4la77mh5hj8n" path="res://mapa/imagens/Borda_do_mundo.png" id="42_jt61w"]
 [ext_resource type="PackedScene" uid="uid://cwqv2j0cyst4s" path="res://weapons/besta/besta.tscn" id="43_jt61w"]
-[ext_resource type="PackedScene" uid="uid://p2kvq36s6tdh" path="res://weapons/besta/flecha_coletavel.tscn" id="44_v8qla"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qxf64"]
 vertices = PackedVector2Array(27, 27, -27, 27, -27, -27, 27, -27)
@@ -4273,10 +4271,4 @@ position = Vector2(-3819.5, 2165)
 shape = SubResource("RectangleShape2D_1w2xm")
 
 [node name="besta" parent="." instance=ExtResource("43_jt61w")]
-position = Vector2(-22, -186)
-
-[node name="ZumbiTanque" parent="." instance=ExtResource("32_f4ese")]
-position = Vector2(-309, -178)
-
-[node name="flecha_coletavel" parent="." instance=ExtResource("44_v8qla")]
-position = Vector2(-207, -230)
+position = Vector2(-895, 823)

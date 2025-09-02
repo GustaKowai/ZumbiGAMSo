@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bt11q6o6xvyma" path="res://weapons/besta/Flecha_coletavel.png" id="1_4ssg8"]
 [ext_resource type="Script" uid="uid://djgcey1q274t8" path="res://weapons/besta/flecha_coletavel.gd" id="2_jgfql"]
-[ext_resource type="PackedScene" uid="uid://cwqv2j0cyst4s" path="res://weapons/besta/besta.tscn" id="3_jgfql"]
+[ext_resource type="PackedScene" uid="uid://b4ludhywjgss0" path="res://weapons/besta/besta_weapon.tscn" id="3_jgfql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7i45"]
 size = Vector2(74, 142)
