@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bt5o80fbrth5v"]
+[gd_scene load_steps=72 format=4 uid="uid://bt5o80fbrth5v"]
 
 [ext_resource type="Script" uid="uid://c8vx2wy1o7u83" path="res://Main.gd" id="1_6lq86"]
 [ext_resource type="PackedScene" uid="uid://dgmyndkhrklhs" path="res://UI/game_over_ui.tscn" id="2_rlwvx"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://bkqhxr3sr1f1l" path="res://items/Itens_cura/Cura_grande/cura_grande.tscn" id="27_gb15f"]
 [ext_resource type="PackedScene" uid="uid://1c761mq7s428" path="res://Mechanics/mob_spawner.tscn" id="27_odk1d"]
 [ext_resource type="PackedScene" uid="uid://barmdir8211mm" path="res://mapa/predios/predio.tscn" id="28_pby55"]
+[ext_resource type="PackedScene" uid="uid://drgphmmirdwle" path="res://Enemies/zumbi militar/zumbi_militar.tscn" id="31_c2s76"]
+[ext_resource type="PackedScene" uid="uid://b3ulr52hoy0k7" path="res://Enemies/Tanque/zumbi_tanque.tscn" id="32_f4ese"]
 [ext_resource type="PackedScene" uid="uid://cg5dhq82reee8" path="res://weapons/arma_estilhaco/arma_estilhaco_object.tscn" id="33_x3yn0"]
 [ext_resource type="PackedScene" uid="uid://e8k7xu3p8q1j" path="res://weapons/arma_slow/slow_gun_object.tscn" id="34_1w2xm"]
 [ext_resource type="PackedScene" uid="uid://b2fl2ov14cmgj" path="res://weapons/bazuca/bazuca_1.tscn" id="34_sph85"]
@@ -4227,6 +4229,12 @@ position = Vector2(-2403, -3614)
 tempo_de_expediente = 60.0
 lista_itens = Array[PackedScene]([ExtResource("21_sqvbp"), ExtResource("22_hri7i"), ExtResource("23_w3rk5"), ExtResource("24_5mvff")])
 lista_precos = Array[int]([5, 10, 5, 15])
+
+[node name="Zumbi_Militar" parent="Gerador de lojas" instance=ExtResource("31_c2s76")]
+position = Vector2(-499, -18)
+
+[node name="ZumbiTanque" parent="Gerador de lojas" instance=ExtResource("32_f4ese")]
+position = Vector2(-309, -178)
 
 [node name="Pause UI" parent="." instance=ExtResource("14_s8pq5")]
 
