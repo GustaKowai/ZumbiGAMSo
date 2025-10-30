@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnanlfq8cp62i"]
+[gd_scene load_steps=5 format=3 uid="uid://dnanlfq8cp62i"]
 
 [ext_resource type="Script" uid="uid://chmc1lr18s1uw" path="res://weapons/besta/besta_flecha.gd" id="1_xnacw"]
 [ext_resource type="Texture2D" uid="uid://ciytfhexs0g51" path="res://weapons/besta/Flecha_bala.png" id="2_2dq7a"]
-[ext_resource type="PackedScene" uid="uid://p2kvq36s6tdh" path="res://weapons/besta/flecha_coletavel.tscn" id="2_gm0xa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm0xa"]
 size = Vector2(5, 2)
@@ -14,7 +13,6 @@ size = Vector2(10, 4)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_xnacw")
-flecha_coletavel = ExtResource("2_gm0xa")
 speed = 500
 bullet_damage = 20
 piercing = 2
